@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft = "@drawable/ic_live_help_black_24dp"
+        android:text = " App info"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:padding = "5dp"
+        android:textSize = "17dp"
+        android:gravity = "center"
+        android:textStyle = "bold"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft = "@drawable/ic_build_black_24dp"
+        android:text = " Application version : 0.1 Ver"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:padding = "5dp"
+        android:textSize = "17dp"
+        android:gravity = "center"
+        android:textStyle = "bold"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft = "@drawable/ic_security_black_24dp"
+        android:text = " Developer : Chanhuyng Shim (Simply)"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:padding = "5dp"
+        android:textSize = "17dp"
+        android:gravity = "center"
+        android:textStyle = "bold"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft = "@drawable/ic_public_black_24dp"
+        android:text = " Webpage : http://simpldev.com/"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:padding = "5dp"
+        android:textSize = "17dp"
+        android:gravity = "center"
+        android:textStyle = "bold"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft = "@drawable/ic_assignment_black_24dp"
+            android:text = " Administrator"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:padding = "5dp"
+            android:textSize = "17dp"
+            android:gravity = "center"
+            android:textStyle = "bold"
+            android:layout_gravity="center" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:isScrollContainer="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal">
+
+                    <com.example.registration.CircleImageView
+                        android:src="@drawable/admin1"
+                        android:id="@+id/imageView"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:civ_border_color="@color/colorPrimary"
+                        app:civ_border_width="2dp"
+                        />
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Chanhuyng Shim"
+                            android:textStyle="bold"
+                            android:textSize="17dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Computer Engineering"
+                            android:textStyle="bold"
+                            android:textSize="15dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="cshim31@gatech.edu"
+                            android:textStyle="bold"
+                            android:textSize="15dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

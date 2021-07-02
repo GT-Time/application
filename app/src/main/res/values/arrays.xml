@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "major">
+        <item>Accounting</item>
+        <item>Aerospace Engineering</item>
+        <item>Air Force Aerospace Studies</item>
+        <item>Applied Physiology</item>
+        <item>Applied Systems Engineering</item>
+        <item>Arabic</item>
+        <item>Architecture</item>
+        <item>Biological Sciences</item>
+        <item>Biology</item>
+        <item>Biomed Engr/Joint Emory PKU</item>
+        <item>Biomedical Engineering</item>
+        <item>Biomedical Engr/Joint Emory</item>
+        <item>Bldg Construction-Professional</item>
+        <item>Building Construction</item>
+        <item>Center Enhancement-Teach/Learn</item>
+        <item>Chemical &amp; Biomolecular Engr</item>
+        <item>Chemistry</item>
+        <item>Chinese</item>
+        <item>City Planning</item>
+        <item>Civil and Environmental Engr</item>
+        <item>College of Architecture</item>
+        <item>College of Engineering</item>
+        <item>Computational Mod, Sim, &amp; Data</item>
+        <item>Computational Science &amp; Engr</item>
+        <item>Computer Science</item>
+        <item>Cooperative Work Assignment</item>
+        <item>Cross Enrollment</item>
+        <item>Earth and Atmospheric Sciences</item>
+        <item>Economics</item>
+        <item>Elect &amp; Comp Engr-Professional</item>
+        <item>Electrical &amp; Computer Engr</item>
+        <item>English</item>
+        <item>Foreign Studies</item>
+        <item>French</item>
+        <item>Georgia Tech</item>
+        <item>Georgia Tech Lorraine</item>
+        <item>German</item>
+        <item>Global Media and Cultures</item>
+        <item>Health Systems</item>
+        <item>Hebrew</item>
+        <item>Hindi</item>
+        <item>History</item>
+        <item>History, Technology &amp; Society</item>
+        <item>Industrial &amp; Systems Engr</item>
+        <item>Industrial Design</item>
+        <item>Int\'l Plan Co-op Abroad</item>
+        <item>Int\'l Plan Intern Abroad</item>
+        <item>Int\'l Plan-Exchange Program</item>
+        <item>Int\'l Plan-Study Abroad</item>
+        <item>International Affairs</item>
+        <item>International Logistics</item>
+        <item>Internship</item>
+        <item>Intl Executive MBA</item>
+        <item>Ivan Allen College</item>
+        <item>Japanese</item>
+        <item>Korean</item>
+        <item>Learning Support</item>
+        <item>Linguistics</item>
+        <item>Literature, Media &amp; Comm</item>
+        <item>Management</item>
+        <item>Management of Technology</item>
+        <item>Materials Science &amp; Engr</item>
+        <item>Mathematics</item>
+        <item>Mechanical Engineering</item>
+        <item>Medical Physics</item>
+        <item>Military Science &amp; Leadership</item>
+        <item>Modern Languages</item>
+        <item>Music</item>
+        <item>Naval Science</item>
+        <item>Neuroscience</item>
+        <item>Nuclear &amp; Radiological Engr</item>
+        <item>Persian</item>
+        <item>Philosophy</item>
+        <item>Physics</item>
+        <item>Political Science</item>
+        <item>Polymer, Textile and Fiber Eng</item>
+        <item>Portuguese</item>
+        <item>Psychology</item>
+        <item>Public Policy</item>
+        <item>Public Policy/Joint GSU PhD</item>
+        <item>Russian</item>
+        <item>Serve, Learn, Sustain</item>
+        <item>Sociology</item>
+        <item>Spanish</item>
+        <item>Swahili</item>
+        <item>Vertically Integrated Project</item>
+        <item>Wolof</item>
+    </string-array>
+
+
+    <string-array name = "graduateMajor">
+        <item>Major</item>
+        <item>Electives</item>
+    </string-array>
+
+    <string-array name = "semester">
+        <item>Fall 2021</item>
+        <item>Spring 2021</item>
+        <item>Summer 2021</item>
+        <item>Fall 2022</item>
+        <item>Spring 2022</item>
+        <item>Summer 2022</item>
+        <item>Fall 2023</item>
+        <item>Spring 2023</item>
+        <item>Summer 2023</item>
+    </string-array>
+
+<!--    student type -->
+    <string-array name = "undergraduateCourseType">
+        <item>Major</item>
+        <item>Elective</item>
+    </string-array>
+
+    <string-array name = "graduateCourseType">
+        <item>Major(Graduate)</item>
+    </string-array>
+</resources>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation = "vertical"
+            android:background = "@color/colorPrimary">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity = "center"
+                android:text = "Sign Up"
+                android:textColor = "#575728"
+                android:textSize = "30dp"
+                android:textStyle = "bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:orientation = "horizontal"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center">
+                <EditText
+                    android:id="@+id/validateID"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:hint="username"
+                    android:padding="10dp"
+                    android:textColor="#000000"
+                    android:textColorHint="#737070"
+                    android:drawableLeft = "@drawable/ic_person_black_24dp"
+                    android:drawablePadding="3dp"
+                    android:background = "@color/colorPrimary"
+                />
+
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:textSize = "15dp"
+                    android:textStyle = "bold"
+                    android:background="@color/colorWarning"
+                    android:text = "Validate"
+                    android:layout_gravity="center"
+                    android:id = "@+id/validateButton"
+                    android:textColor = "#ffffff"></Button>
+                </LinearLayout>
+
+            <EditText
+                android:id="@+id/idText"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:hint="username"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#737070"
+                android:drawableLeft = "@drawable/ic_person_black_24dp"
+                android:drawablePadding="3dp"
+                android:background = "@color/colorPrimary"
+                />
+            <EditText
+                android:inputType = "textPassword"
+                android:id="@+id/pwText"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:hint="password"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#737070"
+                android:drawableLeft = "@drawable/ic_https_black_24dp"
+                android:drawablePadding="3dp"
+                android:background = "@color/colorPrimary"
+                />
+
+            <EditText
+                android:id="@+id/emailText"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:hint="Email"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#737070"
+                android:drawableLeft = "@drawable/ic_mail_outline_black_24dp"
+                android:drawablePadding="3dp"
+                android:background = "@color/colorPrimary"
+                />
+            <RadioGroup
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:id = "@+id/genderGroup"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text = "Female"
+                    android:id = "@+id/genderFemale"
+                    android:layout_weight = "1"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text = "Male"
+                    android:id = "@+id/genderMale"
+                    android:layout_weight = "1"
+                    android:checked = "false"/>
+
+            </RadioGroup>
+
+            <Spinner
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:id = "@+id/majorSpinner"/>
+            <Button
+                android:id = "@+id/SubmitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop = "15dp"
+                android:textColor = "#575728"
+                android:textSize = "15dp"
+                android:textStyle = "bold"
+                android:text = "Submit"
+                android:background = "@color/colorPrimary"/>
+
+            <TextView
+                android:id = "@+id/registerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:text = "Register"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

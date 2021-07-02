@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.registration">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo3"
+        android:label="Buzztime"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".ValidateRequest" />
+        <activity android:name=".RegisterRequest" />
+        <activity android:name = ".Splashscreen"
+            android:label = "Buzztime">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name = ".Pop"
+            android:theme = "@style/AppTheme.Pop"></activity>
+    </application>
+
+</manifest>

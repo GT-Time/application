@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="colorPrimary">#6200EE</color>-->
+    <color name = "colorAnnie">#FFFFAAAA</color>
+    <color name = "colorPurple">#b19cd9</color>
+    <color name = "colorPrimary">#FFF7F69E</color>
+    <color name = "colorPrimaryDark">#EEE8AA</color>
+    <color name = "colorIvory">#EFEBE5</color>
+    <color name = "colorIvoryDark">#EEECE0</color>
+    <color name = "colorAccentlightDark">#ffd7b5</color>
+    <color name="colorAccentDark">#F8E2DF</color>
+    <color name="colorAccent">#F8E4EB</color>
+    <color name = "colorWarning">#000000</color>
+    <color name = "colorGray">#B6B4B4</color>
+    <color name = "colorSecondary">#FDEBD2</color>
+    <color name = "colorSecondaryDark">#FBE7CB</color>
+    <color name = "white">#ffffff</color>
+</resources>

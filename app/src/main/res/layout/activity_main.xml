@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation = "vertical"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width = "match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom = "3dp">
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width = "100dp"
+            android:layout_marginLeft = "10dp"
+            android:layout_marginRight = "10dp"
+            android:id = "@+id/CourseButton"
+            android:text = "Course List"
+            android:background = "@color/colorSecondary"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width = "100dp"
+            android:layout_marginLeft = "10dp"
+            android:layout_marginRight = "10dp"
+            android:id = "@+id/ScheduleButton"
+            android:text = "Schedule"
+            android:background = "@color/colorSecondary"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width = "100dp"
+            android:layout_marginLeft = "10dp"
+            android:layout_marginRight = "10dp"
+            android:id = "@+id/StatisticsButton"
+            android:text = "Statistics"
+            android:background = "@color/colorSecondary"
+            />
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:orientation="vertical"
+            android:id = "@+id/Announcement">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation = "vertical"
+                android:background = "@color/colorPrimary"
+                android:layout_marginTop="5dp">
+                <ImageView
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop ="20dp"
+                    android:src="@drawable/logo2">
+                </ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity = "center"
+                    android:text = "Announcement"
+                    android:textColor = "#575728"
+                    android:textSize = "18dp"
+                    android:textStyle = "bold"
+                    android:layout_marginBottom="3dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation = "vertical">
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin = "10dp"
+                    android:dividerHeight="5dp"
+                    android:divider = "#ffffff"
+                    android:id = "@+id/AnnouncementList">
+                </ListView>
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id = "@+id/relativeLayout">
+        </RelativeLayout>
+    </FrameLayout>
+</LinearLayout>
