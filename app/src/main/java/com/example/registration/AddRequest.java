@@ -6,14 +6,14 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddRequest extends StringRequest {
+public class AddRequest extends ActionRequest {
 
-    final static private String URL = "http://sch1261315.cafe24.com/CourseAdd.php";
+    final static private String php = "CourseAdd.php";
     private Map<String, String> parameters;
 
 //    send parameter values to database by posting method
     public AddRequest(String userID, String courseNumber, Response.Listener<String> listener) {
-        super(Method.POST, URL, listener, null);
+        super(php, listener, null);
         parameters = new HashMap<>();
         parameters.put("userID",userID);
         parameters.put("courseNumber",courseNumber);

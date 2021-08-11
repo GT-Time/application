@@ -6,14 +6,14 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DeleteRequest extends StringRequest {
+public class DeleteRequest extends ActionRequest {
 
-    final static private String URL = "http://sch1261315.cafe24.com/ScheduleDelete.php";
+    final static private String php = "ScheduleDelete.php";
     private Map<String, String> parameters;
 
 //    send parameter values to database by posting method
     public DeleteRequest(String userID, String courseNumber, Response.Listener<String> listener) {
-        super(Method.POST, URL, listener, null);
+        super(php, listener, null);
         parameters = new HashMap<>();
         parameters.put("userID",userID);
         parameters.put("courseNumber",courseNumber);

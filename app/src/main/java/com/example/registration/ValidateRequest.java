@@ -12,17 +12,17 @@ import com.android.volley.toolbox.StringRequest;
 
 import java.util.HashMap;
 import java.util.Map;
-public class ValidateRequest extends StringRequest {
+public class ValidateRequest extends ActionRequest {
 
-    final static private String URL = "http://ec2-3-237-63-241.compute-1.amazonaws.com/UserValidate.php";
+    final static private String php = "UserValidate.php";
     private Map<String, String> parameters;
 
     /**
      *  Instantiate upper hierarchy and determine method of request and data
      */
     public ValidateRequest(String userID, Response.Listener<String> listener, Response.ErrorListener error) {
-        //super(Method.POST, URL, listener, null);
-        super(Method.POST, URL, listener, error);
+        //super(Method.POST, URL, listener, error);
+        super(php, listener, error);
         parameters = new HashMap<>();
         parameters.put("userID",userID);
     }

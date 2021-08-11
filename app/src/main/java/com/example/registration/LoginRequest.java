@@ -6,13 +6,13 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginRequest extends StringRequest {
-    final static private String URL = "http://ec2-3-237-63-241.compute-1.amazonaws.com/UserLogin.php";
+public class LoginRequest extends ActionRequest {
+    final static private String php = "UserLogin.php";
     private Map<String, String> parameters;
 
     //    send parameter values to database by posting method
     public LoginRequest(String userID, String userPassword, Response.Listener<String> listener, Response.ErrorListener error) {
-        super(Method.POST, URL, listener, error);
+        super(php, listener, error);
         parameters = new HashMap<>();
         parameters.put("userID",userID);
         parameters.put("userPassword",userPassword);
