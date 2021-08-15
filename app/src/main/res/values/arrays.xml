@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string-array name = "graduateMajor">
+        <item>Major</item>
+        <item>Electives</item>
+    </string-array>
+
+    <string-array name = "semester">
+        <item>202108</item>
+        <item>202102</item>
+        <item>202105</item>
+        <item>202208</item>
+        <item>202202</item>
+        <item>202205</item>
+    </string-array>
+
+<!--    student type -->
+    <string-array name = "undergraduateCourseType">
+        <item>Major</item>
+        <item>Elective</item>
+    </string-array>
+
+    <string-array name = "graduateCourseType">
+        <item>Major(Graduate)</item>
+    </string-array>
+
+    <!-- Georgia Tech major -->
     <string-array name = "major">
         <item>Accounting</item>
         <item>Aerospace Engineering</item>
@@ -27,7 +53,6 @@
         <item>Computational Science &amp; Engr</item>
         <item>Computer Science</item>
         <item>Cooperative Work Assignment</item>
-        <item>Cross Enrollment</item>
         <item>Earth and Atmospheric Sciences</item>
         <item>Economics</item>
         <item>Elect &amp; Comp Engr-Professional</item>
@@ -90,31 +115,2343 @@
         <item>Wolof</item>
     </string-array>
 
-
-    <string-array name = "graduateMajor">
-        <item>Major</item>
-        <item>Electives</item>
+    <!-- Georgia Tech Subject -->
+    <string-array name = "subject">
+        <item>Accounting</item>
+        <item>Aerospace Engineering</item>
+        <item>Air Force Aerospace Studies</item>
+        <item>Applied Physiology</item>
+        <item>Applied Systems Engineering</item>
+        <item>Arabic</item>
+        <item>Architecture</item>
+        <item>Biological Sciences</item>
+        <item>Biology</item>
+        <item>Biomed Engr/Joint Emory PKU</item>
+        <item>Biomedical Engineering</item>
+        <item>Biomedical Engr/Joint Emory</item>
+        <item>Bldg Construction-Professional</item>
+        <item>Building Construction</item>
+        <item>Center Enhancement-Teach/Learn</item>
+        <item>Chemical &amp; Biomolecular Engr</item>
+        <item>Chemistry</item>
+        <item>Chinese</item>
+        <item>City Planning</item>
+        <item>Civil and Environmental Engr</item>
+        <item>College of Architecture</item>
+        <item>College of Engineering</item>
+        <item>Computational Mod, Sim, &amp; Data</item>
+        <item>Computational Science &amp; Engr</item>
+        <item>Computer Science</item>
+        <item>Cooperative Work Assignment</item>
+        <item>Earth and Atmospheric Sciences</item>
+        <item>Economics</item>
+        <item>Elect &amp; Comp Engr-Professional</item>
+        <item>Electrical &amp; Computer Engr</item>
+        <item>English</item>
+        <item>French</item>
+        <item>Georgia Tech</item>
+        <item>Georgia Tech Lorraine</item>
+        <item>German</item>
+        <item>Global Media and Cultures</item>
+        <item>Health Systems</item>
+        <item>Hebrew</item>
+        <item>Hindi</item>
+        <item>History</item>
+        <item>History, Technology &amp; Society</item>
+        <item>Industrial &amp; Systems Engr</item>
+        <item>Industrial Design</item>
+        <item>Int\'l Plan Co-op Abroad</item>
+        <item>Int\'l Plan Intern Abroad</item>
+        <item>Int\'l Plan-Exchange Program</item>
+        <item>Int\'l Plan-Study Abroad</item>
+        <item>International Affairs</item>
+        <item>International Logistics</item>
+        <item>Internship</item>
+        <item>Intl Executive MBA</item>
+        <item>Ivan Allen College</item>
+        <item>Japanese</item>
+        <item>Korean</item>
+        <item>Learning Support</item>
+        <item>Linguistics</item>
+        <item>Literature, Media &amp; Comm</item>
+        <item>Management</item>
+        <item>Management of Technology</item>
+        <item>Materials Science &amp; Engr</item>
+        <item>Mathematics</item>
+        <item>Mechanical Engineering</item>
+        <item>Medical Physics</item>
+        <item>Military Science &amp; Leadership</item>
+        <item>Modern Languages</item>
+        <item>Music</item>
+        <item>Naval Science</item>
+        <item>Neuroscience</item>
+        <item>Nuclear &amp; Radiological Engr</item>
+        <item>Persian</item>
+        <item>Philosophy</item>
+        <item>Physics</item>
+        <item>Political Science</item>
+        <item>Polymer, Textile and Fiber Eng</item>
+        <item>Portuguese</item>
+        <item>Psychology</item>
+        <item>Public Policy</item>
+        <item>Public Policy/Joint GSU PhD</item>
+        <item>Russian</item>
+        <item>Serve, Learn, Sustain</item>
+        <item>Sociology</item>
+        <item>Spanish</item>
+        <item>Swahili</item>
+        <item>Vertically Integrated Project</item>
+        <item>Wolof</item>
     </string-array>
 
-    <string-array name = "semester">
-        <item>Fall 2021</item>
-        <item>Spring 2021</item>
-        <item>Summer 2021</item>
-        <item>Fall 2022</item>
-        <item>Spring 2022</item>
-        <item>Summer 2022</item>
-        <item>Fall 2023</item>
-        <item>Spring 2023</item>
-        <item>Summer 2023</item>
+    <!-- CourseArea by major -->
+    <string-array name = "Accounting">
+        <item>ACCT 2101</item>
+        <item>ACCT 2102</item>
     </string-array>
-
-<!--    student type -->
-    <string-array name = "undergraduateCourseType">
-        <item>Major</item>
-        <item>Elective</item>
+    <string-array name = "AerospaceEngineering">
+        <item>AE 1355</item>
+        <item>AE 1601</item>
+        <item>AE 2010</item>
+        <item>AE 2010R</item>
+        <item>AE 2011</item>
+        <item>AE 2011R</item>
+        <item>AE 2220</item>
+        <item>AE 2220R</item>
+        <item>AE 2221</item>
+        <item>AE 2221R</item>
+        <item>AE 2355</item>
+        <item>AE 2610</item>
+        <item>AE 2611</item>
+        <item>AE 2698</item>
+        <item>AE 2699</item>
+        <item>AE 3030</item>
+        <item>AE 3030R</item>
+        <item>AE 3140</item>
+        <item>AE 3330</item>
+        <item>AE 3340</item>
+        <item>AE 3355</item>
+        <item>AE 3530</item>
+        <item>AE 3531</item>
+        <item>AE 3610</item>
+        <item>AE 4040</item>
+        <item>AE 4071</item>
+        <item>AE 4341</item>
+        <item>AE 4342</item>
+        <item>AE 4343</item>
+        <item>AE 4355</item>
+        <item>AE 4451</item>
+        <item>AE 4531</item>
+        <item>AE 4532</item>
+        <item>AE 4610</item>
+        <item>AE 4698</item>
+        <item>AE 4699</item>
+        <item>AE 4791</item>
+        <item>AE 4803</item>
+        <item>AE 6009</item>
+        <item>AE 6030</item>
+        <item>AE 6100</item>
+        <item>AE 6114</item>
+        <item>AE 6170</item>
+        <item>AE 6230</item>
+        <item>AE 6333</item>
+        <item>AE 6343</item>
+        <item>AE 6353</item>
+        <item>AE 6372</item>
+        <item>AE 6373</item>
+        <item>AE 6383</item>
+        <item>AE 6393</item>
+        <item>AE 6451</item>
+        <item>AE 6511</item>
+        <item>AE 6530</item>
+        <item>AE 6705</item>
+        <item>AE 6721</item>
+        <item>AE 6760</item>
+        <item>AE 6765</item>
+        <item>AE 6769</item>
+        <item>AE 7000</item>
+        <item>AE 7741</item>
+        <item>AE 8750</item>
+        <item>AE 8751</item>
+        <item>AE 8801</item>
+        <item>AE 8803</item>
+        <item>AE 8900</item>
+        <item>AE 9000</item>
     </string-array>
+    <string-array name = "AirForceAerospaceStudies">
+        <item>AS 1000</item>
+        <item>AS 1110</item>
+        <item>AS 2210</item>
+        <item>AS 3310</item>
+        <item>AS 4410</item>
+    </string-array>
+    <string-array name = "AppliedPhysiology">
+        <item>APPH1040</item>
+        <item>APPH1050</item>
+        <item>APPH1060</item>
+        <item>APPH6211</item>
+        <item>APPH6213</item>
+        <item>APPH6231</item>
+        <item>APPH6232</item>
+        <item>APPH6238</item>
+        <item>APPH6400</item>
+        <item>APPH8000</item>
+        <item>APPH8803</item>
+        <item>APPH9000</item>
+    </string-array>
+    <string-array name = "AppliedSystemsEngineering">
+        <item>AS E6001</item>
+        <item>AS E6004</item>
+        <item>AS E6006</item>
+        <item>AS E6111</item>
+        <item>AS E6121</item>
+        <item>AS E6131</item>
+    </string-array>
+    <string-array name = "Arabic">
+        <item>ARBC 1001</item>
+        <item>ARBC 1501</item>
+        <item>ARBC 2001</item>
+        <item>ARBC 3001</item>
+        <item>ARBC 3401</item>
+        <item>ARBC 3420</item>
+    </string-array>
+    <string-array name = "Architecture">
+        <item>ARCH 1016</item>
+        <item>ARCH 1060</item>
+        <item>ARCH 2016</item>
+        <item>ARCH 2020</item>
+        <item>ARCH 2111</item>
+        <item>ARCH 2211</item>
+        <item>ARCH 3010</item>
+        <item>ARCH 3016</item>
+        <item>ARCH 3231</item>
+        <item>ARCH 4015</item>
+        <item>ARCH 4016</item>
+        <item>ARCH 4315</item>
+        <item>ARCH 4699</item>
+        <item>ARCH 4803</item>
+        <item>ARCH 4823</item>
+        <item>ARCH 4833</item>
+        <item>ARCH 4843</item>
+        <item>ARCH 4901</item>
+        <item>ARCH 4903</item>
+        <item>ARCH 6010</item>
+        <item>ARCH 6015</item>
+        <item>ARCH 6020</item>
+        <item>ARCH 6028</item>
+        <item>ARCH 6039</item>
+        <item>ARCH 6049</item>
+        <item>ARCH 6105</item>
+        <item>ARCH 6151</item>
+        <item>ARCH 6226</item>
+        <item>ARCH 6229</item>
+        <item>ARCH 6242</item>
+        <item>ARCH 6271</item>
+        <item>ARCH 6303</item>
+        <item>ARCH 6315</item>
+        <item>ARCH 6352</item>
+        <item>ARCH 6508</item>
+        <item>ARCH 6531</item>
+        <item>ARCH 7000</item>
+        <item>ARCH 7013</item>
+        <item>ARCH 7030</item>
+        <item>ARCH 7350</item>
+        <item>ARCH 8799</item>
+        <item>ARCH 8803</item>
+        <item>ARCH 8823</item>
+        <item>ARCH 8833</item>
+        <item>ARCH 8873</item>
+        <item>ARCH 8903</item>
+        <item>ARCH 8997</item>
+        <item>ARCH 8998</item>
+        <item>ARCH 8999</item>
+        <item>ARCH 9000</item>
+    </string-array>
+    <string-array name = "BiologicalSciences">
+        <item>BIOS 1107</item>
+        <item>BIOS 1107L</item>
+        <item>BIOS 1107R</item>
+        <item>BIOS 1108</item>
+        <item>BIOS 1108L</item>
+        <item>BIOS 1108R</item>
+        <item>BIOS 1207</item>
+        <item>BIOS 1207L</item>
+        <item>BIOS 1207R</item>
+        <item>BIOS 1220</item>
+        <item>BIOS 2300</item>
+        <item>BIOS 2301</item>
+        <item>BIOS 2500</item>
+        <item>BIOS 2600</item>
+        <item>BIOS 2601</item>
+        <item>BIOS 2610</item>
+        <item>BIOS 2611</item>
+        <item>BIOS 2694</item>
+        <item>BIOS 2695</item>
+        <item>BIOS 3380</item>
+        <item>BIOS 3381</item>
+        <item>BIOS 3450</item>
+        <item>BIOS 3600</item>
+        <item>BIOS 3753</item>
+        <item>BIOS 3754</item>
+        <item>BIOS 4015</item>
+        <item>BIOS 4150</item>
+        <item>BIOS 4200</item>
+        <item>BIOS 4340</item>
+        <item>BIOS 4400</item>
+        <item>BIOS 4401</item>
+        <item>BIOS 4460</item>
+        <item>BIOS 4464</item>
+        <item>BIOS 4540</item>
+        <item>BIOS 4545</item>
+        <item>BIOS 4560</item>
+        <item>BIOS 4590</item>
+        <item>BIOS 4651</item>
+        <item>BIOS 4690</item>
+        <item>BIOS 4694</item>
+        <item>BIOS 4695</item>
+        <item>BIOS 4696</item>
+        <item>BIOS 4697</item>
+        <item>BIOS 4698</item>
+        <item>BIOS 4699</item>
+        <item>BIOS 4740</item>
+        <item>BIOS 4803</item>
+    </string-array>
+    <string-array name = "Biology">
+        <item>BIOL 6150</item>
+        <item>BIOL 6600</item>
+        <item>BIOL 6750</item>
+        <item>BIOL 6765</item>
+        <item>BIOL 7000</item>
+        <item>BIOL 7015</item>
+        <item>BIOL 7200</item>
+        <item>BIOL 8002</item>
+        <item>BIOL 8560</item>
+        <item>BIOL 8801</item>
+        <item>BIOL 8803</item>
+        <item>BIOL 8901</item>
+        <item>BIOL 8902</item>
+        <item>BIOL 8997</item>
+        <item>BIOL 8998</item>
+        <item>BIOL 9000</item>
+    </string-array>
+    <string-array name = "BiomedEngrJointEmoryPKU">
+        <item>BMEJ 9999</item>
+    </string-array>
+    <string-array name = "BiomedicalEngineering">
+        <item>BMED 1000</item>
+        <item>BMED 2110</item>
+        <item>BMED 2250</item>
+        <item>BMED 2310</item>
+        <item>BMED 2400</item>
+        <item>BMED 2698</item>
+        <item>BMED 2699</item>
+        <item>BMED 2803</item>
+        <item>BMED 3110</item>
+        <item>BMED 3310</item>
+        <item>BMED 3410</item>
+        <item>BMED 3500</item>
+        <item>BMED 3520</item>
+        <item>BMED 3600</item>
+        <item>BMED 3610</item>
+        <item>BMED 4000</item>
+        <item>BMED 4602</item>
+        <item>BMED 4698</item>
+        <item>BMED 4699</item>
+        <item>BMED 4739</item>
+        <item>BMED 4740</item>
+        <item>BMED 4751</item>
+        <item>BMED 4757</item>
+        <item>BMED 4758</item>
+        <item>BMED 4781</item>
+        <item>BMED 4783</item>
+        <item>BMED 4784</item>
+        <item>BMED 4803</item>
+        <item>BMED 4813</item>
+        <item>BMED 4853</item>
+        <item>BMED 4863</item>
+        <item>BMED 4873</item>
+        <item>BMED 4883</item>
+        <item>BMED 4893</item>
+        <item>BMED 6042</item>
+        <item>BMED 6210</item>
+        <item>BMED 6501</item>
+        <item>BMED 6502</item>
+        <item>BMED 6503</item>
+        <item>BMED 6505</item>
+        <item>BMED 6517</item>
+        <item>BMED 6710</item>
+        <item>BMED 6739</item>
+        <item>BMED 6743</item>
+        <item>BMED 6782</item>
+        <item>BMED 6786</item>
+        <item>BMED 6794</item>
+        <item>BMED 7000</item>
+        <item>BMED 7001</item>
+        <item>BMED 7004</item>
+        <item>BMED 7011</item>
+        <item>BMED 7013</item>
+        <item>BMED 7101</item>
+        <item>BMED 7201</item>
+        <item>BMED 7610</item>
+        <item>BMED 7741</item>
+        <item>BMED 8813</item>
+        <item>BMED 8901</item>
+        <item>BMED 8902</item>
+        <item>BMED 8998</item>
+        <item>BMED 9000</item>
+    </string-array>
+    <string-array name = "BiomedicalEngrJointEmory">
+        <item>BMEM 6000</item>
+        <item>BMEM 6001</item>
+    </string-array>
+    <string-array name = "BldgConstructionProfessional">
+        <item>BCP 6800</item>
+        <item>BCP 8803</item>
+        <item>BCP 8833</item>
+        <item>BCP 8853</item>
+    </string-array>
+    <string-array name = "BuildingConstruction">
+        <item>BC 2610</item>
+        <item>BC 2631</item>
+        <item>BC 2636</item>
+        <item>BC 4130</item>
+        <item>BC 4700</item>
+        <item>BC 6005</item>
+        <item>BC 6025</item>
+        <item>BC 6100</item>
+        <item>BC 6175</item>
+        <item>BC 6185</item>
+        <item>BC 6285</item>
+        <item>BC 6300</item>
+        <item>BC 6370</item>
+        <item>BC 6550</item>
+        <item>BC 6570</item>
+        <item>BC 6685</item>
+        <item>BC 6850</item>
+        <item>BC 6875</item>
+        <item>BC 7000</item>
+        <item>BC 7100</item>
+        <item>BC 7200</item>
+        <item>BC 8903</item>
+        <item>BC 8997</item>
+        <item>BC 8998</item>
+        <item>BC 8999</item>
+        <item>BC 9000</item>
+    </string-array>
+    <string-array name = "CenterEnhancementTeachLearn">
+        <item>CETL 2000</item>
+        <item>CETL 2001</item>
+        <item>CETL 8000</item>
+        <item>CETL 8713</item>
+        <item>CETL 8717</item>
+        <item>CETL 8718</item>
+        <item>CETL 8723</item>
+        <item>CETL 8796</item>
+        <item>CETL 8797</item>
+        <item>CETL 8801</item>
+        <item>CETL 8802</item>
+    </string-array>
+    <string-array name = "ChemicalBiomolecularEngr">
+        <item>CHBE 2100</item>
+        <item>CHBE 2120</item>
+        <item>CHBE 2130</item>
+        <item>CHBE 2698</item>
+        <item>CHBE 2699</item>
+        <item>CHBE 2801</item>
+        <item>CHBE 2801R</item>
+        <item>CHBE 3130</item>
+        <item>CHBE 3200</item>
+        <item>CHBE 3210</item>
+        <item>CHBE 3225</item>
+        <item>CHBE 4030</item>
+        <item>CHBE 4200</item>
+        <item>CHBE 4210</item>
+        <item>CHBE 4300</item>
+        <item>CHBE 4310</item>
+        <item>CHBE 4411</item>
+        <item>CHBE 4412</item>
+        <item>CHBE 4510</item>
+        <item>CHBE 4515</item>
+        <item>CHBE 4535</item>
+        <item>CHBE 4698</item>
+        <item>CHBE 4699</item>
+        <item>CHBE 4720</item>
+        <item>CHBE 4745</item>
+        <item>CHBE 4759</item>
+        <item>CHBE 4760</item>
+        <item>CHBE 4762</item>
+        <item>CHBE 4775</item>
+        <item>CHBE 4791</item>
+        <item>CHBE 4803</item>
+        <item>CHBE 6001</item>
+        <item>CHBE 6003</item>
+        <item>CHBE 6030</item>
+        <item>CHBE 6100</item>
+        <item>CHBE 6229</item>
+        <item>CHBE 6260</item>
+        <item>CHBE 6300</item>
+        <item>CHBE 6500</item>
+        <item>CHBE 6741</item>
+        <item>CHBE 6745</item>
+        <item>CHBE 6752</item>
+        <item>CHBE 6760</item>
+        <item>CHBE 6762</item>
+        <item>CHBE 6779</item>
+        <item>CHBE 6782</item>
+        <item>CHBE 7000</item>
+        <item>CHBE 7721</item>
+        <item>CHBE 8001</item>
+        <item>CHBE 8803</item>
+        <item>CHBE 9000</item>
+    </string-array>
+    <string-array name = "Chemistry">
+        <item>CHEM 1211K</item>
+        <item>CHEM 1212K</item>
+        <item>CHEM 1310</item>
+        <item>CHEM 1315</item>
+        <item>CHEM 2214</item>
+        <item>CHEM 2214R</item>
+        <item>CHEM 2216L</item>
+        <item>CHEM 2311</item>
+        <item>CHEM 2312</item>
+        <item>CHEM 2313</item>
+        <item>CHEM 2380</item>
+        <item>CHEM 2601</item>
+        <item>CHEM 2694</item>
+        <item>CHEM 2695</item>
+        <item>CHEM 2698</item>
+        <item>CHEM 2699</item>
+        <item>CHEM 2801</item>
+        <item>CHEM 3111</item>
+        <item>CHEM 3216</item>
+        <item>CHEM 3216L</item>
+        <item>CHEM 3371</item>
+        <item>CHEM 3380</item>
+        <item>CHEM 3411</item>
+        <item>CHEM 3412</item>
+        <item>CHEM 3511</item>
+        <item>CHEM 4311</item>
+        <item>CHEM 4341</item>
+        <item>CHEM 4511</item>
+        <item>CHEM 4512</item>
+        <item>CHEM 4581</item>
+        <item>CHEM 4582</item>
+        <item>CHEM 4601</item>
+        <item>CHEM 4694</item>
+        <item>CHEM 4695</item>
+        <item>CHEM 4698</item>
+        <item>CHEM 4699</item>
+        <item>CHEM 4760</item>
+        <item>CHEM 4775</item>
+        <item>CHEM 4801</item>
+        <item>CHEM 4803</item>
+        <item>CHEM 6170</item>
+        <item>CHEM 6172</item>
+        <item>CHEM 6271</item>
+        <item>CHEM 6281</item>
+        <item>CHEM 6371</item>
+        <item>CHEM 6481</item>
+        <item>CHEM 6491</item>
+        <item>CHEM 6501</item>
+        <item>CHEM 6502</item>
+        <item>CHEM 6572</item>
+        <item>CHEM 6573</item>
+        <item>CHEM 6752</item>
+        <item>CHEM 6760</item>
+        <item>CHEM 7000</item>
+        <item>CHEM 7001</item>
+        <item>CHEM 8000</item>
+        <item>CHEM 8833</item>
+        <item>CHEM 8843</item>
+        <item>CHEM 8901</item>
+        <item>CHEM 8902</item>
+        <item>CHEM 8903</item>
+        <item>CHEM 8997</item>
+        <item>CHEM 9000</item>
+    </string-array>
+    <string-array name = "Chinese">
+        <item>CHIN 1001</item>
+        <item>CHIN 1002</item>
+        <item>CHIN 1501</item>
+        <item>CHIN 2001</item>
+        <item>CHIN 2002</item>
+        <item>CHIN 2501</item>
+        <item>CHIN 3003</item>
+        <item>CHIN 3021</item>
+        <item>CHIN 3400</item>
+        <item>CHIN 3401</item>
+        <item>CHIN 4003</item>
+        <item>CHIN 4500</item>
+        <item>CHIN 4695</item>
+        <item>CHIN 6252</item>
+        <item>CHIN 6500</item>
+        <item>CHIN 8803</item>
+    </string-array>
+    <string-array name = "CityPlanning">
+        <item>CP 4020</item>
+        <item>CP 4052</item>
+        <item>CP 4310</item>
+        <item>CP 4510</item>
+        <item>CP 4610</item>
+        <item>CP 6005</item>
+        <item>CP 6006</item>
+        <item>CP 6012</item>
+        <item>CP 6025</item>
+        <item>CP 6055</item>
+        <item>CP 6112</item>
+        <item>CP 6223</item>
+        <item>CP 6241</item>
+        <item>CP 6412</item>
+        <item>CP 6514</item>
+        <item>CP 6531</item>
+        <item>CP 6581</item>
+        <item>CP 6591</item>
+        <item>CP 6630</item>
+        <item>CP 6640</item>
+        <item>CP 6850</item>
+        <item>CP 7000</item>
+        <item>CP 7999</item>
+        <item>CP 8012</item>
+        <item>CP 8022</item>
+        <item>CP 8400</item>
+        <item>CP 8853</item>
+        <item>CP 8881</item>
+        <item>CP 8882</item>
+        <item>CP 8883</item>
+        <item>CP 8990</item>
+        <item>CP 8997</item>
+        <item>CP 8998</item>
+        <item>CP 8999</item>
+        <item>CP 9000</item>
+    </string-array>
+    <string-array name = "CivilandEnvironmentalEngr">
+        <item>CEE 1770</item>
+        <item>CEE 2040</item>
+        <item>CEE 2300</item>
+        <item>CEE 2698</item>
+        <item>CEE 2699</item>
+        <item>CEE 2803</item>
+        <item>CEE 3000</item>
+        <item>CEE 3010</item>
+        <item>CEE 3020</item>
+        <item>CEE 3040</item>
+        <item>CEE 3051</item>
+        <item>CEE 3055</item>
+        <item>CEE 3340</item>
+        <item>CEE 3770</item>
+        <item>CEE 4000</item>
+        <item>CEE 4090</item>
+        <item>CEE 4100</item>
+        <item>CEE 4140</item>
+        <item>CEE 4150</item>
+        <item>CEE 4200</item>
+        <item>CEE 4210</item>
+        <item>CEE 4211</item>
+        <item>CEE 4300</item>
+        <item>CEE 4330</item>
+        <item>CEE 4405</item>
+        <item>CEE 4510</item>
+        <item>CEE 4520</item>
+        <item>CEE 4550</item>
+        <item>CEE 4560</item>
+        <item>CEE 4600</item>
+        <item>CEE 4610</item>
+        <item>CEE 4620</item>
+        <item>CEE 4670</item>
+        <item>CEE 4698</item>
+        <item>CEE 4699</item>
+        <item>CEE 4791</item>
+        <item>CEE 4803</item>
+        <item>CEE 4900</item>
+        <item>CEE 4901</item>
+        <item>CEE 6110</item>
+        <item>CEE 6130</item>
+        <item>CEE 6231</item>
+        <item>CEE 6251</item>
+        <item>CEE 6271</item>
+        <item>CEE 6281</item>
+        <item>CEE 6310</item>
+        <item>CEE 6311</item>
+        <item>CEE 6312</item>
+        <item>CEE 6315</item>
+        <item>CEE 6343</item>
+        <item>CEE 6345</item>
+        <item>CEE 6350</item>
+        <item>CEE 6402</item>
+        <item>CEE 6421</item>
+        <item>CEE 6447</item>
+        <item>CEE 6461</item>
+        <item>CEE 6510</item>
+        <item>CEE 6513</item>
+        <item>CEE 6521</item>
+        <item>CEE 6528</item>
+        <item>CEE 6551</item>
+        <item>CEE 6623</item>
+        <item>CEE 6636</item>
+        <item>CEE 6651</item>
+        <item>CEE 6701</item>
+        <item>CEE 6702</item>
+        <item>CEE 6751</item>
+        <item>CEE 6754</item>
+        <item>CEE 6790</item>
+        <item>CEE 7000</item>
+        <item>CEE 8094</item>
+        <item>CEE 8096</item>
+        <item>CEE 8097</item>
+        <item>CEE 8099</item>
+        <item>CEE 8811</item>
+        <item>CEE 8813</item>
+        <item>CEE 8823</item>
+        <item>CEE 8900</item>
+        <item>CEE 8902</item>
+        <item>CEE 8956</item>
+        <item>CEE 9000</item>
+    </string-array>
+    <string-array name = "CollegeofArchitecture">
+        <item>COA 4698</item>
+        <item>COA 8998</item>
+    </string-array>
+    <string-array name = "CollegeofEngineering">
+        <item>COE 1000</item>
+        <item>COE 2001</item>
+        <item>COE 2701</item>
+        <item>COE 3001</item>
+        <item>COE 3002</item>
+    </string-array>
+    <string-array name = "ComputationalModSimData">
+        <item>CX 4010</item>
+        <item>CX 4140</item>
+        <item>CX 4242</item>
+        <item>CX 4640</item>
+    </string-array>
+    <string-array name = "ComputationalScienceEngr">
+        <item>CSE 6001</item>
+        <item>CSE 6010</item>
+        <item>CSE 6040</item>
+        <item>CSE 6140</item>
+        <item>CSE 6220</item>
+        <item>CSE 6230</item>
+        <item>CSE 6242</item>
+        <item>CSE 6250</item>
+        <item>CSE 6643</item>
+        <item>CSE 6644</item>
+        <item>CSE 6740</item>
+        <item>CSE 6742</item>
+        <item>CSE 6748</item>
+        <item>CSE 7000</item>
+        <item>CSE 7750</item>
+        <item>CSE 7999</item>
+        <item>CSE 8803</item>
+        <item>CSE 8903</item>
+        <item>CSE 8997</item>
+        <item>CSE 8998</item>
+        <item>CSE 8999</item>
+        <item>CSE 9000</item>
+    </string-array>
+    <string-array name = "ComputerScience">
+        <item>CS 1100</item>
+        <item>CS 1301</item>
+        <item>CS 1301R</item>
+        <item>CS 1315</item>
+        <item>CS 1315R</item>
+        <item>CS 1331</item>
+        <item>CS 1331R</item>
+        <item>CS 1332</item>
+        <item>CS 1332R</item>
+        <item>CS 1371</item>
+        <item>CS 1371R</item>
+        <item>CS 2050</item>
+        <item>CS 2050R</item>
+        <item>CS 2051</item>
+        <item>CS 2110</item>
+        <item>CS 2200</item>
+        <item>CS 2261</item>
+        <item>CS 2316</item>
+        <item>CS 2316R</item>
+        <item>CS 2340</item>
+        <item>CS 2698</item>
+        <item>CS 2699</item>
+        <item>CS 2701</item>
+        <item>CS 2801</item>
+        <item>CS 2802</item>
+        <item>CS 2803</item>
+        <item>CS 3210</item>
+        <item>CS 3220</item>
+        <item>CS 3251</item>
+        <item>CS 3300</item>
+        <item>CS 3311</item>
+        <item>CS 3312</item>
+        <item>CS 3451</item>
+        <item>CS 3510</item>
+        <item>CS 3511</item>
+        <item>CS 3600</item>
+        <item>CS 3630</item>
+        <item>CS 3651</item>
+        <item>CS 3743</item>
+        <item>CS 3790</item>
+        <item>CS 3873</item>
+        <item>CS 4010</item>
+        <item>CS 4210</item>
+        <item>CS 4220</item>
+        <item>CS 4235</item>
+        <item>CS 4240</item>
+        <item>CS 4251</item>
+        <item>CS 4261</item>
+        <item>CS 4290</item>
+        <item>CS 4400</item>
+        <item>CS 4420</item>
+        <item>CS 4455</item>
+        <item>CS 4460</item>
+        <item>CS 4460R</item>
+        <item>CS 4470</item>
+        <item>CS 4476</item>
+        <item>CS 4496</item>
+        <item>CS 4497</item>
+        <item>CS 4510</item>
+        <item>CS 4540</item>
+        <item>CS 4590</item>
+        <item>CS 4605</item>
+        <item>CS 4635</item>
+        <item>CS 4641</item>
+        <item>CS 4650</item>
+        <item>CS 4660</item>
+        <item>CS 4690</item>
+        <item>CS 4698</item>
+        <item>CS 4699</item>
+        <item>CS 4726</item>
+        <item>CS 4741</item>
+        <item>CS 4803</item>
+        <item>CS 4873</item>
+        <item>CS 4883</item>
+        <item>CS 4901</item>
+        <item>CS 4903</item>
+        <item>CS 4980</item>
+        <item>CS 6035</item>
+        <item>CS 6200</item>
+        <item>CS 6210</item>
+        <item>CS 6220</item>
+        <item>CS 6235</item>
+        <item>CS 6238</item>
+        <item>CS 6250</item>
+        <item>CS 6260</item>
+        <item>CS 6262</item>
+        <item>CS 6263</item>
+        <item>CS 6264</item>
+        <item>CS 6265</item>
+        <item>CS 6290</item>
+        <item>CS 6291</item>
+        <item>CS 6300</item>
+        <item>CS 6301</item>
+        <item>CS 6310</item>
+        <item>CS 6340</item>
+        <item>CS 6400</item>
+        <item>CS 6422</item>
+        <item>CS 6440</item>
+        <item>CS 6451</item>
+        <item>CS 6452</item>
+        <item>CS 6454</item>
+        <item>CS 6456</item>
+        <item>CS 6457</item>
+        <item>CS 6460</item>
+        <item>CS 6475</item>
+        <item>CS 6476</item>
+        <item>CS 6491</item>
+        <item>CS 6497</item>
+        <item>CS 6515</item>
+        <item>CS 6601</item>
+        <item>CS 6603</item>
+        <item>CS 6726</item>
+        <item>CS 6727</item>
+        <item>CS 6730</item>
+        <item>CS 6747</item>
+        <item>CS 6750</item>
+        <item>CS 6753</item>
+        <item>CS 6755</item>
+        <item>CS 6998</item>
+        <item>CS 6999</item>
+        <item>CS 7000</item>
+        <item>CS 7001</item>
+        <item>CS 7210</item>
+        <item>CS 7280</item>
+        <item>CS 7292</item>
+        <item>CS 7470</item>
+        <item>CS 7496</item>
+        <item>CS 7545</item>
+        <item>CS 7632</item>
+        <item>CS 7637</item>
+        <item>CS 7638</item>
+        <item>CS 7639</item>
+        <item>CS 7641</item>
+        <item>CS 7642</item>
+        <item>CS 7643</item>
+        <item>CS 7644</item>
+        <item>CS 7646</item>
+        <item>CS 7650</item>
+        <item>CS 7741</item>
+        <item>CS 7750</item>
+        <item>CS 7785</item>
+        <item>CS 7999</item>
+        <item>CS 8001</item>
+        <item>CS 8750</item>
+        <item>CS 8751</item>
+        <item>CS 8801</item>
+        <item>CS 8803</item>
+        <item>CS 8903</item>
+        <item>CS 8997</item>
+        <item>CS 8998</item>
+        <item>CS 8999</item>
+        <item>CS 9000</item>
+    </string-array>
+    <string-array name = "CooperativeWorkAssignment">
+        <item>COOP 2000</item>
+        <item>COOP 3011</item>
+        <item>COOP 4000</item>
+    </string-array>
+    <string-array name = "EarthandAtmosphericSciences">
+        <item>EAS 1600</item>
+        <item>EAS 1601</item>
+        <item>EAS 2600</item>
+        <item>EAS 2655</item>
+        <item>EAS 2695</item>
+        <item>EAS 2699</item>
+        <item>EAS 2750</item>
+        <item>EAS 3603</item>
+        <item>EAS 3610</item>
+        <item>EAS 3803</item>
+        <item>EAS 4220</item>
+        <item>EAS 4221</item>
+        <item>EAS 4224</item>
+        <item>EAS 4305</item>
+        <item>EAS 4316</item>
+        <item>EAS 4380</item>
+        <item>EAS 4410</item>
+        <item>EAS 4525</item>
+        <item>EAS 4610</item>
+        <item>EAS 4651</item>
+        <item>EAS 4655</item>
+        <item>EAS 4656</item>
+        <item>EAS 4695</item>
+        <item>EAS 4698</item>
+        <item>EAS 4699</item>
+        <item>EAS 4801</item>
+        <item>EAS 4803</item>
+        <item>EAS 4813</item>
+        <item>EAS 6000</item>
+        <item>EAS 6130</item>
+        <item>EAS 6200</item>
+        <item>EAS 6224</item>
+        <item>EAS 6305</item>
+        <item>EAS 6316</item>
+        <item>EAS 6380</item>
+        <item>EAS 6500</item>
+        <item>EAS 6502</item>
+        <item>EAS 6525</item>
+        <item>EAS 6751</item>
+        <item>EAS 6765</item>
+        <item>EAS 6790</item>
+        <item>EAS 7000</item>
+        <item>EAS 7999</item>
+        <item>EAS 8001</item>
+        <item>EAS 8011</item>
+        <item>EAS 8801</item>
+        <item>EAS 8803</item>
+        <item>EAS 8813</item>
+        <item>EAS 8901</item>
+        <item>EAS 8903</item>
+        <item>EAS 8997</item>
+        <item>EAS 8998</item>
+        <item>EAS 8999</item>
+        <item>EAS 9000</item>
+    </string-array>
+    <string-array name = "Economics">
+        <item>ECON 2100</item>
+        <item>ECON 2101</item>
+        <item>ECON 2105</item>
+        <item>ECON 2106</item>
+        <item>ECON 2250</item>
+        <item>ECON 3110</item>
+        <item>ECON 3120</item>
+        <item>ECON 3161</item>
+        <item>ECON 3300</item>
+        <item>ECON 4060</item>
+        <item>ECON 4160</item>
+        <item>ECON 4180</item>
+        <item>ECON 4340</item>
+        <item>ECON 4357</item>
+        <item>ECON 4415</item>
+        <item>ECON 4698</item>
+        <item>ECON 4699</item>
+        <item>ECON 4803</item>
+        <item>ECON 4811</item>
+        <item>ECON 4901</item>
+        <item>ECON 4910</item>
+        <item>ECON 4990</item>
+        <item>ECON 6100</item>
+        <item>ECON 6106</item>
+        <item>ECON 6140</item>
+        <item>ECON 6200</item>
+        <item>ECON 6431</item>
+        <item>ECON 6510</item>
+        <item>ECON 7004</item>
+        <item>ECON 7012</item>
+        <item>ECON 7022</item>
+        <item>ECON 7121</item>
+        <item>ECON 8801</item>
+        <item>ECON 8803</item>
+        <item>ECON 8910</item>
+        <item>ECON 8990</item>
+        <item>ECON 9000</item>
+    </string-array>
+    <string-array name = "ElectCompEngrProfessional">
+        <item>ECEP 6310</item>
+    </string-array>
+    <string-array name = "ElectricalComputerEngr">
+        <item>ECE 1100</item>
+        <item>ECE 2001</item>
+        <item>ECE 2020</item>
+        <item>ECE 2026</item>
+        <item>ECE 2031</item>
+        <item>ECE 2035</item>
+        <item>ECE 2036</item>
+        <item>ECE 2040</item>
+        <item>ECE 2045</item>
+        <item>ECE 2698</item>
+        <item>ECE 2699</item>
+        <item>ECE 2901</item>
+        <item>ECE 2902</item>
+        <item>ECE 2903</item>
+        <item>ECE 3005</item>
+        <item>ECE 3020</item>
+        <item>ECE 3025</item>
+        <item>ECE 3030</item>
+        <item>ECE 3040</item>
+        <item>ECE 3043</item>
+        <item>ECE 3058</item>
+        <item>ECE 3072</item>
+        <item>ECE 3077</item>
+        <item>ECE 3084</item>
+        <item>ECE 3150</item>
+        <item>ECE 3170</item>
+        <item>ECE 3300</item>
+        <item>ECE 3400</item>
+        <item>ECE 3450</item>
+        <item>ECE 3550</item>
+        <item>ECE 3600</item>
+        <item>ECE 3710</item>
+        <item>ECE 3741</item>
+        <item>ECE 3803</item>
+        <item>ECE 3872</item>
+        <item>ECE 3901</item>
+        <item>ECE 3902</item>
+        <item>ECE 3903</item>
+        <item>ECE 3951</item>
+        <item>ECE 3952</item>
+        <item>ECE 4043</item>
+        <item>ECE 4100</item>
+        <item>ECE 4115</item>
+        <item>ECE 4122</item>
+        <item>ECE 4130</item>
+        <item>ECE 4147</item>
+        <item>ECE 4150</item>
+        <item>ECE 4180</item>
+        <item>ECE 4270</item>
+        <item>ECE 4320</item>
+        <item>ECE 4330</item>
+        <item>ECE 4350</item>
+        <item>ECE 4370</item>
+        <item>ECE 4371</item>
+        <item>ECE 4415</item>
+        <item>ECE 4430</item>
+        <item>ECE 4445</item>
+        <item>ECE 4446</item>
+        <item>ECE 4452</item>
+        <item>ECE 4500</item>
+        <item>ECE 4550</item>
+        <item>ECE 4560</item>
+        <item>ECE 4606</item>
+        <item>ECE 4698</item>
+        <item>ECE 4699</item>
+        <item>ECE 4723</item>
+        <item>ECE 4755</item>
+        <item>ECE 4781</item>
+        <item>ECE 4783</item>
+        <item>ECE 4784</item>
+        <item>ECE 4803</item>
+        <item>ECE 4863</item>
+        <item>ECE 4871</item>
+        <item>ECE 4872</item>
+        <item>ECE 4873</item>
+        <item>ECE 4901</item>
+        <item>ECE 4902</item>
+        <item>ECE 4903</item>
+        <item>ECE 4951</item>
+        <item>ECE 4952</item>
+        <item>ECE 6001</item>
+        <item>ECE 6100</item>
+        <item>ECE 6122</item>
+        <item>ECE 6130</item>
+        <item>ECE 6135</item>
+        <item>ECE 6140</item>
+        <item>ECE 6229</item>
+        <item>ECE 6254</item>
+        <item>ECE 6258</item>
+        <item>ECE 6270</item>
+        <item>ECE 6280</item>
+        <item>ECE 6320</item>
+        <item>ECE 6350</item>
+        <item>ECE 6374</item>
+        <item>ECE 6390</item>
+        <item>ECE 6422</item>
+        <item>ECE 6445</item>
+        <item>ECE 6450</item>
+        <item>ECE 6451</item>
+        <item>ECE 6456</item>
+        <item>ECE 6500</item>
+        <item>ECE 6542</item>
+        <item>ECE 6550</item>
+        <item>ECE 6558</item>
+        <item>ECE 6563</item>
+        <item>ECE 6601</item>
+        <item>ECE 6604</item>
+        <item>ECE 6605</item>
+        <item>ECE 6607</item>
+        <item>ECE 6610</item>
+        <item>ECE 6612</item>
+        <item>ECE 6727</item>
+        <item>ECE 6747</item>
+        <item>ECE 6779</item>
+        <item>ECE 6781</item>
+        <item>ECE 6786</item>
+        <item>ECE 6792</item>
+        <item>ECE 7000</item>
+        <item>ECE 7056</item>
+        <item>ECE 7721</item>
+        <item>ECE 7741</item>
+        <item>ECE 7750</item>
+        <item>ECE 7785</item>
+        <item>ECE 8001</item>
+        <item>ECE 8022</item>
+        <item>ECE 8750</item>
+        <item>ECE 8751</item>
+        <item>ECE 8803</item>
+        <item>ECE 8813</item>
+        <item>ECE 8823</item>
+        <item>ECE 8843</item>
+        <item>ECE 8900</item>
+        <item>ECE 8901</item>
+        <item>ECE 8902</item>
+        <item>ECE 8903</item>
+        <item>ECE 8997</item>
+        <item>ECE 8998</item>
+        <item>ECE 8999</item>
+        <item>ECE 9000</item>
+    </string-array>
+    <string-array name = "English">
+        <item>ENGL 0999</item>
+        <item>ENGL 1101</item>
+        <item>ENGL 1102</item>
+    </string-array>
+    <string-array name = "French">
+        <item>FREN 1001</item>
+        <item>FREN 1002</item>
+        <item>FREN 2001</item>
+        <item>FREN 2002</item>
+        <item>FREN 3000</item>
+        <item>FREN 3004</item>
+        <item>FREN 3012</item>
+        <item>FREN 3120</item>
+        <item>FREN 3420</item>
+        <item>FREN 3500</item>
+        <item>FREN 3501</item>
+        <item>FREN 3813</item>
+        <item>FREN 4101</item>
+        <item>FREN 4105</item>
+        <item>FREN 4241</item>
+        <item>FREN 4300</item>
+        <item>FREN 4699</item>
+        <item>FREN 4813</item>
+        <item>FREN 6101</item>
+        <item>FREN 6105</item>
+        <item>FREN 6300</item>
+        <item>FREN 6511</item>
+        <item>FREN 8803</item>
+        <item>FREN 8903</item>
+    </string-array>
+    <string-array name = "GeorgiaTech">
+        <item>GT 1000</item>
+        <item>GT 1801</item>
+        <item>GT 2000</item>
+        <item>GT 2100</item>
+        <item>GT 2201</item>
+        <item>GT 2801</item>
+        <item>GT 2803</item>
+        <item>GT 3803</item>
+        <item>GT 4100</item>
+        <item>GT 4801</item>
+        <item>GT 4803</item>
+        <item>GT 8801</item>
+    </string-array>
+    <string-array name = "GeorgiaTechLorraine">
+        <item>GTL 2000</item>
+    </string-array>
+    <string-array name = "German">
+        <item>GRMN 1001</item>
+        <item>GRMN 1002</item>
+        <item>GRMN 2001</item>
+        <item>GRMN 2002</item>
+        <item>GRMN 3011</item>
+        <item>GRMN 4010</item>
+        <item>GRMN 4699</item>
+        <item>GRMN 4823</item>
+        <item>GRMN 6010</item>
+        <item>GRMN 6510</item>
+        <item>GRMN 8803</item>
+    </string-array>
+    <string-array name = "GlobalMediaandCultures">
+        <item>GMC 6001</item>
+        <item>GMC 6002</item>
+        <item>GMC 6003</item>
+    </string-array>
+    <string-array name = "HealthSystems">
+        <item>HS 6000</item>
+    </string-array>
+    <string-array name = "Hebrew">
+        <item>HEBW 1001</item>
+        <item>HEBW 2001</item>
+        <item>HEBW 2501</item>
+    </string-array>
+    <string-array name = "Hindi">
+        <item>HIN 1001</item>
+        <item>HIN 2001</item>
+        <item>HIN 2501</item>
+    </string-array>
+    <string-array name = "History">
+        <item>HIST 2111</item>
+        <item>HIST 2112</item>
+    </string-array>
+    <string-array name = "HistoryTechnologySociety">
+        <item>HTS 1081</item>
+        <item>HTS 2002</item>
+        <item>HTS 2015</item>
+        <item>HTS 2037</item>
+        <item>HTS 2061</item>
+        <item>HTS 2080</item>
+        <item>HTS 2084</item>
+        <item>HTS 2100</item>
+        <item>HTS 2101</item>
+        <item>HTS 2813</item>
+        <item>HTS 3005</item>
+        <item>HTS 3024</item>
+        <item>HTS 3028</item>
+        <item>HTS 3030</item>
+        <item>HTS 3032</item>
+        <item>HTS 3055</item>
+        <item>HTS 3068</item>
+        <item>HTS 3072</item>
+        <item>HTS 3073</item>
+        <item>HTS 3075</item>
+        <item>HTS 3084</item>
+        <item>HTS 3086</item>
+        <item>HTS 4091</item>
+        <item>HTS 4695</item>
+        <item>HTS 4699</item>
+        <item>HTS 4814</item>
+        <item>HTS 6001</item>
+        <item>HTS 6115</item>
+        <item>HTS 6123</item>
+        <item>HTS 6743</item>
+        <item>HTS 8901</item>
+        <item>HTS 8997</item>
+        <item>HTS 8998</item>
+        <item>HTS 9000</item>
+    </string-array>
+    <string-array name = "IndustrialSystemsEngr">
+        <item>ISYE 2027</item>
+        <item>ISYE 3025</item>
+        <item>ISYE 3030</item>
+        <item>ISYE 3039</item>
+        <item>ISYE 3044</item>
+        <item>ISYE 3103</item>
+        <item>ISYE 3104</item>
+        <item>ISYE 3106</item>
+        <item>ISYE 3133</item>
+        <item>ISYE 3232</item>
+        <item>ISYE 3770</item>
+        <item>ISYE 4031</item>
+        <item>ISYE 4034</item>
+        <item>ISYE 4106</item>
+        <item>ISYE 4111</item>
+        <item>ISYE 4133</item>
+        <item>ISYE 4134</item>
+        <item>ISYE 4301</item>
+        <item>ISYE 4311</item>
+        <item>ISYE 4740</item>
+        <item>ISYE 4800</item>
+        <item>ISYE 4801</item>
+        <item>ISYE 4803</item>
+        <item>ISYE 6202</item>
+        <item>ISYE 6225</item>
+        <item>ISYE 6333</item>
+        <item>ISYE 6334</item>
+        <item>ISYE 6335</item>
+        <item>ISYE 6341</item>
+        <item>ISYE 6342</item>
+        <item>ISYE 6381</item>
+        <item>ISYE 6383</item>
+        <item>ISYE 6402</item>
+        <item>ISYE 6404</item>
+        <item>ISYE 6405</item>
+        <item>ISYE 6412</item>
+        <item>ISYE 6413</item>
+        <item>ISYE 6414</item>
+        <item>ISYE 6420</item>
+        <item>ISYE 6501</item>
+        <item>ISYE 6644</item>
+        <item>ISYE 6645</item>
+        <item>ISYE 6650</item>
+        <item>ISYE 6661</item>
+        <item>ISYE 6663</item>
+        <item>ISYE 6664</item>
+        <item>ISYE 6669</item>
+        <item>ISYE 6673</item>
+        <item>ISYE 6739</item>
+        <item>ISYE 6740</item>
+        <item>ISYE 6748</item>
+        <item>ISYE 6759</item>
+        <item>ISYE 6761</item>
+        <item>ISYE 6767</item>
+        <item>ISYE 6772</item>
+        <item>ISYE 6785</item>
+        <item>ISYE 6792</item>
+        <item>ISYE 6805</item>
+        <item>ISYE 7203</item>
+        <item>ISYE 7205</item>
+        <item>ISYE 7406</item>
+        <item>ISYE 7661</item>
+        <item>ISYE 7687</item>
+        <item>ISYE 7750</item>
+        <item>ISYE 8802</item>
+        <item>ISYE 8803</item>
+        <item>ISYE 8811</item>
+        <item>ISYE 8813</item>
+        <item>ISYE 8900</item>
+        <item>ISYE 8901</item>
+        <item>ISYE 8997</item>
+        <item>ISYE 8998</item>
+        <item>ISYE 9000</item>
+    </string-array>
+    <string-array name = "IndustrialDesign">
+        <item>ID 1011</item>
+        <item>ID 1101</item>
+        <item>ID 1401</item>
+        <item>ID 1418</item>
+        <item>ID 2023</item>
+        <item>ID 2101</item>
+        <item>ID 2202</item>
+        <item>ID 2241</item>
+        <item>ID 2320</item>
+        <item>ID 2325</item>
+        <item>ID 2401</item>
+        <item>ID 3031</item>
+        <item>ID 3041</item>
+        <item>ID 3051</item>
+        <item>ID 3302</item>
+        <item>ID 3320</item>
+        <item>ID 3510</item>
+        <item>ID 3803</item>
+        <item>ID 3813</item>
+        <item>ID 3824</item>
+        <item>ID 4061</item>
+        <item>ID 4071</item>
+        <item>ID 4081</item>
+        <item>ID 4206</item>
+        <item>ID 4450</item>
+        <item>ID 4823</item>
+        <item>ID 4824</item>
+        <item>ID 4833</item>
+        <item>ID 4843</item>
+        <item>ID 6100</item>
+        <item>ID 6102</item>
+        <item>ID 6104</item>
+        <item>ID 6105</item>
+        <item>ID 6107</item>
+        <item>ID 6108</item>
+        <item>ID 6109</item>
+        <item>ID 6211</item>
+        <item>ID 6216</item>
+        <item>ID 6400</item>
+        <item>ID 6753</item>
+        <item>ID 6998</item>
+        <item>ID 7000</item>
+        <item>ID 8803</item>
+        <item>ID 8903</item>
+        <item>ID 8997</item>
+        <item>ID 8998</item>
+    </string-array>
+    <string-array name = "IntlPlanCoopAbroad">
+        <item>IPCO 3011</item>
+    </string-array>
+    <string-array name = "IntlPlanInternAbroad">
+    </string-array>
+    <string-array name = "IntlPlanExchangeProgram">
+        <item>IPFS 3012</item>
+    </string-array>
+    <string-array name = "IntlPlanStudyAbroad">
+        <item>IPSA 3012</item>
+    </string-array>
+    <string-array name = "InternationalAffairs">
+        <item>INTA 1110</item>
+        <item>INTA 1200</item>
+        <item>INTA 2010</item>
+        <item>INTA 2030</item>
+        <item>INTA 2040</item>
+        <item>INTA 2050</item>
+        <item>INTA 2221</item>
+        <item>INTA 2241</item>
+        <item>INTA 2901</item>
+        <item>INTA 3042</item>
+        <item>INTA 3044</item>
+        <item>INTA 3101</item>
+        <item>INTA 3102</item>
+        <item>INTA 3104</item>
+        <item>INTA 3110</item>
+        <item>INTA 3130</item>
+        <item>INTA 3203</item>
+        <item>INTA 3221</item>
+        <item>INTA 3231</item>
+        <item>INTA 3242</item>
+        <item>INTA 3301</item>
+        <item>INTA 3304</item>
+        <item>INTA 3330</item>
+        <item>INTA 4011</item>
+        <item>INTA 4040</item>
+        <item>INTA 4060</item>
+        <item>INTA 4500</item>
+        <item>INTA 4740</item>
+        <item>INTA 4803</item>
+        <item>INTA 4811</item>
+        <item>INTA 4901</item>
+        <item>INTA 6003</item>
+        <item>INTA 6004</item>
+        <item>INTA 6011</item>
+        <item>INTA 6102</item>
+        <item>INTA 6103</item>
+        <item>INTA 6105</item>
+        <item>INTA 6306</item>
+        <item>INTA 6331</item>
+        <item>INTA 6450</item>
+        <item>INTA 6704</item>
+        <item>INTA 6742</item>
+        <item>INTA 8000</item>
+        <item>INTA 8010</item>
+        <item>INTA 8803</item>
+        <item>INTA 8901</item>
+        <item>INTA 8997</item>
+        <item>INTA 8998</item>
+        <item>INTA 9000</item>
+    </string-array>
+    <string-array name="InternationalLogistics">
 
-    <string-array name = "graduateCourseType">
-        <item>Major(Graduate)</item>
+    </string-array>
+    <string-array name = "Internship">
+        <item>INTN 2000</item>
+        <item>INTN 2003</item>
+        <item>INTN 2006</item>
+        <item>INTN 2009</item>
+        <item>INTN 3011</item>
+        <item>INTN 3016</item>
+        <item>INTN 3019</item>
+        <item>INTN 4000</item>
+        <item>INTN 4003</item>
+        <item>INTN 4006</item>
+        <item>INTN 4009</item>
+        <item>INTN 6003</item>
+        <item>INTN 6004</item>
+        <item>INTN 6006</item>
+        <item>INTN 6009</item>
+        <item>INTN 6012</item>
+    </string-array>
+    <string-array name = "IntlExecutiveMBA">
+        <item>IMBA 6010</item>
+        <item>IMBA 6021</item>
+        <item>IMBA 6031</item>
+        <item>IMBA 6050</item>
+        <item>IMBA 6071</item>
+        <item>IMBA 6101</item>
+        <item>IMBA 6121</item>
+        <item>IMBA 6140</item>
+        <item>IMBA 6160</item>
+        <item>IMBA 6230</item>
+        <item>IMBA 6260</item>
+        <item>IMBA 6420</item>
+        <item>IMBA 6430</item>
+    </string-array>
+    <string-array name="IvanAllenCollege">
+
+    </string-array>
+    <string-array name = "Japanese">
+        <item>JAPN 1001</item>
+        <item>JAPN 1002</item>
+        <item>JAPN 2001</item>
+        <item>JAPN 2002</item>
+        <item>JAPN 3001</item>
+        <item>JAPN 3401</item>
+        <item>JAPN 4113</item>
+        <item>JAPN 4193</item>
+        <item>JAPN 4750</item>
+        <item>JAPN 8803</item>
+    </string-array>
+    <string-array name = "Korean">
+        <item>KOR 1001</item>
+        <item>KOR 1002</item>
+        <item>KOR 2001</item>
+        <item>KOR 3001</item>
+        <item>KOR 3415</item>
+        <item>KOR 4001</item>
+        <item>KOR 4691</item>
+        <item>KOR 4699</item>
+        <item>KOR 4813</item>
+        <item>KOR 8803</item>
+    </string-array>
+    <string-array name="LearningSupport">
+
+    </string-array>
+    <string-array name = "Linguistics">
+        <item>LING 2100</item>
+        <item>LING 3100</item>
+        <item>LING 4015</item>
+        <item>LING 6015</item>
+    </string-array>
+    <string-array name = "LiteratureMediaComm">
+        <item>LMC 2000</item>
+        <item>LMC 2060</item>
+        <item>LMC 2100</item>
+        <item>LMC 2350</item>
+        <item>LMC 2400</item>
+        <item>LMC 2410</item>
+        <item>LMC 2500</item>
+        <item>LMC 2661</item>
+        <item>LMC 2662</item>
+        <item>LMC 2699</item>
+        <item>LMC 2700</item>
+        <item>LMC 2720</item>
+        <item>LMC 2730</item>
+        <item>LMC 3204</item>
+        <item>LMC 3206</item>
+        <item>LMC 3208</item>
+        <item>LMC 3210</item>
+        <item>LMC 3214</item>
+        <item>LMC 3226</item>
+        <item>LMC 3228</item>
+        <item>LMC 3234</item>
+        <item>LMC 3236</item>
+        <item>LMC 3254</item>
+        <item>LMC 3259</item>
+        <item>LMC 3259R</item>
+        <item>LMC 3263</item>
+        <item>LMC 3304</item>
+        <item>LMC 3316</item>
+        <item>LMC 3318</item>
+        <item>LMC 3402</item>
+        <item>LMC 3403</item>
+        <item>LMC 3407</item>
+        <item>LMC 3412</item>
+        <item>LMC 3431</item>
+        <item>LMC 3432</item>
+        <item>LMC 3511</item>
+        <item>LMC 3514</item>
+        <item>LMC 3661</item>
+        <item>LMC 3662</item>
+        <item>LMC 3705</item>
+        <item>LMC 3710</item>
+        <item>LMC 3813</item>
+        <item>LMC 4000</item>
+        <item>LMC 4102</item>
+        <item>LMC 4602</item>
+        <item>LMC 4699</item>
+        <item>LMC 4701</item>
+        <item>LMC 4702</item>
+        <item>LMC 4720</item>
+        <item>LMC 4725</item>
+        <item>LMC 4730</item>
+        <item>LMC 4904</item>
+        <item>LMC 6310</item>
+        <item>LMC 6316</item>
+        <item>LMC 6317</item>
+        <item>LMC 6399</item>
+        <item>LMC 6650</item>
+        <item>LMC 6743</item>
+        <item>LMC 6753</item>
+        <item>LMC 6800</item>
+        <item>LMC 6998</item>
+        <item>LMC 7000</item>
+        <item>LMC 7999</item>
+        <item>LMC 8000</item>
+        <item>LMC 8803</item>
+        <item>LMC 8903</item>
+        <item>LMC 8910</item>
+        <item>LMC 8997</item>
+        <item>LMC 8998</item>
+        <item>LMC 8999</item>
+        <item>LMC 9000</item>
+    </string-array>
+    <string-array name = "Management">
+        <item>MGT 2106</item>
+        <item>MGT 2210</item>
+        <item>MGT 2250</item>
+        <item>MGT 2255</item>
+        <item>MGT 3000</item>
+        <item>MGT 3062</item>
+        <item>MGT 3076</item>
+        <item>MGT 3078</item>
+        <item>MGT 3079</item>
+        <item>MGT 3082</item>
+        <item>MGT 3101</item>
+        <item>MGT 3102</item>
+        <item>MGT 3103</item>
+        <item>MGT 3300</item>
+        <item>MGT 3313</item>
+        <item>MGT 3501</item>
+        <item>MGT 3510</item>
+        <item>MGT 3599</item>
+        <item>MGT 3606</item>
+        <item>MGT 3659</item>
+        <item>MGT 3660</item>
+        <item>MGT 3662</item>
+        <item>MGT 3664</item>
+        <item>MGT 3743</item>
+        <item>MGT 3745</item>
+        <item>MGT 3770</item>
+        <item>MGT 4010</item>
+        <item>MGT 4026</item>
+        <item>MGT 4027</item>
+        <item>MGT 4028</item>
+        <item>MGT 4041</item>
+        <item>MGT 4050</item>
+        <item>MGT 4052</item>
+        <item>MGT 4057</item>
+        <item>MGT 4058</item>
+        <item>MGT 4067</item>
+        <item>MGT 4070</item>
+        <item>MGT 4072</item>
+        <item>MGT 4193</item>
+        <item>MGT 4220</item>
+        <item>MGT 4304</item>
+        <item>MGT 4308</item>
+        <item>MGT 4311</item>
+        <item>MGT 4353</item>
+        <item>MGT 4360</item>
+        <item>MGT 4366</item>
+        <item>MGT 4369</item>
+        <item>MGT 4401</item>
+        <item>MGT 4450</item>
+        <item>MGT 4670</item>
+        <item>MGT 4726</item>
+        <item>MGT 4741</item>
+        <item>MGT 4803</item>
+        <item>MGT 4833</item>
+        <item>MGT 4910</item>
+        <item>MGT 4911</item>
+        <item>MGT 4912</item>
+        <item>MGT 6000</item>
+        <item>MGT 6010</item>
+        <item>MGT 6020</item>
+        <item>MGT 6022</item>
+        <item>MGT 6028</item>
+        <item>MGT 6030</item>
+        <item>MGT 6042</item>
+        <item>MGT 6051</item>
+        <item>MGT 6059</item>
+        <item>MGT 6066</item>
+        <item>MGT 6070</item>
+        <item>MGT 6078</item>
+        <item>MGT 6080</item>
+        <item>MGT 6082</item>
+        <item>MGT 6086</item>
+        <item>MGT 6090</item>
+        <item>MGT 6107</item>
+        <item>MGT 6110</item>
+        <item>MGT 6113</item>
+        <item>MGT 6114</item>
+        <item>MGT 6119</item>
+        <item>MGT 6203</item>
+        <item>MGT 6311</item>
+        <item>MGT 6325</item>
+        <item>MGT 6345</item>
+        <item>MGT 6353</item>
+        <item>MGT 6357</item>
+        <item>MGT 6369</item>
+        <item>MGT 6500</item>
+        <item>MGT 6501</item>
+        <item>MGT 6502</item>
+        <item>MGT 6503</item>
+        <item>MGT 6504</item>
+        <item>MGT 6505</item>
+        <item>MGT 6506</item>
+        <item>MGT 6507</item>
+        <item>MGT 6508</item>
+        <item>MGT 6510</item>
+        <item>MGT 6665</item>
+        <item>MGT 6726</item>
+        <item>MGT 6748</item>
+        <item>MGT 6753</item>
+        <item>MGT 6772</item>
+        <item>MGT 6785</item>
+        <item>MGT 7105</item>
+        <item>MGT 8803</item>
+        <item>MGT 8813</item>
+        <item>MGT 8823</item>
+        <item>MGT 8832</item>
+        <item>MGT 8903</item>
+        <item>MGT 8997</item>
+        <item>MGT 8998</item>
+        <item>MGT 9000</item>
+    </string-array>
+    <string-array name = "ManagementofTechnology">
+        <item>MOT 6106</item>
+        <item>MOT 6111</item>
+        <item>MOT 6115</item>
+        <item>MOT 6122</item>
+        <item>MOT 6129</item>
+    </string-array>
+    <string-array name = "MaterialsScienceEngr">
+        <item>MSE 1111</item>
+        <item>MSE 2001</item>
+        <item>MSE 2021</item>
+        <item>MSE 2698</item>
+        <item>MSE 2699</item>
+        <item>MSE 2801</item>
+        <item>MSE 3001</item>
+        <item>MSE 3002</item>
+        <item>MSE 3005</item>
+        <item>MSE 3015</item>
+        <item>MSE 3025</item>
+        <item>MSE 3210</item>
+        <item>MSE 3225</item>
+        <item>MSE 3300</item>
+        <item>MSE 3720</item>
+        <item>MSE 4002</item>
+        <item>MSE 4006</item>
+        <item>MSE 4022</item>
+        <item>MSE 4140</item>
+        <item>MSE 4330</item>
+        <item>MSE 4410</item>
+        <item>MSE 4698</item>
+        <item>MSE 4699</item>
+        <item>MSE 4723</item>
+        <item>MSE 4740</item>
+        <item>MSE 4751</item>
+        <item>MSE 4755</item>
+        <item>MSE 4759</item>
+        <item>MSE 4766</item>
+        <item>MSE 4775</item>
+        <item>MSE 4790</item>
+        <item>MSE 4791</item>
+        <item>MSE 6140</item>
+        <item>MSE 6404</item>
+        <item>MSE 6405</item>
+        <item>MSE 6411</item>
+        <item>MSE 6752</item>
+        <item>MSE 6754</item>
+        <item>MSE 6775</item>
+        <item>MSE 6796</item>
+        <item>MSE 7000</item>
+        <item>MSE 7140</item>
+        <item>MSE 7772</item>
+        <item>MSE 8200</item>
+        <item>MSE 8801</item>
+        <item>MSE 8803</item>
+        <item>MSE 8903</item>
+        <item>MSE 8997</item>
+        <item>MSE 8998</item>
+        <item>MSE 9000</item>
+        <item>MSE 9999</item>
+    </string-array>
+    <string-array name = "Mathematics">
+        <item>MATH 0999</item>
+        <item>MATH 1111</item>
+        <item>MATH 1113</item>
+        <item>MATH 1551</item>
+        <item>MATH 1552</item>
+        <item>MATH 1553</item>
+        <item>MATH 1554</item>
+        <item>MATH 1564</item>
+        <item>MATH 1711</item>
+        <item>MATH 1712</item>
+        <item>MATH 2106</item>
+        <item>MATH 2550</item>
+        <item>MATH 2551</item>
+        <item>MATH 2552</item>
+        <item>MATH 2603</item>
+        <item>MATH 2699</item>
+        <item>MATH 3012</item>
+        <item>MATH 3215</item>
+        <item>MATH 3235</item>
+        <item>MATH 3406</item>
+        <item>MATH 3670</item>
+        <item>MATH 4022</item>
+        <item>MATH 4080</item>
+        <item>MATH 4090</item>
+        <item>MATH 4107</item>
+        <item>MATH 4221</item>
+        <item>MATH 4261</item>
+        <item>MATH 4305</item>
+        <item>MATH 4317</item>
+        <item>MATH 4320</item>
+        <item>MATH 4347</item>
+        <item>MATH 4431</item>
+        <item>MATH 4441</item>
+        <item>MATH 4541</item>
+        <item>MATH 4581</item>
+        <item>MATH 4640</item>
+        <item>MATH 4698</item>
+        <item>MATH 4699</item>
+        <item>MATH 4782</item>
+        <item>MATH 4801</item>
+        <item>MATH 4802</item>
+        <item>MATH 4803</item>
+        <item>MATH 4999</item>
+        <item>MATH 6001</item>
+        <item>MATH 6014</item>
+        <item>MATH 6112</item>
+        <item>MATH 6121</item>
+        <item>MATH 6221</item>
+        <item>MATH 6241</item>
+        <item>MATH 6263</item>
+        <item>MATH 6266</item>
+        <item>MATH 6307</item>
+        <item>MATH 6337</item>
+        <item>MATH 6341</item>
+        <item>MATH 6421</item>
+        <item>MATH 6452</item>
+        <item>MATH 6514</item>
+        <item>MATH 6580</item>
+        <item>MATH 6640</item>
+        <item>MATH 6643</item>
+        <item>MATH 6644</item>
+        <item>MATH 6701</item>
+        <item>MATH 6759</item>
+        <item>MATH 6761</item>
+        <item>MATH 6767</item>
+        <item>MATH 6785</item>
+        <item>MATH 7000</item>
+        <item>MATH 7244</item>
+        <item>MATH 7252</item>
+        <item>MATH 7337</item>
+        <item>MATH 7999</item>
+        <item>MATH 8305</item>
+        <item>MATH 8803</item>
+        <item>MATH 8900</item>
+        <item>MATH 8997</item>
+        <item>MATH 8998</item>
+        <item>MATH 9000</item>
+    </string-array>
+    <string-array name = "MechanicalEngineering">
+        <item>ME 1670</item>
+        <item>ME 2016</item>
+        <item>ME 2110</item>
+        <item>ME 2202</item>
+        <item>ME 2205</item>
+        <item>ME 2698</item>
+        <item>ME 2699</item>
+        <item>ME 3017</item>
+        <item>ME 3057</item>
+        <item>ME 3180</item>
+        <item>ME 3210</item>
+        <item>ME 3322</item>
+        <item>ME 3340</item>
+        <item>ME 3345</item>
+        <item>ME 3743</item>
+        <item>ME 4011</item>
+        <item>ME 4012</item>
+        <item>ME 4042</item>
+        <item>ME 4056</item>
+        <item>ME 4171</item>
+        <item>ME 4182</item>
+        <item>ME 4189</item>
+        <item>ME 4193</item>
+        <item>ME 4315</item>
+        <item>ME 4332</item>
+        <item>ME 4342</item>
+        <item>ME 4405</item>
+        <item>ME 4451</item>
+        <item>ME 4452</item>
+        <item>ME 4698</item>
+        <item>ME 4699</item>
+        <item>ME 4720</item>
+        <item>ME 4723</item>
+        <item>ME 4740</item>
+        <item>ME 4741</item>
+        <item>ME 4753</item>
+        <item>ME 4757</item>
+        <item>ME 4758</item>
+        <item>ME 4759</item>
+        <item>ME 4766</item>
+        <item>ME 4775</item>
+        <item>ME 4781</item>
+        <item>ME 4790</item>
+        <item>ME 4791</item>
+        <item>ME 4803</item>
+        <item>ME 4823</item>
+        <item>ME 4863</item>
+        <item>ME 4901</item>
+        <item>ME 4903</item>
+        <item>ME 6101</item>
+        <item>ME 6105</item>
+        <item>ME 6124</item>
+        <item>ME 6201</item>
+        <item>ME 6203</item>
+        <item>ME 6204</item>
+        <item>ME 6222</item>
+        <item>ME 6224</item>
+        <item>ME 6229</item>
+        <item>ME 6242</item>
+        <item>ME 6244</item>
+        <item>ME 6300</item>
+        <item>ME 6304</item>
+        <item>ME 6335</item>
+        <item>ME 6401</item>
+        <item>ME 6404</item>
+        <item>ME 6406</item>
+        <item>ME 6441</item>
+        <item>ME 6444</item>
+        <item>ME 6449</item>
+        <item>ME 6601</item>
+        <item>ME 6701</item>
+        <item>ME 6705</item>
+        <item>ME 6741</item>
+        <item>ME 6743</item>
+        <item>ME 6753</item>
+        <item>ME 6760</item>
+        <item>ME 6765</item>
+        <item>ME 6769</item>
+        <item>ME 6779</item>
+        <item>ME 6782</item>
+        <item>ME 6792</item>
+        <item>ME 6795</item>
+        <item>ME 6796</item>
+        <item>ME 7000</item>
+        <item>ME 7056</item>
+        <item>ME 7057</item>
+        <item>ME 7741</item>
+        <item>ME 7751</item>
+        <item>ME 7757</item>
+        <item>ME 7785</item>
+        <item>ME 8001</item>
+        <item>ME 8014</item>
+        <item>ME 8750</item>
+        <item>ME 8751</item>
+        <item>ME 8801</item>
+        <item>ME 8883</item>
+        <item>ME 8903</item>
+        <item>ME 8906</item>
+        <item>ME 8913</item>
+        <item>ME 8916</item>
+        <item>ME 8921</item>
+        <item>ME 8923</item>
+        <item>ME 8931</item>
+        <item>ME 8932</item>
+        <item>ME 8933</item>
+        <item>ME 8943</item>
+        <item>ME 8946</item>
+        <item>ME 8952</item>
+        <item>ME 8953</item>
+        <item>ME 8956</item>
+        <item>ME 8961</item>
+        <item>ME 8963</item>
+        <item>ME 8966</item>
+        <item>ME 8973</item>
+        <item>ME 8976</item>
+        <item>ME 8983</item>
+        <item>ME 8984</item>
+        <item>ME 8986</item>
+        <item>ME 8997</item>
+        <item>ME 8998</item>
+        <item>ME 9000</item>
+    </string-array>
+    <string-array name = "MedicalPhysics">
+        <item>MP 6011</item>
+        <item>MP 6012</item>
+        <item>MP 6101</item>
+        <item>MP 6203</item>
+        <item>MP 6300</item>
+        <item>MP 6401</item>
+        <item>MP 6402</item>
+        <item>MP 6407</item>
+        <item>MP 6756</item>
+        <item>MP 7000</item>
+        <item>MP 8014</item>
+        <item>MP 8901</item>
+        <item>MP 8903</item>
+        <item>MP 8904</item>
+        <item>MP 8905</item>
+        <item>MP 8906</item>
+        <item>MP 9000</item>
+    </string-array>
+    <string-array name = "MilitaryScienceLeadership">
+        <item>MSL 1001</item>
+        <item>MSL 2001</item>
+        <item>MSL 3001</item>
+        <item>MSL 4001</item>
+        <item>MSL 4901</item>
+    </string-array>
+    <string-array name = "ModernLanguages">
+        <item>ML 2500</item>
+        <item>ML 6501</item>
+        <item>ML 8801</item>
+    </string-array>
+    <string-array name = "Music">
+        <item>MUSI 2010</item>
+        <item>MUSI 2012</item>
+        <item>MUSI 2525</item>
+        <item>MUSI 3018</item>
+        <item>MUSI 3121</item>
+        <item>MUSI 3131</item>
+        <item>MUSI 3231</item>
+        <item>MUSI 3251</item>
+        <item>MUSI 3261</item>
+        <item>MUSI 3311</item>
+        <item>MUSI 3321</item>
+        <item>MUSI 3511</item>
+        <item>MUSI 3531</item>
+        <item>MUSI 3551</item>
+        <item>MUSI 3611</item>
+        <item>MUSI 3770</item>
+        <item>MUSI 4457</item>
+        <item>MUSI 4630</item>
+        <item>MUSI 4670</item>
+        <item>MUSI 4698</item>
+        <item>MUSI 4699</item>
+        <item>MUSI 4705</item>
+        <item>MUSI 4843</item>
+        <item>MUSI 6002</item>
+        <item>MUSI 6103</item>
+        <item>MUSI 6201</item>
+        <item>MUSI 7000</item>
+        <item>MUSI 7100</item>
+        <item>MUSI 7998</item>
+        <item>MUSI 8001</item>
+        <item>MUSI 8002</item>
+        <item>MUSI 8803</item>
+        <item>MUSI 8997</item>
+        <item>MUSI 8998</item>
+        <item>MUSI 9000</item>
+    </string-array>
+    <string-array name = "NavalScience">
+        <item>NS 1000</item>
+        <item>NS 1321</item>
+        <item>NS 2321</item>
+        <item>NS 3325</item>
+        <item>NS 4320</item>
+        <item>NS 4333</item>
+    </string-array>
+    <string-array name = "Neuroscience">
+        <item>NEUR 2001</item>
+        <item>NEUR 2001R</item>
+        <item>NEUR 2698</item>
+        <item>NEUR 2699</item>
+        <item>NEUR 3001</item>
+        <item>NEUR 3003</item>
+        <item>NEUR 3010</item>
+        <item>NEUR 4001</item>
+        <item>NEUR 4698</item>
+        <item>NEUR 4699</item>
+        <item>NEUR 4803</item>
+    </string-array>
+    <string-array name = "NuclearRadiologicalEngr">
+        <item>NRE 2120</item>
+        <item>NRE 2699</item>
+        <item>NRE 3112</item>
+        <item>NRE 3208</item>
+        <item>NRE 4210</item>
+        <item>NRE 4214</item>
+        <item>NRE 4328</item>
+        <item>NRE 4350</item>
+        <item>NRE 4407</item>
+        <item>NRE 4610</item>
+        <item>NRE 4698</item>
+        <item>NRE 4699</item>
+        <item>NRE 4903</item>
+        <item>NRE 6101</item>
+        <item>NRE 6756</item>
+        <item>NRE 7000</item>
+        <item>NRE 7757</item>
+        <item>NRE 8014</item>
+        <item>NRE 8803</item>
+        <item>NRE 8903</item>
+        <item>NRE 9000</item>
+    </string-array>
+    <string-array name = "Persian">
+        <item>PERS 1001</item>
+        <item>PERS 2001</item>
+        <item>PERS 3813</item>
+        <item>PERS 4001</item>
+        <item>PERS 8903</item>
+    </string-array>
+    <string-array name = "Philosophy">
+        <item>PHIL 3050</item>
+        <item>PHIL 3109</item>
+        <item>PHIL 3115</item>
+        <item>PHIL 3127</item>
+        <item>PHIL 4176</item>
+        <item>PHIL 4803</item>
+        <item>PHIL 4811</item>
+        <item>PHIL 4901</item>
+        <item>PHIL 6000</item>
+    </string-array>
+    <string-array name = "Physics">
+        <item>PHYS 2021</item>
+        <item>PHYS 2211</item>
+        <item>PHYS 2212</item>
+        <item>PHYS 2213</item>
+        <item>PHYS 2232</item>
+        <item>PHYS 2698</item>
+        <item>PHYS 2699</item>
+        <item>PHYS 2750</item>
+        <item>PHYS 2901</item>
+        <item>PHYS 2902</item>
+        <item>PHYS 3021</item>
+        <item>PHYS 3122</item>
+        <item>PHYS 3123</item>
+        <item>PHYS 3141</item>
+        <item>PHYS 3143</item>
+        <item>PHYS 3151</item>
+        <item>PHYS 3201</item>
+        <item>PHYS 3211</item>
+        <item>PHYS 3226</item>
+        <item>PHYS 3232</item>
+        <item>PHYS 4142</item>
+        <item>PHYS 4143</item>
+        <item>PHYS 4147</item>
+        <item>PHYS 4247</item>
+        <item>PHYS 4251</item>
+        <item>PHYS 4263</item>
+        <item>PHYS 4267</item>
+        <item>PHYS 4321</item>
+        <item>PHYS 4698</item>
+        <item>PHYS 4699</item>
+        <item>PHYS 4782</item>
+        <item>PHYS 4801</item>
+        <item>PHYS 4803</item>
+        <item>PHYS 6101</item>
+        <item>PHYS 6103</item>
+        <item>PHYS 6105</item>
+        <item>PHYS 6124</item>
+        <item>PHYS 6210</item>
+        <item>PHYS 6250</item>
+        <item>PHYS 6268</item>
+        <item>PHYS 6750</item>
+        <item>PHYS 7127</item>
+        <item>PHYS 7741</item>
+        <item>PHYS 8002</item>
+        <item>PHYS 8803</item>
+        <item>PHYS 8813</item>
+        <item>PHYS 8823</item>
+        <item>PHYS 8833</item>
+        <item>PHYS 8901</item>
+        <item>PHYS 8997</item>
+        <item>PHYS 8998</item>
+        <item>PHYS 9000</item>
+    </string-array>
+    <string-array name = "PoliticalScience">
+        <item>POL 1101</item>
+        <item>POL 2101</item>
+    </string-array>
+    <string-array name="PolymerTextileandFiberEng">
+
+    </string-array>
+    <string-array name = "Portuguese">
+        <item>PORT 1001</item>
+        <item>PORT 2001</item>
+        <item>PORT 2501</item>
+        <item>PORT 3420</item>
+    </string-array>
+    <string-array name = "Psychology">
+        <item>PSYC 1101</item>
+        <item>PSYC 2015</item>
+        <item>PSYC 2020</item>
+        <item>PSYC 2103</item>
+        <item>PSYC 2210</item>
+        <item>PSYC 2220</item>
+        <item>PSYC 2230</item>
+        <item>PSYC 2240</item>
+        <item>PSYC 2280</item>
+        <item>PSYC 2698</item>
+        <item>PSYC 2699</item>
+        <item>PSYC 3040</item>
+        <item>PSYC 3790</item>
+        <item>PSYC 3873</item>
+        <item>PSYC 4011</item>
+        <item>PSYC 4020</item>
+        <item>PSYC 4100</item>
+        <item>PSYC 4260</item>
+        <item>PSYC 4600</item>
+        <item>PSYC 4601</item>
+        <item>PSYC 4697</item>
+        <item>PSYC 4698</item>
+        <item>PSYC 4699</item>
+        <item>PSYC 4803</item>
+        <item>PSYC 4900</item>
+        <item>PSYC 6000</item>
+        <item>PSYC 6011</item>
+        <item>PSYC 6018</item>
+        <item>PSYC 6019</item>
+        <item>PSYC 6022</item>
+        <item>PSYC 6023</item>
+        <item>PSYC 6040</item>
+        <item>PSYC 6041</item>
+        <item>PSYC 6043</item>
+        <item>PSYC 6753</item>
+        <item>PSYC 6755</item>
+        <item>PSYC 6998</item>
+        <item>PSYC 7000</item>
+        <item>PSYC 7102</item>
+        <item>PSYC 7105</item>
+        <item>PSYC 7201</item>
+        <item>PSYC 7301</item>
+        <item>PSYC 8020</item>
+        <item>PSYC 8050</item>
+        <item>PSYC 8060</item>
+        <item>PSYC 8901</item>
+        <item>PSYC 8902</item>
+        <item>PSYC 8903</item>
+        <item>PSYC 8904</item>
+        <item>PSYC 8905</item>
+        <item>PSYC 8907</item>
+        <item>PSYC 8908</item>
+        <item>PSYC 8998</item>
+        <item>PSYC 9000</item>
+    </string-array>
+    <string-array name = "PublicPolicy">
+        <item>PUBP 1142</item>
+        <item>PUBP 2010</item>
+        <item>PUBP 2030</item>
+        <item>PUBP 2651</item>
+        <item>PUBP 2698</item>
+        <item>PUBP 3000</item>
+        <item>PUBP 3030</item>
+        <item>PUBP 3120</item>
+        <item>PUBP 3201</item>
+        <item>PUBP 3210</item>
+        <item>PUBP 3214</item>
+        <item>PUBP 3244</item>
+        <item>PUBP 3315</item>
+        <item>PUBP 3502</item>
+        <item>PUBP 3510</item>
+        <item>PUBP 3610</item>
+        <item>PUBP 4010</item>
+        <item>PUBP 4111</item>
+        <item>PUBP 4140</item>
+        <item>PUBP 4212</item>
+        <item>PUBP 4410</item>
+        <item>PUBP 4620</item>
+        <item>PUBP 4640</item>
+        <item>PUBP 4651</item>
+        <item>PUBP 4699</item>
+        <item>PUBP 4725</item>
+        <item>PUBP 4726</item>
+        <item>PUBP 4803</item>
+        <item>PUBP 4823</item>
+        <item>PUBP 4903</item>
+        <item>PUBP 6001</item>
+        <item>PUBP 6014</item>
+        <item>PUBP 6018</item>
+        <item>PUBP 6111</item>
+        <item>PUBP 6114</item>
+        <item>PUBP 6116</item>
+        <item>PUBP 6118</item>
+        <item>PUBP 6120</item>
+        <item>PUBP 6201</item>
+        <item>PUBP 6314</item>
+        <item>PUBP 6326</item>
+        <item>PUBP 6330</item>
+        <item>PUBP 6352</item>
+        <item>PUBP 6360</item>
+        <item>PUBP 6401</item>
+        <item>PUBP 6417</item>
+        <item>PUBP 6501</item>
+        <item>PUBP 6502</item>
+        <item>PUBP 6600</item>
+        <item>PUBP 6725</item>
+        <item>PUBP 6726</item>
+        <item>PUBP 6727</item>
+        <item>PUBP 6743</item>
+        <item>PUBP 6801</item>
+        <item>PUBP 7000</item>
+        <item>PUBP 8101</item>
+        <item>PUBP 8200</item>
+        <item>PUBP 8500</item>
+        <item>PUBP 8510</item>
+        <item>PUBP 8803</item>
+        <item>PUBP 8823</item>
+        <item>PUBP 8900</item>
+        <item>PUBP 8997</item>
+        <item>PUBP 8998</item>
+        <item>PUBP 8999</item>
+        <item>PUBP 9000</item>
+    </string-array>
+    <string-array name = "PublicPolicyJointGSUPhD">
+        <item>PUBJ 8000</item>
+    </string-array>
+    <string-array name = "Russian">
+        <item>RUSS 1001</item>
+        <item>RUSS 1002</item>
+        <item>RUSS 1821</item>
+        <item>RUSS 2001</item>
+        <item>RUSS 2811</item>
+        <item>RUSS 3001</item>
+        <item>RUSS 3222</item>
+        <item>RUSS 4813</item>
+        <item>RUSS 8803</item>
+    </string-array>
+    <string-array name="ServeLearnSustain">
+
+    </string-array>
+    <string-array name = "Sociology">
+        <item>SOC 1101</item>
+    </string-array>
+    <string-array name = "Spanish">
+        <item>SPAN 1002</item>
+        <item>SPAN 2001</item>
+        <item>SPAN 2002</item>
+        <item>SPAN 3040</item>
+        <item>SPAN 3064</item>
+        <item>SPAN 3101</item>
+        <item>SPAN 3111</item>
+        <item>SPAN 3151</item>
+        <item>SPAN 3200</item>
+        <item>SPAN 4061</item>
+        <item>SPAN 4170</item>
+        <item>SPAN 4244</item>
+        <item>SPAN 4270</item>
+        <item>SPAN 4460</item>
+        <item>SPAN 4813</item>
+        <item>SPAN 6170</item>
+        <item>SPAN 6270</item>
+        <item>SPAN 6460</item>
+        <item>SPAN 6998</item>
+        <item>SPAN 8803</item>
+    </string-array>
+    <string-array name = "Swahili">
+        <item>SWAH 1001</item>
+        <item>SWAH 3420</item>
+    </string-array>
+    <string-array name = "VerticallyIntegratedProject">
+        <item>VIP 2600</item>
+        <item>VIP 2601</item>
+        <item>VIP 3601</item>
+        <item>VIP 3602</item>
+        <item>VIP 4600</item>
+        <item>VIP 4601</item>
+        <item>VIP 4602</item>
+        <item>VIP 4603</item>
+        <item>VIP 6600</item>
+        <item>VIP 6601</item>
+        <item>VIP 6602</item>
+        <item>VIP 6603</item>
+    </string-array>
+    <string-array name = "Wolof">
+    <item>WOLO 1001</item>
+    <item>WOLO 3420</item>
     </string-array>
 </resources>

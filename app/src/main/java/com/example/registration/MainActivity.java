@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         String address;
         @Override
         protected void onPreExecute() {
-            address = "http://ec2-3-237-63-241.compute-1.amazonaws.com/AnnouncementList.php";
+            address = "http://ec2-44-197-174-212.compute-1.amazonaws.com/AnnouncementList.php";
         }
 
         @Override

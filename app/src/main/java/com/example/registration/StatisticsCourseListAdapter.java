@@ -1,7 +1,6 @@
 package com.example.registration;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -15,16 +14,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 public class StatisticsCourseListAdapter extends BaseAdapter {
@@ -59,20 +50,19 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, final ViewGroup viewgroup) {
         View v = View.inflate(context, R.layout.statistics, null);
         Button deleteButton = (Button) v.findViewById(R.id.deleteButton);
-        TextView courseNumber = (TextView) v.findViewById(R.id.courseNumber);
+        TextView courseArea = (TextView) v.findViewById(R.id.courseArea);
+        TextView courseCRN = (TextView) v.findViewById(R.id.courseCRN);
         TextView courseTitle = (TextView) v.findViewById(R.id.courseStatisticTitle);
-        TextView courseDivide = (TextView) v.findViewById(R.id.courseDivide);
+        TextView courseSection = (TextView) v.findViewById(R.id.courseSection);
         TextView courseTime = (TextView) v.findViewById(R.id.statisticTimeID);
 
-        courseNumber.setText(courseList.get(position).getCourseNumber());
+        courseArea.setText(courseList.get(position).getCourseArea());
+        courseCRN.setText(courseList.get(position).getCourseCRN());
         courseTitle.setText(courseList.get(position).getCourseTitle());
-        courseDivide.setText(courseList.get(position).getCourseDivide());
+        courseSection.setText(courseList.get(position).getCourseSection());
         courseTime.setText(courseList.get(position).getCourseTime());
 
-        v.setTag(courseList.get(position).getCourseID());
-        /*
-         *  Make(Add course) schedule based on the course added
-         */
+        v.setTag(courseList.get(position).getCourseCRN());
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +86,7 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
                                             .setPositiveButton("OK",null)
                                             .create();
                                     dialog.show();
-                                    StatisticsFragment.totalCredit -= courseList.get(position).getCourseCredit();
+                                    StatisticsFragment.totalCredit -= Integer.parseInt(courseList.get(position).getCourseCredit());
                                     StatisticsFragment.statCredit.setText(StatisticsFragment.totalCredit + "Credits");
                                     courseList.remove(position);
                                     notifyDataSetChanged();
@@ -120,7 +110,7 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
                         }
                     };
 
-                    DeleteRequest deleteRequest = new DeleteRequest(userID, courseList.get(position).getCourseNumber(), responseListener);
+                    DeleteRequest deleteRequest = new DeleteRequest(userID, courseList.get(position).getCourseCRN(), responseListener);
                     RequestQueue queue = Volley.newRequestQueue(parent.getActivity());
                     queue.add(deleteRequest);
                 }

@@ -34,7 +34,7 @@ public class CourseListAdapter extends BaseAdapter {
     private Fragment parent;
     private String userID = MainActivity.userID;
     private Schedule schedule;
-    private List<String> courseNumberList;
+    private List<String> courseCRNList;
     public static int totalCredit = 0;
 
     public CourseListAdapter(Context context, List<Course> courseList, Fragment parent) {
@@ -42,7 +42,7 @@ public class CourseListAdapter extends BaseAdapter {
         this.courseList = courseList;
         this.parent = parent;
         schedule = new Schedule();
-        courseNumberList = new ArrayList<String>();
+        courseCRNList = new ArrayList<String>();
         new BackgroundTask().execute();
         totalCredit = 0;
     }
@@ -66,30 +66,28 @@ public class CourseListAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, final ViewGroup viewgroup) {
         View v =  View.inflate(context,R.layout.course,null);
         TextView courseTitle = (TextView) v.findViewById(R.id.courseTitle);
-        TextView courseProfessor = (TextView) v.findViewById(R.id.courseProfessor);
+        TextView courseInstructor = (TextView) v.findViewById(R.id.courseInstructor);
         TextView courseCredit = (TextView) v.findViewById(R.id.courseCredit);
         TextView courseTerm = (TextView) v.findViewById(R.id.courseTerm);
-        TextView courseID = (TextView) v.findViewById(R.id.courseID);
+        TextView courseCRN = (TextView) v.findViewById(R.id.courseCRN);
         TextView courseTime = (TextView) v.findViewById(R.id.courseTime);
+        TextView courseDay = (TextView) v.findViewById(R.id.courseDay);
 
-        courseTitle.setText(courseList.get(position).getCourseTitle()+"-"+courseList.get(position).getCourseDivide());
-        if(courseList.get(position).getCourseProfessor().equals("")) {
-            courseProfessor.setText("TBA");
+        courseTitle.setText(courseList.get(position).getCourseTitle()+"-"+courseList.get(position).getCourseSection());
+        if(courseList.get(position).getCourseInstructor().equals("")) {
+            courseInstructor.setText("TBA");
         }
 
         else {
-            courseProfessor.setText("Professor " + courseList.get(position).getCourseProfessor());
+            courseInstructor.setText("Professor " + courseList.get(position).getCourseInstructor());
         }
-        courseCredit.setText(courseList.get(position).getCourseCredit() + " Credit");
-        courseTerm.setText(courseList.get(position).getCourseTerm() + " semester");
-        courseID.setText(courseList.get(position).getCourseID());
+        courseCredit.setText(courseList.get(position).getCourseCredit());
+        courseTerm.setText(courseList.get(position).getCourseTerm());
+        courseCRN.setText(courseList.get(position).getCourseCRN());
         courseTime.setText(courseList.get(position).getCourseTime());
+        courseDay.setText(courseList.get(position).getCourseDay());
 
-        v.setTag(courseList.get(position).getCourseID());
-
-            /*
-             *  Make(Add course) schedule based on the course added
-            */
+        v.setTag(courseList.get(position).getCourseCRN());
 
         Button addSchedule = (Button) v.findViewById(R.id.addScheduleButton);
         addSchedule.setOnClickListener(new View.OnClickListener() {
@@ -98,8 +96,7 @@ public class CourseListAdapter extends BaseAdapter {
                 boolean validate = false;
                 validate = schedule.validate(courseList.get(position).getCourseTime());
 
-                //if course is already registered
-                if(!alreadyIn(courseNumberList, courseList.get(position).getCourseNumber())) {
+                if(!alreadyIn(courseCRNList, courseList.get(position).getCourseCRN())) {
 
                     AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
                     AlertDialog dialog = alert.setMessage("Course is already registered in your schedule")
@@ -109,7 +106,8 @@ public class CourseListAdapter extends BaseAdapter {
                     return;
 
                 }
-                else if(totalCredit + courseList.get(position).getCourseCredit() > 21) {
+
+                else if(totalCredit + Integer.parseInt(courseList.get(position).getCourseCredit()) > 21) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
                     AlertDialog dialog = alert.setMessage("Registered credit hours can not exceed 21 credits")
                             .setPositiveButton("OK",null)
@@ -146,9 +144,9 @@ public class CourseListAdapter extends BaseAdapter {
                                             .setPositiveButton("OK",null)
                                             .create();
                                     dialog.show();
-                                    courseNumberList.add(courseList.get(position).getCourseNumber());
+                                    courseCRNList.add(courseList.get(position).getCourseCRN());
                                     schedule.addSchedule(courseList.get(position).getCourseTime());
-                                    totalCredit+= courseList.get(position).getCourseCredit();
+                                    totalCredit+= Integer.parseInt(courseList.get(position).getCourseCredit());
                                     return;
                                 }
 
@@ -169,7 +167,7 @@ public class CourseListAdapter extends BaseAdapter {
                         }
                     };
 
-                    AddRequest addRequest = new AddRequest(userID, courseList.get(position).getCourseNumber() +" ", responseListener);
+                    AddRequest addRequest = new AddRequest(userID, courseList.get(position).getCourseCRN() +" ", responseListener, null);
                     RequestQueue queue = Volley.newRequestQueue(parent.getActivity());
                     queue.add(addRequest);
                 }
@@ -179,16 +177,13 @@ public class CourseListAdapter extends BaseAdapter {
         return v;
     }
 
-    /*
-     *      Read added course from database
-     */
 
     class BackgroundTask extends AsyncTask {
         String address;
         @Override
         protected void onPreExecute() {
             try {
-                address = "http://sch1261315.cafe24.com/ScheduleList.php?userID=" + URLEncoder.encode(userID, "UTF-8");
+                address = "http://ec2-44-197-174-212.compute-1.amazonaws.com/ScheduleList.php?userID=" + URLEncoder.encode(userID, "UTF-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -234,15 +229,15 @@ public class CourseListAdapter extends BaseAdapter {
                 int index = 0;
                 String courseProfessor;
                 String courseTime;
-                String courseNumber;
+                String courseCRN;
                 totalCredit = 0;
                 while(index < jsonResponse.length()) {
                     JSONObject object = jsonResponse.getJSONObject(index);
                     courseProfessor = object.getString("courseProfessor");
                     courseTime = object.getString("courseTime");
-                    courseNumber = object.getString("courseNumber");
+                    courseCRN = object.getString("courseCRN");
                     totalCredit+= Integer.parseInt(object.getString("courseCredit").split("TO")[0]);
-                    courseNumberList.add(courseNumber);
+                    courseCRNList.add(courseCRN);
                     schedule.addSchedule(courseTime);
                     ++index;
                 }
@@ -262,4 +257,5 @@ public class CourseListAdapter extends BaseAdapter {
         }
         return true;
     }
+
 }

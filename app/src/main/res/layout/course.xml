@@ -46,16 +46,15 @@
              android:background = "#ffffff">
 
              <TextView
+                 android:id="@+id/courseInstructor"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:text="Professor name"
-                 android:id="@+id/courseProfessor"
                  android:layout_gravity="center"
+                 android:layout_weight="1"
                  android:padding="2dp"
+                 android:text="Professor name"
                  android:textColor="#000000"
-                 android:textStyle = "bold"
-                 android:layout_weight = "1">
-             </TextView>
+                 android:textStyle="bold"></TextView>
              <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
@@ -87,15 +86,13 @@
              android:background = "#ffffff">
 
              <TextView
+                 android:id="@+id/courseCRN"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:text="Seat"
-                 android:id="@+id/courseID"
                  android:layout_gravity="center"
                  android:padding="2dp"
-                 android:textColor="#f92a3f"
-                 >
-             </TextView>
+                 android:text="CRN"
+                 android:textColor="#f92a3f"></TextView>
 
              <TextView
                  android:layout_width="wrap_content"
@@ -105,6 +102,15 @@
                  android:layout_gravity="center"
                  android:padding="2dp"
                  android:textColor="@color/colorPurple" />
+
+             <TextView
+                 android:id="@+id/courseDay"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="1"
+                 android:text="Day"
+                 android:textColor="@color/colorPurple" />
+
          </LinearLayout>
 
      </LinearLayout>

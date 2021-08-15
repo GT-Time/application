@@ -1,67 +1,46 @@
 package com.example.registration;
 
 public class Course {
-    public Course(String courseNumber, String courseUniversity, int courseYear, String courseTerm, String courseArea, String courseMajor, String courseTitle, int courseCredit,  String courseProfessor, String courseTime, String courseLocation, String courseID, String courseDivide) {
-        this.courseNumber = courseNumber;
-        this.courseUniversity = courseUniversity;
-        this.courseYear = courseYear;
+    public Course(String courseTerm, String courseMajor, String courseTitle, String courseCRN, String courseArea, String courseSection, String courseClass, String courseTime, String courseDay, String courseLocation , String courseInstructor, String courseUniversity, String courseCredit, String courseAttribute) {
         this.courseTerm = courseTerm;
-        this.courseArea = courseArea;
         this.courseMajor = courseMajor;
         this.courseTitle = courseTitle;
-        this.courseCredit = courseCredit;
-        this.courseProfessor = courseProfessor;
+        this.courseCRN = courseCRN;
+        this.courseArea = courseArea;
+        this.courseSection = courseSection;
+        this.courseClass = courseClass;
         this.courseTime = courseTime;
+        this.courseDay = courseDay;
         this.courseLocation = courseLocation;
-        this.courseID = courseID;
-        this.courseDivide = courseDivide;
+        this.courseInstructor = courseInstructor;
+        this.courseUniversity = courseUniversity;
+        this.courseCredit = courseCredit;
+        this.courseAttribute = courseAttribute;
     }
 
-    public Course(String courseNumber, String courseTitle, String courseDivide, int courseCredit, String courseTime) {
-        this.courseNumber = courseNumber;
+    public Course(String courseCRN, String courseTitle, String courseSection, String courseCredit, String courseTime, String courseDay) {
+        this.courseCRN = courseCRN;
         this.courseTitle = courseTitle;
-        this.courseDivide = courseDivide;
+        this.courseSection = courseSection;
         this.courseCredit = courseCredit;
         this.courseTime = courseTime;
+        this.courseDay = courseDay;
     }
 
-    private String courseNumber;
-    private String courseUniversity;
-    private int courseYear;
     private String courseTerm;
-    private String courseArea;
     private String courseMajor;
     private String courseTitle;
-    private int courseCredit;
-    private String courseProfessor;
+    private String courseCRN;
+    private String courseArea;
+    private String courseSection;
+    private String courseClass;
     private String courseTime;
+    private String courseDay;
     private String courseLocation;
-    private String courseID;
-    private String courseDivide;
-
-    public String getCourseNumber() {
-        return courseNumber;
-    }
-
-    public void setCourseNumber(String courseNumber) {
-        this.courseNumber = courseNumber;
-    }
-
-    public String getCourseUniversity() {
-        return courseUniversity;
-    }
-
-    public void setCourseUniversity(String courseUniversity) {
-        this.courseUniversity = courseUniversity;
-    }
-
-    public int getCourseYear() {
-        return courseYear;
-    }
-
-    public void setCourseYear(int courseYear) {
-        this.courseYear = courseYear;
-    }
+    private String courseInstructor;
+    private String courseUniversity;
+    private String courseCredit;
+    private String courseAttribute;
 
     public String getCourseTerm() {
         return courseTerm;
@@ -69,14 +48,6 @@ public class Course {
 
     public void setCourseTerm(String courseTerm) {
         this.courseTerm = courseTerm;
-    }
-
-    public String getCourseArea() {
-        return courseArea;
-    }
-
-    public void setCourseArea(String courseArea) {
-        this.courseArea = courseArea;
     }
 
     public String getCourseMajor() {
@@ -95,20 +66,36 @@ public class Course {
         this.courseTitle = courseTitle;
     }
 
-    public int getCourseCredit() {
-        return courseCredit;
+    public String getCourseCRN() {
+        return courseCRN;
     }
 
-    public void setCourseCredit(int courseCredit) {
-        this.courseCredit = courseCredit;
+    public void setCourseCRN(String courseCRN) {
+        this.courseCRN = courseCRN;
     }
 
-    public String getCourseProfessor() {
-        return courseProfessor;
+    public String getCourseArea() {
+        return courseArea;
     }
 
-    public void setCourseProfessor(String courseProfessor) {
-        this.courseProfessor = courseProfessor;
+    public void setCourseArea(String courseArea) {
+        this.courseArea = courseArea;
+    }
+
+    public String getCourseSection() {
+        return courseSection;
+    }
+
+    public void setCourseSection(String courseSection) {
+        this.courseSection = courseSection;
+    }
+
+    public String getCourseClass() {
+        return courseClass;
+    }
+
+    public void setCourseClass(String courseClass) {
+        this.courseClass = courseClass;
     }
 
     public String getCourseTime() {
@@ -119,6 +106,14 @@ public class Course {
         this.courseTime = courseTime;
     }
 
+    public String getCourseDay() {
+        return courseDay;
+    }
+
+    public void setCourseDay(String courseDay) {
+        this.courseDay = courseDay;
+    }
+
     public String getCourseLocation() {
         return courseLocation;
     }
@@ -127,20 +122,37 @@ public class Course {
         this.courseLocation = courseLocation;
     }
 
-    public String getCourseID() {
-        return courseID;
+    public String getCourseInstructor() {
+        return courseInstructor;
     }
 
-    public void setCourseID(String courseID) {
-        this.courseID = courseID;
+    public void setCourseInstructor(String courseInstructor) {
+        this.courseInstructor = courseInstructor;
     }
 
-    public String getCourseDivide() {
-        return courseDivide;
+    public String getCourseUniversity() {
+        return courseUniversity;
     }
 
-    public void setCourseDivide(String courseDivide) {
-        this.courseDivide = courseDivide;
+    public void setCourseUniversity(String courseUniversity) {
+        this.courseUniversity = courseUniversity;
     }
+
+    public String getCourseCredit() {
+        return courseCredit;
+    }
+
+    public void setCourseCredit(String courseCredit) {
+        this.courseCredit = courseCredit;
+    }
+
+    public String getCourseAttribute() {
+        return courseAttribute;
+    }
+
+    public void setCourseAttribute(String courseAttribute) {
+        this.courseAttribute = courseAttribute;
+    }
+
 }
 

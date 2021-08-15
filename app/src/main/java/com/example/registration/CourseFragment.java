@@ -1,6 +1,7 @@
 package com.example.registration;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -18,6 +19,11 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -78,15 +84,14 @@ public class CourseFragment extends Fragment {
         }
     }
 
-    private Spinner yearSpinner;
     private ArrayAdapter termAdapter;
     private Spinner termSpinner;
     private ArrayAdapter areaAdapter;
     private Spinner areaSpinner;
-    private ArrayAdapter majorAdapter;
-    private Spinner majorSpinner;
+    private ArrayAdapter subjectAdapter;
+    private Spinner subjectSpinner;
 
-    private String courseUniversity = "";
+    private String selectedUniversity = "";
 
     private ListView courseListView;
     private CourseListAdapter adapter;
@@ -95,7 +100,6 @@ public class CourseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_course, container, false);
     }
 
@@ -105,63 +109,386 @@ public class CourseFragment extends Fragment {
 
         final RadioGroup universityGroupID = (RadioGroup) getView().findViewById(R.id.universityGroupID);
         termSpinner = (Spinner) getView().findViewById(R.id.semesterID);
-        majorSpinner = (Spinner) getView().findViewById(R.id.majorID);
+        subjectSpinner = (Spinner) getView().findViewById(R.id.subjectID);
         areaSpinner = (Spinner) getView().findViewById(R.id.courseAreaID);
 
         universityGroupID.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 final RadioButton gradeID = (RadioButton) getView().findViewById(checkedId);
-                courseUniversity = gradeID.getText().toString();
+                selectedUniversity = gradeID.getText().toString();
 
-                if(courseUniversity.equals("Undergraduate")) {
+                if(selectedUniversity.equals("Undergraduate")) {
                     termAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.semester, android.R.layout.simple_spinner_dropdown_item);
-                    termSpinner.setAdapter(termAdapter);
-                    majorAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.major,android.R.layout.simple_spinner_dropdown_item);
-                    majorSpinner.setAdapter(majorAdapter);
+                    subjectAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.subject,android.R.layout.simple_spinner_dropdown_item);
                 }
 
-                else if(courseUniversity.equals("Graduate")) {
+                else if(selectedUniversity.equals("Graduate")) {
                     termAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.semester, android.R.layout.simple_spinner_dropdown_item);
-                    termSpinner.setAdapter(termAdapter);
-                    majorAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.graduateMajor,android.R.layout.simple_spinner_dropdown_item);  // to be updated : graduateMajor value
-                    majorSpinner.setAdapter(majorAdapter);
+                    subjectAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.graduateMajor,android.R.layout.simple_spinner_dropdown_item);
                 }
+
+                termSpinner.setAdapter(termAdapter);
+                subjectSpinner.setAdapter(subjectAdapter);
             }
         });
         /*
         areaAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.undergraduateCourseType, android.R.layout.simple_spinner_dropdown_item);
         areaSpinner.setAdapter(areaAdapter);*/
-    majorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+    subjectSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            /*
-                Continue work : Retrieve course area with specified courseMajor from database
-             */
-            switch(majorSpinner.getSelectedItem().toString()) {
-                case "":
-                    break;
-            }
-            /*
-            if(areaSpinner.getSelectedItem().equals("Major")) {
-                majorAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.major,android.R.layout.simple_spinner_dropdown_item);
-                majorSpinner.setAdapter(majorAdapter);
-            }
-            else if(areaSpinner.getSelectedItem().equals("Electives")) {
-                majorAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.undergraduateElective,android.R.layout.simple_spinner_dropdown_item);
-                majorSpinner.setAdapter(majorAdapter);
-            }
 
-            else if(areaSpinner.getSelectedItem().equals("Major(Graduate)")) {
-                majorAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.graduateMajor,android.R.layout.simple_spinner_dropdown_item);
-                majorSpinner.setAdapter(majorAdapter);
+                //TODO: Retrieve course area with specified courseMajor from database
+
+            switch(subjectSpinner.getSelectedItem().toString()) {
+                case "Accounting":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Accounting,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Aerospace Engineering":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.AerospaceEngineering,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Air Force Aerospace Studies":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.AirForceAerospaceStudies,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Applied Physiology":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.AppliedPhysiology,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Applied Systems Engineering":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.AppliedSystemsEngineering,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Arabic":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Arabic,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Architecture":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Architecture,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Biological Sciences":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.BiologicalSciences,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Biology":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Biology,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Biomed Engr/Joint Emory PKU":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.BiomedEngrJointEmoryPKU,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Biomedical Engineering":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.BiomedicalEngineering,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Biomedical Engr/Joint Emory":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.BiomedicalEngrJointEmory,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Bldg Construction-Professional":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.BldgConstructionProfessional,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Building Construction":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.BuildingConstruction,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Center Enhancement-Teach/Learn":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.CenterEnhancementTeachLearn,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Chemical & Biomolecular Engr":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.ChemicalBiomolecularEngr,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Chemistry":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Chemistry,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Chinese":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Chinese,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "City Planning":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.CityPlanning,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Civil and Environmental Engr":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.CivilandEnvironmentalEngr,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "College of Architecture":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.CollegeofArchitecture,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "College of Engineering":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.CollegeofEngineering,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Computational Mod, Sim, & Data":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.ComputationalModSimData,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Computational Science & Engr":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.ComputationalScienceEngr,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Computer Science":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.ComputerScience,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Cooperative Work Assignment":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.CooperativeWorkAssignment,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Earth and Atmospheric Sciences":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.EarthandAtmosphericSciences,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Economics":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Economics,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Elect & Comp Engr-Professional":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.ElectCompEngrProfessional,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Electrical & Computer Engr":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.ElectricalComputerEngr,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "English":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.English,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "French":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.French,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Georgia Tech":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.GeorgiaTech,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Georgia Tech Lorraine":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.GeorgiaTechLorraine,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "German":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.German,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Global Media and Cultures":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.GlobalMediaandCultures,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Health Systems":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.HealthSystems,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Hebrew":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Hebrew,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Hindi":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Hindi,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "History":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.History,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "History, Technology & Society":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.HistoryTechnologySociety,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Industrial & Systems Engr":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.IndustrialSystemsEngr,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Industrial Design":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.IndustrialDesign,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Int\\'l Plan Co-op Abroad":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.IntlPlanCoopAbroad,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Int\'l Plan Intern Abroad":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.IntlPlanInternAbroad,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Int\\'l Plan-Exchange Program":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.IntlPlanExchangeProgram,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Int\\'l Plan-Study Abroad":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.IntlPlanStudyAbroad,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "International Affairs":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.InternationalAffairs,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "International Logistics":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.IntlExecutiveMBA,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Internship":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Internship,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Intl Executive MBA":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.IntlExecutiveMBA,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Ivan Allen College":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.IvanAllenCollege,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Japanese":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Japanese,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Korean":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Korean,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Learning Support":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.LearningSupport,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Linguistics":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Linguistics,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Literature, Media & Comm":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.LiteratureMediaComm,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Management":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Management,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Management of Technology":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.ManagementofTechnology,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Materials Science & Engr":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.MaterialsScienceEngr,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Mathematics":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Mathematics,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Mechanical Engineering":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.MechanicalEngineering,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Medical Physics":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.MedicalPhysics,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Military Science & Leadership":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.MilitaryScienceLeadership,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Modern Languages":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.ModernLanguages,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Music":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Music,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Naval Science":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.NavalScience,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Neuroscience":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Neuroscience,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Nuclear & Radiological Engr":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.NuclearRadiologicalEngr,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Persian":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Persian,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Philosophy":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Philosophy,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Physics":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Physics,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Political Science":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.PoliticalScience,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Polymer, Textile and Fiber Eng":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.PolymerTextileandFiberEng,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Portuguese":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Portuguese,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Psychology":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Psychology,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Public Policy":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.PublicPolicy,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Public Policy/Joint GSU PhD":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.PublicPolicyJointGSUPhD,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Russian":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Russian,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Serve, Learn, Sustain":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.ServeLearnSustain,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Sociology":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Sociology,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Spanish":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Spanish,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Swahili":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Swahili,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Vertically Integrated Project":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.VerticallyIntegratedProject,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
+                case "Wolof":
+                    areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Wolof,android.R.layout.simple_spinner_dropdown_item);
+                    break;
+
             }
-            */
+            areaSpinner.setAdapter(areaAdapter);
         }
 
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
-
+            // TODO: Show Error dialog
         }
     });
 
@@ -183,20 +510,21 @@ public class CourseFragment extends Fragment {
 
 
 
-    /*
-        Recall course Lists into the FrameView and replace fragment to courseListAdapter
-     */
+
+    // TODO : send parameters by POST method
     class BackgroundTask extends AsyncTask {
-        String address;
-        ProgressDialog dialog = new ProgressDialog(getActivity());
+        String target;
+        ProgressDialog progressDialog;
+
         @Override
         protected void onPreExecute() {
             try {
-                address = "http://ec2-3-237-63-241.compute-1.amazonaws.com/CourseList.php?courseUniversity="+ URLEncoder.encode(courseUniversity,"UTF-8")+" Semester"
-                +"&courseTerm="+URLEncoder.encode(termSpinner.getSelectedItem().toString().substring(0,4),"UTF-8")+"&courseMajor="+URLEncoder.encode(majorSpinner.getSelectedItem().toString(),"UTF-8")
-                +"&courseArea="+URLEncoder.encode(areaSpinner.getSelectedItem().toString(),"UTF-8");
-                dialog.setMessage("Loading");
-                dialog.show();
+                target = "http://ec2-44-197-174-212.compute-1.amazonaws.com/CourseList.php?courseUniversity="+ URLEncoder.encode(selectedUniversity,"UTF-8")
+                        +"&courseTerm="+URLEncoder.encode(termSpinner.getSelectedItem().toString(),"UTF-8")+"&courseMajor="+URLEncoder.encode(subjectSpinner.getSelectedItem().toString(),"UTF-8")
+                        +"&courseArea="+URLEncoder.encode(areaSpinner.getSelectedItem().toString(),"UTF-8");
+                progressDialog = new ProgressDialog(getActivity());
+                progressDialog.setMessage("Loading");
+                progressDialog.show();
             }
 
             catch(Exception e) {
@@ -207,21 +535,19 @@ public class CourseFragment extends Fragment {
         @Override
         protected Object doInBackground(Object[] objects) {
             try {
-                    StringBuilder stringBuilder = new StringBuilder();
-                    URL url = new URL(address);
-                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                    int status = httpURLConnection.getResponseCode();
-                    InputStream inputStream = httpURLConnection.getInputStream();
-                    BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-                    String temp;
-
-                    while ((temp = br.readLine()) != null) {
-                        stringBuilder.append(temp + "\n");
-                    }
-                    br.close();
-                    inputStream.close();
-                    httpURLConnection.disconnect();
-                    return stringBuilder.toString();
+                URL url = new URL(target);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+                String temp;
+                StringBuilder stringBuilder = new StringBuilder();
+                while ((temp = br.readLine()) != null) {
+                    stringBuilder.append(temp + "\n");
+                }
+                br.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return stringBuilder.toString();
             }
 
             catch(Exception e) {
@@ -238,55 +564,57 @@ public class CourseFragment extends Fragment {
         @Override
         protected void onPostExecute(Object o) {
             try {
-                String result = (String) o;
                 courseList.clear();
+                String result = (String) o;
                 JSONObject jsonObject = new JSONObject(result);
                 JSONArray jsonArray = jsonObject.getJSONArray("response");
 
                 int count = 0;
 
-                //course variables
-                String courseNumber;
-                String courseUniversity;
-                int courseYear;
                 String courseTerm;
-                String courseArea;
                 String courseMajor;
                 String courseTitle;
-                int courseCredit;
-                String courseProfessor;
+                String courseCRN;
+                String courseArea;
+                String courseSection;
+                String courseClass;
                 String courseTime;
+                String courseDay;
                 String courseLocation;
-                String courseID;
-                String courseDivide;
+                String courseInstructor;
+                String courseUniversity;
+                String courseCredit;
+                String courseAttribute;
 
                 while(count < jsonArray.length()) {
                     JSONObject object = jsonArray.getJSONObject(count);
-                    courseNumber = object.getString("courseNumber");
-                    courseUniversity = object.getString("courseUniversity");
-                    courseYear = object.getInt("courseYear");
                     courseTerm = object.getString("courseTerm");
-                    courseArea = object.getString("courseArea");
                     courseMajor = object.getString("courseMajor");
                     courseTitle = object.getString("courseTitle");
-                    courseCredit = object.getInt("courseCredit");
-                    courseProfessor = object.getString("courseProfessor");
+                    courseCRN = object.getString("courseCRN");
+                    courseArea = object.getString("courseArea");
+                    courseSection = object.getString("courseSection");
+                    courseClass = object.getString("courseClass");
                     courseTime = object.getString("courseTime");
+                    courseDay = object.getString("courseDay");
                     courseLocation = object.getString("courseLocation");
-                    courseID = object.getString("courseID");
-                    courseDivide = object.getString("courseDivide");
-                    Course course = new Course(courseNumber, courseUniversity, courseYear, courseTerm, courseArea, courseMajor, courseTitle, courseCredit, courseProfessor, courseTime ,courseLocation, courseID, courseDivide);
+                    courseInstructor = object.getString("courseInstructor");
+                    courseUniversity = object.getString("courseUniversity");
+                    courseCredit = object.getString("courseCredit");
+                    courseAttribute = object.getString("courseAttribute");
+                    Course course = new Course(courseTerm, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseDay, courseLocation ,courseInstructor, courseUniversity, courseCredit, courseAttribute);
                     courseList.add(course);
                     count++;
                 }
+                progressDialog.hide();
 
                 if(count == 0) {
-                    AlertDialog dialog;
+                    AlertDialog alertDialog;
                     AlertDialog.Builder builder = new AlertDialog.Builder(CourseFragment.this.getActivity());
-                    dialog = builder.setMessage("There is not available course")
-                                    .setPositiveButton("OK",null)
-                                    .create();
-                    dialog.show();
+                    alertDialog = builder.setMessage("Lecture not found")
+                            .setPositiveButton("OK",null)
+                            .create();
+                    alertDialog.show();
                 }
 
                 adapter.notifyDataSetChanged();

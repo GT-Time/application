@@ -27,16 +27,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="@color/colorPrimaryDark">
-            
+
             <TextView
+                android:id="@+id/courseArea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text = "85929"
-                android:id = "@+id/courseNumber"
-                android:layout_gravity="center"
-                android:padding="2dp"
-                android:textColor="#000000"
-                android:textColorHint="#000000"></TextView>
+                android:text="courseArea" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -52,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text = "A01"
-                android:id = "@+id/courseDivide"
+                android:id = "@+id/courseSection"
                 android:layout_gravity="center"
                 android:padding="2dp"
                 android:textColor="#000000"
@@ -72,6 +68,16 @@
                 android:textColorHint="#000000"
                 android:text = "courseTimeLine"
                 />
+
+            <TextView
+                android:id="@+id/courseCRN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="2dp"
+                android:text="85929"
+                android:textColor="#000000"
+                android:textColorHint="#000000"></TextView>
         </LinearLayout>
     </LinearLayout>
 

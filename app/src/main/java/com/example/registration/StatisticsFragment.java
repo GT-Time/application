@@ -108,7 +108,7 @@ public class StatisticsFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             try {
-                address = "http://sch1261315.cafe24.com/StatisticsCourseList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
+                address = "http://ec2-44-197-174-212.compute-1.amazonaws.com/StatisticsCourseList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
                 dialog.setMessage("Loading");
                 dialog.show();
             } catch (Exception e) {
@@ -154,19 +154,21 @@ public class StatisticsFragment extends Fragment {
                 JSONArray jsonResponse = jsonObject.getJSONArray("response");
 
                 int index = 0;
-                String courseNumber;
+                String courseCRN;
                 String courseTitle;
-                String courseDivide;
+                String courseSection;
                 String courseTime;
+                String courseDay;
                 while(index < jsonResponse.length()) {
                     JSONObject object = jsonResponse.getJSONObject(index);
-                    courseNumber = object.getString("courseNumber");
+                    courseCRN = object.getString("courseCRN");
                     courseTitle = object.getString("courseTitle");
-                    courseDivide = object.getString("courseDivide");
+                    courseSection = object.getString("courseSection");
                     courseTime = object.getString("courseTime");
-                    int courseCredit = object.getInt("courseCredit");
-                    courseList.add(new Course(courseNumber,courseTitle,courseDivide,courseCredit,courseTime));
-                    totalCredit+= courseCredit;
+                    courseDay = object.getString("courseDay");
+                    String courseCredit = object.getString("courseCredit");
+                    courseList.add(new Course(courseCRN,courseTitle,courseSection,courseCredit,courseTime, courseDay));
+                    totalCredit+= Integer.parseInt(courseCredit);
                     ++index;
                 }
                 adapter.notifyDataSetChanged();

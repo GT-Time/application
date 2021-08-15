@@ -12,8 +12,8 @@ public class AddRequest extends ActionRequest {
     private Map<String, String> parameters;
 
 //    send parameter values to database by posting method
-    public AddRequest(String userID, String courseNumber, Response.Listener<String> listener) {
-        super(php, listener, null);
+    public AddRequest(String userID, String courseNumber, Response.Listener<String> listener, Response.ErrorListener error) {
+        super(php, listener, error);
         parameters = new HashMap<>();
         parameters.put("userID",userID);
         parameters.put("courseNumber",courseNumber);
