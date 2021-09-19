@@ -215,20 +215,21 @@ public class ScheduleFragment extends Fragment {
                 JSONObject jsonObject = new JSONObject(result);
                 JSONArray jsonResponse = jsonObject.getJSONArray("response");
 
+                // TODO : Fix scheduleList.php to return following (updated) variables
                 int index = 0;
-                String courseProfessor;
+                String courseInstructor;
                 String courseTime;
-                String courseNumber;
-                String courseTitle;
-                String courseLocation;
+                String courseDay;
+                String courseCRN;
+                String courseCredit;
                 while(index < jsonResponse.length()) {
                     JSONObject object = jsonResponse.getJSONObject(index);
-                    courseProfessor = object.getString("courseProfessor");
-                    courseTitle = object.getString("courseTitle");
+                    courseInstructor = object.getString("courseInstructor");
                     courseTime = object.getString("courseTime");
-                    courseNumber = object.getString("courseNumber");
-                    courseLocation = object.getString("courseLocation");
-                    schedule.addSchedule(courseTime,courseTitle + "\n" + courseLocation,courseProfessor);
+                    courseDay = object.getString("courseDay");
+                    courseCRN = object.getString("courseCRN");
+                    courseCredit = object.getString("courseCredit");
+                    schedule.addSchedule(new Course(courseCRN, courseTime, courseDay, courseInstructor, courseCredit));
                     ++index;
                 }
                 dialog.dismiss();

@@ -27,6 +27,14 @@ public class Course {
         this.courseDay = courseDay;
     }
 
+    public Course(String courseCRN, String courseTime, String courseDay, String courseInstructor, String courseCredit) {
+        this.courseCRN = courseCRN;
+        this.courseTime = courseTime;
+        this.courseDay = courseDay;
+        this.courseInstructor = courseInstructor;
+        this.courseCredit = courseCredit;
+    }
+
     private String courseTerm;
     private String courseMajor;
     private String courseTitle;

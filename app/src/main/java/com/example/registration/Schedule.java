@@ -10,19 +10,33 @@ import android.content.Context;
 import android.graphics.Color;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
-public class Schedule {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+public class Schedule {/*
     private String monday[][] = new String [22][4];
     private String tuesday[][] = new String [22][4];
     private String wednesday[][] = new String [22][4];
     private String thursday[][] = new String [22][4];
     private String friday[][] = new String [22][4];
+*/
+    private Map<Integer, Integer> monday;
+    private Map<Integer, Integer> tuesday;
+    private Map<Integer, Integer> wednesday;
+    private Map<Integer, Integer> thursday;
+    private Map<Integer, Integer> friday;
 
+    private List<Course> timeTable;
     public Schedule() {
+        /*
         for (int i = 1; i < 22; ++i) {
             for (int j = 0; j < 4; ++j) {
-
                 monday[i][j] = "";
                 tuesday[i][j] = "";
                 wednesday[i][j] = "";
@@ -30,394 +44,132 @@ public class Schedule {
                 friday[i][j] = "";
             }
         }
+        */
+
+        monday = new HashMap<Integer, Integer>();
+        tuesday = new HashMap<Integer, Integer>();
+        wednesday = new HashMap<Integer, Integer>();
+        thursday = new HashMap<Integer, Integer>();
+        friday = new HashMap<Integer, Integer>();
+
+        timeTable = new ArrayList<Course>();
     }
-    public void addSchedule(String scheduleText) {
-        int startHour,endHour;
-        int startMinute;
-        int endMinute;
-
-        int temp = scheduleText.indexOf('-');
-        String timeFrame;
-
-        //class starting hour
-        int startPoint = scheduleText.indexOf(']');
-        int endPoint = scheduleText.indexOf(':');
-        startHour = Integer.parseInt(scheduleText.substring(startPoint+1,endPoint));
-
-
-        if((timeFrame = scheduleText.substring(temp-3,temp-1)).contains("p")) {
-            if(startHour != 12) startHour+=12;
-        }
-
-        //class starting minute
-        startPoint = endPoint;
-        endPoint = scheduleText.indexOf(timeFrame) - 1;
-        startMinute = Integer.parseInt(scheduleText.substring(startPoint+1,endPoint));
-
-        //class ending hour
-        startPoint = scheduleText.indexOf('-');
-        endPoint = scheduleText.lastIndexOf(':');
-        endHour = Integer.parseInt(scheduleText.substring(startPoint+2,endPoint));
-
-        if((timeFrame = scheduleText.substring(temp+7,temp+9)).contains("p")) {
-            if(endHour != 12 ) endHour+=12;
-        }
-
-        //class ending minute
-        startPoint = endPoint + 1;
-        endPoint = scheduleText.lastIndexOf(timeFrame) - 1;
-        endMinute = Integer.parseInt(scheduleText.substring(startPoint,endPoint));
-
-        temp = 0;
-        int firstIndex = 0, secondIndex = 0;
-        switch(startMinute) {
-            case 0 : firstIndex = 0;
-            break;
-            case 15 : firstIndex = 1;
-            break;
-            case 30 : firstIndex = 2;
-            break;
-            case 45 : firstIndex = 3;
-            break;
-        }
-
-        switch(endMinute) {
-            case 0 : secondIndex = 0;
-                break;
-            case 15 : secondIndex = 1;
-                break;
-            case 30 : secondIndex = 2;
-                break;
-            case 45 : secondIndex = 3;
-                break;
-        }
-        if((temp = scheduleText.indexOf('M')) > -1) {
-            monday[startHour][firstIndex]= "Class";
-            monday[endHour][secondIndex]= "Class";
-
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                monday[tempHour][tempIndex] = "Class";
-            }
-        }
-        if((temp = scheduleText.indexOf('T')) > -1) {
-            tuesday[startHour][firstIndex]= "Class";
-            tuesday[endHour][secondIndex]= "Class";
-
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                tuesday[tempHour][tempIndex] = "Class";
-            }
-        }
-        if((temp = scheduleText.indexOf('W')) > -1) {
-            wednesday[startHour][firstIndex]= "Class";
-            wednesday[endHour][secondIndex]= "Class";
-
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                wednesday[tempHour][tempIndex] = "Class";
-            }
-        }
-        if((temp = scheduleText.indexOf('R')) > -1) {
-            thursday[startHour][firstIndex]= "Class";
-            thursday[endHour][secondIndex]= "Class";
-
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                thursday[tempHour][tempIndex] = "Class";
-            }
-        }
-        if((temp = scheduleText.indexOf('F')) > -1) {
-            friday[startHour][firstIndex]= "Class";
-            friday[endHour][secondIndex]= "Class";
-
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                friday[tempHour][tempIndex] = "Class";
-            }
-        }
-    }
-
     /*
-     * return true if time is not already occupied
-     */
-    public boolean validate(String scheduleText) {
+    public void addSchedule(String courseTime, String courseDay) {
+        if (courseTime.contains("TBA") || courseDay.contains("TBA")) return;
 
-        if(scheduleText.equals("")) return true;
+        String startTime = "";
+        String endTime = "";
 
-        int startHour,endHour;
-        int startMinute;
-        int endMinute;
+        String startPeriod = "";
+        String endPeriod = "";
 
-        int temp = scheduleText.indexOf('-');
-        char timeFrame;
+        String[] timeFrame = courseTime.split("-", 2);
 
-        //class starting hour
-        int startPoint = scheduleText.indexOf(']');
-        int endPoint = scheduleText.indexOf(':');
-        startHour = Integer.parseInt(scheduleText.substring(startPoint+1,endPoint));
+        startTime = timeFrame[0].split(" ", 2)[0];
+        startPeriod = timeFrame[0].split(" ", 2)[1];
 
-        if((timeFrame = scheduleText.charAt(scheduleText.indexOf('m') - 1)) == 'p') {
-           if(startHour != 12) startHour+=12;
+        endTime = timeFrame[1].split(" ", 2)[0];
+        endPeriod = timeFrame[1].split(" ", 2)[1];
+
+        int startSec = Integer.parseInt(startTime.split(":",2)[0]) * 60 + Integer.parseInt(startTime.split(":",2)[1]);
+        int endSec = Integer.parseInt(endTime.split(":",2)[0]) * 60 + Integer.parseInt(endTime.split(":",2)[1]);
+
+        if (startPeriod.indexOf("p") > -1) {
+            startSec += 60 * 12;
         }
 
-        //class starting minute
-        startPoint = endPoint;
-        endPoint = scheduleText.indexOf(timeFrame) - 1;
-        startMinute = Integer.parseInt(scheduleText.substring(startPoint+1,endPoint));
-
-        //class ending hour
-        startPoint = scheduleText.indexOf('-');
-        endPoint = scheduleText.lastIndexOf(':');
-        endHour = Integer.parseInt(scheduleText.substring(startPoint+2,endPoint));
-
-        if((timeFrame = scheduleText.charAt(scheduleText.lastIndexOf('m') - 1)) == 'p') {
-           if(endHour != 12) endHour+=12;
+        if (endPeriod.indexOf("p") > -1) {
+            endSec += 60 * 12;
         }
 
-        //class ending minute
-        startPoint = endPoint + 1;
-        endPoint = scheduleText.lastIndexOf(timeFrame) - 1;
-        endMinute = Integer.parseInt(scheduleText.substring(startPoint,endPoint));
 
-        temp = 0;
-        int firstIndex = 0, secondIndex = 0;
-        switch(startMinute) {
-            case 0 : firstIndex = 0;
-                break;
-            case 15 : firstIndex = 1;
-                break;
-            case 30 : firstIndex = 2;
-                break;
-            case 45 : firstIndex = 3;
-                break;
+        if(courseDay.indexOf('M') > -1) {
+            monday.put(startSec, endSec);
         }
 
-        switch(endMinute) {
-            case 0 : secondIndex = 0;
-                break;
-            case 15 : secondIndex = 1;
-                break;
-            case 30 : secondIndex = 2;
-                break;
-            case 45 : secondIndex = 3;
-                break;
+        if(courseDay.indexOf('T') > -1) {
+            tuesday.put(startSec, endSec);
         }
-       // if((temp = scheduleText.indexOf('M')) > -1 && !monday[startHour][firstIndex].equals("") && !monday[endHour][secondIndex].equals("")) {
-        if((temp = scheduleText.indexOf('M')) > -1) {
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                if(!monday[tempHour][tempIndex].equals(""))
-                    return false;
+
+        if(courseDay.indexOf('W') > -1) {
+            wednesday.put(startSec, endSec);
+        }
+
+        if(courseDay.indexOf('R') > -1) {
+            thursday.put(startSec, endSec);
+        }
+
+        if(courseDay.indexOf('F') > -1) {
+            friday.put(startSec, endSec);
+        }
+    }
+*/
+    public boolean validate(String courseTime, String courseDay) {
+
+        if (courseTime.contains("TBA") || courseDay.contains("TBA")) return true;
+
+        String startTime = "";
+        String endTime = "";
+
+        String startPeriod = "";
+        String endPeriod = "";
+
+        String[] timeFrame = courseTime.split("-", 2);
+
+        timeFrame[0].trim();
+        timeFrame[1].trim();
+
+        startTime = timeFrame[0].split(" ", 2)[0];
+        startPeriod = timeFrame[0].split(" ", 2)[1];
+
+        endTime = timeFrame[1].split(" ", 2)[0];
+        endPeriod = timeFrame[1].split(" ", 2)[1];
+
+        int startSec = Integer.parseInt(startTime.split(":",2)[0]) * 60 + Integer.parseInt(startTime.split(":",2)[1]);
+        int endSec = Integer.parseInt(endTime.split(":",2)[0]) * 60 + Integer.parseInt(endTime.split(":",2)[1]);
+
+
+        if (startPeriod.indexOf("p") > -1) {
+            startSec += 60 * 12;
+        }
+
+        if (endPeriod.indexOf("p") > -1) {
+            endSec += 60 * 12;
+        }
+
+        Iterator iterator;
+        for(int i = 0; i < courseDay.length(); i++) {
+            char day = courseDay.charAt(i);
+            if(day == 'M') iterator = monday.entrySet().iterator();
+            else if(day == 'T') iterator = tuesday.entrySet().iterator();
+            else if(day == 'W') iterator = wednesday.entrySet().iterator();
+            else if(day == 'R') iterator = thursday.entrySet().iterator();
+            else if(day == 'F') iterator = friday.entrySet().iterator();
+            else iterator = null;
+
+            while (iterator.hasNext()) {
+                Map.Entry element = (Map.Entry) iterator.next();
+                if(startSec > (int) element.getKey() || startSec < (int) element.getValue()) return false;
+                if(endSec > (int) element.getKey() || endSec < (int) element.getValue()) return false;
             }
-            return true;
-        }
-        //if((temp = scheduleText.indexOf('T')) > -1 && !tuesday[startHour][firstIndex].equals("") && !tuesday[endHour][secondIndex].equals("")) {
-        if((temp = scheduleText.indexOf('T')) > -1) {int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                if(!tuesday[tempHour][tempIndex].equals(""))
-                    return false;
-            }
-            return true;
-        }
-        //if((temp = scheduleText.indexOf('W')) > -1 && !wednesday[startHour][firstIndex].equals("") && !wednesday[endHour][secondIndex].equals("")) {
-        if((temp = scheduleText.indexOf('W')) > -1){
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                if(!wednesday[tempHour][tempIndex].equals(""))
-                    return false;
-            }
-            return true;
-        }
-        //if((temp = scheduleText.indexOf('R')) > -1 && !thursday[startHour][firstIndex].equals("") && !thursday[endHour][secondIndex].equals("")) {
-        if((temp = scheduleText.indexOf('R')) > -1){
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                if(!thursday[tempHour][tempIndex].equals(""))
-                    return false;
-            }
-            return true;
-        }
-        //if((temp = scheduleText.indexOf('F')) > -1 && !friday[startHour][firstIndex].equals("") && !friday[endHour][secondIndex].equals("")) {
-        if((temp = scheduleText.indexOf('F')) > -1){
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                if(!friday[tempHour][tempIndex].equals(""))
-                    return false;
-            }
-            return true;
         }
 
         return true;
     }
 
-    public void addSchedule(String scheduleText, String courseTitle, String courseProfessor) {
-
-        String professor;
-        if(courseProfessor.equals("")) professor = "";
-        else {
-            //professor = "(" + courseProfessor.split(" ")[0] +" "+ courseProfessor.substring(courseProfessor.lastIndexOf(" ")+1,courseProfessor.lastIndexOf(" ")+2)+ ")";
-            professor = "";
-        }
-
-        int startHour,endHour;
-        int startMinute;
-        int endMinute;
-
-        int temp = scheduleText.indexOf('-');
-        String timeFrame;
-
-        //class starting hour
-        int startPoint = scheduleText.indexOf(']');
-        int endPoint = scheduleText.indexOf(':');
-        startHour = Integer.parseInt(scheduleText.substring(startPoint+1,endPoint));
-
-        if((timeFrame = scheduleText.substring(temp-3,temp-1)).contains("p") && startHour != 12) {
-
-            startHour+=12;
-        }
-
-        //class starting minute
-        startPoint = endPoint;
-        endPoint = scheduleText.indexOf(timeFrame) - 1;
-        startMinute = Integer.parseInt(scheduleText.substring(startPoint+1,endPoint));
-
-        //class ending hour
-        startPoint = scheduleText.indexOf('-');
-        endPoint = scheduleText.lastIndexOf(':');
-        endHour = Integer.parseInt(scheduleText.substring(startPoint+2,endPoint));
-
-        if((timeFrame = scheduleText.substring(temp+7,temp+9)).contains("p") && endHour != 12) {
-            endHour+=12;
-        }
-
-        //class ending minute
-        startPoint = endPoint + 1;
-        endPoint = scheduleText.lastIndexOf(timeFrame.trim()) - 1;
-        endMinute = Integer.parseInt(scheduleText.substring(startPoint,endPoint));
-
-        temp = 0;
-        int firstIndex = 0, secondIndex = 0;
-        switch(startMinute) {
-            case 0 : firstIndex = 0;
-                break;
-            case 15 : firstIndex = 1;
-                break;
-            case 30 : firstIndex = 2;
-                break;
-            case 45 : firstIndex = 3;
-                break;
-        }
-
-        switch(endMinute) {
-            case 0 : secondIndex = 0;
-                break;
-            case 15 : secondIndex = 1;
-                break;
-            case 30 : secondIndex = 2;
-                break;
-            case 45 : secondIndex = 3;
-                break;
-        }
-        if((temp = scheduleText.indexOf('M')) > -1) {
-            monday[startHour][firstIndex]= courseTitle +  professor ;
-            monday[endHour][secondIndex]= "Class";
-
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                monday[tempHour][tempIndex] = "Class";
-            }
-    //        monday[endHour][secondIndex]= courseTitle + professor;
-        }
-        if((temp = scheduleText.indexOf('T')) > -1) {
-            tuesday[startHour][firstIndex]= courseTitle + professor;
-            tuesday[endHour][secondIndex]= "Class";
-
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                tuesday[tempHour][tempIndex] = "Class";
-            }
-  //          tuesday[endHour][secondIndex]= courseTitle + professor;
-        }
-        if((temp = scheduleText.indexOf('W')) > -1) {
-            wednesday[startHour][firstIndex]= courseTitle + professor;
-            wednesday[endHour][secondIndex]= "Class";
-
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                wednesday[tempHour][tempIndex] = "Class";
-            }
-     //       wednesday[endHour][secondIndex]= courseTitle + professor;
-        }
-        if((temp = scheduleText.indexOf('R')) > -1) {
-            thursday[startHour][firstIndex]= courseTitle + professor;
-            thursday[endHour][secondIndex]= "Class";
-
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                thursday[tempHour][tempIndex] = "Class";
-            }
-    //        thursday[endHour][secondIndex]= courseTitle + professor;
-        }
-        if((temp = scheduleText.indexOf('F')) > -1) {
-            friday[startHour][firstIndex]= courseTitle + professor;
-            friday[endHour][secondIndex]= "Class";
-
-            int fillMinute = ((endHour - startHour) * 60  + (endMinute - startMinute))/15;
-            for(int i = 1; i < fillMinute; i++) {
-                int tempIndex = (firstIndex + i) % 4;
-                int tempHour = startHour;
-                if((firstIndex + i) / 4 > 0) tempHour++;
-                friday[tempHour][tempIndex] = "Class";
-            }
-      //      friday[endHour][secondIndex]= courseTitle +  professor;
+    public void addSchedule(Course course) {
+        if(validate(course.getCourseTime(), course.getCourseDay())) {
+            timeTable.add(course);
         }
     }
 
+    public void deleteSchedule(Course course) {
+        timeTable.remove(course);
+    }
+
     public void setting(AutoResizeTextView[] monday, AutoResizeTextView[] tuesday, AutoResizeTextView[] wednesday, AutoResizeTextView[] thursday, AutoResizeTextView[] friday, Context context) {
+        /*
         int max_length = 0;
         String maxString = "";
         for(int i = 8; i < 22; i++){
@@ -488,6 +240,6 @@ public class Schedule {
                 thursday[i].resizeText();
                 friday[i].resizeText();
             }
-        }
+        }*/
     }
 }

@@ -94,7 +94,7 @@ public class CourseListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 boolean validate = false;
-                validate = schedule.validate(courseList.get(position).getCourseTime());
+                validate = schedule.validate(courseList.get(position).getCourseTime(), courseList.get(position).getCourseDay());
 
                 if(!alreadyIn(courseCRNList, courseList.get(position).getCourseCRN())) {
 
@@ -115,7 +115,7 @@ public class CourseListAdapter extends BaseAdapter {
                     dialog.show();
                     return;
                 }
-                //if course registered time duplicates
+
                 else if(validate == false) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
                     AlertDialog dialog = alert.setMessage("Time duplicates with course registered")
@@ -138,14 +138,13 @@ public class CourseListAdapter extends BaseAdapter {
 
                                 if(success)
                                 {
-                                    //parent - 자신을 불러낸 course Fragment 에서 알림창을 띄워줌
                                     AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
                                     AlertDialog dialog = alert.setMessage("Course has been added to your schedule")
                                             .setPositiveButton("OK",null)
                                             .create();
                                     dialog.show();
                                     courseCRNList.add(courseList.get(position).getCourseCRN());
-                                    schedule.addSchedule(courseList.get(position).getCourseTime());
+                                    schedule.addSchedule(courseList.get(position));
                                     totalCredit+= Integer.parseInt(courseList.get(position).getCourseCredit());
                                     return;
                                 }
@@ -227,18 +226,23 @@ public class CourseListAdapter extends BaseAdapter {
                 JSONArray jsonResponse = jsonObject.getJSONArray("response");
 
                 int index = 0;
-                String courseProfessor;
+                String courseInstructor;
                 String courseTime;
+                String courseDay;
                 String courseCRN;
+                String courseCredit;
                 totalCredit = 0;
                 while(index < jsonResponse.length()) {
                     JSONObject object = jsonResponse.getJSONObject(index);
-                    courseProfessor = object.getString("courseProfessor");
+                    courseInstructor = object.getString("courseInstructor");
                     courseTime = object.getString("courseTime");
+                    courseDay = object.getString("courseDay");
                     courseCRN = object.getString("courseCRN");
-                    totalCredit+= Integer.parseInt(object.getString("courseCredit").split("TO")[0]);
+                    courseCredit = object.getString("courseCredit");
+
+                    totalCredit+= Integer.parseInt(courseCredit);
                     courseCRNList.add(courseCRN);
-                    schedule.addSchedule(courseTime);
+                    schedule.addSchedule(new Course(courseCRN, courseTime, courseDay, courseInstructor, courseCredit));
                     ++index;
                 }
 

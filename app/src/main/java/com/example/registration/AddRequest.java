@@ -12,11 +12,11 @@ public class AddRequest extends ActionRequest {
     private Map<String, String> parameters;
 
 //    send parameter values to database by posting method
-    public AddRequest(String userID, String courseNumber, Response.Listener<String> listener, Response.ErrorListener error) {
+    public AddRequest(String userID, String courseCRN, Response.Listener<String> listener, Response.ErrorListener error) {
         super(php, listener, error);
         parameters = new HashMap<>();
         parameters.put("userID",userID);
-        parameters.put("courseNumber",courseNumber);
+        parameters.put("courseCRN",courseCRN);
     }
 
     @Override

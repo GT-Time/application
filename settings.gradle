@@ -1,2 +1,2 @@
 rootProject.name='Registration'
-include ':app'
+include ':app', ':timetableview'
