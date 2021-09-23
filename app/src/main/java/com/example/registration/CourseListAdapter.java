@@ -33,7 +33,7 @@ public class CourseListAdapter extends BaseAdapter {
     private List<Course> courseList;
     private Fragment parent;
     private String userID = MainActivity.userID;
-    private Schedule schedule;
+    private RegistrationSchedule registrationSchedule;
     private List<String> courseCRNList;
     public static int totalCredit = 0;
 
@@ -41,7 +41,7 @@ public class CourseListAdapter extends BaseAdapter {
         this.context = context;
         this.courseList = courseList;
         this.parent = parent;
-        schedule = new Schedule();
+        registrationSchedule = new RegistrationSchedule();
         courseCRNList = new ArrayList<String>();
         new BackgroundTask().execute();
         totalCredit = 0;
@@ -94,7 +94,7 @@ public class CourseListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 boolean validate = false;
-                validate = schedule.validate(courseList.get(position).getCourseTime(), courseList.get(position).getCourseDay());
+                validate = registrationSchedule.validate(courseList.get(position).getCourseTime(), courseList.get(position).getCourseDay());
 
                 if(!alreadyIn(courseCRNList, courseList.get(position).getCourseCRN())) {
 
@@ -144,7 +144,7 @@ public class CourseListAdapter extends BaseAdapter {
                                             .create();
                                     dialog.show();
                                     courseCRNList.add(courseList.get(position).getCourseCRN());
-                                    schedule.addSchedule(courseList.get(position));
+                                    registrationSchedule.addSchedule(courseList.get(position));
                                     totalCredit+= Integer.parseInt(courseList.get(position).getCourseCredit());
                                     return;
                                 }
@@ -242,7 +242,7 @@ public class CourseListAdapter extends BaseAdapter {
 
                     totalCredit+= Integer.parseInt(courseCredit);
                     courseCRNList.add(courseCRN);
-                    schedule.addSchedule(new Course(courseCRN, courseTime, courseDay, courseInstructor, courseCredit));
+                    registrationSchedule.addSchedule(new Course(courseCRN, courseTime, courseDay, courseInstructor, courseCredit));
                     ++index;
                 }
 

@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.github.tlaabs.timetableview.Schedule;
+import com.github.tlaabs.timetableview.TimetableView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -21,6 +23,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,6 +33,8 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class ScheduleFragment extends Fragment {
+    private ArrayList<Schedule> schedules;
+    private TimetableView timeTable;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -74,93 +79,15 @@ public class ScheduleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_schedule, container, false);
+        return inflater.inflate(R.layout.fragment_timetable, container, false);
     }
 
-    private AutoResizeTextView monday[] = new AutoResizeTextView[22];
-    private AutoResizeTextView tuesday[] = new AutoResizeTextView[22];
-    private AutoResizeTextView wednesday[] = new AutoResizeTextView[22];
-    private AutoResizeTextView thursday[] = new AutoResizeTextView[22];
-    private AutoResizeTextView friday[] = new AutoResizeTextView[22];
-    private Schedule schedule = new Schedule();
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        monday[8] = (AutoResizeTextView)getView().findViewById(R.id.monday8);
-        monday[9] = (AutoResizeTextView)getView().findViewById(R.id.monday9);
-        monday[10] = (AutoResizeTextView)getView().findViewById(R.id.monday10);
-        monday[11] = (AutoResizeTextView)getView().findViewById(R.id.monday11);
-        monday[12] = (AutoResizeTextView)getView().findViewById(R.id.monday12);
-        monday[13] = (AutoResizeTextView)getView().findViewById(R.id.monday13);
-        monday[14] = (AutoResizeTextView)getView().findViewById(R.id.monday14);
-        monday[15] = (AutoResizeTextView)getView().findViewById(R.id.monday15);
-        monday[16] = (AutoResizeTextView)getView().findViewById(R.id.monday16);
-        monday[17] = (AutoResizeTextView)getView().findViewById(R.id.monday17);
-        monday[18] = (AutoResizeTextView)getView().findViewById(R.id.monday18);
-        monday[19] = (AutoResizeTextView)getView().findViewById(R.id.monday19);
-        monday[20] = (AutoResizeTextView)getView().findViewById(R.id.monday20);
-        monday[21] = (AutoResizeTextView)getView().findViewById(R.id.monday21);
 
-        tuesday[8] = (AutoResizeTextView)getView().findViewById(R.id.tuesday8);
-        tuesday[9] = (AutoResizeTextView)getView().findViewById(R.id.tuesday9);
-        tuesday[10] = (AutoResizeTextView)getView().findViewById(R.id.tuesday10);
-        tuesday[11] = (AutoResizeTextView)getView().findViewById(R.id.tuesday11);
-        tuesday[12] = (AutoResizeTextView)getView().findViewById(R.id.tuesday12);
-        tuesday[13] = (AutoResizeTextView)getView().findViewById(R.id.tuesday13);
-        tuesday[14] = (AutoResizeTextView)getView().findViewById(R.id.tuesday14);
-        tuesday[15] = (AutoResizeTextView)getView().findViewById(R.id.tuesday15);
-        tuesday[16] = (AutoResizeTextView)getView().findViewById(R.id.tuesday16);
-        tuesday[17] = (AutoResizeTextView)getView().findViewById(R.id.tuesday17);
-        tuesday[18] = (AutoResizeTextView)getView().findViewById(R.id.tuesday18);
-        tuesday[19] = (AutoResizeTextView)getView().findViewById(R.id.tuesday19);
-        tuesday[20] = (AutoResizeTextView)getView().findViewById(R.id.tuesday20);
-        tuesday[21] = (AutoResizeTextView)getView().findViewById(R.id.tuesday21);
-
-        wednesday[8] = (AutoResizeTextView)getView().findViewById(R.id.wednesday8);
-        wednesday[9] = (AutoResizeTextView)getView().findViewById(R.id.wednesday9);
-        wednesday[10] = (AutoResizeTextView)getView().findViewById(R.id.wednesday10);
-        wednesday[11] = (AutoResizeTextView)getView().findViewById(R.id.wednesday11);
-        wednesday[12] = (AutoResizeTextView)getView().findViewById(R.id.wednesday12);
-        wednesday[13] = (AutoResizeTextView)getView().findViewById(R.id.wednesday13);
-        wednesday[14] = (AutoResizeTextView)getView().findViewById(R.id.wednesday14);
-        wednesday[15] = (AutoResizeTextView)getView().findViewById(R.id.wednesday15);
-        wednesday[16] = (AutoResizeTextView)getView().findViewById(R.id.wednesday16);
-        wednesday[17] = (AutoResizeTextView)getView().findViewById(R.id.wednesday17);
-        wednesday[18] = (AutoResizeTextView)getView().findViewById(R.id.wednesday18);
-        wednesday[19] = (AutoResizeTextView)getView().findViewById(R.id.wednesday19);
-        wednesday[20] = (AutoResizeTextView)getView().findViewById(R.id.wednesday20);
-        wednesday[21] = (AutoResizeTextView)getView().findViewById(R.id.wednesday21);
-
-        thursday[8] = (AutoResizeTextView)getView().findViewById(R.id.thursday8);
-        thursday[9] = (AutoResizeTextView)getView().findViewById(R.id.thursday9);
-        thursday[10] = (AutoResizeTextView)getView().findViewById(R.id.thursday10);
-        thursday[11] = (AutoResizeTextView)getView().findViewById(R.id.thursday11);
-        thursday[12] = (AutoResizeTextView)getView().findViewById(R.id.thursday12);
-        thursday[13] = (AutoResizeTextView)getView().findViewById(R.id.thursday13);
-        thursday[14] = (AutoResizeTextView)getView().findViewById(R.id.thursday14);
-        thursday[15] = (AutoResizeTextView)getView().findViewById(R.id.thursday15);
-        thursday[16] = (AutoResizeTextView)getView().findViewById(R.id.thursday16);
-        thursday[17] = (AutoResizeTextView)getView().findViewById(R.id.thursday17);
-        thursday[18] = (AutoResizeTextView)getView().findViewById(R.id.thursday18);
-        thursday[19] = (AutoResizeTextView)getView().findViewById(R.id.thursday19);
-        thursday[20] = (AutoResizeTextView)getView().findViewById(R.id.thursday20);
-        thursday[21] = (AutoResizeTextView)getView().findViewById(R.id.thursday21);
-
-        friday[8] = (AutoResizeTextView)getView().findViewById(R.id.friday8);
-        friday[9] = (AutoResizeTextView)getView().findViewById(R.id.friday9);
-        friday[10] = (AutoResizeTextView)getView().findViewById(R.id.friday10);
-        friday[11] = (AutoResizeTextView)getView().findViewById(R.id.friday11);
-        friday[12] = (AutoResizeTextView)getView().findViewById(R.id.friday12);
-        friday[13] = (AutoResizeTextView)getView().findViewById(R.id.friday13);
-        friday[14] = (AutoResizeTextView)getView().findViewById(R.id.friday14);
-        friday[15] = (AutoResizeTextView)getView().findViewById(R.id.friday15);
-        friday[16] = (AutoResizeTextView)getView().findViewById(R.id.friday16);
-        friday[17] = (AutoResizeTextView)getView().findViewById(R.id.friday17);
-        friday[18] = (AutoResizeTextView)getView().findViewById(R.id.friday18);
-        friday[19] = (AutoResizeTextView)getView().findViewById(R.id.friday19);
-        friday[20] = (AutoResizeTextView)getView().findViewById(R.id.friday20);
-        friday[21] = (AutoResizeTextView)getView().findViewById(R.id.friday21);
-
+        schedules = new ArrayList<Schedule>();
+        timeTable = new TimetableView(this.getContext());
         new BackgroundTask().execute();
     }
 
@@ -218,18 +145,19 @@ public class ScheduleFragment extends Fragment {
                 // TODO : Fix scheduleList.php to return following (updated) variables
                 int index = 0;
                 String courseInstructor;
-                String courseTime;
+                String courseTitle;
+                String courseLocation;
                 String courseDay;
-                String courseCRN;
-                String courseCredit;
+                String courseTime;
                 while(index < jsonResponse.length()) {
                     JSONObject object = jsonResponse.getJSONObject(index);
                     courseInstructor = object.getString("courseInstructor");
-                    courseTime = object.getString("courseTime");
+                    courseTitle = object.getString("courseTitle");
+                    courseLocation = object.getString("courseLocation");
                     courseDay = object.getString("courseDay");
-                    courseCRN = object.getString("courseCRN");
-                    courseCredit = object.getString("courseCredit");
-                    schedule.addSchedule(new Course(courseCRN, courseTime, courseDay, courseInstructor, courseCredit));
+                    courseTime = object.getString("courseTime");
+
+                    for(int i = 0; i < courseDay.length(); i++) schedules.add(new RegistrationSchedule(courseInstructor, courseTitle, courseLocation, courseDay.charAt(i), courseTime));
                     ++index;
                 }
                 dialog.dismiss();
@@ -237,7 +165,7 @@ public class ScheduleFragment extends Fragment {
             catch(Exception e) {
                 e.printStackTrace();
             }
-            schedule.setting(monday,tuesday,wednesday,thursday,friday,getContext());
+            timeTable.add(schedules);
         }
     }
 
