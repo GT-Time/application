@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.github.tlaabs.timetableview.Time;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -93,8 +94,6 @@ public class CourseListAdapter extends BaseAdapter {
         addSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean validate = false;
-                validate = userScheduleList.contains(courseScheduleList.get(position).getCourseTime(), courseScheduleList.get(position).getDay());
 
                 if(!alreadyIn(courseCRNList, courseScheduleList.get(position).getCourseCRN())) {
 
@@ -116,7 +115,8 @@ public class CourseListAdapter extends BaseAdapter {
                     return;
                 }
 
-                else if(validate == false) {
+                // HACK
+                else if(validate(userScheduleList, courseScheduleList.get(position))) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
                     AlertDialog dialog = alert.setMessage("Time duplicates with course registered")
                             .setPositiveButton("OK",null)
@@ -262,4 +262,25 @@ public class CourseListAdapter extends BaseAdapter {
         return true;
     }
 
+    // HACK
+    public boolean validate(List<CourseSchedule> courseList, CourseSchedule course) {
+        String courseDays = course.getCourseDays();
+        Time startTime = course.getStartTime();
+        Time endTime = course.getEndTime();
+
+        courseDays = courseDays.trim();
+        if(courseDays.contains("TBA") || courseDays.equals("")) return true;
+
+        for (int i = 0; i < courseList.size(); i++) {
+            int day = courseList.get(i).getDay() + 77;
+            if(day < 65 || day > 90) continue;
+
+            String decode = Character.toString((char) day);
+            if (courseDays.contains(decode)) { // compare day duplicate
+                // compare time duplicate
+
+            }
+        }
+        return true;
+    }
 }

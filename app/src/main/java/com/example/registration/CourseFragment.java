@@ -513,7 +513,7 @@ public class CourseFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             try {
-                target = "http://ec2-44-197-174-212.compute-1.amazonaws.com/CourseList.php?courseUniversity="+ URLEncoder.encode(selectedUniversity,"UTF-8")
+                target = "http://ec2-3-222-117-117.compute-1.amazonaws.com/CourseList.php?courseUniversity="+ URLEncoder.encode(selectedUniversity,"UTF-8")
                         +"&courseTerm="+URLEncoder.encode(termSpinner.getSelectedItem().toString(),"UTF-8")+"&courseMajor="+URLEncoder.encode(subjectSpinner.getSelectedItem().toString(),"UTF-8")
                         +"&courseArea="+URLEncoder.encode(areaSpinner.getSelectedItem().toString(),"UTF-8");
                 progressDialog = new ProgressDialog(getActivity());
@@ -597,7 +597,8 @@ public class CourseFragment extends Fragment {
                     courseCredit = object.getString("courseCredit");
                     courseAttribute = object.getString("courseAttribute");
 
-                    for(int i = 0; i < courseDay.length(); i++) courseScheduleList.add(new CourseSchedule(courseTerm, courseDay.charAt(i), courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseLocation, courseInstructor, courseUniversity, courseCredit, courseAttribute));
+                    // HACK
+                    courseScheduleList.add(new CourseSchedule(courseTerm, courseDay, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseLocation, courseInstructor, courseUniversity, courseCredit, courseAttribute));
                     count++;
                 }
                 progressDialog.hide();

@@ -106,7 +106,7 @@ public class StatisticsFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             try {
-                address = "http://ec2-44-197-174-212.compute-1.amazonaws.com/StatisticsCourseList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
+                address = "http://ec2-3-222-117-117.compute-1.amazonaws.com/StatisticsCourseList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
                 dialog.setMessage("Loading");
                 dialog.show();
             } catch (Exception e) {
@@ -165,7 +165,7 @@ public class StatisticsFragment extends Fragment {
                     courseTime = object.getString("courseTime");
                     courseDay = object.getString("courseDay");
                     String courseCredit = object.getString("courseCredit");
-                    courseScheduleList.add(new CourseSchedule(courseCRN,courseTitle,courseSection,courseCredit,courseTime, courseDay));
+                    courseScheduleList.add(new CourseSchedule("", courseDay, "", courseTitle, courseCRN, "", courseSection, "",courseTime, "", "", "", courseCredit, ""));
                     totalCredit+= Integer.parseInt(courseCredit);
                     ++index;
                 }

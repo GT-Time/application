@@ -58,7 +58,7 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
 
         courseArea.setText(courseScheduleList.get(position).getCourseArea());
         courseCRN.setText(courseScheduleList.get(position).getCourseCRN());
-        courseTitle.setText(courseScheduleList.get(position).getCourseTitle());
+        courseTitle.setText(courseScheduleList.get(position).getClassTitle());
         courseSection.setText(courseScheduleList.get(position).getCourseSection());
         courseTime.setText(courseScheduleList.get(position).getCourseTime());
 
