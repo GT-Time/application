@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/TimetableView.iml" filepath="$PROJECT_DIR$/TimetableView.iml" group="TimetableView" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="TimetableView/app" />
+      <module fileurl="file://$PROJECT_DIR$/timetableview/timetableview.iml" filepath="$PROJECT_DIR$/timetableview/timetableview.iml" group="TimetableView/timetableview" />
+    </modules>
+  </component>
+</project>
