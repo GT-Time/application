@@ -6,6 +6,8 @@
  */
 package com.example.registration;
 
+import androidx.annotation.Nullable;
+
 import com.github.tlaabs.timetableview.Schedule;
 import com.github.tlaabs.timetableview.Time;
 
@@ -54,10 +56,42 @@ public class CourseSchedule extends Schedule {
         setCourseAttribute(courseAttribute);
     }
 
+    /******************************************
+     * HACK
+     */
+    private String courseDays;
+    public CourseSchedule(String courseTerm, String courseDays, String courseMajor, String courseTitle, String courseCRN, String courseArea, String courseSection, String courseClass, String courseTime, String courseLocation, String courseInstructor, String courseUniversity, String courseCredit, String courseAttribute) {
+        this.parsedTime = new HashMap<Integer, Integer>();
+        // inherited setter
+        setClassTitle(courseTitle);
+        setTime(courseTime);
+        setClassPlace(courseLocation);
+        setProfessorName(courseInstructor);
 
+        // extended setter
+        setCourseDays(courseDays);
+        setCourseTerm(courseTerm);
+        setCourseMajor(courseMajor);
+        setCourseCRN(courseCRN);
+        setCourseArea(courseArea);
+        setCourseSection(courseSection);
+        setCourseClass(courseClass);
+        setCourseUniversity(courseUniversity);
+        setCredit(courseCredit);
+        setCourseAttribute(courseAttribute);
+    }
+
+    public String getCourseDays() {
+        return courseDays;
+    }
+
+    public void setCourseDays(String courseDays) {
+        this.courseDays = courseDays;
+    }
+    //**************************************
 
     public void setDay(char day) {
-        switch(day) {
+        switch (day) {
             case 'M':
                 setDay(0);
                 break;

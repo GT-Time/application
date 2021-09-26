@@ -97,7 +97,7 @@ public class ScheduleFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             try {
-                address = "http://ec2-44-197-174-212.compute-1.amazonaws.com/ScheduleList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
+                address = "http://ec2-3-222-117-117.compute-1.amazonaws.com/ScheduleList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
                 dialog.setMessage("Loading");
                 dialog.show();
             } catch (Exception e) {
