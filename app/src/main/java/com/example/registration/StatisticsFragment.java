@@ -10,9 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -84,7 +82,7 @@ public class StatisticsFragment extends Fragment {
 
     private ListView courseListView;
     private StatisticsCourseListAdapter adapter;
-    private List<Course> courseList;
+    private List<CourseSchedule> courseScheduleList;
 
     public static int totalCredit = 0;
     public static TextView statCredit;
@@ -94,8 +92,8 @@ public class StatisticsFragment extends Fragment {
 
         statCredit = (TextView) getView().findViewById(R.id.totalCredit);
         courseListView = (ListView) getView().findViewById(R.id.courseListView);
-        courseList = new ArrayList<Course>();
-        adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(),courseList,this);
+        courseScheduleList = new ArrayList<CourseSchedule>();
+        adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(), courseScheduleList,this);
         courseListView.setAdapter(adapter);
 
         new BackgroundTask().execute();
@@ -167,7 +165,7 @@ public class StatisticsFragment extends Fragment {
                     courseTime = object.getString("courseTime");
                     courseDay = object.getString("courseDay");
                     String courseCredit = object.getString("courseCredit");
-                    courseList.add(new Course(courseCRN,courseTitle,courseSection,courseCredit,courseTime, courseDay));
+                    courseScheduleList.add(new CourseSchedule(courseCRN,courseTitle,courseSection,courseCredit,courseTime, courseDay));
                     totalCredit+= Integer.parseInt(courseCredit);
                     ++index;
                 }

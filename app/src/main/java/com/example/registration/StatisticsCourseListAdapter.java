@@ -20,25 +20,25 @@ import java.util.List;
 
 public class StatisticsCourseListAdapter extends BaseAdapter {
     private Context context;
-    private List<Course> courseList;
+    private List<CourseSchedule> courseScheduleList;
     private Fragment parent;
     private String userID = MainActivity.userID;
 
 
-    public StatisticsCourseListAdapter(Context context, List<Course> courseList, Fragment parent) {
+    public StatisticsCourseListAdapter(Context context, List<CourseSchedule> courseScheduleList, Fragment parent) {
         this.context = context;
-        this.courseList = courseList;
+        this.courseScheduleList = courseScheduleList;
         this.parent = parent;
     }
 
     @Override
     public int getCount() {
-        return courseList.size();
+        return courseScheduleList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return courseList.get(position);
+        return courseScheduleList.get(position);
     }
 
     @Override
@@ -56,13 +56,13 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
         TextView courseSection = (TextView) v.findViewById(R.id.courseSection);
         TextView courseTime = (TextView) v.findViewById(R.id.statisticTimeID);
 
-        courseArea.setText(courseList.get(position).getCourseArea());
-        courseCRN.setText(courseList.get(position).getCourseCRN());
-        courseTitle.setText(courseList.get(position).getCourseTitle());
-        courseSection.setText(courseList.get(position).getCourseSection());
-        courseTime.setText(courseList.get(position).getCourseTime());
+        courseArea.setText(courseScheduleList.get(position).getCourseArea());
+        courseCRN.setText(courseScheduleList.get(position).getCourseCRN());
+        courseTitle.setText(courseScheduleList.get(position).getCourseTitle());
+        courseSection.setText(courseScheduleList.get(position).getCourseSection());
+        courseTime.setText(courseScheduleList.get(position).getCourseTime());
 
-        v.setTag(courseList.get(position).getCourseCRN());
+        v.setTag(courseScheduleList.get(position).getCourseCRN());
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,9 +86,9 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
                                             .setPositiveButton("OK",null)
                                             .create();
                                     dialog.show();
-                                    StatisticsFragment.totalCredit -= Integer.parseInt(courseList.get(position).getCourseCredit());
+                                    StatisticsFragment.totalCredit -= Integer.parseInt(courseScheduleList.get(position).getCourseCredit());
                                     StatisticsFragment.statCredit.setText(StatisticsFragment.totalCredit + "Credits");
-                                    courseList.remove(position);
+                                    courseScheduleList.remove(position);
                                     notifyDataSetChanged();
                                     return;
                                 }
@@ -110,7 +110,7 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
                         }
                     };
 
-                    DeleteRequest deleteRequest = new DeleteRequest(userID, courseList.get(position).getCourseCRN(), responseListener);
+                    DeleteRequest deleteRequest = new DeleteRequest(userID, courseScheduleList.get(position).getCourseCRN(), responseListener);
                     RequestQueue queue = Volley.newRequestQueue(parent.getActivity());
                     queue.add(deleteRequest);
                 }

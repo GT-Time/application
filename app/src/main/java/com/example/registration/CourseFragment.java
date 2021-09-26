@@ -1,7 +1,6 @@
 package com.example.registration;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -19,11 +18,6 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -95,7 +89,7 @@ public class CourseFragment extends Fragment {
 
     private ListView courseListView;
     private CourseListAdapter adapter;
-    private List<Course> courseList;
+    private List<CourseSchedule> courseScheduleList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -494,8 +488,8 @@ public class CourseFragment extends Fragment {
 
 
     courseListView = (ListView) getView().findViewById(R.id.courseListID);
-    courseList = new ArrayList<Course>();
-    adapter = new CourseListAdapter(getContext().getApplicationContext(),courseList,this);
+    courseScheduleList = new ArrayList<CourseSchedule>();
+    adapter = new CourseListAdapter(getContext().getApplicationContext(), courseScheduleList,this);
     courseListView.setAdapter(adapter);
 
 
@@ -564,7 +558,7 @@ public class CourseFragment extends Fragment {
         @Override
         protected void onPostExecute(Object o) {
             try {
-                courseList.clear();
+                courseScheduleList.clear();
                 String result = (String) o;
                 JSONObject jsonObject = new JSONObject(result);
                 JSONArray jsonArray = jsonObject.getJSONArray("response");
@@ -602,8 +596,8 @@ public class CourseFragment extends Fragment {
                     courseUniversity = object.getString("courseUniversity");
                     courseCredit = object.getString("courseCredit");
                     courseAttribute = object.getString("courseAttribute");
-                    Course course = new Course(courseTerm, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseDay, courseLocation ,courseInstructor, courseUniversity, courseCredit, courseAttribute);
-                    courseList.add(course);
+
+                    for(int i = 0; i < courseDay.length(); i++) courseScheduleList.add(new CourseSchedule(courseTerm, courseDay.charAt(i), courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseLocation, courseInstructor, courseUniversity, courseCredit, courseAttribute));
                     count++;
                 }
                 progressDialog.hide();

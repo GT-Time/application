@@ -30,31 +30,31 @@ import java.util.List;
 
 public class CourseListAdapter extends BaseAdapter {
     private Context context;
-    private List<Course> courseList;
+    private List<CourseSchedule> courseScheduleList;
     private Fragment parent;
     private String userID = MainActivity.userID;
-    private RegistrationSchedule registrationSchedule;
+    private ArrayList<CourseSchedule> userScheduleList;
     private List<String> courseCRNList;
     public static int totalCredit = 0;
 
-    public CourseListAdapter(Context context, List<Course> courseList, Fragment parent) {
+    public CourseListAdapter(Context context, List<CourseSchedule> courseScheduleList, Fragment parent) {
         this.context = context;
-        this.courseList = courseList;
+        this.courseScheduleList = courseScheduleList; // courseList in adapter
         this.parent = parent;
-        registrationSchedule = new RegistrationSchedule();
-        courseCRNList = new ArrayList<String>();
+        this.userScheduleList = new ArrayList<CourseSchedule>(); // courseList from user dataabase
+        this.courseCRNList = new ArrayList<String>();
         new BackgroundTask().execute();
         totalCredit = 0;
     }
 
     @Override
     public int getCount() {
-        return courseList.size();
+        return courseScheduleList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return courseList.get(position);
+        return courseScheduleList.get(position);
     }
 
     @Override
@@ -73,30 +73,30 @@ public class CourseListAdapter extends BaseAdapter {
         TextView courseTime = (TextView) v.findViewById(R.id.courseTime);
         TextView courseDay = (TextView) v.findViewById(R.id.courseDay);
 
-        courseTitle.setText(courseList.get(position).getCourseTitle()+"-"+courseList.get(position).getCourseSection());
-        if(courseList.get(position).getCourseInstructor().equals("")) {
+        courseTitle.setText(courseScheduleList.get(position).getClassTitle()+"-"+ courseScheduleList.get(position).getCourseSection());
+        if(courseScheduleList.get(position).getProfessorName().equals("")) {
             courseInstructor.setText("TBA");
         }
 
         else {
-            courseInstructor.setText("Professor " + courseList.get(position).getCourseInstructor());
+            courseInstructor.setText("Professor " + courseScheduleList.get(position).getProfessorName());
         }
-        courseCredit.setText(courseList.get(position).getCourseCredit());
-        courseTerm.setText(courseList.get(position).getCourseTerm());
-        courseCRN.setText(courseList.get(position).getCourseCRN());
-        courseTime.setText(courseList.get(position).getCourseTime());
-        courseDay.setText(courseList.get(position).getCourseDay());
+        courseCredit.setText(courseScheduleList.get(position).getCourseCredit());
+        courseTerm.setText(courseScheduleList.get(position).getCourseTerm());
+        courseCRN.setText(courseScheduleList.get(position).getCourseCRN());
+        courseTime.setText(courseScheduleList.get(position).getCourseTime());
+        courseDay.setText(courseScheduleList.get(position).getDay());
 
-        v.setTag(courseList.get(position).getCourseCRN());
+        v.setTag(courseScheduleList.get(position).getCourseCRN());
 
         Button addSchedule = (Button) v.findViewById(R.id.addScheduleButton);
         addSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean validate = false;
-                validate = registrationSchedule.validate(courseList.get(position).getCourseTime(), courseList.get(position).getCourseDay());
+                validate = userScheduleList.contains(courseScheduleList.get(position).getCourseTime(), courseScheduleList.get(position).getDay());
 
-                if(!alreadyIn(courseCRNList, courseList.get(position).getCourseCRN())) {
+                if(!alreadyIn(courseCRNList, courseScheduleList.get(position).getCourseCRN())) {
 
                     AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
                     AlertDialog dialog = alert.setMessage("Course is already registered in your schedule")
@@ -107,7 +107,7 @@ public class CourseListAdapter extends BaseAdapter {
 
                 }
 
-                else if(totalCredit + Integer.parseInt(courseList.get(position).getCourseCredit()) > 21) {
+                else if(totalCredit + Integer.parseInt(courseScheduleList.get(position).getCourseCredit()) > 21) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
                     AlertDialog dialog = alert.setMessage("Registered credit hours can not exceed 21 credits")
                             .setPositiveButton("OK",null)
@@ -143,9 +143,9 @@ public class CourseListAdapter extends BaseAdapter {
                                             .setPositiveButton("OK",null)
                                             .create();
                                     dialog.show();
-                                    courseCRNList.add(courseList.get(position).getCourseCRN());
-                                    registrationSchedule.addSchedule(courseList.get(position));
-                                    totalCredit+= Integer.parseInt(courseList.get(position).getCourseCredit());
+                                    courseCRNList.add(courseScheduleList.get(position).getCourseCRN());
+                                    userScheduleList.add(courseScheduleList.get(position));
+                                    totalCredit+= Integer.parseInt(courseScheduleList.get(position).getCourseCredit());
                                     return;
                                 }
 
@@ -166,7 +166,7 @@ public class CourseListAdapter extends BaseAdapter {
                         }
                     };
 
-                    AddRequest addRequest = new AddRequest(userID, courseList.get(position).getCourseCRN() +" ", responseListener, null);
+                    AddRequest addRequest = new AddRequest(userID, courseScheduleList.get(position).getCourseCRN() +" ", responseListener, null);
                     RequestQueue queue = Volley.newRequestQueue(parent.getActivity());
                     queue.add(addRequest);
                 }
@@ -242,7 +242,7 @@ public class CourseListAdapter extends BaseAdapter {
 
                     totalCredit+= Integer.parseInt(courseCredit);
                     courseCRNList.add(courseCRN);
-                    registrationSchedule.addSchedule(new Course(courseCRN, courseTime, courseDay, courseInstructor, courseCredit));
+                    for(int i = 0; i < courseDay.length(); i++) userScheduleList.add(new CourseSchedule("", courseDay.charAt(i), "", "", courseCRN, "", "", "", courseTime, "", courseInstructor, "", courseCredit, ""));
                     ++index;
                 }
 
