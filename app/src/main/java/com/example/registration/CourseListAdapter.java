@@ -86,7 +86,8 @@ public class CourseListAdapter extends BaseAdapter {
         courseTerm.setText(courseScheduleList.get(position).getCourseTerm());
         courseCRN.setText(courseScheduleList.get(position).getCourseCRN());
         courseTime.setText(courseScheduleList.get(position).getCourseTime());
-        courseDay.setText(courseScheduleList.get(position).getDay());
+        // HACK
+        courseDay.setText(courseScheduleList.get(position).parseDay(courseScheduleList.get(position).getDay()));
 
         v.setTag(courseScheduleList.get(position).getCourseCRN());
 
@@ -182,7 +183,7 @@ public class CourseListAdapter extends BaseAdapter {
         @Override
         protected void onPreExecute() {
             try {
-                address = "http://ec2-44-197-174-212.compute-1.amazonaws.com/ScheduleList.php?userID=" + URLEncoder.encode(userID, "UTF-8");
+                address = "http://ec2-3-222-117-117.compute-1.amazonaws.com/ScheduleList.php?userID=" + URLEncoder.encode(userID, "UTF-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }

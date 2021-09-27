@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class CourseSchedule extends Schedule {
-    private Map<Integer, Integer> parsedTime;
+    private Map<Integer, Integer> parseTimedTime;
 
     // Additional variables for application
     private String courseTerm;
@@ -36,7 +36,7 @@ public class CourseSchedule extends Schedule {
     }
 
     public CourseSchedule(String courseTerm, char courseDay, String courseMajor, String courseTitle, String courseCRN, String courseArea, String courseSection, String courseClass, String courseTime, String courseLocation, String courseInstructor, String courseUniversity, String courseCredit, String courseAttribute) {
-        this.parsedTime = new HashMap<Integer, Integer>();
+        this.parseTimedTime = new HashMap<Integer, Integer>();
         // inherited setter
         setDay(courseDay);
         setClassTitle(courseTitle);
@@ -61,7 +61,7 @@ public class CourseSchedule extends Schedule {
      */
     private String courseDays;
     public CourseSchedule(String courseTerm, String courseDays, String courseMajor, String courseTitle, String courseCRN, String courseArea, String courseSection, String courseClass, String courseTime, String courseLocation, String courseInstructor, String courseUniversity, String courseCredit, String courseAttribute) {
-        this.parsedTime = new HashMap<Integer, Integer>();
+        this.parseTimedTime = new HashMap<Integer, Integer>();
         // inherited setter
         setClassTitle(courseTitle);
         setTime(courseTime);
@@ -116,13 +116,15 @@ public class CourseSchedule extends Schedule {
 
     public void setTime(String time) {
         String [] timeArr = time.split("-", 2);
+        // HACK : handle exception
+        if (timeArr.length < 2) return;
 
-        Map.Entry parsedStart = this.parse(timeArr[0]);
-        Map.Entry parsedEnd = this.parse(timeArr[1]);
-        parsedTime.put((Integer) parsedStart.getKey(), (Integer) parsedStart.getValue());
-        parsedTime.put((Integer) parsedEnd.getKey(), (Integer) parsedEnd.getValue());
+        Map.Entry parseTimedStart = this.parseTime(timeArr[0]);
+        Map.Entry parseTimedEnd = this.parseTime(timeArr[1]);
+        parseTimedTime.put((Integer) parseTimedStart.getKey(), (Integer) parseTimedStart.getValue());
+        parseTimedTime.put((Integer) parseTimedEnd.getKey(), (Integer) parseTimedEnd.getValue());
 
-        Set entrySet = parsedTime.entrySet();
+        Set entrySet = parseTimedTime.entrySet();
         Iterator it = entrySet.iterator();
 
         HashMap.Entry curr = (HashMap.Entry)it.next();
@@ -137,14 +139,22 @@ public class CourseSchedule extends Schedule {
      * @param time in String
      *        ex: 6:30 pm
      */
-    public Map.Entry parse(String time) {
+    public Map.Entry parseTime(String time) {
         time = time.trim();
-        String hourMin = time.split(" ")[0];
-        String timeFrame = time.split(" ")[1];
+        String[] timeFramePair = time.split(" ", 2);
 
-        String[] pair = hourMin.split(":", 2);
-        int hour = Integer.parseInt(pair[0]);
-        int min = Integer.parseInt(pair[1]);
+        // HACK : handle exception
+        if (timeFramePair.length < 2) return null;
+
+        String hourMin = timeFramePair[0];
+        String timeFrame = timeFramePair[1];
+
+        String[] hourMinPair = hourMin.split(":", 2);
+        // HACK :  handle exception
+        if (timeFramePair.length < 2) return null;
+
+        int hour = Integer.parseInt(hourMinPair[0]);
+        int min = Integer.parseInt(hourMinPair[1]);
 
         if(time.contains("p")) hour += 12;
 
@@ -152,6 +162,32 @@ public class CourseSchedule extends Schedule {
         return returnVal;
     }
 
+
+    public String parseDay(int day) {
+        char parsed = ' ';
+        switch(day) {
+            case 0 :
+                parsed = 'M';
+                break;
+            case 1 :
+                parsed = 'T';
+                break;
+
+            case 2 :
+                parsed = 'W';
+                break;
+
+            case 3 :
+                parsed = 'H';
+                break;
+
+            case 4 :
+                parsed = 'F';
+                break;
+        }
+
+        return Character.toString(parsed);
+    }
 
     /**
      *  Additional variable setter & getter functions
