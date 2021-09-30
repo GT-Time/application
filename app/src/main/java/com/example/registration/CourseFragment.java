@@ -89,7 +89,7 @@ public class CourseFragment extends Fragment {
 
     private ListView courseListView;
     private CourseListAdapter adapter;
-    private List<CourseSchedule> courseScheduleList;
+    private List<Course> courseScheduleList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -488,7 +488,7 @@ public class CourseFragment extends Fragment {
 
 
     courseListView = (ListView) getView().findViewById(R.id.courseListID);
-    courseScheduleList = new ArrayList<CourseSchedule>();
+    courseScheduleList = new ArrayList<Course>();
     adapter = new CourseListAdapter(getContext().getApplicationContext(), courseScheduleList,this);
     courseListView.setAdapter(adapter);
 
@@ -598,7 +598,7 @@ public class CourseFragment extends Fragment {
                     courseAttribute = object.getString("courseAttribute");
 
                     // HACK
-                    courseScheduleList.add(new CourseSchedule(courseTerm, courseDay, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseLocation, courseInstructor, courseUniversity, courseCredit, courseAttribute));
+                    courseScheduleList.add(new Course(courseTerm, courseDay, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseLocation, courseInstructor, courseUniversity, courseCredit, courseAttribute));
                     count++;
                 }
                 progressDialog.hide();

@@ -82,7 +82,7 @@ public class StatisticsFragment extends Fragment {
 
     private ListView courseListView;
     private StatisticsCourseListAdapter adapter;
-    private List<CourseSchedule> courseScheduleList;
+    private List<Course> courseScheduleList;
 
     public static int totalCredit = 0;
     public static TextView statCredit;
@@ -92,7 +92,7 @@ public class StatisticsFragment extends Fragment {
 
         statCredit = (TextView) getView().findViewById(R.id.totalCredit);
         courseListView = (ListView) getView().findViewById(R.id.courseListView);
-        courseScheduleList = new ArrayList<CourseSchedule>();
+        courseScheduleList = new ArrayList<Course>();
         adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(), courseScheduleList,this);
         courseListView.setAdapter(adapter);
 
@@ -165,7 +165,7 @@ public class StatisticsFragment extends Fragment {
                     courseTime = object.getString("courseTime");
                     courseDay = object.getString("courseDay");
                     String courseCredit = object.getString("courseCredit");
-                    courseScheduleList.add(new CourseSchedule("", courseDay, "", courseTitle, courseCRN, "", courseSection, "",courseTime, "", "", "", courseCredit, ""));
+                    courseScheduleList.add(new Course("", courseDay, "", courseTitle, courseCRN, "", courseSection, "",courseTime, "", "", "", courseCredit, ""));
                     totalCredit+= Integer.parseInt(courseCredit);
                     ++index;
                 }

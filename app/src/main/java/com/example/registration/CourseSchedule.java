@@ -40,7 +40,8 @@ public class CourseSchedule extends Schedule {
         // inherited setter
         setDay(courseDay);
         setClassTitle(courseTitle);
-        setTime(courseTime);
+        setStartTime(new CourseTime(Util.split(courseTime,"-",2)[0]));
+        setEndTime(new CourseTime(Util.split(courseTime,"-",2)[1]));
         setClassPlace(courseLocation);
         setProfessorName(courseInstructor);
 
@@ -56,39 +57,6 @@ public class CourseSchedule extends Schedule {
         setCourseAttribute(courseAttribute);
     }
 
-    /******************************************
-     * HACK
-     */
-    private String courseDays;
-    public CourseSchedule(String courseTerm, String courseDays, String courseMajor, String courseTitle, String courseCRN, String courseArea, String courseSection, String courseClass, String courseTime, String courseLocation, String courseInstructor, String courseUniversity, String courseCredit, String courseAttribute) {
-        this.parseTimedTime = new HashMap<Integer, Integer>();
-        // inherited setter
-        setClassTitle(courseTitle);
-        setTime(courseTime);
-        setClassPlace(courseLocation);
-        setProfessorName(courseInstructor);
-
-        // extended setter
-        setCourseDays(courseDays);
-        setCourseTerm(courseTerm);
-        setCourseMajor(courseMajor);
-        setCourseCRN(courseCRN);
-        setCourseArea(courseArea);
-        setCourseSection(courseSection);
-        setCourseClass(courseClass);
-        setCourseUniversity(courseUniversity);
-        setCredit(courseCredit);
-        setCourseAttribute(courseAttribute);
-    }
-
-    public String getCourseDays() {
-        return courseDays;
-    }
-
-    public void setCourseDays(String courseDays) {
-        this.courseDays = courseDays;
-    }
-    //**************************************
 
     public void setDay(char day) {
         switch (day) {
@@ -113,55 +81,6 @@ public class CourseSchedule extends Schedule {
                 break;
         }
     }
-
-    public void setTime(String time) {
-        String [] timeArr = time.split("-", 2);
-        // HACK : handle exception
-        if (timeArr.length < 2) return;
-
-        Map.Entry parseTimedStart = this.parseTime(timeArr[0]);
-        Map.Entry parseTimedEnd = this.parseTime(timeArr[1]);
-        parseTimedTime.put((Integer) parseTimedStart.getKey(), (Integer) parseTimedStart.getValue());
-        parseTimedTime.put((Integer) parseTimedEnd.getKey(), (Integer) parseTimedEnd.getValue());
-
-        Set entrySet = parseTimedTime.entrySet();
-        Iterator it = entrySet.iterator();
-
-        HashMap.Entry curr = (HashMap.Entry)it.next();
-        setStartTime(new Time((int) curr.getKey(), (int)curr.getValue()));
-
-        curr = (HashMap.Entry)it.next();
-        setEndTime(new Time((int) curr.getKey(), (int)curr.getValue()));
-    }
-
-    /**
-     *
-     * @param time in String
-     *        ex: 6:30 pm
-     */
-    public Map.Entry parseTime(String time) {
-        time = time.trim();
-        String[] timeFramePair = time.split(" ", 2);
-
-        // HACK : handle exception
-        if (timeFramePair.length < 2) return null;
-
-        String hourMin = timeFramePair[0];
-        String timeFrame = timeFramePair[1];
-
-        String[] hourMinPair = hourMin.split(":", 2);
-        // HACK :  handle exception
-        if (timeFramePair.length < 2) return null;
-
-        int hour = Integer.parseInt(hourMinPair[0]);
-        int min = Integer.parseInt(hourMinPair[1]);
-
-        if(time.contains("p")) hour += 12;
-
-        Map.Entry<Integer, Integer> returnVal = new AbstractMap.SimpleEntry<Integer, Integer>(hour, min);
-        return returnVal;
-    }
-
 
     public String parseDay(int day) {
         char parsed = ' ';
