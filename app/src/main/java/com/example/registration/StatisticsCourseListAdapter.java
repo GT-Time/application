@@ -20,12 +20,12 @@ import java.util.List;
 
 public class StatisticsCourseListAdapter extends BaseAdapter {
     private Context context;
-    private List<CourseSchedule> courseScheduleList;
+    private List<Course> courseScheduleList;
     private Fragment parent;
     private String userID = MainActivity.userID;
 
 
-    public StatisticsCourseListAdapter(Context context, List<CourseSchedule> courseScheduleList, Fragment parent) {
+    public StatisticsCourseListAdapter(Context context, List<Course> courseScheduleList, Fragment parent) {
         this.context = context;
         this.courseScheduleList = courseScheduleList;
         this.parent = parent;
@@ -58,7 +58,7 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
 
         courseArea.setText(courseScheduleList.get(position).getCourseArea());
         courseCRN.setText(courseScheduleList.get(position).getCourseCRN());
-        courseTitle.setText(courseScheduleList.get(position).getClassTitle());
+        courseTitle.setText(courseScheduleList.get(position).getCourseTitle());
         courseSection.setText(courseScheduleList.get(position).getCourseSection());
         courseTime.setText(courseScheduleList.get(position).getCourseTime());
 

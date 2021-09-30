@@ -31,18 +31,18 @@ import java.util.List;
 
 public class CourseListAdapter extends BaseAdapter {
     private Context context;
-    private List<CourseSchedule> courseScheduleList;
+    private List<Course> courseScheduleList;
     private Fragment parent;
     private String userID = MainActivity.userID;
-    private ArrayList<CourseSchedule> userScheduleList;
+    private List<Course> userCourseList;
     private List<String> courseCRNList;
     public static int totalCredit = 0;
 
-    public CourseListAdapter(Context context, List<CourseSchedule> courseScheduleList, Fragment parent) {
+    public CourseListAdapter(Context context, List<Course> courseScheduleList, Fragment parent) {
         this.context = context;
         this.courseScheduleList = courseScheduleList; // courseList in adapter
         this.parent = parent;
-        this.userScheduleList = new ArrayList<CourseSchedule>(); // courseList from user dataabase
+        this.userCourseList = new ArrayList<Course>(); // courseList from user dataabase
         this.courseCRNList = new ArrayList<String>();
         new BackgroundTask().execute();
         totalCredit = 0;
@@ -74,20 +74,19 @@ public class CourseListAdapter extends BaseAdapter {
         TextView courseTime = (TextView) v.findViewById(R.id.courseTime);
         TextView courseDay = (TextView) v.findViewById(R.id.courseDay);
 
-        courseTitle.setText(courseScheduleList.get(position).getClassTitle()+"-"+ courseScheduleList.get(position).getCourseSection());
-        if(courseScheduleList.get(position).getProfessorName().equals("")) {
+        courseTitle.setText(courseScheduleList.get(position).getCourseTitle()+"-"+ courseScheduleList.get(position).getCourseSection());
+        if(courseScheduleList.get(position).getCourseInstructor().equals("")) {
             courseInstructor.setText("TBA");
         }
 
         else {
-            courseInstructor.setText("Professor " + courseScheduleList.get(position).getProfessorName());
+            courseInstructor.setText("Professor " + courseScheduleList.get(position).getCourseInstructor());
         }
         courseCredit.setText(courseScheduleList.get(position).getCourseCredit());
         courseTerm.setText(courseScheduleList.get(position).getCourseTerm());
         courseCRN.setText(courseScheduleList.get(position).getCourseCRN());
         courseTime.setText(courseScheduleList.get(position).getCourseTime());
-        // HACK
-        courseDay.setText(courseScheduleList.get(position).parseDay(courseScheduleList.get(position).getDay()));
+        courseDay.setText(courseScheduleList.get(position).getCourseDay());
 
         v.setTag(courseScheduleList.get(position).getCourseCRN());
 
@@ -117,7 +116,7 @@ public class CourseListAdapter extends BaseAdapter {
                 }
 
                 // HACK
-                else if(validate(userScheduleList, courseScheduleList.get(position))) {
+                else if(validate(courseScheduleList.get(position), userCourseList)) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
                     AlertDialog dialog = alert.setMessage("Time duplicates with course registered")
                             .setPositiveButton("OK",null)
@@ -145,7 +144,7 @@ public class CourseListAdapter extends BaseAdapter {
                                             .create();
                                     dialog.show();
                                     courseCRNList.add(courseScheduleList.get(position).getCourseCRN());
-                                    userScheduleList.add(courseScheduleList.get(position));
+                                    userCourseList.add(courseScheduleList.get(position));
                                     totalCredit+= Integer.parseInt(courseScheduleList.get(position).getCourseCredit());
                                     return;
                                 }
@@ -243,7 +242,7 @@ public class CourseListAdapter extends BaseAdapter {
 
                     totalCredit+= Integer.parseInt(courseCredit);
                     courseCRNList.add(courseCRN);
-                    for(int i = 0; i < courseDay.length(); i++) userScheduleList.add(new CourseSchedule("", courseDay.charAt(i), "", "", courseCRN, "", "", "", courseTime, "", courseInstructor, "", courseCredit, ""));
+                    userCourseList.add(new Course("", courseDay, "", "", courseCRN, "", "", "", courseTime, "", courseInstructor, "", courseCredit, ""));
                     ++index;
                 }
 
@@ -263,23 +262,29 @@ public class CourseListAdapter extends BaseAdapter {
         return true;
     }
 
-    // HACK
-    public boolean validate(List<CourseSchedule> courseList, CourseSchedule course) {
-        String courseDays = course.getCourseDays();
-        Time startTime = course.getStartTime();
-        Time endTime = course.getEndTime();
+    /**
+     * Validate course time and course day validation.
+     *
+     * @param course course to be added to list
+     * @param courseList list of course
+     * @return boolean whether course can be added
+     */
+    public boolean validate(Course course, List<Course> courseList) {
+        String courseDays = course.getCourseDay();
 
+        // handle exception
         courseDays = courseDays.trim();
         if(courseDays.contains("TBA") || courseDays.equals("")) return true;
 
-        for (int i = 0; i < courseList.size(); i++) {
-            int day = courseList.get(i).getDay() + 77;
-            if(day < 65 || day > 90) continue;
+        for (int i = 0; i < courseList.size(); i++) { // for each course in courseList
+            for(int j = 0; j < course.getCourseDay().length(); j++) { // for each courseDay in course
+                if (courseList.get(i).getCourseDay().indexOf(course.getCourseDay().charAt(j)) <= -1) { // course day does not overlap
+                    continue;
+                }
 
-            String decode = Character.toString((char) day);
-            if (courseDays.contains(decode)) { // compare day duplicate
-                // compare time duplicate
-
+                if (courseList.get(i).getStartTime().getHour() < course.getStartTime().getHour() && courseList.get(i).getEndTime().getHour() > course.getStartTime().getHour()) {
+                    return false;
+                }
             }
         }
         return true;
