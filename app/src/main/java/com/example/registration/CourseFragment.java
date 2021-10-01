@@ -126,9 +126,7 @@ public class CourseFragment extends Fragment {
                 subjectSpinner.setAdapter(subjectAdapter);
             }
         });
-        /*
-        areaAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.undergraduateCourseType, android.R.layout.simple_spinner_dropdown_item);
-        areaSpinner.setAdapter(areaAdapter);*/
+
     subjectSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

@@ -95,13 +95,13 @@
                  android:textColor="#f92a3f"></TextView>
 
              <TextView
+                 android:id="@+id/courseTime"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:text="Timeline"
-                 android:id="@+id/courseTime"
                  android:layout_gravity="center"
                  android:padding="2dp"
-                 android:textColor="@color/colorPurple" />
+                 android:text="Timeline"
+                 android:textColor="@color/colorSkyBlue" />
 
              <TextView
                  android:id="@+id/courseDay"
@@ -109,7 +109,7 @@
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
                  android:text="Day"
-                 android:textColor="@color/colorPurple" />
+                 android:textColor="@color/colorSkyBlue" />
 
          </LinearLayout>
 

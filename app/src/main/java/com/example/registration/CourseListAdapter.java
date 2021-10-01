@@ -36,7 +36,7 @@ public class CourseListAdapter extends BaseAdapter {
     private String userID = MainActivity.userID;
     private List<Course> userCourseList;
     private List<String> courseCRNList;
-    public static int totalCredit = 0;
+    public static int totalCredit;
 
     public CourseListAdapter(Context context, List<Course> courseScheduleList, Fragment parent) {
         this.context = context;
@@ -95,7 +95,7 @@ public class CourseListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
-                if(!alreadyIn(courseCRNList, courseScheduleList.get(position).getCourseCRN())) {
+                if(alreadyIn(courseCRNList, courseScheduleList.get(position).getCourseCRN())) {
 
                     AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
                     AlertDialog dialog = alert.setMessage("Course is already registered in your schedule")
@@ -106,70 +106,78 @@ public class CourseListAdapter extends BaseAdapter {
 
                 }
 
-                else if(totalCredit + Integer.parseInt(courseScheduleList.get(position).getCourseCredit()) > 21) {
+                int credit = Util.parseInt(courseScheduleList.get(position).getCourseCredit().split(" ")[0]);
+
+                if(exceedAllowedCredit(totalCredit, credit)) {
+
                     AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
                     AlertDialog dialog = alert.setMessage("Registered credit hours can not exceed 21 credits")
                             .setPositiveButton("OK",null)
                             .create();
                     dialog.show();
+
                     return;
+
                 }
 
-                // HACK
-                else if(validate(courseScheduleList.get(position), userCourseList)) {
+
+                if(!validate(courseScheduleList.get(position), userCourseList)) {
+
                     AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
                     AlertDialog dialog = alert.setMessage("Time duplicates with course registered")
                             .setPositiveButton("OK",null)
                             .create();
                     dialog.show();
+
                     return;
+
                 }
-                else {
-                    Response.Listener<String> responseListener = new Response.Listener<String>()
+
+                Response.Listener<String> responseListener = new Response.Listener<String>()
+                {
+
+                    @Override
+                    public void onResponse(String response)
                     {
-
-                        @Override
-                        public void onResponse(String response)
+                        try
                         {
-                            try
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+                            if(success)
                             {
-                                JSONObject jsonResponse = new JSONObject(response);
-                                boolean success = jsonResponse.getBoolean("success");
-
-                                if(success)
-                                {
-                                    AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
-                                    AlertDialog dialog = alert.setMessage("Course has been added to your schedule")
-                                            .setPositiveButton("OK",null)
-                                            .create();
-                                    dialog.show();
-                                    courseCRNList.add(courseScheduleList.get(position).getCourseCRN());
-                                    userCourseList.add(courseScheduleList.get(position));
-                                    totalCredit+= Integer.parseInt(courseScheduleList.get(position).getCourseCredit());
-                                    return;
-                                }
-
-                                else
-                                {
-                                    AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
-                                    AlertDialog dialog = alert.setMessage("Course has not been added to your schedule")
-                                            .setPositiveButton("OK",null)
-                                            .create();
-                                    dialog.show();
-                                    return;
-                                }
+                                AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
+                                AlertDialog dialog = alert.setMessage("Course has been added to your schedule")
+                                        .setPositiveButton("OK",null)
+                                        .create();
+                                dialog.show();
+                                courseCRNList.add(courseScheduleList.get(position).getCourseCRN());
+                                userCourseList.add(courseScheduleList.get(position));
+                                totalCredit+= Integer.parseInt(courseScheduleList.get(position).getCourseCredit());
+                                return;
                             }
-                            catch(Exception e)
+
+                            else
                             {
-                                e.printStackTrace();
+                                AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
+                                AlertDialog dialog = alert.setMessage("Course has not been added to your schedule")
+                                        .setPositiveButton("OK",null)
+                                        .create();
+                                dialog.show();
+                                return;
                             }
                         }
-                    };
+                        catch(Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                };
 
-                    AddRequest addRequest = new AddRequest(userID, courseScheduleList.get(position).getCourseCRN() +" ", responseListener, null);
-                    RequestQueue queue = Volley.newRequestQueue(parent.getActivity());
-                    queue.add(addRequest);
-                }
+                AddRequest addRequest = new AddRequest(userID, courseScheduleList.get(position).getCourseCRN() +" ", responseListener, null);
+                RequestQueue queue = Volley.newRequestQueue(parent.getActivity());
+                queue.add(addRequest);
+
 
             }
         });
@@ -256,10 +264,10 @@ public class CourseListAdapter extends BaseAdapter {
     public boolean alreadyIn(List<String> courseIDList, String item) {
         for(int i = 0; i < courseIDList.size(); i++) {
             if(courseIDList.get(i) == item) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     /**
@@ -288,5 +296,10 @@ public class CourseListAdapter extends BaseAdapter {
             }
         }
         return true;
+    }
+
+    public boolean exceedAllowedCredit(int total, int credit) {
+        if(total + credit > 21) return true;
+        return false;
     }
 }
