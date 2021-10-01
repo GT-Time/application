@@ -153,7 +153,7 @@ public class CourseListAdapter extends BaseAdapter {
                                 dialog.show();
                                 courseCRNList.add(courseScheduleList.get(position).getCourseCRN());
                                 userCourseList.add(courseScheduleList.get(position));
-                                totalCredit+= Integer.parseInt(courseScheduleList.get(position).getCourseCredit());
+                                totalCredit+= credit;
                                 return;
                             }
 

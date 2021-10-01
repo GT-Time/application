@@ -8,11 +8,25 @@ import java.util.Map;
 
 public class CourseTime extends Time {
     CourseTime(String time) {
+<<<<<<< HEAD
         HashMap.Entry parsed = this.parse(time);
+=======
+        String [] timeArr = Util.split(time," ", 2);
+
+        String [] hourMin = Util.split(timeArr[0],":",2);
+        String timeFrame = timeArr[1];
+
+        HashMap.Entry parsed = this.parse(hourMin[0]);
+>>>>>>> 4ac01cfd11578410af300e5ae45eaebc78ba666d
 
         int hour = (int)parsed.getKey();
         int min = (int)parsed.getValue();
 
+<<<<<<< HEAD
+=======
+        if(timeFrame.contains("p")) hour+=12;
+
+>>>>>>> 4ac01cfd11578410af300e5ae45eaebc78ba666d
         setHour(hour);
         setMinute(min);
     }
@@ -24,6 +38,7 @@ public class CourseTime extends Time {
      */
     public Map.Entry parse(String time) {
         time = time.trim();
+<<<<<<< HEAD
         String[] pair = Util.split(time," ", 2);
 
         String hourMin = pair[0];
@@ -38,6 +53,22 @@ public class CourseTime extends Time {
             hour = Integer.parseInt(hourMinPair[0]);
             min = Integer.parseInt(hourMinPair[1]);
         }
+=======
+        String[] timeFramePair = Util.split(time," ", 2);
+
+        // HACK : handle exception
+        if (timeFramePair.length < 2) return null;
+
+        String hourMin = timeFramePair[0];
+        String timeFrame = timeFramePair[1];
+
+        String[] hourMinPair = Util.split(hourMin,":", 2);
+        // HACK :  handle exception
+        if (timeFramePair.length < 2) return null;
+
+        int hour = Integer.parseInt(hourMinPair[0]);
+        int min = Integer.parseInt(hourMinPair[1]);
+>>>>>>> 4ac01cfd11578410af300e5ae45eaebc78ba666d
 
         if(time.contains("p")) hour += 12;
 
