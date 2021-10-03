@@ -24,4 +24,5 @@
 
 # server files
 /aws
-/php/dbinfo.inc
+/php
+/php/*
