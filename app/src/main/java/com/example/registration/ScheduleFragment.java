@@ -87,7 +87,7 @@ public class ScheduleFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         schedules = new ArrayList<Schedule>();
-        timeTable = new TimetableView(this.getContext());
+        timeTable = getView().findViewById(R.id.timetable);
         new BackgroundTask().execute();
     }
 
