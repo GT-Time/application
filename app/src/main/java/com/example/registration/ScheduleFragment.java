@@ -157,7 +157,7 @@ public class ScheduleFragment extends Fragment {
                     courseDay = object.getString("courseDay");
                     courseTime = object.getString("courseTime");
 
-                    for(int i = 0; i < courseDay.length(); i++) schedules.add(new CourseSchedule("", courseDay.charAt(i), "", courseTitle, "", "", "", "", courseTime, courseLocation, courseInstructor, "", "", ""));
+                    for(int i = 0; i < courseDay.length(); i++) schedules.add(new CourseSchedule(courseTitle, courseInstructor, courseLocation, courseTime, courseDay.charAt(i)));
                     ++index;
                 }
                 dialog.dismiss();
