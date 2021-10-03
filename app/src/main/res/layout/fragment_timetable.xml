@@ -11,7 +11,10 @@
             android:id="@+id/timetable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:start_time="7"
             app:column_count="6"
-            app:row_count="12" />
+            app:row_count="15"
+            app:cell_height="100dp"
+            app:sticker_colors="@array/default_sticker_color"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

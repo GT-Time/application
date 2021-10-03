@@ -89,6 +89,13 @@ public class ScheduleFragment extends Fragment {
         schedules = new ArrayList<Schedule>();
         timeTable = getView().findViewById(R.id.timetable);
         new BackgroundTask().execute();
+
+        timeTable.setOnStickerSelectEventListener(new TimetableView.OnStickerSelectedListener() {
+            @Override
+            public void OnStickerSelected(int idx, ArrayList<Schedule> schedules) {
+
+            }
+        });
     }
 
     class BackgroundTask extends AsyncTask {
@@ -97,6 +104,7 @@ public class ScheduleFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             try {
+                //TODO: fix bug with scheduleList.php.. bug with filtering
                 address = "http://ec2-3-222-117-117.compute-1.amazonaws.com/ScheduleList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
                 dialog.setMessage("Loading");
                 dialog.show();
@@ -150,6 +158,7 @@ public class ScheduleFragment extends Fragment {
                 String courseDay;
                 String courseTime;
                 while(index < jsonResponse.length()) {
+                    schedules.clear();
                     JSONObject object = jsonResponse.getJSONObject(index);
                     courseInstructor = object.getString("courseInstructor");
                     courseTitle = object.getString("courseTitle");
@@ -158,6 +167,7 @@ public class ScheduleFragment extends Fragment {
                     courseTime = object.getString("courseTime");
 
                     for(int i = 0; i < courseDay.length(); i++) schedules.add(new CourseSchedule(courseTitle, courseInstructor, courseLocation, courseTime, courseDay.charAt(i)));
+                    timeTable.add(schedules);
                     ++index;
                 }
                 dialog.dismiss();
@@ -165,7 +175,6 @@ public class ScheduleFragment extends Fragment {
             catch(Exception e) {
                 e.printStackTrace();
             }
-            timeTable.add(schedules);
         }
     }
 
