@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <color name="colorPrimary">#6200EE</color>-->
     <color name = "colorAnnie">#FFFFAAAA</color>
     <color name = "colorPurple">#b19cd9</color>
     <color name = "colorPrimary">#FFF7F69E</color>
@@ -16,4 +15,17 @@
     <color name = "colorSecondaryDark">#FBE7CB</color>
     <color name = "colorWhite">#ffffff</color>
     <color name = "colorSkyBlue">#00C5FF</color>
+
+    <!-- Imported Library colors -->
+    <string-array name="default_sticker_color">
+        <item>#f08676</item>
+        <item>#ecc369</item>
+        <item>#a7ca70</item>
+        <item>#7dd1c1</item>
+        <item>#7aa5e9</item>
+        <item>#fbaa68</item>
+        <item>#9f86e1</item>
+        <item>#78cb87</item>
+        <item>#d397ed</item>
+    </string-array>
 </resources>

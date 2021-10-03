@@ -34,12 +34,12 @@ public class CourseTime extends Time {
         int hour = 0;
         int min = 0;
 
-        if(!hourMinPair[0].isEmpty() && hourMinPair[1].isEmpty()) {
+        if(!hourMinPair[0].isEmpty() && !hourMinPair[1].isEmpty()) {
             hour = Integer.parseInt(hourMinPair[0]);
             min = Integer.parseInt(hourMinPair[1]);
         }
 
-        if(time.contains("p")) hour += 12;
+        if(time.contains("p") && hour!=12) hour += 12;
 
         HashMap.Entry<Integer, Integer> returnVal = new AbstractMap.SimpleEntry<Integer, Integer>(hour, min);
         return returnVal;

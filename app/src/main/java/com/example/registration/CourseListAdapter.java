@@ -143,7 +143,7 @@ public class CourseListAdapter extends BaseAdapter {
                         {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
-
+                            //TODO : fix php throwing failure duplicated course
                             if(success)
                             {
                                 AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
@@ -236,23 +236,29 @@ public class CourseListAdapter extends BaseAdapter {
                 JSONArray jsonResponse = jsonObject.getJSONArray("response");
 
                 int index = 0;
-                String courseInstructor;
+                String courseTerm;
+                String courseTitle;
                 String courseTime;
                 String courseDay;
+                String courseLocation;
+                String courseInstructor;
                 String courseCRN;
                 String courseCredit;
                 totalCredit = 0;
                 while(index < jsonResponse.length()) {
                     JSONObject object = jsonResponse.getJSONObject(index);
-                    courseInstructor = object.getString("courseInstructor");
+                    courseTerm = object.getString("courseTerm");
+                    courseTitle = object.getString("courseTitle");
                     courseTime = object.getString("courseTime");
                     courseDay = object.getString("courseDay");
+                    courseLocation = object.getString("courseLocation");
+                    courseInstructor = object.getString("courseInstructor");
                     courseCRN = object.getString("courseCRN");
                     courseCredit = object.getString("courseCredit");
 
                     totalCredit+= Integer.parseInt(courseCredit);
                     courseCRNList.add(courseCRN);
-                    userCourseList.add(new Course("", courseDay, "", "", courseCRN, "", "", "", courseTime, "", courseInstructor, "", courseCredit, ""));
+                    userCourseList.add(new Course(courseTerm, courseDay, "", courseTitle, courseCRN, "", "", "", courseTime, courseLocation, courseInstructor, "", courseCredit, ""));
                     ++index;
                 }
 
