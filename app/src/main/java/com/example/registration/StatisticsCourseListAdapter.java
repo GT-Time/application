@@ -16,6 +16,7 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StatisticsCourseListAdapter extends BaseAdapter {
@@ -90,7 +91,6 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
                                     StatisticsFragment.statCredit.setText(StatisticsFragment.totalCredit + "Credits");
                                     courseScheduleList.remove(position);
                                     notifyDataSetChanged();
-                                    return;
                                 }
 
                                 else
@@ -100,8 +100,8 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
                                             .setPositiveButton("OK",null)
                                             .create();
                                     dialog.show();
-                                    return;
                                 }
+                                return;
                             }
                             catch(Exception e)
                             {
