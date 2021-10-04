@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation = "vertical"
     tools:context=".CourseFragment"
-    android:background = "#ffffff">
+    android:background = "@color/colorPrimaryWeak">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -75,7 +75,7 @@
                 android:textSize = "10dp"
                 android:textStyle = "bold"
                 android:text = "Search"
-                android:background="@color/colorSecondaryDark"
+                android:background="@color/colorSkyBlue"
                 android:id = "@+id/courseSearchButton">
             </Button>
         </LinearLayout>

@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 announcement.setVisibility(View.GONE);
-                courseButton.setBackgroundColor(getResources().getColor(R.color.colorSecondaryDark));
-                scheduleButton.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
-                statisticsButton.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
+                courseButton.setBackgroundColor(getResources().getColor(R.color.colorBlue));
+                scheduleButton.setBackgroundColor(getResources().getColor(R.color.colorSkyBlue));
+                statisticsButton.setBackgroundColor(getResources().getColor(R.color.colorSkyBlue));
 
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTraction = fragmentManager.beginTransaction();
@@ -68,9 +68,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 announcement.setVisibility(View.GONE);
-                courseButton.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
-                scheduleButton.setBackgroundColor(getResources().getColor(R.color.colorSecondaryDark));
-                statisticsButton.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
+                courseButton.setBackgroundColor(getResources().getColor(R.color.colorSkyBlue));
+                scheduleButton.setBackgroundColor(getResources().getColor(R.color.colorBlue));
+                statisticsButton.setBackgroundColor(getResources().getColor(R.color.colorSkyBlue));
 
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTraction = fragmentManager.beginTransaction();
@@ -82,9 +82,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 announcement.setVisibility(View.GONE);
-                courseButton.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
-                scheduleButton.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
-                statisticsButton.setBackgroundColor(getResources().getColor(R.color.colorSecondaryDark));
+                courseButton.setBackgroundColor(getResources().getColor(R.color.colorSkyBlue));
+                scheduleButton.setBackgroundColor(getResources().getColor(R.color.colorSkyBlue));
+                statisticsButton.setBackgroundColor(getResources().getColor(R.color.colorBlue));
 
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTraction = fragmentManager.beginTransaction();

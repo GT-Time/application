@@ -3,6 +3,7 @@
     <color name = "colorAnnie">#FFFFAAAA</color>
     <color name = "colorPurple">#b19cd9</color>
     <color name = "colorPrimary">#FFF7F69E</color>
+    <color name = "colorPrimaryWeak">#FFFFB1</color>
     <color name = "colorPrimaryDark">#EEE8AA</color>
     <color name = "colorIvory">#EFEBE5</color>
     <color name = "colorIvoryDark">#EEECE0</color>
@@ -15,6 +16,7 @@
     <color name = "colorSecondaryDark">#FBE7CB</color>
     <color name = "colorWhite">#ffffff</color>
     <color name = "colorSkyBlue">#00C5FF</color>
+    <color name = "colorBlue">#0063DC</color>
 
     <!-- Imported Library colors -->
     <string-array name="default_sticker_color">

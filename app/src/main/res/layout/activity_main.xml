@@ -21,7 +21,7 @@
             android:layout_marginRight = "10dp"
             android:id = "@+id/CourseButton"
             android:text = "Course List"
-            android:background = "@color/colorSecondary"
+            android:background = "@color/colorSkyBlue"
             />
         <Button
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:layout_marginRight = "10dp"
             android:id = "@+id/ScheduleButton"
             android:text = "Schedule"
-            android:background = "@color/colorSecondary"
+            android:background = "@color/colorSkyBlue"
             />
         <Button
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             android:layout_marginRight = "10dp"
             android:id = "@+id/StatisticsButton"
             android:text = "Statistics"
-            android:background = "@color/colorSecondary"
+            android:background = "@color/colorSkyBlue"
             />
     </LinearLayout>
     <FrameLayout

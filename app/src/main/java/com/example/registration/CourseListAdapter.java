@@ -256,7 +256,7 @@ public class CourseListAdapter extends BaseAdapter {
                     courseCRN = object.getString("courseCRN");
                     courseCredit = object.getString("courseCredit");
 
-                    totalCredit+= Integer.parseInt(courseCredit);
+                    totalCredit+= Util.parseInt(courseCredit.trim().split(" ")[0]);
                     courseCRNList.add(courseCRN);
                     userCourseList.add(new Course(courseTerm, courseDay, "", courseTitle, courseCRN, "", "", "", courseTime, courseLocation, courseInstructor, "", courseCredit, ""));
                     ++index;
@@ -271,7 +271,7 @@ public class CourseListAdapter extends BaseAdapter {
 
     public boolean alreadyIn(List<String> courseIDList, String item) {
         for(int i = 0; i < courseIDList.size(); i++) {
-            if(courseIDList.get(i) == item) {
+            if(courseIDList.get(i).equals(item)) {
                 return true;
             }
         }
