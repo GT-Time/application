@@ -82,7 +82,7 @@ public class StatisticsFragment extends Fragment {
 
     private ListView courseListView;
     private StatisticsCourseListAdapter adapter;
-    private List<Course> courseScheduleList;
+    private List<Course> courseList;
 
     public static int totalCredit = 0;
     public static TextView statCredit;
@@ -92,8 +92,8 @@ public class StatisticsFragment extends Fragment {
 
         statCredit = (TextView) getView().findViewById(R.id.totalCredit);
         courseListView = (ListView) getView().findViewById(R.id.courseListView);
-        courseScheduleList = new ArrayList<Course>();
-        adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(), courseScheduleList,this);
+        courseList = new ArrayList<Course>();
+        adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(), courseList,this);
         courseListView.setAdapter(adapter);
 
         new BackgroundTask().execute();
@@ -152,21 +152,27 @@ public class StatisticsFragment extends Fragment {
                 JSONArray jsonResponse = jsonObject.getJSONArray("response");
 
                 int index = 0;
-                String courseCRN;
+                String courseTerm;
                 String courseTitle;
+                String courseCRN;
                 String courseSection;
                 String courseTime;
                 String courseDay;
+                String courseCredit;
+                String courseAttribute;
+
                 while(index < jsonResponse.length()) {
                     JSONObject object = jsonResponse.getJSONObject(index);
-                    courseCRN = object.getString("courseCRN");
+                    courseTerm = object.getString("courseTerm");
                     courseTitle = object.getString("courseTitle");
+                    courseCRN = object.getString("courseCRN");
                     courseSection = object.getString("courseSection");
                     courseTime = object.getString("courseTime");
                     courseDay = object.getString("courseDay");
-                    String courseCredit = object.getString("courseCredit");
-                    courseScheduleList.add(new Course("", courseDay, "", courseTitle, courseCRN, "", courseSection, "",courseTime, "", "", "", courseCredit, ""));
-                    totalCredit+= Integer.parseInt(courseCredit);
+                    courseCredit = object.getString("courseCredit");
+                    courseAttribute = object.getString("courseAttribute");
+                    courseList.add(new Course(courseTerm, courseDay, "", courseTitle, courseCRN, "", courseSection, "",courseTime, "", "", "", courseCredit, courseAttribute));
+                    totalCredit+= Util.parseInt(courseCredit.split(" ")[0]);
                     ++index;
                 }
                 adapter.notifyDataSetChanged();
