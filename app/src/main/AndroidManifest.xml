@@ -7,12 +7,16 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo3"
-        android:label="Buzztime"
+        android:label="GT Time"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".ValidateRequest" />
+        <activity android:name=".ActionRequest" />
+        <activity android:name=".AddRequest" />
+        <activity android:name=".DeleteRequest"/>
+        <activity android:name=".LoginRequest"/>
         <activity android:name=".RegisterRequest" />
+        <activity android:name=".ValidateRequest" />
         <activity android:name = ".Splashscreen"
             android:label = "Buzztime">
             <intent-filter>

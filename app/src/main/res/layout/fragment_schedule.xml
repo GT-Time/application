@@ -14,7 +14,7 @@
         <TableRow
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = ""
@@ -85,13 +85,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "8"
                 android:layout_width = "24dp"
                 android:layout_height = "match_parent"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor ="#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"
@@ -164,13 +164,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "9"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor = "#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"
@@ -243,13 +243,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "10"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor = "#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"
@@ -322,13 +322,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "11"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor ="#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"
@@ -401,13 +401,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "12"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor = "#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"
@@ -480,13 +480,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "1"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor = "#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"
@@ -560,13 +560,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "2"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor = "#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"
@@ -639,13 +639,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "3"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor = "#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"
@@ -718,13 +718,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "4"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor ="#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"
@@ -797,13 +797,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "5"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor ="#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"
@@ -876,13 +876,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "6"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor ="#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"
@@ -955,13 +955,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "7"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor ="#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"
@@ -1034,13 +1034,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "8"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor ="#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"
@@ -1113,13 +1113,13 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight = "1"
-            android:background = "@color/colorSecondaryDark">
+            android:background = "@color/colorWeakWhite">
 
             <com.example.registration.AutoResizeTextView
                 android:text = "9"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
-                android:background = "@color/colorSecondaryDark"
+                android:background = "@color/colorWeakWhite"
                 android:textColor ="#ffffff"
                 android:textStyle ="bold"
                 android:gravity="right"

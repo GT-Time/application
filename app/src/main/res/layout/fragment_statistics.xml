@@ -49,24 +49,12 @@
         android:layout_width = "match_parent"
         android:layout_height = "match_parent"
         android:layout_marginTop = "10dp"
-        android:background = "#ffffff"
         >
        <ListView
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:id = "@+id/courseListView"
-           android:divider = "#ffffff"
-           android:dividerHeight = "10dp"
            android:padding = "5dp"
            ></ListView>
     </LinearLayout>
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:text = "Hi!"></TextView>-->
-<!--    </LinearLayout>-->
-
 </LinearLayout>

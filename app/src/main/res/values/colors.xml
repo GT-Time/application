@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name = "colorAnnie">#FFFFAAAA</color>
-    <color name = "colorPurple">#b19cd9</color>
     <color name = "colorPrimary">#FFF7F69E</color>
     <color name = "colorPrimaryWeak">#FFFFB1</color>
     <color name = "colorPrimaryDark">#EEE8AA</color>
-    <color name = "colorIvory">#EFEBE5</color>
-    <color name = "colorIvoryDark">#EEECE0</color>
-    <color name = "colorAccentlightDark">#ffd7b5</color>
-    <color name="colorAccentDark">#F8E2DF</color>
-    <color name="colorAccent">#F8E4EB</color>
-    <color name = "colorWarning">#000000</color>
-    <color name = "colorGray">#B6B4B4</color>
     <color name = "colorSecondary">#FDEBD2</color>
-    <color name = "colorSecondaryDark">#FBE7CB</color>
-    <color name = "colorWhite">#ffffff</color>
+    <color name="colorAccent">#F8E4EB</color>
     <color name = "colorSkyBlue">#00C5FF</color>
     <color name = "colorBlue">#0063DC</color>
 
+    <color name = "colorWarning">#000000</color>
+    <color name = "colorWhite">#ffffff</color>
+    <color name = "colorWeakWhite">#F5F8FF</color>
+    <color name = "colorAliceBlue">#E8F1FF</color>
+    <color name = "colorGray">#949599</color>
     <!-- Imported Library colors -->
     <string-array name="default_sticker_color">
         <item>#f08676</item>
