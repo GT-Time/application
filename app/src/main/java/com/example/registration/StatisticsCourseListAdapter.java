@@ -87,8 +87,8 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
                                             .setPositiveButton("OK",null)
                                             .create();
                                     dialog.show();
-                                    StatisticsFragment.totalCredit -= Integer.parseInt(courseScheduleList.get(position).getCourseCredit());
-                                    StatisticsFragment.statCredit.setText(StatisticsFragment.totalCredit + "Credits");
+                                    StatisticsFragment.totalCredit -= Util.parseInt(courseScheduleList.get(position).getCourseCredit().split(" ")[0]);
+                                    StatisticsFragment.statCredit.setText(StatisticsFragment.totalCredit + " Credits");
                                     courseScheduleList.remove(position);
                                     notifyDataSetChanged();
                                 }

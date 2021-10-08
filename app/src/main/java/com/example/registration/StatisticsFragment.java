@@ -171,8 +171,9 @@ public class StatisticsFragment extends Fragment {
                     courseDay = object.getString("courseDay");
                     courseCredit = object.getString("courseCredit");
                     courseAttribute = object.getString("courseAttribute");
-                    courseList.add(new Course(courseTerm, courseDay, "", courseTitle, courseCRN, "", courseSection, "",courseTime, "", "", "", courseCredit, courseAttribute));
-                    totalCredit+= Util.parseInt(courseCredit.split(" ")[0]);
+                    Course course = new Course(courseTerm, courseDay, "", courseTitle, courseCRN, "", courseSection, "",courseTime, "", "", "", courseCredit, courseAttribute);
+                    courseList.add(course);
+                    totalCredit+= Util.parseInt(course.getCourseCredit().split(" ")[0]);
                     ++index;
                 }
                 adapter.notifyDataSetChanged();
