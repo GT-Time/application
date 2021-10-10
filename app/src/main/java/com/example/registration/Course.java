@@ -1,5 +1,6 @@
 package com.example.registration;
 
+import com.example.util.Util;
 import com.github.tlaabs.timetableview.Time;
 
 public class Course {

@@ -6,16 +6,11 @@
  */
 package com.example.registration;
 
-import androidx.annotation.Nullable;
-
+import com.example.util.Util;
 import com.github.tlaabs.timetableview.Schedule;
-import com.github.tlaabs.timetableview.Time;
 
-import java.util.AbstractMap;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
 public class CourseSchedule extends Schedule {
     private Map<Integer, Integer> parseTimedTime;

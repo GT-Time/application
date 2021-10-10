@@ -42,12 +42,12 @@ public class RegisterActivity extends AppCompatActivity
         final ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.major, android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        final EditText validateID = (EditText) findViewById(R.id.validateID);
-        final EditText id = (EditText) findViewById(R.id.idText);
-        final EditText pw = (EditText) findViewById(R.id.pwText);
-        final EditText email = (EditText) findViewById(R.id.emailText);
+        final EditText validateID = findViewById(R.id.validateID);
+        final EditText id = findViewById(R.id.idText);
+        final EditText pw = findViewById(R.id.pwText);
+        final EditText email = findViewById(R.id.emailText);
 
-        final RadioGroup genderGroup = (RadioGroup) findViewById(R.id.genderGroup);
+        final RadioGroup genderGroup = findViewById(R.id.genderGroup);
         int genderID = genderGroup.getCheckedRadioButtonId();
         userGender = ((RadioButton) findViewById(genderID)).getText().toString();
 
@@ -58,12 +58,12 @@ public class RegisterActivity extends AppCompatActivity
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId)
             {
-                RadioButton genderButton = (RadioButton) findViewById(checkedId);
+                RadioButton genderButton = findViewById(checkedId);
                 userGender = genderButton.getText().toString();
             }
         });
 
-        final Button validateButton = (Button) findViewById(R.id.validateButton);
+        final Button validateButton = findViewById(R.id.validateButton);
         validateButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -139,7 +139,7 @@ public class RegisterActivity extends AppCompatActivity
             }
         });
 
-        Button submitButton = (Button) findViewById(R.id.SubmitButton);
+        Button submitButton = findViewById(R.id.SubmitButton);
         submitButton.setOnClickListener(new View.OnClickListener()
         {
             @Override

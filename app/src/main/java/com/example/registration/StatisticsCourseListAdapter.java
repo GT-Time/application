@@ -13,10 +13,10 @@ import androidx.fragment.app.Fragment;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.util.Util;
 
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class StatisticsCourseListAdapter extends BaseAdapter {
@@ -50,12 +50,12 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, final ViewGroup viewgroup) {
         View v = View.inflate(context, R.layout.statistics, null);
-        Button deleteButton = (Button) v.findViewById(R.id.deleteButton);
-        TextView courseArea = (TextView) v.findViewById(R.id.courseArea);
-        TextView courseCRN = (TextView) v.findViewById(R.id.courseCRN);
-        TextView courseTitle = (TextView) v.findViewById(R.id.courseStatisticTitle);
-        TextView courseSection = (TextView) v.findViewById(R.id.courseSection);
-        TextView courseTime = (TextView) v.findViewById(R.id.statisticTimeID);
+        Button deleteButton = v.findViewById(R.id.deleteButton);
+        TextView courseArea = v.findViewById(R.id.courseArea);
+        TextView courseCRN = v.findViewById(R.id.courseCRN);
+        TextView courseTitle = v.findViewById(R.id.courseStatisticTitle);
+        TextView courseSection = v.findViewById(R.id.courseSection);
+        TextView courseTime = v.findViewById(R.id.statisticTimeID);
 
         courseArea.setText(courseScheduleList.get(position).getCourseArea());
         courseCRN.setText(courseScheduleList.get(position).getCourseCRN());

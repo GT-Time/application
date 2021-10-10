@@ -1,4 +1,4 @@
-package com.example.registration;
+package com.example.util;
 
 /**
  *  Collection of utility function

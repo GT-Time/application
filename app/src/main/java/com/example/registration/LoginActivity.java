@@ -26,11 +26,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 //        instantiation
-        final EditText idText = (EditText) findViewById(R.id.idText);
-        final EditText passwordText = (EditText) findViewById(R.id.pwText);
-        final TextView registerButton = (TextView) findViewById(R.id.registerButton);
-        final Button loginButton = (Button) findViewById(R.id.loginButton);
-        final TextView informationButton = (TextView) findViewById(R.id.information);
+        final EditText idText = findViewById(R.id.idText);
+        final EditText passwordText = findViewById(R.id.pwText);
+        final TextView registerButton = findViewById(R.id.registerButton);
+        final Button loginButton = findViewById(R.id.loginButton);
+        final TextView informationButton = findViewById(R.id.information);
 //        listener
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                         dialog.show();
                     }
                 };
+
                 LoginRequest loginRequest = new LoginRequest(userID, userPassword, listener, errorListener);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);

@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.util.Util;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -90,8 +92,8 @@ public class StatisticsFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        statCredit = (TextView) getView().findViewById(R.id.totalCredit);
-        courseListView = (ListView) getView().findViewById(R.id.courseListView);
+        statCredit = getView().findViewById(R.id.totalCredit);
+        courseListView = getView().findViewById(R.id.courseListView);
         courseList = new ArrayList<Course>();
         adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(), courseList,this);
         courseListView.setAdapter(adapter);

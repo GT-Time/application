@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.github.tlaabs.timetableview.Time;
+import com.example.util.Util;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -66,13 +66,13 @@ public class CourseListAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, final ViewGroup viewgroup) {
         View v =  View.inflate(context,R.layout.course,null);
-        TextView courseTitle = (TextView) v.findViewById(R.id.courseTitle);
-        TextView courseInstructor = (TextView) v.findViewById(R.id.courseInstructor);
-        TextView courseCredit = (TextView) v.findViewById(R.id.courseCredit);
-        TextView courseTerm = (TextView) v.findViewById(R.id.courseTerm);
-        TextView courseCRN = (TextView) v.findViewById(R.id.courseCRN);
-        TextView courseTime = (TextView) v.findViewById(R.id.courseTime);
-        TextView courseDay = (TextView) v.findViewById(R.id.courseDay);
+        TextView courseTitle = v.findViewById(R.id.courseTitle);
+        TextView courseInstructor = v.findViewById(R.id.courseInstructor);
+        TextView courseCredit = v.findViewById(R.id.courseCredit);
+        TextView courseTerm = v.findViewById(R.id.courseTerm);
+        TextView courseCRN = v.findViewById(R.id.courseCRN);
+        TextView courseTime = v.findViewById(R.id.courseTime);
+        TextView courseDay = v.findViewById(R.id.courseDay);
 
         courseTitle.setText(courseScheduleList.get(position).getCourseTitle()+"-"+ courseScheduleList.get(position).getCourseSection());
         if(courseScheduleList.get(position).getCourseInstructor().equals("")) {
@@ -90,7 +90,7 @@ public class CourseListAdapter extends BaseAdapter {
 
         v.setTag(courseScheduleList.get(position).getCourseCRN());
 
-        Button addSchedule = (Button) v.findViewById(R.id.addScheduleButton);
+        Button addSchedule = v.findViewById(R.id.addScheduleButton);
         addSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -185,6 +185,7 @@ public class CourseListAdapter extends BaseAdapter {
         });
         return v;
     }
+
 
 
     class BackgroundTask extends AsyncTask {
@@ -307,7 +308,6 @@ public class CourseListAdapter extends BaseAdapter {
     }
 
     public boolean exceedAllowedCredit(int total, int credit) {
-        if(total + credit > 21) return true;
-        return false;
+        return total + credit > 21;
     }
 }

@@ -101,15 +101,15 @@ public class CourseFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        final RadioGroup universityGroupID = (RadioGroup) getView().findViewById(R.id.universityGroupID);
-        termSpinner = (Spinner) getView().findViewById(R.id.semesterID);
-        subjectSpinner = (Spinner) getView().findViewById(R.id.subjectID);
-        areaSpinner = (Spinner) getView().findViewById(R.id.courseAreaID);
+        final RadioGroup universityGroupID = getView().findViewById(R.id.universityGroupID);
+        termSpinner = getView().findViewById(R.id.semesterID);
+        subjectSpinner = getView().findViewById(R.id.subjectID);
+        areaSpinner = getView().findViewById(R.id.courseAreaID);
 
         universityGroupID.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                final RadioButton gradeID = (RadioButton) getView().findViewById(checkedId);
+                final RadioButton gradeID = getView().findViewById(checkedId);
                 selectedUniversity = gradeID.getText().toString();
 
                 if(selectedUniversity.equals("Undergraduate")) {
@@ -485,13 +485,13 @@ public class CourseFragment extends Fragment {
     });
 
 
-    courseListView = (ListView) getView().findViewById(R.id.courseListID);
+    courseListView = getView().findViewById(R.id.courseListID);
     courseScheduleList = new ArrayList<Course>();
     adapter = new CourseListAdapter(getContext().getApplicationContext(), courseScheduleList,this);
     courseListView.setAdapter(adapter);
 
 
-    Button courseSearch = (Button) getView().findViewById(R.id.courseSearchButton);
+    Button courseSearch = getView().findViewById(R.id.courseSearchButton);
     courseSearch.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -499,8 +499,6 @@ public class CourseFragment extends Fragment {
         }
     });
     }
-
-
 
 
     // TODO : send parameters by POST method
