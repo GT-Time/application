@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.util.Util;
+import com.example.util.util.Util;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

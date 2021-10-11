@@ -6,7 +6,7 @@
  */
 package com.example.registration;
 
-import com.example.util.Util;
+import com.example.util.util.Util;
 import com.github.tlaabs.timetableview.Schedule;
 
 import java.util.HashMap;

@@ -34,7 +34,7 @@ public class AnnouncementListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v =  View.inflate(context,R.layout.announcement,null);
+        View v =  View.inflate(context, R.layout.announcement,null);
         TextView nameText = v.findViewById(R.id.nameText);
         TextView announcementText = v.findViewById(R.id.noticeText);
         TextView dateText = v.findViewById(R.id.dateText);

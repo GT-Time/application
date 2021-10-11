@@ -1,4 +1,4 @@
-package com.example.util;
+package com.example.util.util;
 
 /**
  *  Collection of utility function
