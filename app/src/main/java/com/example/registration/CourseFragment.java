@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -495,16 +496,18 @@ public class CourseFragment extends Fragment {
     courseSearch.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("Loading");
+            progressDialog.show();
             new BackgroundTask().execute();
-        }
-    });
+            progressDialog.dismiss();
+            progressDialog.hide();
+            }
+        });
     }
 
-
-    // TODO : send parameters by POST method
     class BackgroundTask extends AsyncTask {
         String target;
-        ProgressDialog progressDialog;
 
         @Override
         protected void onPreExecute() {
@@ -512,9 +515,6 @@ public class CourseFragment extends Fragment {
                 target = "http://ec2-3-222-117-117.compute-1.amazonaws.com/CourseList.php?courseUniversity="+ URLEncoder.encode(selectedUniversity,"UTF-8")
                         +"&courseTerm="+URLEncoder.encode(termSpinner.getSelectedItem().toString(),"UTF-8")+"&courseMajor="+URLEncoder.encode(subjectSpinner.getSelectedItem().toString(),"UTF-8")
                         +"&courseArea="+URLEncoder.encode(areaSpinner.getSelectedItem().toString(),"UTF-8");
-                progressDialog = new ProgressDialog(getActivity());
-                progressDialog.setMessage("Loading");
-                progressDialog.show();
             }
 
             catch(Exception e) {
@@ -597,7 +597,6 @@ public class CourseFragment extends Fragment {
                     courseScheduleList.add(new Course(courseTerm, courseDay, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseLocation, courseInstructor, courseUniversity, courseCredit, courseAttribute));
                     count++;
                 }
-                progressDialog.hide();
 
                 if(count == 0) {
                     AlertDialog alertDialog;
