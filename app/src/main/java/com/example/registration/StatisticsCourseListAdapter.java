@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.util.json.JsonUtil;
+import com.example.util.json.JsonWriter;
 import com.example.util.util.Util;
 
 import org.json.JSONObject;
@@ -23,7 +25,6 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
     private Context context;
     private List<Course> courseScheduleList;
     private Fragment parent;
-    private String userID = MainActivity.userID;
 
 
     public StatisticsCourseListAdapter(Context context, List<Course> courseScheduleList, Fragment parent) {
@@ -68,17 +69,12 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Response.Listener<String> responseListener = new Response.Listener<String>()
-                    {
 
-                        @Override
-                        public void onResponse(String response)
-                        {
+
                             try
                             {
-                                JSONObject jsonResponse = new JSONObject(response);
-                                boolean success = jsonResponse.getBoolean("success");
-
+                                String response = JsonUtil.readJson(parent.getActivity(), "ScheduleList.json");
+                                boolean success = new JsonWriter().deleteCourse(response, courseScheduleList.get(position), parent.getActivity());
                                 if(success)
                                 {
                                     //parent - 자신을 불러낸 course Fragment 에서 알림창을 띄워줌
@@ -107,21 +103,9 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
                             {
                                 e.printStackTrace();
                             }
-                        }
                     };
-
-                    DeleteRequest deleteRequest = new DeleteRequest(userID, courseScheduleList.get(position).getCourseCRN(), responseListener);
-                    RequestQueue queue = Volley.newRequestQueue(parent.getActivity());
-                    queue.add(deleteRequest);
-                }
-        });
+                });
         return v;
     }
-
-    /*
-     *      Read added course from database
-     */
-
-
-    }
+}
 

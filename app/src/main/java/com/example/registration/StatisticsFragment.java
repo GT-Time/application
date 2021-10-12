@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.util.json.JsonReader;
+import com.example.util.json.JsonUtil;
 import com.example.util.util.Util;
 
 import org.json.JSONArray;
@@ -98,47 +100,28 @@ public class StatisticsFragment extends Fragment {
         adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(), courseList,this);
         courseListView.setAdapter(adapter);
 
+        ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Loading");
+        progressDialog.show();
         new BackgroundTask().execute();
+        progressDialog.dismiss();
+        progressDialog.hide();
         totalCredit = 0;
     }
 
     class BackgroundTask extends AsyncTask {
-        String address;
-        ProgressDialog dialog = new ProgressDialog(getActivity());
+        String filename;
         @Override
         protected void onPreExecute() {
             try {
-                address = "http://ec2-3-222-117-117.compute-1.amazonaws.com/StatisticsCourseList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
-                dialog.setMessage("Loading");
-                dialog.show();
+                filename = "ScheduleList.json";
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         @Override
         protected String doInBackground(Object[] objects) {
-            try {
-                URL url = new URL(address);
-                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                int status = httpURLConnection.getResponseCode();
-                InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader buffer = new BufferedReader(new InputStreamReader(inputStream));
-                StringBuilder stringBuilder = new StringBuilder();
-                String temp;
-                while((temp = buffer.readLine()) != null) {
-                    stringBuilder.append(temp + "\n");
-                }
-
-                buffer.close();
-                inputStream.close();
-                httpURLConnection.disconnect();
-                return stringBuilder.toString().trim();
-            }
-            catch(Exception e) {
-                e.printStackTrace();
-            }
-
-            return null;
+            return JsonUtil.readJson(getActivity(), filename);
         }
 
         @Override
@@ -148,44 +131,12 @@ public class StatisticsFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Object o) {
-            try {
-                String result = (String) o;
-                JSONObject jsonObject = new JSONObject(result);
-                JSONArray jsonResponse = jsonObject.getJSONArray("response");
+            courseList = new JsonReader().fetchCourse((String) o);
 
-                int index = 0;
-                String courseTerm;
-                String courseTitle;
-                String courseCRN;
-                String courseSection;
-                String courseTime;
-                String courseDay;
-                String courseCredit;
-                String courseAttribute;
+            for(int i = 0; i < courseList.size(); i++) totalCredit += Util.parseInt(courseList.get(i).getCourseCredit().split(" ")[0]);
 
-                while(index < jsonResponse.length()) {
-                    JSONObject object = jsonResponse.getJSONObject(index);
-                    courseTerm = object.getString("courseTerm");
-                    courseTitle = object.getString("courseTitle");
-                    courseCRN = object.getString("courseCRN");
-                    courseSection = object.getString("courseSection");
-                    courseTime = object.getString("courseTime");
-                    courseDay = object.getString("courseDay");
-                    courseCredit = object.getString("courseCredit");
-                    courseAttribute = object.getString("courseAttribute");
-                    Course course = new Course(courseTerm, courseDay, "", courseTitle, courseCRN, "", courseSection, "",courseTime, "", "", "", courseCredit, courseAttribute);
-                    courseList.add(course);
-                    totalCredit+= Util.parseInt(course.getCourseCredit().split(" ")[0]);
-                    ++index;
-                }
-                adapter.notifyDataSetChanged();
-                statCredit.setText(totalCredit + " Credits");
-
-                dialog.dismiss();
-            }
-            catch(Exception e) {
-                e.printStackTrace();
-            }
+            adapter.notifyDataSetChanged();
+            statCredit.setText(totalCredit + " Credits");
         }
     }
 

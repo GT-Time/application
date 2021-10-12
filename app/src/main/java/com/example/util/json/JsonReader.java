@@ -36,6 +36,12 @@ public class JsonReader {
             String courseInstructor;
             String courseCRN;
             String courseCredit;
+            String courseMajor;
+            String courseArea;
+            String courseSection;
+            String courseClass;
+            String courseUniversity;
+            String courseAttribute;
             while(index < jsonResponse.length()) {
                 JSONObject object = jsonResponse.getJSONObject(index);
                 courseTerm = object.getString("courseTerm");
@@ -46,7 +52,13 @@ public class JsonReader {
                 courseInstructor = object.getString("courseInstructor");
                 courseCRN = object.getString("courseCRN");
                 courseCredit = object.getString("courseCredit");
-                list.add(new Course(courseTerm, courseDay, "", courseTitle, courseCRN, "", "", "", courseTime, courseLocation, courseInstructor, "", courseCredit, ""));
+                courseMajor = object.getString("courseMajor");
+                courseArea = object.getString("courseArea");
+                courseSection = object.getString("courseSection");
+                courseClass = object.getString("courseClass");
+                courseUniversity = object.getString("courseUniversity");
+                courseAttribute = object.getString("courseAttribute");
+                list.add(new Course(courseTerm, courseDay, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseLocation, courseInstructor, courseUniversity, courseCredit, courseAttribute));
                 ++index;
             }
 

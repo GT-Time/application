@@ -209,7 +209,7 @@ public class CourseListAdapter extends BaseAdapter {
         protected void onPostExecute(Object o) {
             userCourseList = new JsonReader().fetchCourse((String) o);
 
-            for(int i = 0; i < userCourseList.size(); i++) totalCredit += Util.parseInt(userCourseList.get(i).getCourseCRN());
+            for(int i = 0; i < userCourseList.size(); i++) totalCredit += Util.parseInt(userCourseList.get(i).getCourseCredit());
         }
     }
 
@@ -242,6 +242,7 @@ public class CourseListAdapter extends BaseAdapter {
                     continue;
                 }
 
+                // TODO : validate using math max and min
                 if (courseList.get(i).getStartTime().getHour() < course.getStartTime().getHour() && courseList.get(i).getEndTime().getHour() > course.getStartTime().getHour()) {
                     return false;
                 }
