@@ -13,7 +13,11 @@
     <color name = "colorWeakWhite">#F5F8FF</color>
     <color name = "colorAliceBlue">#E8F1FF</color>
     <color name = "colorGray">#949599</color>
-    <!-- Imported Library colors -->
+
+    <!-- major theme color -->
+    <color name = "colorTheme">#F2284E</color>
+    <color name = "colorSubTheme">#7ABED7</color>
+    <!-- imported Library colors -->
     <string-array name="default_sticker_color">
         <item>#f08676</item>
         <item>#ecc369</item>

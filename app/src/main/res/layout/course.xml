@@ -84,7 +84,7 @@
                  android:layout_gravity="center"
                  android:padding="2dp"
                  android:text="CRN"
-                 android:textColor="#f92a3f"></TextView>
+                 android:textColor="@color/colorTheme"></TextView>
 
              <TextView
                  android:id="@+id/courseTime"
@@ -93,7 +93,7 @@
                  android:layout_gravity="center"
                  android:padding="2dp"
                  android:text="Timeline"
-                 android:textColor="@color/colorSkyBlue" />
+                 android:textColor="@color/colorSubTheme" />
 
              <TextView
                  android:id="@+id/courseDay"
@@ -101,7 +101,7 @@
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
                  android:text="Day"
-                 android:textColor="@color/colorSkyBlue" />
+                 android:textColor="@color/colorSubTheme" />
 
          </LinearLayout>
 

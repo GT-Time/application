@@ -593,7 +593,6 @@ public class CourseFragment extends Fragment {
                     courseCredit = object.getString("courseCredit");
                     courseAttribute = object.getString("courseAttribute");
 
-                    // HACK
                     courseScheduleList.add(new Course(courseTerm, courseDay, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseLocation, courseInstructor, courseUniversity, courseCredit, courseAttribute));
                     count++;
                 }
