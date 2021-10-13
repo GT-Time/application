@@ -131,21 +131,13 @@ public class StatisticsFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Object o) {
-            courseList = new JsonReader().fetchCourse((String) o);
+            courseList.clear();
+            courseList.addAll(new JsonReader().fetchCourse((String) o));
 
             for(int i = 0; i < courseList.size(); i++) totalCredit += Util.parseInt(courseList.get(i).getCourseCredit().split(" ")[0]);
 
             adapter.notifyDataSetChanged();
             statCredit.setText(totalCredit + " Credits");
         }
-    }
-
-    public boolean alreadyIn(List<String> courseIDList, String item) {
-        for(int i = 0; i < courseIDList.size(); i++) {
-            if(courseIDList.get(i) == item) {
-                return false;
-            }
-        }
-        return true;
     }
 }
