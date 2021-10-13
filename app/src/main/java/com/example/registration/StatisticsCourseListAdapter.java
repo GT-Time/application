@@ -13,6 +13,9 @@ import androidx.fragment.app.Fragment;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.util.json.JsonUtil;
+import com.example.util.json.JsonWriter;
+import com.example.util.util.Util;
 
 import org.json.JSONObject;
 
@@ -20,25 +23,24 @@ import java.util.List;
 
 public class StatisticsCourseListAdapter extends BaseAdapter {
     private Context context;
-    private List<Course> courseList;
+    private List<Course> courseScheduleList;
     private Fragment parent;
-    private String userID = MainActivity.userID;
 
 
-    public StatisticsCourseListAdapter(Context context, List<Course> courseList, Fragment parent) {
+    public StatisticsCourseListAdapter(Context context, List<Course> courseScheduleList, Fragment parent) {
         this.context = context;
-        this.courseList = courseList;
+        this.courseScheduleList = courseScheduleList;
         this.parent = parent;
     }
 
     @Override
     public int getCount() {
-        return courseList.size();
+        return courseScheduleList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return courseList.get(position);
+        return courseScheduleList.get(position);
     }
 
     @Override
@@ -49,35 +51,30 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, final ViewGroup viewgroup) {
         View v = View.inflate(context, R.layout.statistics, null);
-        Button deleteButton = (Button) v.findViewById(R.id.deleteButton);
-        TextView courseArea = (TextView) v.findViewById(R.id.courseArea);
-        TextView courseCRN = (TextView) v.findViewById(R.id.courseCRN);
-        TextView courseTitle = (TextView) v.findViewById(R.id.courseStatisticTitle);
-        TextView courseSection = (TextView) v.findViewById(R.id.courseSection);
-        TextView courseTime = (TextView) v.findViewById(R.id.statisticTimeID);
+        Button deleteButton = v.findViewById(R.id.deleteButton);
+        TextView courseArea = v.findViewById(R.id.courseArea);
+        TextView courseCRN = v.findViewById(R.id.courseCRN);
+        TextView courseTitle = v.findViewById(R.id.courseStatisticTitle);
+        TextView courseSection = v.findViewById(R.id.courseSection);
+        TextView courseTime = v.findViewById(R.id.statisticTimeID);
 
-        courseArea.setText(courseList.get(position).getCourseArea());
-        courseCRN.setText(courseList.get(position).getCourseCRN());
-        courseTitle.setText(courseList.get(position).getCourseTitle());
-        courseSection.setText(courseList.get(position).getCourseSection());
-        courseTime.setText(courseList.get(position).getCourseTime());
+        courseArea.setText(courseScheduleList.get(position).getCourseArea());
+        courseCRN.setText(courseScheduleList.get(position).getCourseCRN());
+        courseTitle.setText(courseScheduleList.get(position).getCourseTitle());
+        courseSection.setText(courseScheduleList.get(position).getCourseSection());
+        courseTime.setText(courseScheduleList.get(position).getCourseTime());
 
-        v.setTag(courseList.get(position).getCourseCRN());
+        v.setTag(courseScheduleList.get(position).getCourseCRN());
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Response.Listener<String> responseListener = new Response.Listener<String>()
-                    {
 
-                        @Override
-                        public void onResponse(String response)
-                        {
+
                             try
                             {
-                                JSONObject jsonResponse = new JSONObject(response);
-                                boolean success = jsonResponse.getBoolean("success");
-
+                                String response = JsonUtil.readJson(parent.getActivity(), "ScheduleList.json");
+                                boolean success = new JsonWriter().deleteCourse(response, courseScheduleList.get(position), parent.getActivity());
                                 if(success)
                                 {
                                     //parent - 자신을 불러낸 course Fragment 에서 알림창을 띄워줌
@@ -86,11 +83,10 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
                                             .setPositiveButton("OK",null)
                                             .create();
                                     dialog.show();
-                                    StatisticsFragment.totalCredit -= Integer.parseInt(courseList.get(position).getCourseCredit());
-                                    StatisticsFragment.statCredit.setText(StatisticsFragment.totalCredit + "Credits");
-                                    courseList.remove(position);
+                                    StatisticsFragment.totalCredit -= Util.parseInt(courseScheduleList.get(position).getCourseCredit().split(" ")[0]);
+                                    StatisticsFragment.statCredit.setText(StatisticsFragment.totalCredit + " Credits");
+                                    courseScheduleList.remove(position);
                                     notifyDataSetChanged();
-                                    return;
                                 }
 
                                 else
@@ -100,28 +96,16 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
                                             .setPositiveButton("OK",null)
                                             .create();
                                     dialog.show();
-                                    return;
                                 }
+                                return;
                             }
                             catch(Exception e)
                             {
                                 e.printStackTrace();
                             }
-                        }
                     };
-
-                    DeleteRequest deleteRequest = new DeleteRequest(userID, courseList.get(position).getCourseCRN(), responseListener);
-                    RequestQueue queue = Volley.newRequestQueue(parent.getActivity());
-                    queue.add(deleteRequest);
-                }
-        });
+                });
         return v;
     }
-
-    /*
-     *      Read added course from database
-     */
-
-
-    }
+}
 

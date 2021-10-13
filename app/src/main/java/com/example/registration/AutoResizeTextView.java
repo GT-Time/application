@@ -23,7 +23,7 @@ public class AutoResizeTextView extends androidx.appcompat.widget.AppCompatTextV
 
     // Interface for resize notifications
     public interface OnTextResizeListener {
-        public void onTextResize(TextView textView, float oldSize, float newSize);
+        void onTextResize(TextView textView, float oldSize, float newSize);
     }
 
     // Our ellipse string

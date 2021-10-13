@@ -6,6 +6,8 @@ import android.util.DisplayMetrics;
 
 import androidx.annotation.Nullable;
 
+import com.example.registration.R;
+
 public class Pop extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.util.json.JsonReader;
+import com.example.util.json.JsonUtil;
 import com.github.tlaabs.timetableview.Schedule;
 import com.github.tlaabs.timetableview.TimetableView;
 
@@ -87,47 +89,37 @@ public class ScheduleFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         schedules = new ArrayList<Schedule>();
-        timeTable = new TimetableView(this.getContext());
+        timeTable = getView().findViewById(R.id.timetable);
+
+
+        ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Loading");
+        progressDialog.show();
         new BackgroundTask().execute();
+        progressDialog.dismiss();
+        progressDialog.hide();
+
+        timeTable.setOnStickerSelectEventListener(new TimetableView.OnStickerSelectedListener() {
+            @Override
+            public void OnStickerSelected(int idx, ArrayList<Schedule> schedules) {
+
+            }
+        });
     }
 
     class BackgroundTask extends AsyncTask {
-        String address;
-        ProgressDialog dialog = new ProgressDialog(getActivity());
+        String filename;
         @Override
         protected void onPreExecute() {
             try {
-                address = "http://ec2-44-197-174-212.compute-1.amazonaws.com/ScheduleList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
-                dialog.setMessage("Loading");
-                dialog.show();
+                filename = "ScheduleList.json";
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         @Override
         protected String doInBackground(Object[] objects) {
-            try {
-                URL url = new URL(address);
-                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                int status = httpURLConnection.getResponseCode();
-                InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader buffer = new BufferedReader(new InputStreamReader(inputStream));
-                StringBuilder stringBuilder = new StringBuilder();
-                String temp;
-                while((temp = buffer.readLine()) != null) {
-                    stringBuilder.append(temp + "\n");
-                }
-
-                buffer.close();
-                inputStream.close();
-                httpURLConnection.disconnect();
-                return stringBuilder.toString().trim();
-            }
-            catch(Exception e) {
-                e.printStackTrace();
-            }
-
-            return null;
+            return JsonUtil.readJson(getActivity(), filename);
         }
 
         @Override
@@ -137,35 +129,19 @@ public class ScheduleFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Object o) {
-            try {
-                String result = (String) o;
-                JSONObject jsonObject = new JSONObject(result);
-                JSONArray jsonResponse = jsonObject.getJSONArray("response");
+            List<Course> registeredCourses = new JsonReader().fetchCourse((String) o);
+            for(int i = 0; i < registeredCourses.size(); i++) {
+                schedules.clear();
+                int days = registeredCourses.get(i).getCourseDay().length();
 
-                // TODO : Fix scheduleList.php to return following (updated) variables
-                int index = 0;
-                String courseInstructor;
-                String courseTitle;
-                String courseLocation;
-                String courseDay;
-                String courseTime;
-                while(index < jsonResponse.length()) {
-                    JSONObject object = jsonResponse.getJSONObject(index);
-                    courseInstructor = object.getString("courseInstructor");
-                    courseTitle = object.getString("courseTitle");
-                    courseLocation = object.getString("courseLocation");
-                    courseDay = object.getString("courseDay");
-                    courseTime = object.getString("courseTime");
-
-                    for(int i = 0; i < courseDay.length(); i++) schedules.add(new RegistrationSchedule(courseInstructor, courseTitle, courseLocation, courseDay.charAt(i), courseTime));
-                    ++index;
-                }
-                dialog.dismiss();
+                String courseInstructor = registeredCourses.get(i).getCourseInstructor();
+                String courseTitle = registeredCourses.get(i).getCourseTitle();
+                String courseLocation = registeredCourses.get(i).getCourseLocation();
+                String courseDay = registeredCourses.get(i).getCourseDay();
+                String courseTime = registeredCourses.get(i).getCourseTime();
+                for(int j = 0; j < days; j++) schedules.add(new CourseSchedule(courseTitle, courseInstructor, courseLocation, courseTime, courseDay.charAt(j)));
+                timeTable.add(schedules);
             }
-            catch(Exception e) {
-                e.printStackTrace();
-            }
-            timeTable.add(schedules);
         }
     }
 

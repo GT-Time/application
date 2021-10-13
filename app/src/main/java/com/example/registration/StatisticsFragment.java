@@ -10,10 +10,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.util.json.JsonReader;
+import com.example.util.json.JsonUtil;
+import com.example.util.util.Util;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -92,53 +94,34 @@ public class StatisticsFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        statCredit = (TextView) getView().findViewById(R.id.totalCredit);
-        courseListView = (ListView) getView().findViewById(R.id.courseListView);
+        statCredit = getView().findViewById(R.id.totalCredit);
+        courseListView = getView().findViewById(R.id.courseListView);
         courseList = new ArrayList<Course>();
-        adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(),courseList,this);
+        adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(), courseList,this);
         courseListView.setAdapter(adapter);
 
+        ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Loading");
+        progressDialog.show();
         new BackgroundTask().execute();
+        progressDialog.dismiss();
+        progressDialog.hide();
         totalCredit = 0;
     }
 
     class BackgroundTask extends AsyncTask {
-        String address;
-        ProgressDialog dialog = new ProgressDialog(getActivity());
+        String filename;
         @Override
         protected void onPreExecute() {
             try {
-                address = "http://ec2-44-197-174-212.compute-1.amazonaws.com/StatisticsCourseList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
-                dialog.setMessage("Loading");
-                dialog.show();
+                filename = "ScheduleList.json";
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         @Override
         protected String doInBackground(Object[] objects) {
-            try {
-                URL url = new URL(address);
-                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                int status = httpURLConnection.getResponseCode();
-                InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader buffer = new BufferedReader(new InputStreamReader(inputStream));
-                StringBuilder stringBuilder = new StringBuilder();
-                String temp;
-                while((temp = buffer.readLine()) != null) {
-                    stringBuilder.append(temp + "\n");
-                }
-
-                buffer.close();
-                inputStream.close();
-                httpURLConnection.disconnect();
-                return stringBuilder.toString().trim();
-            }
-            catch(Exception e) {
-                e.printStackTrace();
-            }
-
-            return null;
+            return JsonUtil.readJson(getActivity(), filename);
         }
 
         @Override
@@ -148,46 +131,13 @@ public class StatisticsFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Object o) {
-            try {
-                String result = (String) o;
-                JSONObject jsonObject = new JSONObject(result);
-                JSONArray jsonResponse = jsonObject.getJSONArray("response");
+            courseList.clear();
+            courseList.addAll(new JsonReader().fetchCourse((String) o));
 
-                int index = 0;
-                String courseCRN;
-                String courseTitle;
-                String courseSection;
-                String courseTime;
-                String courseDay;
-                while(index < jsonResponse.length()) {
-                    JSONObject object = jsonResponse.getJSONObject(index);
-                    courseCRN = object.getString("courseCRN");
-                    courseTitle = object.getString("courseTitle");
-                    courseSection = object.getString("courseSection");
-                    courseTime = object.getString("courseTime");
-                    courseDay = object.getString("courseDay");
-                    String courseCredit = object.getString("courseCredit");
-                    courseList.add(new Course(courseCRN,courseTitle,courseSection,courseCredit,courseTime, courseDay));
-                    totalCredit+= Integer.parseInt(courseCredit);
-                    ++index;
-                }
-                adapter.notifyDataSetChanged();
-                statCredit.setText(totalCredit + " Credits");
+            for(int i = 0; i < courseList.size(); i++) totalCredit += Util.parseInt(courseList.get(i).getCourseCredit().split(" ")[0]);
 
-                dialog.dismiss();
-            }
-            catch(Exception e) {
-                e.printStackTrace();
-            }
+            adapter.notifyDataSetChanged();
+            statCredit.setText(totalCredit + " Credits");
         }
-    }
-
-    public boolean alreadyIn(List<String> courseIDList, String item) {
-        for(int i = 0; i < courseIDList.size(); i++) {
-            if(courseIDList.get(i) == item) {
-                return false;
-            }
-        }
-        return true;
     }
 }

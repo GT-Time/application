@@ -1,19 +1,28 @@
-# app setting
-*.iml
+# Gradle files
 .gradle
+
+# Local configuration file (sdk path, etc)
 /local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+
+# OSX files
 .DS_Store
 /build
 /captures
 .externalNativeBuild
 .cxx
 
-# server setting
+# IntelliJ
+*.iml
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/.idea/*
+/.idea
+
+# server files
 /aws
-/php/dbinfo.inc
+/php
+/php/*

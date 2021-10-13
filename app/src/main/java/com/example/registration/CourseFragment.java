@@ -1,7 +1,6 @@
 package com.example.registration;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -16,14 +15,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -95,7 +90,7 @@ public class CourseFragment extends Fragment {
 
     private ListView courseListView;
     private CourseListAdapter adapter;
-    private List<Course> courseList;
+    private List<Course> courseScheduleList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -107,15 +102,15 @@ public class CourseFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        final RadioGroup universityGroupID = (RadioGroup) getView().findViewById(R.id.universityGroupID);
-        termSpinner = (Spinner) getView().findViewById(R.id.semesterID);
-        subjectSpinner = (Spinner) getView().findViewById(R.id.subjectID);
-        areaSpinner = (Spinner) getView().findViewById(R.id.courseAreaID);
+        final RadioGroup universityGroupID = getView().findViewById(R.id.universityGroupID);
+        termSpinner = getView().findViewById(R.id.semesterID);
+        subjectSpinner = getView().findViewById(R.id.subjectID);
+        areaSpinner = getView().findViewById(R.id.courseAreaID);
 
         universityGroupID.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                final RadioButton gradeID = (RadioButton) getView().findViewById(checkedId);
+                final RadioButton gradeID = getView().findViewById(checkedId);
                 selectedUniversity = gradeID.getText().toString();
 
                 if(selectedUniversity.equals("Undergraduate")) {
@@ -132,9 +127,7 @@ public class CourseFragment extends Fragment {
                 subjectSpinner.setAdapter(subjectAdapter);
             }
         });
-        /*
-        areaAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.undergraduateCourseType, android.R.layout.simple_spinner_dropdown_item);
-        areaSpinner.setAdapter(areaAdapter);*/
+
     subjectSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -493,38 +486,35 @@ public class CourseFragment extends Fragment {
     });
 
 
-    courseListView = (ListView) getView().findViewById(R.id.courseListID);
-    courseList = new ArrayList<Course>();
-    adapter = new CourseListAdapter(getContext().getApplicationContext(),courseList,this);
+    courseListView = getView().findViewById(R.id.courseListID);
+    courseScheduleList = new ArrayList<Course>();
+    adapter = new CourseListAdapter(getContext().getApplicationContext(), courseScheduleList,this);
     courseListView.setAdapter(adapter);
 
 
-    Button courseSearch = (Button) getView().findViewById(R.id.courseSearchButton);
+    Button courseSearch = getView().findViewById(R.id.courseSearchButton);
     courseSearch.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("Loading");
+            progressDialog.show();
             new BackgroundTask().execute();
-        }
-    });
+            progressDialog.dismiss();
+            progressDialog.hide();
+            }
+        });
     }
 
-
-
-
-    // TODO : send parameters by POST method
     class BackgroundTask extends AsyncTask {
         String target;
-        ProgressDialog progressDialog;
 
         @Override
         protected void onPreExecute() {
             try {
-                target = "http://ec2-44-197-174-212.compute-1.amazonaws.com/CourseList.php?courseUniversity="+ URLEncoder.encode(selectedUniversity,"UTF-8")
+                target = "http://ec2-3-222-117-117.compute-1.amazonaws.com/CourseList.php?courseUniversity="+ URLEncoder.encode(selectedUniversity,"UTF-8")
                         +"&courseTerm="+URLEncoder.encode(termSpinner.getSelectedItem().toString(),"UTF-8")+"&courseMajor="+URLEncoder.encode(subjectSpinner.getSelectedItem().toString(),"UTF-8")
                         +"&courseArea="+URLEncoder.encode(areaSpinner.getSelectedItem().toString(),"UTF-8");
-                progressDialog = new ProgressDialog(getActivity());
-                progressDialog.setMessage("Loading");
-                progressDialog.show();
             }
 
             catch(Exception e) {
@@ -564,7 +554,7 @@ public class CourseFragment extends Fragment {
         @Override
         protected void onPostExecute(Object o) {
             try {
-                courseList.clear();
+                courseScheduleList.clear();
                 String result = (String) o;
                 JSONObject jsonObject = new JSONObject(result);
                 JSONArray jsonArray = jsonObject.getJSONArray("response");
@@ -602,11 +592,10 @@ public class CourseFragment extends Fragment {
                     courseUniversity = object.getString("courseUniversity");
                     courseCredit = object.getString("courseCredit");
                     courseAttribute = object.getString("courseAttribute");
-                    Course course = new Course(courseTerm, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseDay, courseLocation ,courseInstructor, courseUniversity, courseCredit, courseAttribute);
-                    courseList.add(course);
+
+                    courseScheduleList.add(new Course(courseTerm, courseDay, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseLocation, courseInstructor, courseUniversity, courseCredit, courseAttribute));
                     count++;
                 }
-                progressDialog.hide();
 
                 if(count == 0) {
                     AlertDialog alertDialog;
