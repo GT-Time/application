@@ -31,4 +31,8 @@ public class Util {
 
         return returnVal;
     }
+
+    public static String getFileName(String filename) {
+        return filename + ".json";
+    }
 }

@@ -32,6 +32,12 @@
         <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
         <item name="colorPrimary">@color/colorAliceBlue</item>
         <item name="colorOnPrimary">@color/colorWarning</item>
+    </style>
+    <style name = "Theme.ChoiceChip">
+        <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Choice</item>
+        <item name="elevationOverlayEnabled">false</item>
+    </style>
+    <style name = "Theme.ChipGroup">
 
     </style>
     <style name = "Theme.Button">

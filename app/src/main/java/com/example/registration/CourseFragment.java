@@ -91,6 +91,7 @@ public class CourseFragment extends Fragment {
     private ListView courseListView;
     private CourseListAdapter adapter;
     private List<Course> courseScheduleList;
+    private String selectedSemester;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -488,7 +489,8 @@ public class CourseFragment extends Fragment {
 
     courseListView = getView().findViewById(R.id.courseListID);
     courseScheduleList = new ArrayList<Course>();
-    adapter = new CourseListAdapter(getContext().getApplicationContext(), courseScheduleList,this);
+    selectedSemester = "";
+    adapter = new CourseListAdapter(getContext().getApplicationContext(), courseScheduleList, selectedSemester, this);
     courseListView.setAdapter(adapter);
 
 
@@ -594,6 +596,7 @@ public class CourseFragment extends Fragment {
                     courseAttribute = object.getString("courseAttribute");
 
                     courseScheduleList.add(new Course(courseTerm, courseDay, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseLocation, courseInstructor, courseUniversity, courseCredit, courseAttribute));
+                    selectedSemester = courseTerm;
                     count++;
                 }
 

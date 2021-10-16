@@ -7,13 +7,13 @@
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
-        android:icon="@drawable/logo3"
+        android:icon="@drawable/logo"
         android:label="GT Time"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name = ".Splashscreen"
-            android:label = "Buzztime">
+            android:label = "GT Time">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

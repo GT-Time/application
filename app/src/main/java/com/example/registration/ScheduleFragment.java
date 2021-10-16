@@ -13,8 +13,12 @@ import android.view.ViewGroup;
 
 import com.example.util.json.JsonReader;
 import com.example.util.json.JsonUtil;
+import com.example.util.util.Util;
 import com.github.tlaabs.timetableview.Schedule;
 import com.github.tlaabs.timetableview.TimetableView;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipDrawable;
+import com.google.android.material.chip.ChipGroup;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -37,6 +41,7 @@ import java.util.List;
 public class ScheduleFragment extends Fragment {
     private ArrayList<Schedule> schedules;
     private TimetableView timeTable;
+    private String selectedSemester;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -90,7 +95,28 @@ public class ScheduleFragment extends Fragment {
 
         schedules = new ArrayList<Schedule>();
         timeTable = getView().findViewById(R.id.timetable);
+        selectedSemester = "";
 
+        final ChipGroup chipGroup = getView().findViewById(R.id.semesterGroup);
+        final String[] semesterText = getResources().getStringArray(R.array.semesterText);
+        final String[] semesterID = getResources().getStringArray(R.array.semester);
+
+        // TODO : complete dynamic chip creation
+        for (int i = 0; i < semesterText.length; i++) {
+            Chip chip = (Chip) getLayoutInflater().inflate(R.layout.chip, chipGroup, false);
+            chip.setText(semesterText[i]);
+            chip.setId(Util.parseInt(semesterID[i]));
+
+            chipGroup.addView(chip);
+        }
+        chipGroup.check(Util.parseInt(semesterID[0]));
+        chipGroup.setSelectionRequired(true);
+        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup group, int checkedId) {
+                //selectedSemester = semesterID[checkedId];
+            }
+        });
 
         ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Loading");
@@ -112,7 +138,7 @@ public class ScheduleFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             try {
-                filename = "ScheduleList.json";
+                filename = Util.getFileName(selectedSemester);
             } catch (Exception e) {
                 e.printStackTrace();
             }

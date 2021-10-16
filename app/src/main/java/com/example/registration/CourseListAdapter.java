@@ -27,13 +27,15 @@ public class CourseListAdapter extends BaseAdapter {
     private Fragment parent;
     private String userID = MainActivity.userID;
     private List<Course> userCourseList; // list of course registered for user
+    private String semester;
     public static int totalCredit;
 
-    public CourseListAdapter(Context context, List<Course> courseScheduleList, Fragment parent) {
+    public CourseListAdapter(Context context, List<Course> courseScheduleList, String semester, Fragment parent) {
         this.context = context;
         this.courseScheduleList = courseScheduleList; // courseList in adapter
         this.parent = parent;
         this.userCourseList = new ArrayList<Course>(); // courseList from user dataabase
+        this.semester = semester;
         new BackgroundTask().execute();
         totalCredit = 0;
     }
@@ -133,7 +135,7 @@ public class CourseListAdapter extends BaseAdapter {
                     public void run() {
                         try
                         {
-                            String response = JsonUtil.readJson(parent.getActivity(), "ScheduleList.json");
+                            String response = JsonUtil.readJson(parent.getActivity(), Util.getFileName(semester));
                             boolean success = new JsonWriter().appendCourse(response, courseScheduleList.get(position), parent.getActivity());
 
                             if(success)
@@ -190,7 +192,7 @@ public class CourseListAdapter extends BaseAdapter {
         @Override
         protected void onPreExecute() {
             try {
-                filename = "ScheduleList.json";
+                filename = Util.getFileName(semester);
             } catch (Exception e) {
                 e.printStackTrace();
             }
