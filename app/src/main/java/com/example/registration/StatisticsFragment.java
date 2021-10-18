@@ -109,12 +109,13 @@ public class StatisticsFragment extends Fragment {
         totalCredit = 0;
     }
 
+    // TODO: complete statistics fragment fetch by semester
     class BackgroundTask extends AsyncTask {
         String filename;
         @Override
         protected void onPreExecute() {
             try {
-                filename = "ScheduleList.json";
+                filename = "202108.json";
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -3,6 +3,7 @@ package com.example.util.json;
 import android.content.Context;
 
 import com.example.registration.Course;
+import com.example.util.util.Util;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -12,8 +13,10 @@ import java.io.File;
 import java.io.FileWriter;
 
 public class JsonWriter {
-    public boolean appendCourse(String json, Course course, Context context) {
+    public boolean appendCourse(String file, Course course, Context context) {
         try {
+            String filename = Util.getFileName(file);
+            String json = JsonUtil.readJson(context, filename);
             String response = (String) json;
 
             // HACK
@@ -30,7 +33,8 @@ public class JsonWriter {
                 jsonArray = new JSONArray();
                 JSONObject obj = new JSONObject();
                 obj.put("courses", jsonArray);
-                JsonUtil.clearJson(new File(context.getFilesDir(), "ScheduleList.json"));
+                // TODO: chnnge it to received filename
+                JsonUtil.clearJson(new File(context.getFilesDir(), filename));
             }
 
             JSONObject jsonObject = new JSONObject();
@@ -72,8 +76,8 @@ public class JsonWriter {
 
             String jsonString = updatedJson.toString();
 
-            File file = new File(context.getFilesDir(), "ScheduleList.json");
-            FileWriter fileWriter = new FileWriter(file);
+            File f = new File(context.getFilesDir(), filename);
+            FileWriter fileWriter = new FileWriter(f);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(jsonString);
             bufferedWriter.close();

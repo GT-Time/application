@@ -6,7 +6,7 @@
         <item>Electives</item>
     </string-array>
 
-    <string-array name = "semester">
+    <string-array name = "semesterID">
         <item>202108</item>
         <item>202202</item>
         <item>202205</item>

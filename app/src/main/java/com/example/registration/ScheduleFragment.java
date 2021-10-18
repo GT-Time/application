@@ -17,20 +17,12 @@ import com.example.util.util.Util;
 import com.github.tlaabs.timetableview.Schedule;
 import com.github.tlaabs.timetableview.TimetableView;
 import com.google.android.material.chip.Chip;
-import com.google.android.material.chip.ChipDrawable;
 import com.google.android.material.chip.ChipGroup;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -41,7 +33,6 @@ import java.util.List;
 public class ScheduleFragment extends Fragment {
     private ArrayList<Schedule> schedules;
     private TimetableView timeTable;
-    private String selectedSemester;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -89,32 +80,41 @@ public class ScheduleFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_timetable, container, false);
     }
 
+    private ChipGroup chipGroup;
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         schedules = new ArrayList<Schedule>();
         timeTable = getView().findViewById(R.id.timetable);
-        selectedSemester = "";
 
-        final ChipGroup chipGroup = getView().findViewById(R.id.semesterGroup);
-        final String[] semesterText = getResources().getStringArray(R.array.semesterText);
-        final String[] semesterID = getResources().getStringArray(R.array.semester);
+        chipGroup = getView().findViewById(R.id.semesterGroup);
 
-        // TODO : complete dynamic chip creation
-        for (int i = 0; i < semesterText.length; i++) {
+        String[] text = getResources().getStringArray(R.array.semesterText);
+        String[] id = getResources().getStringArray(R.array.semesterID);
+
+
+        int chipLimit = 3;
+        int chipNum = Math.min(chipLimit, text.length);
+        for (int i = 0; i < chipNum; i++) {
             Chip chip = (Chip) getLayoutInflater().inflate(R.layout.chip, chipGroup, false);
-            chip.setText(semesterText[i]);
-            chip.setId(Util.parseInt(semesterID[i]));
-
+            chip.setText(text[i]);
+            chip.setId(Util.parseInt(id[i]));
             chipGroup.addView(chip);
         }
-        chipGroup.check(Util.parseInt(semesterID[0]));
+        chipGroup.setSingleSelection(true);
+        chipGroup.check(Util.parseInt(id[0]));
         chipGroup.setSelectionRequired(true);
         chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
-                //selectedSemester = semesterID[checkedId];
+                timeTable.removeAll();
+                ProgressDialog progressDialog = new ProgressDialog(getActivity());
+                progressDialog.setMessage("Loading");
+                progressDialog.show();
+                new BackgroundTask().execute();
+                progressDialog.dismiss();
+                progressDialog.hide();
             }
         });
 
@@ -133,12 +133,13 @@ public class ScheduleFragment extends Fragment {
         });
     }
 
+
     class BackgroundTask extends AsyncTask {
         String filename;
         @Override
         protected void onPreExecute() {
             try {
-                filename = Util.getFileName(selectedSemester);
+                filename = Util.getFileName(String.valueOf(chipGroup.getCheckedChipId()));
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -20,6 +20,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
+import com.github.tlaabs.timetableview.Schedule;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -30,7 +32,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -79,20 +83,19 @@ public class CourseFragment extends Fragment {
         }
     }
 
+    private RadioGroup universityGroupID;
     private ArrayAdapter termAdapter;
     private Spinner termSpinner;
     private ArrayAdapter areaAdapter;
     private Spinner areaSpinner;
     private ArrayAdapter subjectAdapter;
     private Spinner subjectSpinner;
-
-    private String selectedUniversity = "";
-
     private ListView courseListView;
     private CourseListAdapter adapter;
-    private List<Course> courseScheduleList;
-    private String selectedSemester;
 
+    private String selectedUniversity;
+    private List<Course> courseScheduleList;
+    private Map<String, String> semester;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -103,10 +106,16 @@ public class CourseFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        final RadioGroup universityGroupID = getView().findViewById(R.id.universityGroupID);
+        selectedUniversity = "";
+        universityGroupID = getView().findViewById(R.id.universityGroupID);
         termSpinner = getView().findViewById(R.id.semesterID);
         subjectSpinner = getView().findViewById(R.id.subjectID);
         areaSpinner = getView().findViewById(R.id.courseAreaID);
+
+
+        String[] text = getResources().getStringArray(R.array.semesterText);
+        String[] id = getResources().getStringArray(R.array.semesterID);
+
 
         universityGroupID.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -115,12 +124,12 @@ public class CourseFragment extends Fragment {
                 selectedUniversity = gradeID.getText().toString();
 
                 if(selectedUniversity.equals("Undergraduate")) {
-                    termAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.semester, android.R.layout.simple_spinner_dropdown_item);
+                    termAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.semesterText, android.R.layout.simple_spinner_dropdown_item);
                     subjectAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.subject,android.R.layout.simple_spinner_dropdown_item);
                 }
 
                 else if(selectedUniversity.equals("Graduate")) {
-                    termAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.semester, android.R.layout.simple_spinner_dropdown_item);
+                    termAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.semesterText, android.R.layout.simple_spinner_dropdown_item);
                     subjectAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.graduateMajor,android.R.layout.simple_spinner_dropdown_item);
                 }
 
@@ -486,11 +495,17 @@ public class CourseFragment extends Fragment {
         }
     });
 
+    universityGroupID.check(R.id.undergraduateID);
+    subjectSpinner.setSelection(0);
+    termSpinner.setSelection(0);
+    areaSpinner.setSelection(0);
+
+    semester = new HashMap<String, String>();
+    for (int i = 0; i < Math.min(text.length, id.length); i++) semester.put(text[i], id[i]);
 
     courseListView = getView().findViewById(R.id.courseListID);
     courseScheduleList = new ArrayList<Course>();
-    selectedSemester = "";
-    adapter = new CourseListAdapter(getContext().getApplicationContext(), courseScheduleList, selectedSemester, this);
+    adapter = new CourseListAdapter(getContext().getApplicationContext(), courseScheduleList, semester.get(termSpinner.getSelectedItem().toString()), this);
     courseListView.setAdapter(adapter);
 
 
@@ -515,7 +530,7 @@ public class CourseFragment extends Fragment {
         protected void onPreExecute() {
             try {
                 target = "http://ec2-3-222-117-117.compute-1.amazonaws.com/CourseList.php?courseUniversity="+ URLEncoder.encode(selectedUniversity,"UTF-8")
-                        +"&courseTerm="+URLEncoder.encode(termSpinner.getSelectedItem().toString(),"UTF-8")+"&courseMajor="+URLEncoder.encode(subjectSpinner.getSelectedItem().toString(),"UTF-8")
+                        +"&courseTerm="+URLEncoder.encode(semester.get(termSpinner.getSelectedItem().toString()),"UTF-8")+"&courseMajor="+URLEncoder.encode(subjectSpinner.getSelectedItem().toString(),"UTF-8")
                         +"&courseArea="+URLEncoder.encode(areaSpinner.getSelectedItem().toString(),"UTF-8");
             }
 
@@ -596,7 +611,6 @@ public class CourseFragment extends Fragment {
                     courseAttribute = object.getString("courseAttribute");
 
                     courseScheduleList.add(new Course(courseTerm, courseDay, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseLocation, courseInstructor, courseUniversity, courseCredit, courseAttribute));
-                    selectedSemester = courseTerm;
                     count++;
                 }
 

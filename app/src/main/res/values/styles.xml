@@ -34,6 +34,7 @@
         <item name="colorOnPrimary">@color/colorWarning</item>
     </style>
     <style name = "Theme.ChoiceChip">
+        <item name="android:textColor">@color/colorWhite</item>
         <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Choice</item>
         <item name="elevationOverlayEnabled">false</item>
     </style>

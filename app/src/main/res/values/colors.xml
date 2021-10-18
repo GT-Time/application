@@ -16,6 +16,7 @@
 
     <!-- major theme color -->
     <color name = "colorTheme">#F2284E</color>
+    <color name = "colorWeakTheme">#F997AC</color>
     <color name = "colorSubTheme">#7ABED7</color>
     <!-- imported Library colors -->
     <string-array name="default_sticker_color">
@@ -29,4 +30,5 @@
         <item>#78cb87</item>
         <item>#d397ed</item>
     </string-array>
+
 </resources>

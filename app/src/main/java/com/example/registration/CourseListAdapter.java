@@ -36,7 +36,6 @@ public class CourseListAdapter extends BaseAdapter {
         this.parent = parent;
         this.userCourseList = new ArrayList<Course>(); // courseList from user dataabase
         this.semester = semester;
-        new BackgroundTask().execute();
         totalCredit = 0;
     }
 
@@ -79,6 +78,8 @@ public class CourseListAdapter extends BaseAdapter {
         courseCRN.setText(courseScheduleList.get(position).getCourseCRN());
         courseTime.setText(courseScheduleList.get(position).getCourseTime());
         courseDay.setText(courseScheduleList.get(position).getCourseDay());
+
+        new BackgroundTask().execute();
 
         v.setTag(courseScheduleList.get(position).getCourseCRN());
 
@@ -135,8 +136,7 @@ public class CourseListAdapter extends BaseAdapter {
                     public void run() {
                         try
                         {
-                            String response = JsonUtil.readJson(parent.getActivity(), Util.getFileName(semester));
-                            boolean success = new JsonWriter().appendCourse(response, courseScheduleList.get(position), parent.getActivity());
+                            boolean success = new JsonWriter().appendCourse(semester, courseScheduleList.get(position), parent.getActivity());
 
                             if(success)
                             {
