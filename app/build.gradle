@@ -37,4 +37,5 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.0'
     implementation 'com.github.tlaabs:TimetableView:1.0.3-fx1'
     implementation 'com.google.android.material:material:1.2.0' // bottom navigtaion bar
+    implementation 'com.google.code.gson:gson:2.8.7' // gson: json formatter
 }

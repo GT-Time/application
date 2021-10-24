@@ -13,10 +13,11 @@ import java.io.File;
 import java.io.FileWriter;
 
 public class JsonWriter {
-    public boolean appendCourse(String file, Course course, Context context) {
+    public boolean appendCourse(File file, Course course) {
         try {
-            String filename = Util.getFileName(file);
-            String json = JsonUtil.readJson(context, filename);
+//            String filename = Util.getFileName(file);
+ //           String json = JsonUtil.readJson(new File(context.getFilesDir(), filename));
+            String json = Util.fetchLocalFile(file);
             String response = (String) json;
 
             // HACK
@@ -34,7 +35,7 @@ public class JsonWriter {
                 JSONObject obj = new JSONObject();
                 obj.put("courses", jsonArray);
                 // TODO: chnnge it to received filename
-                JsonUtil.clearJson(new File(context.getFilesDir(), filename));
+                JsonUtil.clearJson(file);
             }
 
             JSONObject jsonObject = new JSONObject();
@@ -76,8 +77,7 @@ public class JsonWriter {
 
             String jsonString = updatedJson.toString();
 
-            File f = new File(context.getFilesDir(), filename);
-            FileWriter fileWriter = new FileWriter(f);
+            FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(jsonString);
             bufferedWriter.close();
@@ -89,9 +89,10 @@ public class JsonWriter {
         return true;
     }
 
-    public boolean deleteCourse(String json, Course course, Context context) {
+    // TODO: complete delete functionality
+    public boolean deleteCourse(File file, Course course) {
         try {
-            String response = (String) json;
+            String response = Util.fetchLocalFile(file);
 
             // HACK
             JSONObject jsonFile;
@@ -107,7 +108,7 @@ public class JsonWriter {
                 jsonArray = new JSONArray();
                 JSONObject obj = new JSONObject();
                 obj.put("courses", jsonArray);
-                JsonUtil.clearJson(new File(context.getFilesDir(), "ScheduleList.json"));
+                JsonUtil.clearJson(file);
             }
 
             // TODO : remove course from json

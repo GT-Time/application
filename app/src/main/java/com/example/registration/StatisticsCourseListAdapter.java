@@ -19,6 +19,7 @@ import com.example.util.util.Util;
 
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.List;
 
 public class StatisticsCourseListAdapter extends BaseAdapter {
@@ -73,8 +74,7 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
 
                             try
                             {
-                                String response = JsonUtil.readJson(parent.getActivity(), "ScheduleList.json");
-                                boolean success = new JsonWriter().deleteCourse(response, courseScheduleList.get(position), parent.getActivity());
+                                boolean success = new JsonWriter().deleteCourse(new File(parent.getActivity().getFilesDir(), "202108.json"), courseScheduleList.get(position));
                                 if(success)
                                 {
                                     //parent - 자신을 불러낸 course Fragment 에서 알림창을 띄워줌

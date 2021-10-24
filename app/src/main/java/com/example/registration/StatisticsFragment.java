@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -122,7 +123,7 @@ public class StatisticsFragment extends Fragment {
         }
         @Override
         protected String doInBackground(Object[] objects) {
-            return JsonUtil.readJson(getActivity(), filename);
+            return Util.fetchLocalFile(new File(getActivity().getFilesDir(), filename));
         }
 
         @Override
