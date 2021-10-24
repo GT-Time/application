@@ -17,7 +17,6 @@ import com.example.util.json.JsonUtil;
 import com.example.util.json.JsonWriter;
 import com.example.util.util.Util;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -137,7 +136,7 @@ public class CourseListAdapter extends BaseAdapter {
                     public void run() {
                         try
                         {
-                            boolean success = new JsonWriter().appendCourse(new File(parent.getActivity().getFilesDir(), Util.getFileName(semester)), courseScheduleList.get(position));
+                            boolean success = new JsonWriter().appendCourse(semester, courseScheduleList.get(position), parent.getActivity());
 
                             if(success)
                             {
@@ -200,7 +199,7 @@ public class CourseListAdapter extends BaseAdapter {
         }
         @Override
         protected String doInBackground(Object[] objects) {
-            return Util.fetchLocalFile(new File(parent.getActivity().getFilesDir(), filename));
+            return JsonUtil.readJson(parent.getActivity(), filename);
         }
 
         @Override

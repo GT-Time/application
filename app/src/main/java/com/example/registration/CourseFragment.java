@@ -20,8 +20,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
-import com.example.util.json.JsonUtil;
-import com.example.util.util.Util;
 import com.github.tlaabs.timetableview.Schedule;
 
 import org.json.JSONArray;
@@ -95,8 +93,6 @@ public class CourseFragment extends Fragment {
     private ListView courseListView;
     private CourseListAdapter adapter;
 
-    private Map<String, String> params;
-
     private String selectedUniversity;
     private List<Course> courseScheduleList;
     private Map<String, String> semester;
@@ -111,9 +107,6 @@ public class CourseFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         selectedUniversity = "";
-        params = new HashMap<String, String>();
-        semester = new HashMap<String, String>();
-
         universityGroupID = getView().findViewById(R.id.universityGroupID);
         termSpinner = getView().findViewById(R.id.semesterID);
         subjectSpinner = getView().findViewById(R.id.subjectID);
@@ -494,8 +487,6 @@ public class CourseFragment extends Fragment {
 
             }
             areaSpinner.setAdapter(areaAdapter);
-
-            updateParams();
         }
 
         @Override
@@ -509,6 +500,7 @@ public class CourseFragment extends Fragment {
     termSpinner.setSelection(0);
     areaSpinner.setSelection(0);
 
+    semester = new HashMap<String, String>();
     for (int i = 0; i < Math.min(text.length, id.length); i++) semester.put(text[i], id[i]);
 
     courseListView = getView().findViewById(R.id.courseListID);
@@ -537,7 +529,9 @@ public class CourseFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             try {
-                target = "https://raw.githubusercontent.com/cshim31/crawler/data/" + URLEncoder.encode(semester.get(termSpinner.getSelectedItem().toString())) + ".json";
+                target = "http://ec2-3-222-117-117.compute-1.amazonaws.com/CourseList.php?courseUniversity="+ URLEncoder.encode(selectedUniversity,"UTF-8")
+                        +"&courseTerm="+URLEncoder.encode(semester.get(termSpinner.getSelectedItem().toString()),"UTF-8")+"&courseMajor="+URLEncoder.encode(subjectSpinner.getSelectedItem().toString(),"UTF-8")
+                        +"&courseArea="+URLEncoder.encode(areaSpinner.getSelectedItem().toString(),"UTF-8");
             }
 
             catch(Exception e) {
@@ -547,8 +541,26 @@ public class CourseFragment extends Fragment {
 
         @Override
         protected Object doInBackground(Object[] objects) {
-            String json = Util.fetchRemote(target);
-            return JsonUtil.filterCourse(json, params);
+            try {
+                URL url = new URL(target);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+                String temp;
+                StringBuilder stringBuilder = new StringBuilder();
+                while ((temp = br.readLine()) != null) {
+                    stringBuilder.append(temp + "\n");
+                }
+                br.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return stringBuilder.toString();
+            }
+
+            catch(Exception e) {
+                e.printStackTrace();
+            }
+            return null;
         }
 
         @Override
@@ -560,7 +572,8 @@ public class CourseFragment extends Fragment {
         protected void onPostExecute(Object o) {
             try {
                 courseScheduleList.clear();
-                JSONObject jsonObject = (JSONObject) o;
+                String result = (String) o;
+                JSONObject jsonObject = new JSONObject(result);
                 JSONArray jsonArray = jsonObject.getJSONArray("response");
 
                 int count = 0;
@@ -617,12 +630,5 @@ public class CourseFragment extends Fragment {
             }
         }
 
-    }
-
-    public void updateParams() {
-//        params.put("courseUniversity", selectedUniversity);
-        params.put("courseTerm", semester.get(termSpinner.getSelectedItem().toString()));
-        params.put("courseMajor", subjectSpinner.getSelectedItem().toString());
-        params.put("courseArea", areaSpinner.getSelectedItem().toString());
     }
 }

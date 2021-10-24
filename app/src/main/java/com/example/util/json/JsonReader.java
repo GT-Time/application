@@ -10,11 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JsonReader {
-    /*
-     * Fetch course data from local json
-     * @param String json contents to fetch
-     * @return List fetched course lists from json
-     */
     public List<Course> fetchCourse(String json) {
         List<Course> list = new ArrayList<Course>();
 

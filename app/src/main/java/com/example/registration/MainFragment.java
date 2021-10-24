@@ -84,7 +84,7 @@ public class MainFragment extends Fragment {
 
         final LinearLayout announcement = (LinearLayout) getView().findViewById(R.id.Announcement);
 
-        //new AnnouncementTask().execute();
+        new AnnouncementTask().execute();
     }
 
     class AnnouncementTask extends AsyncTask {
