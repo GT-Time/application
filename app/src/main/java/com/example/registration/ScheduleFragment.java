@@ -19,6 +19,7 @@ import com.github.tlaabs.timetableview.TimetableView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -146,7 +147,7 @@ public class ScheduleFragment extends Fragment {
         }
         @Override
         protected String doInBackground(Object[] objects) {
-            return JsonUtil.readJson(getActivity(), filename);
+            return JsonUtil.readJson(new File(getActivity().getFilesDir(), filename));
         }
 
         @Override

@@ -91,7 +91,7 @@ public class MainFragment extends Fragment {
         String address;
         @Override
         protected void onPreExecute() {
-            address = "http://ec2-3-222-117-117.compute-1.amazonaws.com/AnnouncementList.php";
+            address = "http://ec2-3-238-0-205.compute-1.amazonaws.com/AnnouncementList.php";
         }
 
         @Override

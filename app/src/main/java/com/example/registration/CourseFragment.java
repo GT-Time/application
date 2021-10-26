@@ -505,7 +505,7 @@ public class CourseFragment extends Fragment {
 
     courseListView = getView().findViewById(R.id.courseListID);
     courseScheduleList = new ArrayList<Course>();
-    adapter = new CourseListAdapter(getContext().getApplicationContext(), courseScheduleList, semester.get(termSpinner.getSelectedItem().toString()), this);
+    adapter = new CourseListAdapter(getContext().getApplicationContext(), courseScheduleList, this);
     courseListView.setAdapter(adapter);
 
 
@@ -529,7 +529,7 @@ public class CourseFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             try {
-                target = "http://ec2-3-222-117-117.compute-1.amazonaws.com/CourseList.php?courseUniversity="+ URLEncoder.encode(selectedUniversity,"UTF-8")
+                target = "http://ec2-3-238-0-205.compute-1.amazonaws.com/CourseList.php?courseUniversity="+ URLEncoder.encode(selectedUniversity,"UTF-8")
                         +"&courseTerm="+URLEncoder.encode(semester.get(termSpinner.getSelectedItem().toString()),"UTF-8")+"&courseMajor="+URLEncoder.encode(subjectSpinner.getSelectedItem().toString(),"UTF-8")
                         +"&courseArea="+URLEncoder.encode(areaSpinner.getSelectedItem().toString(),"UTF-8");
             }
@@ -622,7 +622,7 @@ public class CourseFragment extends Fragment {
                             .create();
                     alertDialog.show();
                 }
-
+                adapter.setSemester(semester.get(termSpinner.getSelectedItem().toString()));
                 adapter.notifyDataSetChanged();
             }
             catch(Exception e) {

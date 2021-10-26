@@ -19,6 +19,7 @@ import com.example.util.util.Util;
 
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.List;
 
 public class StatisticsCourseListAdapter extends BaseAdapter {
@@ -70,39 +71,37 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
+                try
+                    {
+                        boolean success = new JsonWriter().deleteCourse(new File(parent.getActivity().getFilesDir(), ""), courseScheduleList.get(position));
+                        if(success)
+                        {
+                            //parent - 자신을 불러낸 course Fragment 에서 알림창을 띄워줌
+                            AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
+                            AlertDialog dialog = alert.setMessage("Course has been deleted from schedule")
+                                    .setPositiveButton("OK",null)
+                                    .create();
+                            dialog.show();
+                            StatisticsFragment.totalCredit -= Util.parseInt(courseScheduleList.get(position).getCourseCredit().split(" ")[0]);
+                            StatisticsFragment.statCredit.setText(StatisticsFragment.totalCredit + " Credits");
+                            courseScheduleList.remove(position);
+                            notifyDataSetChanged();
+                        }
 
-                            try
-                            {
-                                String response = JsonUtil.readJson(parent.getActivity(), "ScheduleList.json");
-                                boolean success = new JsonWriter().deleteCourse(response, courseScheduleList.get(position), parent.getActivity());
-                                if(success)
-                                {
-                                    //parent - 자신을 불러낸 course Fragment 에서 알림창을 띄워줌
-                                    AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
-                                    AlertDialog dialog = alert.setMessage("Course has been deleted from schedule")
-                                            .setPositiveButton("OK",null)
-                                            .create();
-                                    dialog.show();
-                                    StatisticsFragment.totalCredit -= Util.parseInt(courseScheduleList.get(position).getCourseCredit().split(" ")[0]);
-                                    StatisticsFragment.statCredit.setText(StatisticsFragment.totalCredit + " Credits");
-                                    courseScheduleList.remove(position);
-                                    notifyDataSetChanged();
-                                }
-
-                                else
-                                {
-                                    AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
-                                    AlertDialog dialog = alert.setMessage("Course has not been removed from your schedule")
-                                            .setPositiveButton("OK",null)
-                                            .create();
-                                    dialog.show();
-                                }
-                                return;
-                            }
-                            catch(Exception e)
-                            {
-                                e.printStackTrace();
-                            }
+                        else
+                        {
+                            AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
+                            AlertDialog dialog = alert.setMessage("Course has not been removed from your schedule")
+                                    .setPositiveButton("OK",null)
+                                    .create();
+                            dialog.show();
+                        }
+                        return;
+                    }
+                    catch(Exception e)
+                    {
+                        e.printStackTrace();
+                    }
                     };
                 });
         return v;

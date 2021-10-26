@@ -7,6 +7,8 @@
     </string-array>
 
     <string-array name = "semesterID">
+        <item>202102</item>
+        <item>202105</item>
         <item>202108</item>
         <item>202202</item>
         <item>202205</item>

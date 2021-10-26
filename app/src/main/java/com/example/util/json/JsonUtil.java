@@ -10,8 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class JsonUtil {
-    public static String readJson(Context context, String filename) {
-        File file = new File(context.getFilesDir(), filename);
+    public static String readJson(File file) {
         try {
             file.createNewFile(); // if file already exists will do nothing
             FileReader fileReader = new FileReader(file);

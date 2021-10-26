@@ -17,6 +17,7 @@ import com.example.util.json.JsonUtil;
 import com.example.util.json.JsonWriter;
 import com.example.util.util.Util;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -30,12 +31,12 @@ public class CourseListAdapter extends BaseAdapter {
     private String semester;
     public static int totalCredit;
 
-    public CourseListAdapter(Context context, List<Course> courseScheduleList, String semester, Fragment parent) {
+    public CourseListAdapter(Context context, List<Course> courseScheduleList, Fragment parent) {
         this.context = context;
         this.courseScheduleList = courseScheduleList; // courseList in adapter
         this.parent = parent;
         this.userCourseList = new ArrayList<Course>(); // courseList from user dataabase
-        this.semester = semester;
+        this.semester = "";
         totalCredit = 0;
     }
 
@@ -136,7 +137,7 @@ public class CourseListAdapter extends BaseAdapter {
                     public void run() {
                         try
                         {
-                            boolean success = new JsonWriter().appendCourse(semester, courseScheduleList.get(position), parent.getActivity());
+                            boolean success = new JsonWriter().appendCourse(new File(parent.getActivity().getFilesDir(), Util.getFileName(semester)), courseScheduleList.get(position));
 
                             if(success)
                             {
@@ -199,7 +200,7 @@ public class CourseListAdapter extends BaseAdapter {
         }
         @Override
         protected String doInBackground(Object[] objects) {
-            return JsonUtil.readJson(parent.getActivity(), filename);
+            return JsonUtil.readJson(new File(parent.getActivity().getFilesDir(), filename));
         }
 
         @Override
@@ -256,4 +257,6 @@ public class CourseListAdapter extends BaseAdapter {
     public boolean exceedAllowedCredit(int total, int credit) {
         return total + credit > 21;
     }
+
+    public void setSemester(String semester) {this.semester = semester;}
 }
