@@ -622,7 +622,7 @@ public class CourseFragment extends Fragment {
                             .create();
                     alertDialog.show();
                 }
-                adapter.setSemester(semester.get(termSpinner.getSelectedItem().toString()).toString());
+                adapter.setSemester(semester.get(termSpinner.getSelectedItem().toString()));
                 adapter.notifyDataSetChanged();
             }
             catch(Exception e) {
