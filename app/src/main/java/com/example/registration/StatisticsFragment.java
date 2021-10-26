@@ -112,20 +112,26 @@ public class StatisticsFragment extends Fragment {
 
     // TODO: complete statistics fragment fetch by semester
     class BackgroundTask extends AsyncTask {
-        String filename;
-        String[] text = getResources().getStringArray(R.array.semesterText);
-        String[] id = getResources().getStringArray(R.array.semesterID);
+        File filedir;
         @Override
         protected void onPreExecute() {
             try {
-                filename = "202108.json";
+                filedir = getActivity().getFilesDir();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         @Override
-        protected String doInBackground(Object[] objects) {
-            return JsonUtil.readJson(new File(getActivity().getFilesDir(), filename));
+        protected List<String> doInBackground(Object[] objects) {
+            List<String> response = new ArrayList<String>();
+            if (filedir.exists()) {
+                File[] files = filedir.listFiles();
+                for (int i=0; i<files.length; i++) {
+                    response.add(JsonUtil.readJson(files[i]));
+                }
+            }
+
+            return response;
         }
 
         @Override
@@ -136,7 +142,9 @@ public class StatisticsFragment extends Fragment {
         @Override
         protected void onPostExecute(Object o) {
             courseList.clear();
-            courseList.addAll(new JsonReader().fetchCourse((String) o));
+            List<String> response = (ArrayList<String>) o;
+
+            for (int i = 0; i < response.size(); i++) courseList.addAll(new JsonReader().fetchCourse(response.get(i)));
 
             for(int i = 0; i < courseList.size(); i++) totalCredit += Util.parseInt(courseList.get(i).getCourseCredit().split(" ")[0]);
 

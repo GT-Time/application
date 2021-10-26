@@ -3,7 +3,11 @@ package com.example.util.util;
 /**
  *  Collection of utility function
  */
-public class Util {
+public final class Util {
+    private Util() {
+        throw new UnsupportedOperationException();
+    }
+
     public static String[] split(String input, String regex, int limit) {
         String[] pair = input.split(regex,limit);
 
