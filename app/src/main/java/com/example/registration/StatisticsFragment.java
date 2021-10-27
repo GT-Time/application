@@ -1,6 +1,7 @@
 package com.example.registration;
 
 import android.app.ProgressDialog;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -84,6 +86,7 @@ public class StatisticsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_statistics, container, false);
     }
 
+    private ImageView filterSemesterButton;
 
     private ListView courseListView;
     private StatisticsCourseListAdapter adapter;
@@ -95,11 +98,21 @@ public class StatisticsFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        filterSemesterButton = getView().findViewById(R.id.statisticFilter);
+
         statCredit = getView().findViewById(R.id.totalCredit);
         courseListView = getView().findViewById(R.id.courseListView);
         courseList = new ArrayList<Course>();
         adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(), courseList,this);
         courseListView.setAdapter(adapter);
+
+        filterSemesterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FilterSemesterDialog filterSemesterDialog = FilterSemesterDialog.newInstance();
+                filterSemesterDialog.show(getActivity().getSupportFragmentManager(), FilterSemesterDialog.TAG);
+            }
+        });
 
         ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Loading");

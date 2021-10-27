@@ -69,15 +69,15 @@
                 android:layout_gravity = "center_vertical"
                 android:id = "@+id/courseAreaID">
             </Spinner>
+
             <Button
+                android:id="@+id/courseSearchButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize = "10dp"
-                android:textStyle = "bold"
-                android:text = "Search"
-                android:id = "@+id/courseSearchButton"
-                android:theme = "@style/Theme.Button">
-            </Button>
+                android:text="Search"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:theme="@style/Theme.Button"></Button>
         </LinearLayout>
     </LinearLayout>
 

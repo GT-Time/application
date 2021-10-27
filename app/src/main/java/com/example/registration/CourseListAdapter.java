@@ -65,6 +65,7 @@ public class CourseListAdapter extends BaseAdapter {
         TextView courseCRN = v.findViewById(R.id.courseCRN);
         TextView courseTime = v.findViewById(R.id.courseTime);
         TextView courseDay = v.findViewById(R.id.courseDay);
+        TextView courseAttribute = v.findViewById(R.id.courseAttribute);
 
         courseTitle.setText(courseScheduleList.get(position).getCourseTitle()+"-"+ courseScheduleList.get(position).getCourseSection());
         if(courseScheduleList.get(position).getCourseInstructor().equals("")) {
@@ -79,6 +80,7 @@ public class CourseListAdapter extends BaseAdapter {
         courseCRN.setText(courseScheduleList.get(position).getCourseCRN());
         courseTime.setText(courseScheduleList.get(position).getCourseTime());
         courseDay.setText(courseScheduleList.get(position).getCourseDay());
+        courseAttribute.setText(courseScheduleList.get(position).getCourseAttribute());
 
         new BackgroundTask().execute();
 
