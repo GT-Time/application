@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation = "vertical"
-    tools:context=".RegisterActivity"
+    tools:context=".ui.activity.RegisterActivity"
     android:theme="@style/Theme.Layout">
     <FrameLayout
         android:layout_width="match_parent"

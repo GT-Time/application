@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ScheduleFragment">
+    tools:context=".ui.fragment.ScheduleFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TableLayout
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = ""
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -24,7 +24,7 @@
                 android:drawableStart = "@drawable/ic_assignment_black_24dp"
                 android:layout_gravity = "center"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
@@ -35,7 +35,7 @@
                 android:textSize = "17dp"
                 android:textAlignment="center"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
@@ -46,7 +46,7 @@
                 android:textSize = "17dp"
                 android:textAlignment="center"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
@@ -57,7 +57,7 @@
                 android:textSize = "17dp"
                 android:textAlignment="center"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
@@ -68,7 +68,7 @@
                 android:textSize = "17dp"
                 android:textAlignment="center"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
@@ -87,7 +87,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "8"
                 android:layout_width = "24dp"
                 android:layout_height = "match_parent"
@@ -98,7 +98,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -110,7 +110,7 @@
                 android:id = "@+id/monday8"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -122,7 +122,7 @@
                 android:id = "@+id/tuesday8"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -134,7 +134,7 @@
                 android:id = "@+id/wednesday8"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -146,7 +146,7 @@
                 android:id = "@+id/thursday8"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -166,7 +166,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "9"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -177,7 +177,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -189,7 +189,7 @@
                 android:id = "@+id/monday9"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -201,7 +201,7 @@
                 android:id = "@+id/tuesday9"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -213,7 +213,7 @@
                 android:id = "@+id/wednesday9"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -225,7 +225,7 @@
                 android:id = "@+id/thursday9"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -245,7 +245,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "10"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -256,7 +256,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -268,7 +268,7 @@
                 android:id = "@+id/monday10"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -280,7 +280,7 @@
                 android:id = "@+id/tuesday10"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -292,7 +292,7 @@
                 android:id = "@+id/wednesday10"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -304,7 +304,7 @@
                 android:id = "@+id/thursday10"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -324,7 +324,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "11"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -335,7 +335,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -347,7 +347,7 @@
                 android:id = "@+id/monday11"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -359,7 +359,7 @@
                 android:id = "@+id/tuesday11"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -371,7 +371,7 @@
                 android:id = "@+id/wednesday11"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -383,7 +383,7 @@
                 android:id = "@+id/thursday11"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -403,7 +403,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "12"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -414,7 +414,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -426,7 +426,7 @@
                 android:id = "@+id/monday12"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -438,7 +438,7 @@
                 android:id = "@+id/tuesday12"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -450,7 +450,7 @@
                 android:id = "@+id/wednesday12"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -462,7 +462,7 @@
                 android:id = "@+id/thursday12"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -482,7 +482,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "1"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -493,7 +493,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -506,7 +506,7 @@
                 android:padding = "2dp"
 
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -518,7 +518,7 @@
                 android:id = "@+id/tuesday13"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -530,7 +530,7 @@
                 android:id = "@+id/wednesday13"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -542,7 +542,7 @@
                 android:id = "@+id/thursday13"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -562,7 +562,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "2"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -573,7 +573,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -585,7 +585,7 @@
                 android:id = "@+id/monday14"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -597,7 +597,7 @@
                 android:id = "@+id/tuesday14"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -609,7 +609,7 @@
                 android:id = "@+id/wednesday14"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -621,7 +621,7 @@
                 android:id = "@+id/thursday14"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -641,7 +641,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "3"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -652,7 +652,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -664,7 +664,7 @@
                 android:id = "@+id/monday15"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -676,7 +676,7 @@
                 android:id = "@+id/tuesday15"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -688,7 +688,7 @@
                 android:id = "@+id/wednesday15"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -700,7 +700,7 @@
                 android:id = "@+id/thursday15"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -720,7 +720,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "4"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -731,7 +731,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -743,7 +743,7 @@
                 android:id = "@+id/monday16"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -755,7 +755,7 @@
                 android:id = "@+id/tuesday16"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -767,7 +767,7 @@
                 android:id = "@+id/wednesday16"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -779,7 +779,7 @@
                 android:id = "@+id/thursday16"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -799,7 +799,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "5"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -810,7 +810,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -822,7 +822,7 @@
                 android:id = "@+id/monday17"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -834,7 +834,7 @@
                 android:id = "@+id/tuesday17"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -846,7 +846,7 @@
                 android:id = "@+id/wednesday17"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -858,7 +858,7 @@
                 android:id = "@+id/thursday17"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -878,7 +878,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "6"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -889,7 +889,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -901,7 +901,7 @@
                 android:id = "@+id/monday18"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -913,7 +913,7 @@
                 android:id = "@+id/tuesday18"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -925,7 +925,7 @@
                 android:id = "@+id/wednesday18"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -937,7 +937,7 @@
                 android:id = "@+id/thursday18"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -957,7 +957,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "7"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -968,7 +968,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -980,7 +980,7 @@
                 android:id = "@+id/monday19"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -992,7 +992,7 @@
                 android:id = "@+id/tuesday19"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -1004,7 +1004,7 @@
                 android:id = "@+id/wednesday19"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -1016,7 +1016,7 @@
                 android:id = "@+id/thursday19"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -1036,7 +1036,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "8"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -1047,7 +1047,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -1059,7 +1059,7 @@
                 android:id = "@+id/monday20"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -1071,7 +1071,7 @@
                 android:id = "@+id/tuesday20"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -1083,7 +1083,7 @@
                 android:id = "@+id/wednesday20"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -1095,7 +1095,7 @@
                 android:id = "@+id/thursday20"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -1115,7 +1115,7 @@
             android:layout_weight = "1"
             android:background = "@color/colorWeakWhite">
 
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "9"
                 android:layout_width = "24dp"
                 android:layout_height = "wrap_content"
@@ -1126,7 +1126,7 @@
                 android:textSize = "15dp"
                 android:paddingRight = "1dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Mon"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -1138,7 +1138,7 @@
                 android:id = "@+id/monday21"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Tue"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -1150,7 +1150,7 @@
                 android:id = "@+id/tuesday21"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Wed"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -1162,7 +1162,7 @@
                 android:id = "@+id/wednesday21"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Thu"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
@@ -1174,7 +1174,7 @@
                 android:id = "@+id/thursday21"
                 android:padding = "2dp"
                 />
-            <com.example.registration.AutoResizeTextView
+            <com.example.registration.ui.view.AutoResizeTextView
                 android:text = "Fri"
                 android:layout_width = "wrap_content"
                 android:layout_height = "match_parent"
