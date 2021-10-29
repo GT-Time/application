@@ -47,9 +47,9 @@
     <style name = "Theme.List">
         <item name = "android:background">@color/colorWhite</item>
         <item name = "android:dividerHeight">2dp</item>
-        <item name = "android:divider">@android:color/transparent</item>
+        <item name = "android:divider">@color/colorWeakGray</item>
         <item name = "android:textColor">@color/colorWarning</item>
-        <item name = "android:textColorHint">@color/colorWarning</item>
+        <item name = "android:textSize">15dp</item>
     </style>
 
     <!-- font theme -->

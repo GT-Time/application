@@ -89,7 +89,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id = "@+id/courseListID"
-            android:padding = "5dp">
+            android:padding = "5dp"
+            android:theme="@style/Theme.List"
+            >
         </ListView>
     </LinearLayout>
 </LinearLayout>

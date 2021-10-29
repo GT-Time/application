@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
@@ -97,6 +98,15 @@ public class CourseFragment extends Fragment {
     private String selectedUniversity;
     private List<Course> courseScheduleList;
     private Map<String, String> semester;
+
+    /*
+        restore variables
+     */
+    private int selectedUniversityID;
+    private int semesterPosition;
+    private int majorPosition;
+    private int subjectPosition;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -118,7 +128,6 @@ public class CourseFragment extends Fragment {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 final RadioButton gradeID = getView().findViewById(checkedId);
                 selectedUniversity = gradeID.getText().toString();
-
                 if(selectedUniversity.equals("Undergraduate")) {
                     termAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.semesterText, android.R.layout.simple_spinner_dropdown_item);
                     subjectAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.subject,android.R.layout.simple_spinner_dropdown_item);

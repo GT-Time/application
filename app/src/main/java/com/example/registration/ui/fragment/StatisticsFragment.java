@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -83,7 +84,6 @@ public class StatisticsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_statistics, container, false);
     }
 
-    private ImageView filterSemesterButton;
     private FilterSemesterDialog filterSemesterDialog;
 
     private ListView courseListView;
@@ -94,6 +94,7 @@ public class StatisticsFragment extends Fragment {
     public static TextView statCredit;
     public TextView semesterText;
 
+    private LinearLayout filterSemesterButton;
     private String selectedSemester;
     private Map<String, String> semester;
     @Override
