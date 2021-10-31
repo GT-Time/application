@@ -16,6 +16,9 @@ public class SemesterListAdapter extends BaseAdapter {
     private Context context;
     private List<Semester> semesterList;
 
+    private int selected;
+    private CallbackListener callbackListner;
+
     public SemesterListAdapter(Context context, List<Semester> semesterList) {
         this.context = context;
         this.semesterList = semesterList;
@@ -35,8 +38,11 @@ public class SemesterListAdapter extends BaseAdapter {
         return position;
     }
 
-    private CallbackListener callbackListner;
-    private int selected;
+
+    public void setSelected(int selected) {
+        this.selected = selected;
+    }
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         View v =  View.inflate(context, R.layout.semester,null);
