@@ -23,12 +23,13 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
     private Context context;
     private List<Course> courseScheduleList;
     private Fragment parent;
+    private String semesterID;
 
-
-    public StatisticsCourseListAdapter(Context context, List<Course> courseScheduleList, Fragment parent) {
+    public StatisticsCourseListAdapter(Context context, List<Course> courseScheduleList, String semesterID, Fragment parent) {
         this.context = context;
         this.courseScheduleList = courseScheduleList;
         this.parent = parent;
+        this.semesterID = semesterID;
     }
 
     @Override
@@ -70,7 +71,7 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
 
                 try
                     {
-                        boolean success = new JsonWriter().deleteCourse(new File(parent.getActivity().getFilesDir(), ""), courseScheduleList.get(position));
+                        boolean success = new JsonWriter().deleteCourse(new File(parent.getActivity().getFilesDir(), Util.getFileName(semesterID)), courseScheduleList.get(position));
                         if(success)
                         {
                             //parent - 자신을 불러낸 course Fragment 에서 알림창을 띄워줌
@@ -103,5 +104,7 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
                 });
         return v;
     }
+
+    public void setSemester(String semesterID) {this.semesterID = semesterID;}
 }
 

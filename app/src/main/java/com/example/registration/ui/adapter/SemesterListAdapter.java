@@ -56,7 +56,7 @@ public class SemesterListAdapter extends BaseAdapter {
             public void onClick(View v) {
                 selected = position;
                 SemesterListAdapter.this.notifyDataSetChanged();
-                callbackListner.callback(semesterList.get(position).getSemesterID()); // HACK
+                callbackListner.callback(semesterList.get(position).getSemesterText()); // HACK
             }
         });
 

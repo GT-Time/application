@@ -95,7 +95,6 @@ public class StatisticsFragment extends Fragment {
     public TextView semesterText;
 
     private LinearLayout filterSemesterButton;
-    private String selectedSemester;
     private Map<String, String> semester;
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -105,7 +104,7 @@ public class StatisticsFragment extends Fragment {
         String[] text = getResources().getStringArray(R.array.semesterText);
         String[] id = getResources().getStringArray(R.array.semesterID);
         semester = new HashMap<String, String>();
-        for (int i = 0; i < Math.min(text.length, id.length); i++) semester.put(id[i], text[i]);
+        for (int i = 0; i < Math.min(text.length, id.length); i++) semester.put(text[i], id[i]);
 
         filterSemesterButton = getView().findViewById(R.id.statisticFilter);
         filterSemesterDialog = new FilterSemesterDialog();
@@ -113,18 +112,18 @@ public class StatisticsFragment extends Fragment {
             @Override
             public void callback(String filter) {
                 setSemester(filter);
+                adapter.setSemester(semester.get(semesterText.getText()));
                 new BackgroundTask().execute();
             }
         });
 
-        selectedSemester = "202102";
-
         statCredit = getView().findViewById(R.id.totalCredit);
         semesterText = getView().findViewById(R.id.semesterText);
+        semesterText.setText(text[0]);
 
         courseListView = getView().findViewById(R.id.courseListView);
         courseList = new ArrayList<Course>();
-        adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(), courseList,this);
+        adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(), courseList, semester.get(semesterText.getText()),this);
         courseListView.setAdapter(adapter);
 
         filterSemesterButton.setOnClickListener(new View.OnClickListener() {
@@ -149,7 +148,7 @@ public class StatisticsFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             try {
-                filename = selectedSemester;
+                filename = semester.get(semesterText.getText());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -176,15 +175,14 @@ public class StatisticsFragment extends Fragment {
 
             adapter.notifyDataSetChanged();
             statCredit.setText(totalCredit + " Credits");
-            semesterText.setText(semester.get(selectedSemester));
-            // TODO: add text displaying which semester selected
         }
     }
 
 
     public void setSemester(String semester) {
 
-        this.selectedSemester = semester;
+        this.semesterText.setText(semester);
 
     }
+
 }

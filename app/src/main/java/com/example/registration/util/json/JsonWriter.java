@@ -107,6 +107,38 @@ public class JsonWriter {
 
             // TODO : remove course from json
 
+            String courseTerm = course.getCourseTerm();
+            String courseTitle = course.getCourseTitle();
+            String courseTime = course.getCourseTime();
+            String courseDay = course.getCourseDay();
+            String courseLocation = course.getCourseLocation();
+            String courseInstructor = course.getCourseInstructor();
+            String courseCRN = course.getCourseCRN();
+            String courseCredit = course.getCourseCredit();
+            String courseMajor = course.getCourseMajor();
+            String courseArea = course.getCourseArea();
+            String courseSection = course.getCourseSection();
+            String courseClass = course.getCourseClass();
+            String courseUniversity = course.getCourseUniversity();
+            String courseAttribute = course.getCourseAttribute();
+
+            JSONArray updatedJsonArray = new JSONArray();
+            for (int i =0; i<jsonArray.length(); i++) {
+                String elem = jsonArray.getString(i);
+
+                if (elem.contains(courseCRN)) continue;
+                updatedJsonArray.put(jsonArray.get(i));
+            }
+
+            JSONObject updatedJson = new JSONObject();
+            updatedJson.put("courses", updatedJsonArray);
+
+            String jsonString = updatedJson.toString();
+
+            FileWriter fileWriter = new FileWriter(file);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(jsonString);
+            bufferedWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
