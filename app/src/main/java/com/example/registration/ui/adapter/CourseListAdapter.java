@@ -14,11 +14,13 @@ import androidx.fragment.app.Fragment;
 
 import com.example.registration.component.Course;
 import com.example.registration.R;
+import com.example.registration.component.CourseTime;
 import com.example.registration.ui.activity.MainActivity;
 import com.example.registration.util.json.JsonReader;
 import com.example.registration.util.json.JsonUtil;
 import com.example.registration.util.json.JsonWriter;
 import com.example.registration.util.util.Util;
+import com.github.tlaabs.timetableview.Time;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -233,8 +235,8 @@ public class CourseListAdapter extends BaseAdapter {
     /**
      * Validate course time and course day validation.
      *
-     * @param course course to be added to list
-     * @param courseList list of course
+     * @param course course to be validated
+     * @param courseList list of course registered
      * @return boolean whether course can be added
      */
     public boolean validate(Course course, List<Course> courseList) {
@@ -245,13 +247,31 @@ public class CourseListAdapter extends BaseAdapter {
         if(courseDays.contains("TBA") || courseDays.equals("")) return true;
 
         for (int i = 0; i < courseList.size(); i++) { // for each course in courseList
-            for(int j = 0; j < course.getCourseDay().length(); j++) { // for each courseDay in course
-                if (courseList.get(i).getCourseDay().indexOf(course.getCourseDay().charAt(j)) <= -1) { // course day does not overlap
+            Course registeredCourse = courseList.get(i);
+            String registeredCourseDays = registeredCourse.getCourseDay();
+
+            for(int j = 0; j < courseDays.length(); j++) {
+                if (registeredCourseDays.indexOf(courseDays.charAt(j)) <= -1) {
                     continue;
                 }
 
                 // TODO : validate using math max and min
-                if (courseList.get(i).getStartTime().getHour() < course.getStartTime().getHour() && courseList.get(i).getEndTime().getHour() > course.getStartTime().getHour()) {
+                Time registeredCourseStartTime = registeredCourse.getStartTime();
+                Time registeredCourseEndTime = registeredCourse.getEndTime();
+                Time courseStartTime = course.getStartTime();
+                Time courseEndTime = course.getEndTime();
+
+                int registeredCourseStartConverted = registeredCourseStartTime.getHour() * 60 + registeredCourseStartTime.getMinute();
+                int registeredCourseEndConverted = registeredCourseEndTime.getHour() * 60 + registeredCourseEndTime.getMinute();
+                int courseStartConverted = courseStartTime.getHour() * 60 + courseStartTime.getMinute();
+                int courseEndConvereted = courseEndTime.getHour() * 60 + courseEndTime.getMinute();
+
+                boolean overlapped = (Math.max(registeredCourseStartConverted, courseStartConverted) == registeredCourseStartConverted
+                                        && Math.min(registeredCourseStartConverted, courseEndConvereted) == registeredCourseStartConverted) ||
+                                     (Math.max(registeredCourseStartConverted, courseStartConverted) == courseStartConverted
+                                        && Math.min(courseStartConverted, registeredCourseEndConverted) == courseStartConverted);
+
+                if (overlapped) {
                     return false;
                 }
             }

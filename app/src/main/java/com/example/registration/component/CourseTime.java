@@ -7,7 +7,7 @@ import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CourseTime extends Time {
+public class CourseTime extends Time{
     CourseTime(String time) {
         HashMap.Entry parsed = this.parse(time);
 
