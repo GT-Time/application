@@ -31,6 +31,7 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:layout_gravity="center"
+                 android:layout_weight="1"
                  android:padding="2dp"
                  android:text="Course Title"
                  android:fontFamily="@font/noto_sans"></TextView>
@@ -38,6 +39,7 @@
                  android:id="@+id/courseAttribute"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
+                 android:layout_gravity="center"
                  android:layout_weight="1"
                  android:text="Attribute"
                  android:fontFamily="@font/noto_sans"
@@ -55,29 +57,30 @@
                  android:layout_height="wrap_content"
                  android:layout_gravity="center"
                  android:layout_weight="1"
+                 android:textSize="11dp"
                  android:padding="2dp"
                  android:text="Professor name"
                  android:fontFamily="@font/noto_sans"></TextView>
              <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
+             android:layout_weight="1"
              android:text="3 Credit"
              android:id="@+id/courseCredit"
              android:layout_gravity="center"
              android:padding="2dp"
-             android:layout_weight = "1"
              >
              </TextView>
 
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
+                 android:layout_weight="1"
                  android:text="One Semester"
                  android:id="@+id/courseTerm"
                  android:layout_gravity="center"
                  android:padding="2dp"
-                 android:textStyle = "bold"
-                 android:layout_weight = "1"/>
+                 android:textStyle = "bold"/>
          </LinearLayout>
 
          <LinearLayout

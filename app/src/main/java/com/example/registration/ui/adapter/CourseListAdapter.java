@@ -78,7 +78,7 @@ public class CourseListAdapter extends BaseAdapter {
         }
 
         else {
-            courseInstructor.setText("Professor " + courseScheduleList.get(position).getCourseInstructor());
+            courseInstructor.setText(courseScheduleList.get(position).getCourseInstructor());
         }
         courseCredit.setText(courseScheduleList.get(position).getCourseCredit());
         courseTerm.setText(courseScheduleList.get(position).getCourseTerm());
