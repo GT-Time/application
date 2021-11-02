@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".ui.activity.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 android:layout_height="125dp"
                 android:layout_gravity="center"
                 android:layout_marginTop ="20dp"
-                android:src="@drawable/logo2">
+                android:src="@drawable/logo">
             </ImageView>
             <TextView
                 android:layout_width="wrap_content"

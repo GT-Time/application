@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation = "vertical"
-    tools:context=".CourseFragment">
+    tools:context=".ui.fragment.CourseFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -69,15 +69,15 @@
                 android:layout_gravity = "center_vertical"
                 android:id = "@+id/courseAreaID">
             </Spinner>
+
             <Button
+                android:id="@+id/courseSearchButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize = "10dp"
-                android:textStyle = "bold"
-                android:text = "Search"
-                android:id = "@+id/courseSearchButton"
-                android:theme = "@style/Theme.Button">
-            </Button>
+                android:text="Search"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:theme="@style/Theme.Button"></Button>
         </LinearLayout>
     </LinearLayout>
 
@@ -89,7 +89,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id = "@+id/courseListID"
-            android:padding = "5dp">
+            android:padding = "5dp"
+            android:theme="@style/Theme.List"
+            >
         </ListView>
     </LinearLayout>
 </LinearLayout>

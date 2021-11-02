@@ -12,4 +12,10 @@
         <item>Thu</item>
         <item>Fri</item>
     </string-array>
+
+    <string-array name = "semesterText">
+        <item>Spring 2021</item>
+        <item>Summer 2021</item>
+        <item>Fall 2021</item>
+    </string-array>
 </resources>
