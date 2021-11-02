@@ -8,7 +8,6 @@
            the status bar (on Android 5.0+) and contextual app bars -->
         <item name="colorPrimaryDark">@color/colorGray</item>
         <!--   a secondary color for controls like checkboxes and text fields -->
-        <item name="colorAccent">@color/colorWhite</item>
     </style>
 
     <style name = "AppTheme.NoActionBar">
@@ -42,16 +41,14 @@
 
     </style>
     <style name = "Theme.Button">
-        <item name = "colorPrimary">@color/colorTheme</item>
-        <item name = "colorOnPrimary">@color/colorPrimaryWeak</item>
-        <item name = "android:background">@color/colorSubTheme</item>
+        <item name = "android:backgroundTint">@color/colorSubTheme</item>
     </style>
     <style name = "Theme.List">
         <item name = "android:background">@color/colorWhite</item>
         <item name = "android:dividerHeight">2dp</item>
-        <item name = "android:divider">@android:color/transparent</item>
+        <item name = "android:divider">@color/colorWeakGray</item>
         <item name = "android:textColor">@color/colorWarning</item>
-        <item name = "android:textColorHint">@color/colorWarning</item>
+        <item name = "android:textSize">13dp</item>
     </style>
 
     <!-- font theme -->

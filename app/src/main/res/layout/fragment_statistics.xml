@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation = "vertical"
-    tools:context=".StatisticsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.fragment.StatisticsFragment">
     <LinearLayout
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
@@ -37,12 +38,35 @@
             android:textColor = "#000000"
             android:id = "@+id/totalCredit"
             />
-        <TextView
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:orientation = "horizontal"
+        android:layout_gravity = "left"
+        android:layout_margin = "10dp"
+        >
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text = "."
-            android:textColor = "#000000"
-            />
+            android:background="?android:attr/selectableItemBackground"
+            android:id="@+id/statisticFilter"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor = "#000000"
+                android:id="@+id/semesterText"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ic_arrow_down"
+                android:background="@color/colorWeakGray"
+                />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -55,6 +79,14 @@
            android:layout_height="match_parent"
            android:id = "@+id/courseListView"
            android:padding = "5dp"
+           android:theme="@style/Theme.List"
            ></ListView>
     </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/statisticFilterLayout"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        />
+
 </LinearLayout>

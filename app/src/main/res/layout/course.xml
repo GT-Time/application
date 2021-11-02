@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation = "horizontal"
     android:background = "@android:color/transparent"
@@ -31,9 +31,19 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:layout_gravity="center"
+                 android:layout_weight="1"
                  android:padding="2dp"
                  android:text="Course Title"
-                 android:textStyle="bold"></TextView>
+                 android:fontFamily="@font/noto_sans"></TextView>
+             <TextView
+                 android:id="@+id/courseAttribute"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:layout_weight="1"
+                 android:text="Attribute"
+                 android:fontFamily="@font/noto_sans"
+                 />
          </LinearLayout>
          
          <LinearLayout
@@ -47,29 +57,30 @@
                  android:layout_height="wrap_content"
                  android:layout_gravity="center"
                  android:layout_weight="1"
+                 android:textSize="11dp"
                  android:padding="2dp"
                  android:text="Professor name"
-                 android:textStyle="bold"></TextView>
+                 android:fontFamily="@font/noto_sans"></TextView>
              <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
+             android:layout_weight="1"
              android:text="3 Credit"
              android:id="@+id/courseCredit"
              android:layout_gravity="center"
              android:padding="2dp"
-             android:layout_weight = "1"
              >
              </TextView>
 
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
+                 android:layout_weight="1"
                  android:text="One Semester"
                  android:id="@+id/courseTerm"
                  android:layout_gravity="center"
                  android:padding="2dp"
-                 android:textStyle = "bold"
-                 android:layout_weight = "1"/>
+                 android:textStyle = "bold"/>
          </LinearLayout>
 
          <LinearLayout

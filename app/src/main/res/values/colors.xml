@@ -13,11 +13,15 @@
     <color name = "colorWeakWhite">#F5F8FF</color>
     <color name = "colorAliceBlue">#E8F1FF</color>
     <color name = "colorGray">#949599</color>
+    <color name = "colorWeakGray">#CBD9EF</color>
 
     <!-- major theme color -->
     <color name = "colorTheme">#F2284E</color>
     <color name = "colorWeakTheme">#F997AC</color>
     <color name = "colorSubTheme">#7ABED7</color>
+
+    <!-- log color -->
+    <color name = "colorLogo">#40b7ad</color>
     <!-- imported Library colors -->
     <string-array name="default_sticker_color">
         <item>#f08676</item>
@@ -30,5 +34,4 @@
         <item>#78cb87</item>
         <item>#d397ed</item>
     </string-array>
-
 </resources>

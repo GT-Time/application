@@ -14,10 +14,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation = "vertical"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            >
             <ImageView
-                android:layout_width="250dp"
-                android:layout_height="125dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginTop ="20dp"
                 android:src="@drawable/announcementlogo">
@@ -28,7 +30,7 @@
                 android:layout_gravity = "center"
                 android:text = "Announcement"
                 android:textColor = "#575728"
-                android:textSize = "18dp"
+                android:textSize = "28dp"
                 android:textStyle = "bold"
                 android:layout_marginBottom="3dp"
                 />
@@ -42,9 +44,7 @@
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin = "10dp"
-                android:dividerHeight="5dp"
-                android:divider = "#ffffff"
+                android:theme="@style/Theme.List"
                 android:id = "@+id/AnnouncementList">
             </ListView>
         </LinearLayout>
