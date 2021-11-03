@@ -134,7 +134,7 @@ public class CourseFragment extends Fragment {
 
                 else if(selectedUniversity.equals("Graduate")) {
                     termAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.semesterText, android.R.layout.simple_spinner_dropdown_item);
-                    subjectAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.graduateMajor,android.R.layout.simple_spinner_dropdown_item);
+                    subjectAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.subject,android.R.layout.simple_spinner_dropdown_item);
                 }
 
                 termSpinner.setAdapter(termAdapter);
