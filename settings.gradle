@@ -1,2 +1,2 @@
-rootProject.name='Registration'
+rootProject.name='GT Time'
 include ':app', ':timetableview'
