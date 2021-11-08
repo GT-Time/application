@@ -283,18 +283,18 @@
         <item>AS 4410</item>
     </string-array>
     <string-array name = "AppliedPhysiology">
-        <item>APPH1040</item>
-        <item>APPH1050</item>
-        <item>APPH1060</item>
-        <item>APPH6211</item>
-        <item>APPH6213</item>
-        <item>APPH6231</item>
-        <item>APPH6232</item>
-        <item>APPH6238</item>
-        <item>APPH6400</item>
-        <item>APPH8000</item>
-        <item>APPH8803</item>
-        <item>APPH9000</item>
+        <item>APPH 1040</item>
+        <item>APPH 1050</item>
+        <item>APPH 1060</item>
+        <item>APPH 6211</item>
+        <item>APPH 6213</item>
+        <item>APPH 6231</item>
+        <item>APPH 6232</item>
+        <item>APPH 6238</item>
+        <item>APPH 6400</item>
+        <item>APPH 8000</item>
+        <item>APPH 8803</item>
+        <item>APPH 9000</item>
     </string-array>
     <string-array name = "AppliedSystemsEngineering">
         <item>AS E6001</item>
@@ -1144,6 +1144,7 @@
         <item>ECE 3951</item>
         <item>ECE 3952</item>
         <item>ECE 4043</item>
+        <item>ECE 4053</item>
         <item>ECE 4100</item>
         <item>ECE 4115</item>
         <item>ECE 4122</item>
