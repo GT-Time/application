@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -45,6 +46,21 @@ public class StatisticsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private FilterSemesterDialog filterSemesterDialog;
+
+    private ListView courseListView;
+    private StatisticsCourseListAdapter adapter;
+    private List<Course> courseList;
+
+    public static int totalCredit = 0;
+    public static TextView statCredit;
+    public TextView semesterText;
+
+    private LinearLayout filterSemesterButton;
+    private Map<String, String> semester;
+
+    private String semesterID;
+
     public StatisticsFragment() {
         // Required empty public constructor
     }
@@ -74,27 +90,28 @@ public class StatisticsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        if(savedInstanceState != null) {
+            this.semesterID = savedInstanceState.getString("semesterID");
+        }
+
+        else {
+            this.semesterID = getResources().getStringArray(R.array.semesterText)[0];
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_statistics, container, false);
     }
 
-    private FilterSemesterDialog filterSemesterDialog;
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("semesterID", semesterText.getText().toString());
+    }
 
-    private ListView courseListView;
-    private StatisticsCourseListAdapter adapter;
-    private List<Course> courseList;
-
-    public static int totalCredit = 0;
-    public static TextView statCredit;
-    public TextView semesterText;
-
-    private LinearLayout filterSemesterButton;
-    private Map<String, String> semester;
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -118,7 +135,7 @@ public class StatisticsFragment extends Fragment {
 
         statCredit = getView().findViewById(R.id.totalCredit);
         semesterText = getView().findViewById(R.id.semesterText);
-        semesterText.setText(text[0]);
+        semesterText.setText(semesterID);
 
         courseListView = getView().findViewById(R.id.courseListView);
         courseList = new ArrayList<Course>();
@@ -179,8 +196,8 @@ public class StatisticsFragment extends Fragment {
 
 
     public void setSemester(String semester) {
-
-        this.semesterText.setText(semester);
+        this.semesterID = semester;
+        this.semesterText.setText(semesterID);
 
     }
 

@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -33,8 +34,6 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class ScheduleFragment extends Fragment {
-    private ArrayList<Schedule> schedules;
-    private TimetableView timeTable;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -43,6 +42,12 @@ public class ScheduleFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private ChipGroup chipGroup;
+    private ArrayList<Schedule> schedules;
+    private TimetableView timeTable;
+
+    private int chipID;
 
     public ScheduleFragment() {
         // Required empty public constructor
@@ -73,16 +78,29 @@ public class ScheduleFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        if(savedInstanceState != null) {
+            this.chipID = savedInstanceState.getInt("chipID");
+        }
+
+        else {
+            this.chipID = Util.parseInt(getResources().getStringArray(R.array.semesterID)[0]);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_timetable, container, false);
+        return inflater.inflate(R.layout.fragment_calendar, container, false);
     }
 
-    private ChipGroup chipGroup;
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("chipID", chipGroup.getCheckedChipId());
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -105,11 +123,12 @@ public class ScheduleFragment extends Fragment {
             chipGroup.addView(chip);
         }
         chipGroup.setSingleSelection(true);
-        chipGroup.check(Util.parseInt(id[0]));
+        chipGroup.check(chipID);
         chipGroup.setSelectionRequired(true);
         chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
+                chipID = chipGroup.getCheckedChipId();
                 timeTable.removeAll();
                 ProgressDialog progressDialog = new ProgressDialog(getActivity());
                 progressDialog.setMessage("Loading");

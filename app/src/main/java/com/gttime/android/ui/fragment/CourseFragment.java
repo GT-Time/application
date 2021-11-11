@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
@@ -53,6 +54,26 @@ public class CourseFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
+    private RadioGroup universityGroupID;
+    private ArrayAdapter termAdapter;
+    private Spinner termSpinner;
+    private ArrayAdapter areaAdapter;
+    private Spinner areaSpinner;
+    private ArrayAdapter subjectAdapter;
+    private Spinner subjectSpinner;
+    private ListView courseListView;
+    private CourseListAdapter adapter;
+
+    private String selectedUniversity;
+    private List<Course> courseScheduleList;
+    private Map<String, String> semester;
+
+    private int universityID;
+    private int termID;
+    private int areaID;
+    private int subjectID;
+
     public CourseFragment() {
         // Required empty public constructor
     }
@@ -78,38 +99,40 @@ public class CourseFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        if(savedInstanceState != null) {
+            this.universityID = savedInstanceState.getInt("universityID");
+            this.subjectID = savedInstanceState.getInt("subjectID");
+            this.termID = savedInstanceState.getInt("termID");
+            this.areaID = savedInstanceState.getInt("areaID");
+        }
+
+        else {
+            this.universityID = R.id.undergraduateID;
+            this.subjectID = 0;
+            this.termID = 0;
+            this.areaID = 0;
+        }
     }
-
-    private RadioGroup universityGroupID;
-    private ArrayAdapter termAdapter;
-    private Spinner termSpinner;
-    private ArrayAdapter areaAdapter;
-    private Spinner areaSpinner;
-    private ArrayAdapter subjectAdapter;
-    private Spinner subjectSpinner;
-    private ListView courseListView;
-    private CourseListAdapter adapter;
-
-    private String selectedUniversity;
-    private List<Course> courseScheduleList;
-    private Map<String, String> semester;
-
-    /*
-        restore variables
-     */
-    private int selectedUniversityID;
-    private int semesterPosition;
-    private int majorPosition;
-    private int subjectPosition;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_course, container, false);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("universityID", universityGroupID.getCheckedRadioButtonId());
+        outState.putInt("subjectID", subjectSpinner.getSelectedItemPosition());
+        outState.putInt("termID", termSpinner.getSelectedItemPosition());
+        outState.putInt("areaID", areaSpinner.getSelectedItemPosition());
     }
 
     @Override
@@ -120,7 +143,7 @@ public class CourseFragment extends Fragment {
         universityGroupID = getView().findViewById(R.id.universityGroupID);
         termSpinner = getView().findViewById(R.id.semesterID);
         subjectSpinner = getView().findViewById(R.id.subjectID);
-        areaSpinner = getView().findViewById(R.id.courseAreaID);
+        areaSpinner = getView().findViewById(R.id.areaID);
 
         universityGroupID.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -139,15 +162,13 @@ public class CourseFragment extends Fragment {
 
                 termSpinner.setAdapter(termAdapter);
                 subjectSpinner.setAdapter(subjectAdapter);
+                areaSpinner.setAdapter(null);
             }
         });
 
     subjectSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                //TODO: Retrieve course area with specified courseMajor from database
-
             switch(subjectSpinner.getSelectedItem().toString()) {
                 case "Accounting":
                     areaAdapter = ArrayAdapter.createFromResource(getActivity(),R.array.Accounting,android.R.layout.simple_spinner_dropdown_item);
@@ -499,10 +520,10 @@ public class CourseFragment extends Fragment {
         }
     });
 
-    universityGroupID.check(R.id.undergraduateID);
-    subjectSpinner.setSelection(0);
-    termSpinner.setSelection(0);
-    areaSpinner.setSelection(0);
+    //universityGroupID.check(universityID);
+    //subjectSpinner.setSelection(subjectID);
+    //termSpinner.setSelection(termID);
+    //areaSpinner.setSelection(areaID);
 
     // HACK: create class that maps it
     String[] text = getResources().getStringArray(R.array.semesterText);
