@@ -14,7 +14,8 @@
         android:text = "Add"
         android:textSize="18dp"
         android:id = "@+id/addScheduleButton"
-        android:theme="@style/Theme.Button"/>
+        android:theme="@style/Theme.Button"
+        />
 
      <LinearLayout
          android:layout_width="match_parent"
@@ -34,16 +35,17 @@
                  android:layout_weight="1"
                  android:padding="2dp"
                  android:text="Course Title"
-                 android:fontFamily="@font/noto_sans"></TextView>
+                 android:fontFamily="@font/noto_sans"
+                />
+
              <TextView
                  android:id="@+id/courseAttribute"
                  android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
+                 android:layout_height="23dp"
                  android:layout_gravity="center"
                  android:layout_weight="1"
-                 android:text="Attribute"
                  android:fontFamily="@font/noto_sans"
-                 />
+                 android:text="Attribute" />
          </LinearLayout>
          
          <LinearLayout
@@ -60,7 +62,8 @@
                  android:textSize="11dp"
                  android:padding="2dp"
                  android:text="Professor name"
-                 android:fontFamily="@font/noto_sans"></TextView>
+                 android:fontFamily="@font/noto_sans"
+                />
              <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
@@ -69,8 +72,7 @@
              android:id="@+id/courseCredit"
              android:layout_gravity="center"
              android:padding="2dp"
-             >
-             </TextView>
+                />
 
              <TextView
                  android:layout_width="wrap_content"
@@ -80,7 +82,8 @@
                  android:id="@+id/courseTerm"
                  android:layout_gravity="center"
                  android:padding="2dp"
-                 android:textStyle = "bold"/>
+                 android:fontFamily="@font/noto_sans"
+                 />
          </LinearLayout>
 
          <LinearLayout
@@ -95,7 +98,8 @@
                  android:layout_gravity="center"
                  android:padding="2dp"
                  android:text="CRN"
-                 android:textColor="@color/colorTheme"></TextView>
+                 android:textColor="@color/colorTheme"
+                 />
 
              <TextView
                  android:id="@+id/courseTime"
@@ -104,7 +108,8 @@
                  android:layout_gravity="center"
                  android:padding="2dp"
                  android:text="Timeline"
-                 android:textColor="@color/colorSubTheme" />
+                 android:textColor="@color/colorSubTheme"
+                 />
 
              <TextView
                  android:id="@+id/courseDay"
@@ -112,7 +117,17 @@
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
                  android:text="Day"
-                 android:textColor="@color/colorSubTheme" />
+                 android:textColor="@color/colorSubTheme"
+                 />
+
+             <TextView
+                 android:id="@+id/courseSeat"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="1"
+                 android:text="Day"
+                 android:fontFamily="@font/noto_sans"
+                 />
 
          </LinearLayout>
 
