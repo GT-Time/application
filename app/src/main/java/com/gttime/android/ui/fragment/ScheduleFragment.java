@@ -15,9 +15,9 @@ import android.view.ViewGroup;
 import com.gttime.android.component.Course;
 import com.gttime.android.component.CourseSchedule;
 import com.gttime.android.R;
-import com.gttime.android.util.json.JsonReader;
-import com.gttime.android.util.json.JsonUtil;
-import com.gttime.android.util.util.Util;
+import com.gttime.android.util.IOUtil;
+import com.gttime.android.util.IntegerUtil;
+import com.gttime.android.util.JSONUtil;
 import com.github.tlaabs.timetableview.Schedule;
 import com.github.tlaabs.timetableview.TimetableView;
 import com.google.android.material.chip.Chip;
@@ -84,7 +84,7 @@ public class ScheduleFragment extends Fragment {
         }
 
         else {
-            this.chipID = Util.parseInt(getResources().getStringArray(R.array.semesterID)[0]);
+            this.chipID = IntegerUtil.parseInt(getResources().getStringArray(R.array.semesterID)[0]);
         }
     }
 
@@ -119,7 +119,7 @@ public class ScheduleFragment extends Fragment {
         for (int i = 0; i < chipNum; i++) {
             Chip chip = (Chip) getLayoutInflater().inflate(R.layout.chip, chipGroup, false);
             chip.setText(text[i]);
-            chip.setId(Util.parseInt(id[i]));
+            chip.setId(IntegerUtil.parseInt(id[i]));
             chipGroup.addView(chip);
         }
         chipGroup.setSingleSelection(true);
@@ -160,14 +160,14 @@ public class ScheduleFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             try {
-                filename = Util.getFileName(String.valueOf(chipGroup.getCheckedChipId()));
+                filename = IOUtil.getFileName(String.valueOf(chipGroup.getCheckedChipId()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         @Override
         protected String doInBackground(Object[] objects) {
-            return JsonUtil.readJson(new File(getActivity().getFilesDir(), filename));
+            return JSONUtil.readJson(new File(getActivity().getFilesDir(), filename));
         }
 
         @Override
@@ -177,7 +177,7 @@ public class ScheduleFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Object o) {
-            List<Course> registeredCourses = new JsonReader().fetchCourse((String) o);
+            List<Course> registeredCourses = JSONUtil.fetchCourse((String) o);
             for(int i = 0; i < registeredCourses.size(); i++) {
                 schedules.clear();
                 int days = registeredCourses.get(i).getCourseDay().length();

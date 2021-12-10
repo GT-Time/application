@@ -20,9 +20,9 @@ import com.gttime.android.component.Course;
 import com.gttime.android.ui.dialog.FilterSemesterDialog;
 import com.gttime.android.R;
 import com.gttime.android.ui.adapter.StatisticsCourseListAdapter;
-import com.gttime.android.util.json.JsonReader;
-import com.gttime.android.util.json.JsonUtil;
-import com.gttime.android.util.util.Util;
+import com.gttime.android.util.IOUtil;
+import com.gttime.android.util.IntegerUtil;
+import com.gttime.android.util.JSONUtil;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -172,7 +172,7 @@ public class StatisticsFragment extends Fragment {
         @Override
         protected String doInBackground(Object[] objects) {
 
-            return JsonUtil.readJson(new File(getActivity().getFilesDir(), Util.getFileName(filename)));
+            return JSONUtil.readJson(new File(getActivity().getFilesDir(), IOUtil.getFileName(filename)));
         }
 
         @Override
@@ -185,9 +185,9 @@ public class StatisticsFragment extends Fragment {
             courseList.clear();
             totalCredit = 0;
 
-            courseList.addAll(new JsonReader().fetchCourse((String) o));
+            courseList.addAll(JSONUtil.fetchCourse((String) o));
 
-            for(int i = 0; i < courseList.size(); i++) totalCredit += Util.parseInt(courseList.get(i).getCourseCredit().split(" ")[0]);
+            for(int i = 0; i < courseList.size(); i++) totalCredit += IntegerUtil.parseInt(courseList.get(i).getCourseCredit().split(" ")[0]);
 
             adapter.notifyDataSetChanged();
             statCredit.setText(totalCredit + " Credits");

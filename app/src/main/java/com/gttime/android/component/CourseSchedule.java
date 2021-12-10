@@ -23,8 +23,8 @@ limitations under the License.
  */
 package com.gttime.android.component;
 
-import com.gttime.android.util.util.Util;
 import com.github.tlaabs.timetableview.Schedule;
+import com.gttime.android.util.StringUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,8 +40,8 @@ public class CourseSchedule extends Schedule {
         this.parseTimedTime = new HashMap<Integer, Integer>();
         setDay(courseDay);
         setClassTitle(courseTitle);
-        setStartTime(new CourseTime(Util.split(courseTime,"-",2)[0]));
-        setEndTime(new CourseTime(Util.split(courseTime,"-",2)[1]));
+        setStartTime(new CourseTime(StringUtil.split(courseTime,"-",2)[0]));
+        setEndTime(new CourseTime(StringUtil.split(courseTime,"-",2)[1]));
         setClassPlace(courseLocation);
         setProfessorName(courseInstructor);
     }

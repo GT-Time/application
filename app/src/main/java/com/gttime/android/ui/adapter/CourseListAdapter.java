@@ -16,10 +16,9 @@ import com.gttime.android.component.Course;
 import com.gttime.android.R;
 import com.gttime.android.component.CourseSeat;
 import com.gttime.android.ui.activity.MainActivity;
-import com.gttime.android.util.json.JsonReader;
-import com.gttime.android.util.json.JsonUtil;
-import com.gttime.android.util.json.JsonWriter;
-import com.gttime.android.util.util.Util;
+import com.gttime.android.util.IOUtil;
+import com.gttime.android.util.IntegerUtil;
+import com.gttime.android.util.JSONUtil;
 import com.github.tlaabs.timetableview.Time;
 
 import java.io.File;
@@ -112,7 +111,7 @@ public class CourseListAdapter extends BaseAdapter {
 
                 }
 
-                int credit = Util.parseInt(courseSeats.get(position).getCourse().getCourseCredit().split(" ")[0]);
+                int credit = IntegerUtil.parseInt(courseSeats.get(position).getCourse().getCourseCredit().split(" ")[0]);
 
                 if(exceedAllowedCredit(totalCredit, credit)) {
 
@@ -149,7 +148,7 @@ public class CourseListAdapter extends BaseAdapter {
                     public void run() {
                         try
                         {
-                            boolean success = new JsonWriter().appendCourse(new File(parent.getActivity().getFilesDir(), Util.getFileName(semester)), courseSeats.get(position).getCourse());
+                            boolean success = JSONUtil.appendCourse(new File(parent.getActivity().getFilesDir(), IOUtil.getFileName(semester)), courseSeats.get(position).getCourse());
 
                             if(success)
                             {
@@ -166,7 +165,7 @@ public class CourseListAdapter extends BaseAdapter {
 
                                 userCourseList.add(courseSeats.get(position).getCourse());
 
-                                int credit = Util.parseInt(courseSeats.get(position).getCourse().getCourseCredit().split(" ")[0]);
+                                int credit = IntegerUtil.parseInt(courseSeats.get(position).getCourse().getCourseCredit().split(" ")[0]);
                                 totalCredit+= credit;
                                 return;
                             }
@@ -205,14 +204,14 @@ public class CourseListAdapter extends BaseAdapter {
         @Override
         protected void onPreExecute() {
             try {
-                filename = Util.getFileName(semester);
+                filename = IOUtil.getFileName(semester);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         @Override
         protected String doInBackground(Object[] objects) {
-            return JsonUtil.readJson(new File(parent.getActivity().getFilesDir(), filename));
+            return JSONUtil.readJson(new File(parent.getActivity().getFilesDir(), filename));
         }
 
         @Override
@@ -222,9 +221,9 @@ public class CourseListAdapter extends BaseAdapter {
 
         @Override
         protected void onPostExecute(Object o) {
-            userCourseList = new JsonReader().fetchCourse((String) o);
+            userCourseList = JSONUtil.fetchCourse((String) o);
 
-            for(int i = 0; i < userCourseList.size(); i++) totalCredit += Util.parseInt(userCourseList.get(i).getCourseCredit());
+            for(int i = 0; i < userCourseList.size(); i++) totalCredit += IntegerUtil.parseInt(userCourseList.get(i).getCourseCredit());
         }
     }
 

@@ -522,12 +522,6 @@ public class CourseFragment extends Fragment {
         }
     });
 
-    //universityGroupID.check(universityID);
-    //subjectSpinner.setSelection(subjectID);
-    //termSpinner.setSelection(termID);
-    //areaSpinner.setSelection(areaID);
-
-    // HACK: create class that maps it
     String[] text = getResources().getStringArray(R.array.semesterText);
     String[] id = getResources().getStringArray(R.array.semesterID);
     semester = new HashMap<String, String>();

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation = "vertical"
+    android:orientation="vertical"
     tools:context="com.gttime.android.ui.fragment.CourseFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,64 +11,66 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <RadioGroup
-            android:layout_width = "match_parent"
-            android:layout_height = "wrap_content"
-            android:orientation = "horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop = "10dp"
-            android:id = "@+id/universityGroupID">
+            android:layout_marginTop="10dp"
+            android:id="@+id/universityGroupID">
+
             <RadioButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:buttonTint="@color/colorTheme"
-                android:text = "Undergraduate"
-                android:id = "@+id/undergraduateID">
-            </RadioButton>
+                android:text="Undergraduate"
+                android:id="@+id/undergraduateID"></RadioButton>
+
             <RadioButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:buttonTint="@color/colorTheme"
-                android:text = "Graduate"
-                android:id = "@+id/graduateID">
-            </RadioButton>
+                android:text="Graduate"
+                android:id="@+id/graduateID"></RadioButton>
         </RadioGroup>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation = "horizontal">
+            android:orientation="horizontal">
+
             <Spinner
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="10dp"
-                android:orientation = "horizontal"
-                android:id = "@+id/semesterID">
-            </Spinner>
+                android:orientation="horizontal"
+                android:id="@+id/semesterID"></Spinner>
+
             <Spinner
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="10dp"
-                android:orientation = "horizontal"
-                android:id = "@+id/subjectID">
-            </Spinner>
+                android:orientation="horizontal"
+                android:id="@+id/subjectID"></Spinner>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="10dp"
-            android:orientation = "horizontal">
-            
+            android:orientation="horizontal">
+
             <Spinner
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:layout_gravity = "center_vertical"
-                android:id = "@+id/areaID">
-            </Spinner>
+                android:layout_gravity="center_vertical"
+                android:id="@+id/areaID"></Spinner>
 
             <Button
                 android:id="@+id/courseSearchButton"
@@ -84,14 +86,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation = "vertical">
+        android:orientation="vertical">
+
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id = "@+id/courseListID"
-            android:padding = "5dp"
-            android:theme="@style/Theme.List"
-            >
-        </ListView>
+            android:id="@+id/courseListID"
+            android:padding="5dp"
+            android:theme="@style/Theme.List"></ListView>
     </LinearLayout>
 </LinearLayout>

@@ -6,87 +6,85 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.gttime.android.ui.fragment.StatisticsFragment">
+
     <LinearLayout
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:orientation = "horizontal"
-        android:layout_gravity = "center"
-        android:layout_marginTop = "10dp"
-        >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text = "registered "
-            android:textColor = "#000000"
-            />
+            android:text="registered "
+            android:textColor="#000000" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text = "Credits "
-            android:textColor = "#000000"
-            />
+            android:text="Credits "
+            android:textColor="#000000" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text = "are "
-            android:textColor = "#000000"
-            />
+            android:text="are "
+            android:textColor="#000000" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text = "0 Credits"
-            android:textColor = "#000000"
-            android:id = "@+id/totalCredit"
-            />
+            android:text="0 Credits"
+            android:textColor="#000000"
+            android:id="@+id/totalCredit" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:orientation = "horizontal"
-        android:layout_gravity = "left"
-        android:layout_margin = "10dp"
-        >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="left"
+        android:layout_margin="10dp">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground"
-            android:id="@+id/statisticFilter"
-            >
+            android:id="@+id/statisticFilter">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor = "#000000"
-                android:id="@+id/semesterText"
-                />
+                android:textColor="#000000"
+                android:id="@+id/semesterText" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:src="@drawable/ic_arrow_down"
-                android:background="@color/colorWeakGray"
-                />
+                android:background="@color/colorWeakGray" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width = "match_parent"
-        android:layout_height = "match_parent"
-        android:layout_marginTop = "10dp"
-        >
-       <ListView
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:id = "@+id/courseListView"
-           android:padding = "5dp"
-           android:theme="@style/Theme.List"
-           ></ListView>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/courseListView"
+            android:padding="5dp"
+            android:theme="@style/Theme.List"></ListView>
     </LinearLayout>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/statisticFilterLayout"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        />
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
 
 </LinearLayout>
