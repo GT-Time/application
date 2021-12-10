@@ -23,6 +23,7 @@ import com.gttime.android.ui.adapter.StatisticsCourseListAdapter;
 import com.gttime.android.util.IOUtil;
 import com.gttime.android.util.IntegerUtil;
 import com.gttime.android.util.JSONUtil;
+import com.gttime.android.util.MapArray;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -57,9 +58,9 @@ public class StatisticsFragment extends Fragment {
     public TextView semesterText;
 
     private LinearLayout filterSemesterButton;
-    private Map<String, String> semester;
+    private MapArray<String, String> semester;
 
-    private String semesterID;
+    private String selectedSemester;
 
     public StatisticsFragment() {
         // Required empty public constructor
@@ -92,11 +93,11 @@ public class StatisticsFragment extends Fragment {
         }
 
         if(savedInstanceState != null) {
-            this.semesterID = savedInstanceState.getString("semesterID");
+            this.selectedSemester = savedInstanceState.getString("selectedSemester");
         }
 
         else {
-            this.semesterID = getResources().getStringArray(R.array.semesterText)[0];
+            this.selectedSemester = getResources().getStringArray(R.array.semesterText)[0];
         }
     }
 
@@ -109,7 +110,7 @@ public class StatisticsFragment extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("semesterID", semesterText.getText().toString());
+        outState.putString("selectedSemester", semesterText.getText().toString());
     }
 
     @Override
@@ -117,10 +118,7 @@ public class StatisticsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         // HACK: create class that maps it automatically
-        String[] text = getResources().getStringArray(R.array.semesterText);
-        String[] id = getResources().getStringArray(R.array.semesterID);
-        semester = new HashMap<String, String>();
-        for (int i = 0; i < Math.min(text.length, id.length); i++) semester.put(text[i], id[i]);
+        semester = new MapArray<String, String>(getResources().getStringArray(R.array.semesterText), getResources().getStringArray(R.array.semesterID));
 
         filterSemesterButton = getView().findViewById(R.id.statisticFilter);
         filterSemesterDialog = new FilterSemesterDialog();
@@ -135,7 +133,7 @@ public class StatisticsFragment extends Fragment {
 
         statCredit = getView().findViewById(R.id.totalCredit);
         semesterText = getView().findViewById(R.id.semesterText);
-        semesterText.setText(semesterID);
+        semesterText.setText(selectedSemester);
 
         courseListView = getView().findViewById(R.id.courseListView);
         courseList = new ArrayList<Course>();
@@ -196,8 +194,8 @@ public class StatisticsFragment extends Fragment {
 
 
     public void setSemester(String semester) {
-        this.semesterID = semester;
-        this.semesterText.setText(semesterID);
+        this.selectedSemester = semester;
+        this.semesterText.setText(selectedSemester);
 
     }
 

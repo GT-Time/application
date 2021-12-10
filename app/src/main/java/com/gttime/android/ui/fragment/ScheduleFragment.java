@@ -22,10 +22,12 @@ import com.github.tlaabs.timetableview.Schedule;
 import com.github.tlaabs.timetableview.TimetableView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.gttime.android.util.MapArray;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -48,6 +50,8 @@ public class ScheduleFragment extends Fragment {
     private TimetableView timeTable;
 
     private int chipID;
+
+    private MapArray<String, String> semester;
 
     public ScheduleFragment() {
         // Required empty public constructor
@@ -110,18 +114,15 @@ public class ScheduleFragment extends Fragment {
 
         chipGroup = getView().findViewById(R.id.semesterGroup);
 
-        String[] text = getResources().getStringArray(R.array.semesterText);
-        String[] id = getResources().getStringArray(R.array.semesterID);
+        semester = new MapArray<String, String>(getResources().getStringArray(R.array.semesterText), getResources().getStringArray(R.array.semesterID));
 
-
-        int chipLimit = 3;
-        int chipNum = Math.min(chipLimit, text.length);
-        for (int i = 0; i < chipNum; i++) {
+        for (Map.Entry<String, String> entry: semester.entrySet()) {
             Chip chip = (Chip) getLayoutInflater().inflate(R.layout.chip, chipGroup, false);
-            chip.setText(text[i]);
-            chip.setId(IntegerUtil.parseInt(id[i]));
+            chip.setText(entry.getKey());
+            chip.setId(IntegerUtil.parseInt(entry.getValue()));
             chipGroup.addView(chip);
         }
+
         chipGroup.setSingleSelection(true);
         chipGroup.check(chipID);
         chipGroup.setSelectionRequired(true);

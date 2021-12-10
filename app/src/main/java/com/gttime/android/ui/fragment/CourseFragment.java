@@ -25,6 +25,7 @@ import com.gttime.android.component.CourseSeat;
 import com.gttime.android.component.Seat;
 import com.gttime.android.ui.adapter.CourseListAdapter;
 import com.gttime.android.R;
+import com.gttime.android.util.MapArray;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -69,7 +70,7 @@ public class CourseFragment extends Fragment {
 
     private String selectedUniversity;
     private List<CourseSeat> courseSeats;
-    private Map<String, String> semester;
+    private MapArray<String, String> semester;
 
     private int universityID;
     private int termID;
@@ -522,10 +523,7 @@ public class CourseFragment extends Fragment {
         }
     });
 
-    String[] text = getResources().getStringArray(R.array.semesterText);
-    String[] id = getResources().getStringArray(R.array.semesterID);
-    semester = new HashMap<String, String>();
-    for (int i = 0; i < Math.min(text.length, id.length); i++) semester.put(text[i], id[i]);
+    semester = new MapArray<String, String>(getResources().getStringArray(R.array.semesterText), getResources().getStringArray(R.array.semesterID));
 
     courseListView = getView().findViewById(R.id.courseListID);
     courseSeats = new ArrayList<CourseSeat>();
