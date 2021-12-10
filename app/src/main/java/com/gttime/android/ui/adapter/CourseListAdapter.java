@@ -71,7 +71,8 @@ public class CourseListAdapter extends BaseAdapter {
         TextView courseTime = v.findViewById(R.id.courseTime);
         TextView courseDay = v.findViewById(R.id.courseDay);
         TextView courseAttribute = v.findViewById(R.id.courseAttribute);
-        TextView courseSeat = v.findViewById(R.id.courseSeat);
+        TextView courseSeatActual = v.findViewById(R.id.seatActual);
+        TextView courseSeatWaitlist = v.findViewById(R.id.seatWaitlist);
 
         courseTitle.setText(courseSeats.get(position).getCourse().getCourseTitle()+"-"+ courseSeats.get(position).getCourse().getCourseSection());
         if(courseSeats.get(position).getCourse().getCourseInstructor().equals("")) {
@@ -87,7 +88,9 @@ public class CourseListAdapter extends BaseAdapter {
         courseTime.setText(courseSeats.get(position).getCourse().getCourseTime());
         courseDay.setText(courseSeats.get(position).getCourse().getCourseDay());
         courseAttribute.setText(courseSeats.get(position).getCourse().getCourseAttribute());
-        courseSeat.setText(String.valueOf(courseSeats.get(position).getSeat().getSeatActual()) + '/' + String.valueOf(courseSeats.get(position).getSeat().getSeatCapacity()));
+        courseSeatActual.setText("Actual:" + String.valueOf(courseSeats.get(position).getSeat().getSeatActual()) + '/' + String.valueOf(courseSeats.get(position).getSeat().getSeatCapacity()));
+        courseSeatWaitlist.setText("Waitlist:" + String.valueOf(courseSeats.get(position).getSeat().getWaitlistActual()) + '/' + String.valueOf(courseSeats.get(position).getSeat().getWaitlistCapacity()));
+
 
         new BackgroundTask().execute();
 
