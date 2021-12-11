@@ -6,15 +6,12 @@
     android:theme="@style/Theme.List">
 
     <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
-        android:gravity="center"
         android:text="Delete"
-        android:textSize="18dp"
+        android:textSize="15dp"
         android:id="@+id/deleteButton"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="5dp"
         android:theme="@style/Theme.Button" />
 
     <LinearLayout
@@ -31,48 +28,47 @@
                 android:id="@+id/courseArea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="courseArea" />
+                android:layout_weight="1"
+                android:text="courseArea"
+                android:theme="@style/Theme.TextView.FixedSizeView"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="courseTitle"
                 android:id="@+id/courseStatisticTitle"
-                android:layout_gravity="center"
-                android:padding="2dp"></TextView>
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="A01"
+                android:layout_weight="1"
+                android:minWidth="150dp"
+                android:maxWidth="150dp"
+                android:text="courseTitle"
+                android:theme="@style/Theme.TextView.FixedSizeView"/>
+
+            <TextView
                 android:id="@+id/courseSection"
-                android:layout_gravity="center"
-                android:padding="2dp"></TextView>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="A00"
+                android:theme="@style/Theme.TextView.FixedSizeView" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/statisticTimeID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/statisticTimeID"
-                android:padding="2dp"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
-                android:text="courseTimeLine" />
+                android:text="courseTimeLine"
+                android:theme="@style/Theme.TextView.FixedSizeView" />
 
             <TextView
                 android:id="@+id/courseCRN"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="2dp"
-                android:text="85929"
-                android:textColor="#000000"
-                android:textColorHint="#000000"></TextView>
+                android:text="00000"
+                android:theme="@style/Theme.TextView.FixedSizeView"/>
         </LinearLayout>
     </LinearLayout>
 
