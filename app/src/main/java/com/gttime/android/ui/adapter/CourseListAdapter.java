@@ -20,6 +20,7 @@ import com.gttime.android.util.IOUtil;
 import com.gttime.android.util.IntegerUtil;
 import com.gttime.android.util.JSONUtil;
 import com.github.tlaabs.timetableview.Time;
+import com.gttime.android.util.MapArray;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -73,6 +74,8 @@ public class CourseListAdapter extends BaseAdapter {
         TextView courseSeatActual = v.findViewById(R.id.seatActual);
         TextView courseSeatWaitlist = v.findViewById(R.id.seatWaitlist);
 
+        MapArray<String, String> semesters = new MapArray<String, String>(context.getResources().getStringArray(R.array.semesterID), context.getResources().getStringArray(R.array.semesterText));
+
         courseTitle.setText(courseSeats.get(position).getCourse().getCourseTitle()+"-"+ courseSeats.get(position).getCourse().getCourseSection());
         if(courseSeats.get(position).getCourse().getCourseInstructor().equals("")) {
             courseInstructor.setText("TBA");
@@ -81,8 +84,9 @@ public class CourseListAdapter extends BaseAdapter {
         else {
             courseInstructor.setText(courseSeats.get(position).getCourse().getCourseInstructor());
         }
+
         courseCredit.setText(courseSeats.get(position).getCourse().getCourseCredit());
-        courseTerm.setText(courseSeats.get(position).getCourse().getCourseTerm());
+        courseTerm.setText(semesters.get(courseSeats.get(position).getCourse().getCourseTerm()));
         courseCRN.setText(courseSeats.get(position).getCourse().getCourseCRN());
         courseTime.setText(courseSeats.get(position).getCourse().getCourseTime());
         courseDay.setText(courseSeats.get(position).getCourse().getCourseDay());
