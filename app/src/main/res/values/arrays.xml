@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="graduateMajor">
-        <item>Major</item>
-        <item>Electives</item>
+    <string-array name="my_header_title">
+        <item></item>
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+    </string-array>
+
+    <string-array name = "semesterText">
+        <item>Fall 2021</item>
+        <item>Spring 2022</item>
+        <item>Summer 2022</item>
     </string-array>
 
     <string-array name="semesterID">
         <item>202108</item>
         <item>202202</item>
         <item>202205</item>
+    </string-array>
+
+    <string-array name="graduateMajor">
+        <item>Major</item>
+        <item>Electives</item>
     </string-array>
 
     <!--    student type -->

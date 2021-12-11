@@ -126,6 +126,7 @@ public class ScheduleFragment extends Fragment {
         chipGroup.setSingleSelection(true);
         chipGroup.check(chipID);
         chipGroup.setSelectionRequired(true);
+        chipGroup.setChipSpacing(5);
         chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {

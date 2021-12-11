@@ -14,8 +14,9 @@
             android:id="@+id/semesterGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="17dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             app:singleSelection="true"
             app:selectionRequired="true"
             android:theme="@style/Theme.ChipGroup"></com.google.android.material.chip.ChipGroup>
