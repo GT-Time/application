@@ -86,7 +86,7 @@ public class MainFragment extends Fragment {
 
         announcementListView = getView().findViewById(R.id.AnnouncementList);
         announcementList = new ArrayList<Announcement>();
-        adapter = new AnnouncementListAdapter(getContext().getApplicationContext(),announcementList);
+        adapter = new AnnouncementListAdapter(getContext(),announcementList);
         announcementListView.setAdapter(adapter);
 
         final LinearLayout announcement = (LinearLayout) getView().findViewById(R.id.Announcement);

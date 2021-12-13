@@ -137,7 +137,7 @@ public class StatisticsFragment extends Fragment {
 
         courseListView = getView().findViewById(R.id.courseListView);
         courseList = new ArrayList<Course>();
-        adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(), courseList, semester.get(semesterText.getText()),this);
+        adapter = new StatisticsCourseListAdapter(getContext(), courseList, semester.get(semesterText.getText()),this);
         courseListView.setAdapter(adapter);
 
         filterSemesterButton.setOnClickListener(new View.OnClickListener() {

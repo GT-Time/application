@@ -2,17 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
-    android:orientation="horizontal"
-    android:theme="@style/Theme.List">
+    android:orientation="horizontal">
 
     <Button
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:text="Delete"
-        android:textSize="15dp"
-        android:id="@+id/deleteButton"
-        android:theme="@style/Theme.Button" />
+        android:textSize="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/deleteButton" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="courseArea"
-                android:theme="@style/Theme.TextView.FixedSizeView"/>
+                android:theme="@style/Custom.App.TextView.FixedSizeView"/>
 
             <TextView
                 android:id="@+id/courseStatisticTitle"
@@ -40,7 +39,7 @@
                 android:minWidth="150dp"
                 android:maxWidth="150dp"
                 android:text="courseTitle"
-                android:theme="@style/Theme.TextView.FixedSizeView"/>
+                android:theme="@style/Custom.App.TextView.FixedSizeView"/>
 
             <TextView
                 android:id="@+id/courseSection"
@@ -48,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="A00"
-                android:theme="@style/Theme.TextView.FixedSizeView" />
+                android:theme="@style/Custom.App.TextView.FixedSizeView" />
         </LinearLayout>
 
         <LinearLayout
@@ -61,14 +60,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="courseTimeLine"
-                android:theme="@style/Theme.TextView.FixedSizeView" />
+                android:theme="@style/Custom.App.TextView.FixedSizeView" />
 
             <TextView
                 android:id="@+id/courseCRN"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00000"
-                android:theme="@style/Theme.TextView.FixedSizeView"/>
+                android:theme="@style/Custom.App.TextView.FixedSizeView"/>
         </LinearLayout>
     </LinearLayout>
 

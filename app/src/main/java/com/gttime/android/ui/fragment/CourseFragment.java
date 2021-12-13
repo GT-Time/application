@@ -527,7 +527,7 @@ public class CourseFragment extends Fragment {
 
     courseListView = getView().findViewById(R.id.courseListID);
     courseSeats = new ArrayList<CourseSeat>();
-    adapter = new CourseListAdapter(getContext().getApplicationContext(), courseSeats, this);
+    adapter = new CourseListAdapter(getContext(), courseSeats, this);
     courseListView.setAdapter(adapter);
 
 

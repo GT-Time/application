@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.gttime.android.ui.fragment.CourseFragment">
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -24,17 +23,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:buttonTint="@color/colorTheme"
                 android:text="Undergraduate"
-                android:id="@+id/undergraduateID"></RadioButton>
+                android:id="@+id/undergraduateID"/>
 
             <RadioButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:buttonTint="@color/colorTheme"
                 android:text="Graduate"
-                android:id="@+id/graduateID"></RadioButton>
+                android:id="@+id/graduateID"/>
         </RadioGroup>
 
         <LinearLayout
@@ -48,7 +45,7 @@
                 android:layout_weight="1"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
-                android:id="@+id/semesterID"></Spinner>
+                android:id="@+id/semesterID"/>
 
             <Spinner
                 android:layout_width="0dp"
@@ -56,7 +53,7 @@
                 android:layout_weight="1"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
-                android:id="@+id/subjectID"></Spinner>
+                android:id="@+id/subjectID"/>
         </LinearLayout>
 
         <LinearLayout
@@ -70,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:layout_gravity="center_vertical"
-                android:id="@+id/areaID"></Spinner>
+                android:id="@+id/areaID"/>
 
             <Button
                 android:id="@+id/courseSearchButton"
@@ -78,8 +75,7 @@
                 android:layout_height="wrap_content"
                 android:text="Search"
                 android:textSize="10dp"
-                android:textStyle="bold"
-                android:theme="@style/Theme.Button"></Button>
+                android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -92,7 +88,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/courseListID"
-            android:padding="5dp"
-            android:theme="@style/Theme.List"></ListView>
+            android:padding="5dp" />
     </LinearLayout>
 </LinearLayout>

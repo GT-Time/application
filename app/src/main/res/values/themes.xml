@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- base set of styles that apply to all versions -->
+    <style name = "Theme" parent="Theme.MaterialComponents.Light">
+        <!-- Base Theme -->
+        <item name="colorPrimary">@color/colorSubTheme</item>
+        <item name="colorPrimaryDark">@color/colorGray</item>
+        <item name="android:colorBackground">@color/colorWeakWhite</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!-- Component Theme -->
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>
+        <item name="materialButtonStyle">@style/Widget.App.Button</item>
+        <item name="radioButtonStyle">@style/Widget.App.RadioButton</item>
+        <item name="android:listViewStyle">@style/Custom.App.List</item>
+        <item name="android:textViewStyle">@style/Custom.App.TextView</item>
+        
+    </style>
+
+</resources>

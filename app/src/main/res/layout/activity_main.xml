@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.activity.RegisterActivity"
-    android:theme="@style/Theme.Layout">
+    tools:context=".ui.activity.RegisterActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -29,6 +28,5 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu"
-        android:theme="@style/Theme.BottomNavigation" />
+        app:menu="@menu/bottom_nav_menu" />
 </LinearLayout>

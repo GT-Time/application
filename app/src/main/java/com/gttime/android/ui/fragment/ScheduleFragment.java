@@ -117,7 +117,7 @@ public class ScheduleFragment extends Fragment {
         semester = new MapArray<String, String>(getResources().getStringArray(R.array.semesterText), getResources().getStringArray(R.array.semesterID));
 
         for (Map.Entry<String, String> entry: semester.entrySet()) {
-            Chip chip = (Chip) getLayoutInflater().inflate(R.layout.chip, chipGroup, false);
+            Chip chip = (Chip) getLayoutInflater().inflate(R.layout.chip_choice, chipGroup, false);
             chip.setText(entry.getKey());
             chip.setId(IntegerUtil.parseInt(entry.getValue()));
             chipGroup.addView(chip);

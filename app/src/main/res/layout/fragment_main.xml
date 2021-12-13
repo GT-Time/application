@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:theme="@style/Theme.Layout">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,8 +54,7 @@
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/Theme.List"
-                android:id="@+id/AnnouncementList"></ListView>
+                android:id="@+id/AnnouncementList"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -58,7 +58,7 @@ public class FilterSemesterDialog extends BottomSheetDialogFragment {
 
         semesterView = getView().findViewById(R.id.semesterID);
         semesterView.setSelection(selected);
-        semesterListAdapter = new SemesterListAdapter(getContext().getApplicationContext(), semesterList, selected);
+        semesterListAdapter = new SemesterListAdapter(getContext(), semesterList, selected);
         semesterListAdapter.setCallback(callbackListener);
         semesterView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         semesterView.setAdapter(semesterListAdapter);
