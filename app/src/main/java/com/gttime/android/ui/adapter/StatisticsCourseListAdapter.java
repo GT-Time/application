@@ -13,8 +13,9 @@ import androidx.fragment.app.Fragment;
 import com.gttime.android.component.Course;
 import com.gttime.android.R;
 import com.gttime.android.ui.fragment.StatisticsFragment;
-import com.gttime.android.util.json.JsonWriter;
-import com.gttime.android.util.util.Util;
+import com.gttime.android.util.IOUtil;
+import com.gttime.android.util.IntegerUtil;
+import com.gttime.android.util.JSONUtil;
 
 import java.io.File;
 import java.util.List;
@@ -71,7 +72,7 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
 
                 try
                     {
-                        boolean success = new JsonWriter().deleteCourse(new File(parent.getActivity().getFilesDir(), Util.getFileName(semesterID)), courseScheduleList.get(position));
+                        boolean success = JSONUtil.deleteCourse(new File(parent.getActivity().getFilesDir(), IOUtil.getFileName(semesterID)), courseScheduleList.get(position));
                         if(success)
                         {
                             //parent - 자신을 불러낸 course Fragment 에서 알림창을 띄워줌
@@ -80,7 +81,7 @@ public class StatisticsCourseListAdapter extends BaseAdapter {
                                     .setPositiveButton("OK",null)
                                     .create();
                             dialog.show();
-                            StatisticsFragment.totalCredit -= Util.parseInt(courseScheduleList.get(position).getCourseCredit().split(" ")[0]);
+                            StatisticsFragment.totalCredit -= IntegerUtil.parseInt(courseScheduleList.get(position).getCourseCredit().split(" ")[0]);
                             StatisticsFragment.statCredit.setText(StatisticsFragment.totalCredit + " Credits");
                             courseScheduleList.remove(position);
                             notifyDataSetChanged();

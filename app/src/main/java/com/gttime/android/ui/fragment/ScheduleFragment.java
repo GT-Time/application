@@ -15,17 +15,19 @@ import android.view.ViewGroup;
 import com.gttime.android.component.Course;
 import com.gttime.android.component.CourseSchedule;
 import com.gttime.android.R;
-import com.gttime.android.util.json.JsonReader;
-import com.gttime.android.util.json.JsonUtil;
-import com.gttime.android.util.util.Util;
+import com.gttime.android.util.IOUtil;
+import com.gttime.android.util.IntegerUtil;
+import com.gttime.android.util.JSONUtil;
 import com.github.tlaabs.timetableview.Schedule;
 import com.github.tlaabs.timetableview.TimetableView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.gttime.android.util.MapArray;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -48,6 +50,8 @@ public class ScheduleFragment extends Fragment {
     private TimetableView timeTable;
 
     private int chipID;
+
+    private MapArray<String, String> semester;
 
     public ScheduleFragment() {
         // Required empty public constructor
@@ -84,7 +88,7 @@ public class ScheduleFragment extends Fragment {
         }
 
         else {
-            this.chipID = Util.parseInt(getResources().getStringArray(R.array.semesterID)[0]);
+            this.chipID = IntegerUtil.parseInt(getResources().getStringArray(R.array.semesterID)[0]);
         }
     }
 
@@ -110,21 +114,19 @@ public class ScheduleFragment extends Fragment {
 
         chipGroup = getView().findViewById(R.id.semesterGroup);
 
-        String[] text = getResources().getStringArray(R.array.semesterText);
-        String[] id = getResources().getStringArray(R.array.semesterID);
+        semester = new MapArray<String, String>(getResources().getStringArray(R.array.semesterText), getResources().getStringArray(R.array.semesterID));
 
-
-        int chipLimit = 3;
-        int chipNum = Math.min(chipLimit, text.length);
-        for (int i = 0; i < chipNum; i++) {
-            Chip chip = (Chip) getLayoutInflater().inflate(R.layout.chip, chipGroup, false);
-            chip.setText(text[i]);
-            chip.setId(Util.parseInt(id[i]));
+        for (Map.Entry<String, String> entry: semester.entrySet()) {
+            Chip chip = (Chip) getLayoutInflater().inflate(R.layout.chip_choice, chipGroup, false);
+            chip.setText(entry.getKey());
+            chip.setId(IntegerUtil.parseInt(entry.getValue()));
             chipGroup.addView(chip);
         }
+
         chipGroup.setSingleSelection(true);
         chipGroup.check(chipID);
         chipGroup.setSelectionRequired(true);
+        chipGroup.setChipSpacing(5);
         chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
@@ -160,14 +162,14 @@ public class ScheduleFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             try {
-                filename = Util.getFileName(String.valueOf(chipGroup.getCheckedChipId()));
+                filename = IOUtil.getFileName(String.valueOf(chipGroup.getCheckedChipId()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         @Override
         protected String doInBackground(Object[] objects) {
-            return JsonUtil.readJson(new File(getActivity().getFilesDir(), filename));
+            return JSONUtil.readJson(new File(getActivity().getFilesDir(), filename));
         }
 
         @Override
@@ -177,7 +179,7 @@ public class ScheduleFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Object o) {
-            List<Course> registeredCourses = new JsonReader().fetchCourse((String) o);
+            List<Course> registeredCourses = JSONUtil.fetchCourse((String) o);
             for(int i = 0; i < registeredCourses.size(); i++) {
                 schedules.clear();
                 int days = registeredCourses.get(i).getCourseDay().length();

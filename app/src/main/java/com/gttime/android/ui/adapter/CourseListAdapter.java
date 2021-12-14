@@ -14,12 +14,13 @@ import androidx.fragment.app.Fragment;
 
 import com.gttime.android.component.Course;
 import com.gttime.android.R;
+import com.gttime.android.component.CourseSeat;
 import com.gttime.android.ui.activity.MainActivity;
-import com.gttime.android.util.json.JsonReader;
-import com.gttime.android.util.json.JsonUtil;
-import com.gttime.android.util.json.JsonWriter;
-import com.gttime.android.util.util.Util;
+import com.gttime.android.util.IOUtil;
+import com.gttime.android.util.IntegerUtil;
+import com.gttime.android.util.JSONUtil;
 import com.github.tlaabs.timetableview.Time;
+import com.gttime.android.util.MapArray;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -28,16 +29,16 @@ import java.util.concurrent.Executor;
 
 public class CourseListAdapter extends BaseAdapter {
     private Context context;
-    private List<Course> courseScheduleList; // list of course from db
+    private List<CourseSeat> courseSeats; // list of course from db
     private Fragment parent;
     private String userID = MainActivity.userID;
     private List<Course> userCourseList; // list of course registered for user
     private String semester;
     public static int totalCredit;
 
-    public CourseListAdapter(Context context, List<Course> courseScheduleList, Fragment parent) {
+    public CourseListAdapter(Context context, List<CourseSeat> courseSeats, Fragment parent) {
         this.context = context;
-        this.courseScheduleList = courseScheduleList; // courseList in adapter
+        this.courseSeats = courseSeats; // courseList in adapter
         this.parent = parent;
         this.userCourseList = new ArrayList<Course>(); // courseList from user dataabase
         this.semester = "";
@@ -46,12 +47,12 @@ public class CourseListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return courseScheduleList.size();
+        return courseSeats.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return courseScheduleList.get(position);
+        return courseSeats.get(position);
     }
 
     @Override
@@ -70,32 +71,40 @@ public class CourseListAdapter extends BaseAdapter {
         TextView courseTime = v.findViewById(R.id.courseTime);
         TextView courseDay = v.findViewById(R.id.courseDay);
         TextView courseAttribute = v.findViewById(R.id.courseAttribute);
+        TextView courseSeatActual = v.findViewById(R.id.seatActual);
+        TextView courseSeatWaitlist = v.findViewById(R.id.seatWaitlist);
 
-        courseTitle.setText(courseScheduleList.get(position).getCourseTitle()+"-"+ courseScheduleList.get(position).getCourseSection());
-        if(courseScheduleList.get(position).getCourseInstructor().equals("")) {
+        MapArray<String, String> semesters = new MapArray<String, String>(context.getResources().getStringArray(R.array.semesterID), context.getResources().getStringArray(R.array.semesterText));
+
+        courseTitle.setText(courseSeats.get(position).getCourse().getCourseTitle()+"-"+ courseSeats.get(position).getCourse().getCourseSection());
+        if(courseSeats.get(position).getCourse().getCourseInstructor().equals("")) {
             courseInstructor.setText("TBA");
         }
 
         else {
-            courseInstructor.setText(courseScheduleList.get(position).getCourseInstructor());
+            courseInstructor.setText(courseSeats.get(position).getCourse().getCourseInstructor());
         }
-        courseCredit.setText(courseScheduleList.get(position).getCourseCredit());
-        courseTerm.setText(courseScheduleList.get(position).getCourseTerm());
-        courseCRN.setText(courseScheduleList.get(position).getCourseCRN());
-        courseTime.setText(courseScheduleList.get(position).getCourseTime());
-        courseDay.setText(courseScheduleList.get(position).getCourseDay());
-        courseAttribute.setText(courseScheduleList.get(position).getCourseAttribute());
+
+        courseCredit.setText(courseSeats.get(position).getCourse().getCourseCredit());
+        courseTerm.setText(semesters.get(courseSeats.get(position).getCourse().getCourseTerm()));
+        courseCRN.setText(courseSeats.get(position).getCourse().getCourseCRN());
+        courseTime.setText(courseSeats.get(position).getCourse().getCourseTime());
+        courseDay.setText(courseSeats.get(position).getCourse().getCourseDay());
+        courseAttribute.setText(courseSeats.get(position).getCourse().getCourseAttribute());
+        courseSeatActual.setText("Actual:" + String.valueOf(courseSeats.get(position).getSeat().getSeatActual()) + '/' + String.valueOf(courseSeats.get(position).getSeat().getSeatCapacity()));
+        courseSeatWaitlist.setText("Waitlist:" + String.valueOf(courseSeats.get(position).getSeat().getWaitlistActual()) + '/' + String.valueOf(courseSeats.get(position).getSeat().getWaitlistCapacity()));
+
 
         new BackgroundTask().execute();
 
-        v.setTag(courseScheduleList.get(position).getCourseCRN());
+        v.setTag(courseSeats.get(position).getCourse().getCourseCRN());
 
         Button addSchedule = v.findViewById(R.id.addScheduleButton);
         addSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(alreadyIn(userCourseList, courseScheduleList.get(position).getCourseCRN())) {
+                if(alreadyIn(userCourseList, courseSeats.get(position).getCourse().getCourseCRN())) {
 
                     AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
                     AlertDialog dialog = alert.setMessage("Course is already registered in your schedule")
@@ -106,7 +115,7 @@ public class CourseListAdapter extends BaseAdapter {
 
                 }
 
-                int credit = Util.parseInt(courseScheduleList.get(position).getCourseCredit().split(" ")[0]);
+                int credit = IntegerUtil.parseInt(courseSeats.get(position).getCourse().getCourseCredit().split(" ")[0]);
 
                 if(exceedAllowedCredit(totalCredit, credit)) {
 
@@ -121,7 +130,7 @@ public class CourseListAdapter extends BaseAdapter {
                 }
 
 
-                if(!validate(courseScheduleList.get(position), userCourseList)) {
+                if(!validate(courseSeats.get(position).getCourse(), userCourseList)) {
 
                     AlertDialog.Builder alert = new AlertDialog.Builder(parent.getActivity());
                     AlertDialog dialog = alert.setMessage("Time duplicates with course registered")
@@ -143,7 +152,7 @@ public class CourseListAdapter extends BaseAdapter {
                     public void run() {
                         try
                         {
-                            boolean success = new JsonWriter().appendCourse(new File(parent.getActivity().getFilesDir(), Util.getFileName(semester)), courseScheduleList.get(position));
+                            boolean success = JSONUtil.appendCourse(new File(parent.getActivity().getFilesDir(), IOUtil.getFileName(semester)), courseSeats.get(position).getCourse());
 
                             if(success)
                             {
@@ -158,9 +167,9 @@ public class CourseListAdapter extends BaseAdapter {
                                     }
                                 });
 
-                                userCourseList.add(courseScheduleList.get(position));
+                                userCourseList.add(courseSeats.get(position).getCourse());
 
-                                int credit = Util.parseInt(courseScheduleList.get(position).getCourseCredit().split(" ")[0]);
+                                int credit = IntegerUtil.parseInt(courseSeats.get(position).getCourse().getCourseCredit().split(" ")[0]);
                                 totalCredit+= credit;
                                 return;
                             }
@@ -199,14 +208,14 @@ public class CourseListAdapter extends BaseAdapter {
         @Override
         protected void onPreExecute() {
             try {
-                filename = Util.getFileName(semester);
+                filename = IOUtil.getFileName(semester);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         @Override
         protected String doInBackground(Object[] objects) {
-            return JsonUtil.readJson(new File(parent.getActivity().getFilesDir(), filename));
+            return JSONUtil.readJson(new File(parent.getActivity().getFilesDir(), filename));
         }
 
         @Override
@@ -216,9 +225,9 @@ public class CourseListAdapter extends BaseAdapter {
 
         @Override
         protected void onPostExecute(Object o) {
-            userCourseList = new JsonReader().fetchCourse((String) o);
+            userCourseList = JSONUtil.fetchCourse((String) o);
 
-            for(int i = 0; i < userCourseList.size(); i++) totalCredit += Util.parseInt(userCourseList.get(i).getCourseCredit());
+            for(int i = 0; i < userCourseList.size(); i++) totalCredit += IntegerUtil.parseInt(userCourseList.get(i).getCourseCredit());
         }
     }
 

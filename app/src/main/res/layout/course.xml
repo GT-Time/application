@@ -1,122 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation = "horizontal"
-    android:background = "@android:color/transparent"
-    android:theme = "@style/Theme.List">
+    android:orientation="horizontal">
+
     <Button
+        android:id="@+id/addScheduleButton"
         android:layout_width="80dp"
         android:layout_height="40dp"
-        android:layout_gravity = "center"
-        android:gravity = "center"
-        android:text = "Add"
-        android:textSize="18dp"
-        android:id = "@+id/addScheduleButton"
-        android:theme="@style/Theme.Button"/>
+        android:layout_gravity="center"
+        android:text="Add"
+        android:textSize="15dp"
+        android:layout_marginRight="10dp"/>
 
-     <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-             <TextView
-                 android:id="@+id/courseTitle"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_gravity="center"
-                 android:layout_weight="1"
-                 android:padding="2dp"
-                 android:text="Course Title"
-                 android:fontFamily="@font/noto_sans"></TextView>
-             <TextView
-                 android:id="@+id/courseAttribute"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_gravity="center"
-                 android:layout_weight="1"
-                 android:text="Attribute"
-                 android:fontFamily="@font/noto_sans"
-                 />
-         </LinearLayout>
-         
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:orientation = "horizontal">
+            <TextView
+                android:id="@+id/courseTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Title"
+                android:fontFamily="@font/noto_sans"
+                android:theme="@style/Custom.App.TextView.FixedSizeView" />
 
-             <TextView
-                 android:id="@+id/courseInstructor"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_gravity="center"
-                 android:layout_weight="1"
-                 android:textSize="11dp"
-                 android:padding="2dp"
-                 android:text="Professor name"
-                 android:fontFamily="@font/noto_sans"></TextView>
-             <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_weight="1"
-             android:text="3 Credit"
-             android:id="@+id/courseCredit"
-             android:layout_gravity="center"
-             android:padding="2dp"
-             >
-             </TextView>
+            <TextView
+                android:id="@+id/courseAttribute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Attribute"
+                android:fontFamily="@font/noto_sans"
+                android:theme="@style/Custom.App.TextView.FixedSizeView" />
+        </LinearLayout>
 
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_weight="1"
-                 android:text="One Semester"
-                 android:id="@+id/courseTerm"
-                 android:layout_gravity="center"
-                 android:padding="2dp"
-                 android:textStyle = "bold"/>
-         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:orientation = "horizontal">
+            <TextView
+                android:id="@+id/courseInstructor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="110dp"
+                android:maxWidth="110dp"
+                android:text="Instructor"
+                android:textSize="11dp"
+                android:fontFamily="@font/noto_sans"
+                android:theme="@style/Custom.App.TextView.FixedSizeView" />
 
-             <TextView
-                 android:id="@+id/courseCRN"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_gravity="center"
-                 android:padding="2dp"
-                 android:text="CRN"
-                 android:textColor="@color/colorTheme"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Credit"
+                android:textSize="11dp"
+                android:id="@+id/courseCredit"
+                android:theme="@style/Custom.App.TextView.FixedSizeView" />
 
-             <TextView
-                 android:id="@+id/courseTime"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_gravity="center"
-                 android:padding="2dp"
-                 android:text="Timeline"
-                 android:textColor="@color/colorSubTheme" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Semester"
+                android:id="@+id/courseTerm"
+                android:theme="@style/Custom.App.TextView.FixedSizeView" />
+        </LinearLayout>
 
-             <TextView
-                 android:id="@+id/courseDay"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_weight="1"
-                 android:text="Day"
-                 android:textColor="@color/colorSubTheme" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-         </LinearLayout>
+            <TextView
+                android:id="@+id/courseTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="110dp"
+                android:maxWidth="110dp"
+                android:text="Timeline"
+                android:theme="@style/Custom.App.TextView.FixedSizeView" />
 
-     </LinearLayout>
+            <TextView
+                android:id="@+id/courseDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Day"
+                android:theme="@style/Custom.App.TextView.FixedSizeView" />
+
+            <TextView
+                android:id="@+id/courseCRN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="CRN"
+                android:theme="@style/Custom.App.TextView.FixedSizeView" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/seatActual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="11dp"
+                    android:maxHeight="11dp"
+                    android:text="Actual"
+                    android:textSize="8dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:theme="@style/Custom.App.TextView.FixedSizeView" />
+
+                <TextView
+                    android:id="@+id/seatWaitlist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="11dp"
+                    android:maxHeight="11dp"
+                    android:text="Waitlist"
+                    android:textSize="8dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:theme="@style/Custom.App.TextView.FixedSizeView" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </LinearLayout>
