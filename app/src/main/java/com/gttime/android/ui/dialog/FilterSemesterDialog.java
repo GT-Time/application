@@ -20,7 +20,7 @@ import java.util.List;
 
 public class FilterSemesterDialog extends BottomSheetDialogFragment {
     public static final String TAG = "FilterSemeterDialog";
-    private static final String SELECTED_KEY = "selected";
+    private static final String SELECTED_TERM_KEY = "selected";
     public static FilterSemesterDialog newInstance() {
         return new FilterSemesterDialog();
     }
@@ -28,7 +28,7 @@ public class FilterSemesterDialog extends BottomSheetDialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (savedInstanceState != null) selected = getArguments().getInt(SELECTED_KEY);
+        if (savedInstanceState != null) selected = getArguments().getInt(SELECTED_TERM_KEY);
     }
 
     @Nullable
@@ -68,7 +68,7 @@ public class FilterSemesterDialog extends BottomSheetDialogFragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(SELECTED_KEY, semesterView.getSelectedItemPosition());
+        outState.putInt(SELECTED_TERM_KEY, semesterView.getSelectedItemPosition());
     }
 
     public void setCallback(CallbackListener listener) {

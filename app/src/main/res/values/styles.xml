@@ -34,11 +34,11 @@
     </style>
 
     <style name="ThemeOverlay.App.Button" parent="">
-        <item name="colorPrimary">@color/colorTheme</item>
+        <item name="colorPrimary">@color/colorSubTheme</item>
     </style>
 
     <style name="Widget.App.RadioButton" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
-        <item name="buttonTint">@color/colorSubTheme</item>
+        <item name="buttonTint">@color/colorTheme</item>
     </style>
 
     <style name="Custom.App.List" parent="">
