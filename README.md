@@ -3,9 +3,9 @@ Android app for georgia tech courseSchedule registration.\
 Code is written in Android Studio, Java based.\
 
 # Features
-* Supports user login 
-* Displays list of courseSchedule information including courseSchedule credit, courseSchedule title, courseSchedule professor, courseSchedule area obtained from official school website
-* Organized schedule UI with courses added by user 
+* Provides list of course informations from Georgia Tech
+* Support remaining seat and waitlist seat for searched courses
+* Provides clean schedule UI to register course and easily manage them 
 
 # Installation
 Download source\
