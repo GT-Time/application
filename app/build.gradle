@@ -9,8 +9,8 @@ android {
         applicationId "com.gttime.android"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 6
-        versionName "1.6.1.21311"
+        versionCode 7
+        versionName "1.7.9.21347"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,8 +38,5 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.0'
     implementation 'com.github.tlaabs:TimetableView:1.0.3-fx1'
     implementation 'com.google.android.material:material:1.2.0' // bottom navigtaion bar
-<<<<<<< HEAD
-=======
     implementation 'com.google.android.gms:play-services-oss-licenses:17.0.0' // licensing
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
 }

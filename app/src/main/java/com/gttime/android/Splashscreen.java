@@ -10,12 +10,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-<<<<<<< HEAD:app/src/main/java/com/example/registration/Splashscreen.java
-import com.example.registration.ui.activity.MainActivity;
-=======
 import com.gttime.android.R;
 import com.gttime.android.ui.activity.MainActivity;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/Splashscreen.java
 
 
 public class Splashscreen extends Activity {

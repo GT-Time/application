@@ -21,14 +21,9 @@ limitations under the License.
  * :30
  * :45
  */
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/component/CourseSchedule.java
-package com.example.registration.component;
 
-import com.example.registration.util.util.Util;
-=======
 package com.gttime.android.component;
 
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/component/CourseSchedule.java
 import com.github.tlaabs.timetableview.Schedule;
 import com.gttime.android.util.StringUtil;
 

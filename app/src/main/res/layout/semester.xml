@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:theme = "@style/Theme.List">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-=======
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -19,19 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
         <RadioButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-<<<<<<< HEAD
-            android:buttonTint="@color/colorTheme"
-            android:text="Semester"
-            android:id="@+id/semesterID"
-            />
-=======
             android:text="Semester"
             android:id="@+id/semesterID" />
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
     </LinearLayout>
 </LinearLayout>

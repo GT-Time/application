@@ -1,8 +1,5 @@
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/ScheduleFragment.java
-package com.example.registration.ui.fragment;
-=======
+
 package com.gttime.android.ui.fragment;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/ScheduleFragment.java
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -16,21 +13,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/ScheduleFragment.java
-import com.example.registration.component.Course;
-import com.example.registration.component.CourseSchedule;
-import com.example.registration.R;
-import com.example.registration.util.json.JsonReader;
-import com.example.registration.util.json.JsonUtil;
-import com.example.registration.util.util.Util;
-=======
+
 import com.gttime.android.component.Course;
 import com.gttime.android.component.CourseSchedule;
 import com.gttime.android.R;
 import com.gttime.android.util.IOUtil;
 import com.gttime.android.util.IntegerUtil;
 import com.gttime.android.util.JSONUtil;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/ScheduleFragment.java
 import com.github.tlaabs.timetableview.Schedule;
 import com.github.tlaabs.timetableview.TimetableView;
 import com.google.android.material.chip.Chip;
@@ -40,6 +29,7 @@ import com.gttime.android.util.MapArray;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -181,11 +171,8 @@ public class ScheduleFragment extends Fragment {
         }
         @Override
         protected String doInBackground(Object[] objects) {
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/ScheduleFragment.java
-            return JsonUtil.readJson(new File(getActivity().getFilesDir(), filename));
-=======
+
             return JSONUtil.readJson(new File(getActivity().getFilesDir(), filename));
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/ScheduleFragment.java
         }
 
         @Override

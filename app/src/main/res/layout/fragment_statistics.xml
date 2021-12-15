@@ -4,13 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-<<<<<<< HEAD
-    tools:context=".ui.fragment.StatisticsFragment">
-=======
-    tools:context="com.gttime.android.ui.fragment.StatisticsFragment">
+    android:orientation="vertical">
 
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,21 +34,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:text = "0 Credits"
-            android:textColor = "#000000"
-            android:id = "@+id/totalCredit"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:orientation = "horizontal"
-        android:layout_gravity = "left"
-        android:layout_margin = "10dp"
-        >
-=======
             android:text="0 Credits"
             android:textColor="#000000"
             android:id="@+id/totalCredit" />
@@ -66,21 +46,10 @@
         android:layout_gravity="left"
         android:layout_margin="10dp">
 
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground"
-<<<<<<< HEAD
-            android:id="@+id/statisticFilter"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor = "#000000"
-                android:id="@+id/semesterText"
-                />
-=======
             android:id="@+id/statisticFilter">
 
             <TextView
@@ -89,36 +58,16 @@
                 android:textColor="#000000"
                 android:id="@+id/semesterText" />
 
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:src="@drawable/ic_arrow_down"
-<<<<<<< HEAD
-                android:background="@color/colorWeakGray"
-                />
-=======
                 android:background="@color/colorWeakGray" />
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-<<<<<<< HEAD
-        android:layout_width = "match_parent"
-        android:layout_height = "match_parent"
-        android:layout_marginTop = "10dp"
-        >
-       <ListView
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:id = "@+id/courseListView"
-           android:padding = "5dp"
-           android:theme="@style/Theme.List"
-           ></ListView>
-    </LinearLayout>
-=======
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp">
@@ -130,16 +79,10 @@
             android:padding="5dp"/>
     </LinearLayout>
 
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/statisticFilterLayout"
-<<<<<<< HEAD
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        />
-=======
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
 
 </LinearLayout>

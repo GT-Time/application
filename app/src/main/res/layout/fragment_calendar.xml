@@ -9,18 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
-<<<<<<< HEAD:app/src/main/res/layout/fragment_timetable.xml
-         <com.google.android.material.chip.ChipGroup
-             android:id="@+id/semesterGroup"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:layout_gravity="center_horizontal"
-             android:layout_marginLeft="17dp"
-             app:singleSelection="true"
-             app:selectionRequired="true"
-             android:theme="@style/Theme.ChipGroup">
-         </com.google.android.material.chip.ChipGroup>
-=======
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/semesterGroup"
@@ -31,7 +19,6 @@
             android:layout_marginRight="15dp"
             app:singleSelection="true"
             app:selectionRequired="true"></com.google.android.material.chip.ChipGroup>
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/res/layout/fragment_calendar.xml
     </LinearLayout>
 
     <LinearLayout

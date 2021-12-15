@@ -1,8 +1,4 @@
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/view/CircleImageView.java
-package com.example.registration.ui.view;
-=======
 package com.gttime.android.ui.view;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/view/CircleImageView.java
 
 /*
  * Copyright 2014 - 2020 Henning Dodenhof

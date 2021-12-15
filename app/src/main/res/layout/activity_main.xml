@@ -4,15 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    android:orientation = "vertical"
-    tools:context=".ui.activity.RegisterActivity"
-    android:theme="@style/Theme.Layout">
-=======
-    android:orientation="vertical"
-    tools:context=".ui.activity.RegisterActivity">
+    android:orientation="vertical">
 
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

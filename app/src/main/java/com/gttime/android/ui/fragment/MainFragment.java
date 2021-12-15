@@ -1,8 +1,5 @@
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/MainFragment.java
-package com.example.registration.ui.fragment;
-=======
+
 package com.gttime.android.ui.fragment;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/MainFragment.java
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -18,16 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/MainFragment.java
-import com.example.registration.component.Announcement;
-import com.example.registration.ui.adapter.AnnouncementListAdapter;
-import com.example.registration.R;
-=======
+
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 import com.gttime.android.component.Announcement;
 import com.gttime.android.ui.adapter.AnnouncementListAdapter;
 import com.gttime.android.R;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/MainFragment.java
 
 import org.json.JSONArray;
 import org.json.JSONObject;

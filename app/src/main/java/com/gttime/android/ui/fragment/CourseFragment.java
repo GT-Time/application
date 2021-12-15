@@ -1,8 +1,5 @@
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/CourseFragment.java
-package com.example.registration.ui.fragment;
-=======
+
 package com.gttime.android.ui.fragment;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/CourseFragment.java
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -24,18 +21,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/CourseFragment.java
-import com.example.registration.component.Course;
-import com.example.registration.ui.adapter.CourseListAdapter;
-import com.example.registration.R;
-=======
+
 import com.gttime.android.component.Course;
 import com.gttime.android.component.CourseSeat;
 import com.gttime.android.component.Seat;
 import com.gttime.android.ui.adapter.CourseListAdapter;
 import com.gttime.android.R;
 import com.gttime.android.util.MapArray;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/CourseFragment.java
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -133,21 +125,7 @@ public class CourseFragment extends Fragment {
         }
     }
 
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/CourseFragment.java
-    private String selectedUniversity;
-    private List<Course> courseScheduleList;
-    private Map<String, String> semester;
 
-    /*
-        restore variables
-     */
-    private int selectedUniversityID;
-    private int semesterPosition;
-    private int majorPosition;
-    private int subjectPosition;
-
-=======
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/CourseFragment.java
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -171,11 +149,8 @@ public class CourseFragment extends Fragment {
         universityGroupID = getView().findViewById(R.id.universityGroupID);
         termSpinner = getView().findViewById(R.id.semesterID);
         subjectSpinner = getView().findViewById(R.id.subjectID);
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/CourseFragment.java
-        areaSpinner = getView().findViewById(R.id.courseAreaID);
-=======
+
         areaSpinner = getView().findViewById(R.id.areaID);
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/CourseFragment.java
 
         universityGroupID.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -552,28 +527,12 @@ public class CourseFragment extends Fragment {
         }
     });
 
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/CourseFragment.java
-    universityGroupID.check(R.id.undergraduateID);
-    subjectSpinner.setSelection(0);
-    termSpinner.setSelection(0);
-    areaSpinner.setSelection(0);
 
-    // HACK: create class that maps it
-    String[] text = getResources().getStringArray(R.array.semesterText);
-    String[] id = getResources().getStringArray(R.array.semesterID);
-    semester = new HashMap<String, String>();
-    for (int i = 0; i < Math.min(text.length, id.length); i++) semester.put(text[i], id[i]);
-
-    courseListView = getView().findViewById(R.id.courseListID);
-    courseScheduleList = new ArrayList<Course>();
-    adapter = new CourseListAdapter(getContext().getApplicationContext(), courseScheduleList, this);
-=======
     semester = new MapArray<String, String>(getResources().getStringArray(R.array.semesterText), getResources().getStringArray(R.array.semesterID));
 
     courseListView = getView().findViewById(R.id.courseListID);
     courseSeats = new ArrayList<CourseSeat>();
     adapter = new CourseListAdapter(getContext(), courseSeats, this);
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/CourseFragment.java
     courseListView.setAdapter(adapter);
 
 

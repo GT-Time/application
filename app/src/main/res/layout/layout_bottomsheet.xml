@@ -2,33 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<<<<<<< HEAD
-=======
 
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-<<<<<<< HEAD
-=======
-
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="Semester"
             android:textColor="@color/colorWarning"
-<<<<<<< HEAD
-            android:textSize="30dp"
-            android:fontFamily="@font/noto_sans"
-            />
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/semesterID"/>
-=======
             android:textSize="24dp"
             android:fontFamily="@font/noto_sans" />
 
@@ -36,6 +20,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/semesterID" />
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
     </LinearLayout>
 </LinearLayout>

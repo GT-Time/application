@@ -2,18 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-<<<<<<< HEAD
-    android:orientation="vertical"
-    android:theme = "@style/Theme.List">
-    <LinearLayout
-        android:layout_width = "match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text = "Chanhuyng Shim"
-            android:textStyle = "bold"
-=======
     android:orientation="vertical">
 
     <LinearLayout
@@ -25,34 +13,10 @@
             android:layout_height="match_parent"
             android:text="Title"
             android:textStyle="bold"
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
             android:layout_gravity="center"
             android:padding="3dp"
             android:layout_marginLeft="8dp"
             android:fontFamily="@font/noto_sans"
-<<<<<<< HEAD
-            android:id="@+id/nameText"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text = "May 6 2020"
-            android:layout_gravity="center"
-            android:padding="3dp"
-            android:layout_marginLeft="8dp"
-            android:id="@+id/dateText"/>
-    </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text = "Announcement"
-        android:layout_gravity = "center"
-        android:textSize="15dp"
-        android:padding = "1dp"
-        android:fontFamily="@font/noto_sans"
-        android:id="@+id/noticeText"
-        android:drawableLeft = "@drawable/ic_chat_bubble_outline_black_24dp">
-    </TextView>
-=======
             android:id="@+id/nameText" />
 
         <TextView
@@ -75,5 +39,4 @@
         android:fontFamily="@font/noto_sans"
         android:id="@+id/noticeText"
         android:drawableLeft="@drawable/ic_chat_bubble_outline_black_24dp"></TextView>
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
 </LinearLayout>

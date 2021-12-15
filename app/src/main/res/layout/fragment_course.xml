@@ -3,12 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    android:orientation = "vertical"
-    tools:context=".ui.fragment.CourseFragment">
-=======
     android:orientation="vertical">
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -71,14 +66,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-<<<<<<< HEAD
-                android:layout_gravity = "center_vertical"
-                android:id = "@+id/courseAreaID">
-            </Spinner>
-=======
                 android:layout_gravity="center_vertical"
                 android:id="@+id/areaID"/>
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
 
             <Button
                 android:id="@+id/courseSearchButton"
@@ -86,12 +75,7 @@
                 android:layout_height="wrap_content"
                 android:text="Search"
                 android:textSize="10dp"
-<<<<<<< HEAD
-                android:textStyle="bold"
-                android:theme="@style/Theme.Button"></Button>
-=======
                 android:textStyle="bold"/>
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
         </LinearLayout>
     </LinearLayout>
 
@@ -103,15 +87,7 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-<<<<<<< HEAD
-            android:id = "@+id/courseListID"
-            android:padding = "5dp"
-            android:theme="@style/Theme.List"
-            >
-        </ListView>
-=======
             android:id="@+id/courseListID"
             android:padding="5dp" />
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
     </LinearLayout>
 </LinearLayout>

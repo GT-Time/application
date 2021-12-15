@@ -1,15 +1,5 @@
 <resources>
 
-<<<<<<< HEAD
-    <!-- base set of styles that apply to all versions -->
-    <style name="AppTheme" parent="Base.Theme.AppCompat.Light">
-        <!--   color for the app bar and other primary UI elements -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <!--   a darker variant of the primary color, used for
-           the status bar (on Android 5.0+) and contextual app bars -->
-        <item name="colorPrimaryDark">@color/colorGray</item>
-        <!--   a secondary color for controls like checkboxes and text fields -->
-=======
     <!--
        Note: Exact number for style doesn't mean anything.
        Following shows what needs to be edited in order to achieve style name specified.
@@ -18,7 +8,6 @@
 
     <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
     </style>
 
     <style name="ThemeOverlay.App.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
@@ -62,17 +51,6 @@
         <item name="android:layout_height"> wrap_content </item>
         <item name="android:layout_width"> wrap_content</item>
     </style>
-<<<<<<< HEAD
-    <style name = "Theme.Button">
-        <item name = "android:backgroundTint">@color/colorSubTheme</item>
-    </style>
-    <style name = "Theme.List">
-        <item name = "android:background">@color/colorWhite</item>
-        <item name = "android:dividerHeight">2dp</item>
-        <item name = "android:divider">@color/colorWeakGray</item>
-        <item name = "android:textColor">@color/colorWarning</item>
-        <item name = "android:textSize">13dp</item>
-=======
 
     <style name="Custom.App.TextView.FixedSizeView">
         <item name="android:minWidth"> 100dp </item>
@@ -84,7 +62,6 @@
     <style name="Custom.App.Pop" parent="">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
     </style>
 
 

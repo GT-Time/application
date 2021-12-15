@@ -1,8 +1,5 @@
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/activity/MainActivity.java
-package com.example.registration.ui.activity;
-=======
+
 package com.gttime.android.ui.activity;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/activity/MainActivity.java
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,19 +8,11 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/activity/MainActivity.java
-import com.example.registration.ui.fragment.CourseFragment;
-import com.example.registration.ui.fragment.MainFragment;
-import com.example.registration.R;
-import com.example.registration.ui.fragment.ScheduleFragment;
-import com.example.registration.ui.fragment.StatisticsFragment;
-=======
 import com.gttime.android.ui.fragment.MainFragment;
 import com.gttime.android.ui.fragment.CourseFragment;
 import com.gttime.android.R;
 import com.gttime.android.ui.fragment.ScheduleFragment;
 import com.gttime.android.ui.fragment.StatisticsFragment;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/activity/MainActivity.java
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{

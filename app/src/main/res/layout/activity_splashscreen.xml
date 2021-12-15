@@ -2,11 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-<<<<<<< HEAD
-    android:background = "@color/colorLogo"
-=======
     android:background="@color/colorLogo"
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
     android:layout_gravity="center"
     android:id="@+id/lin_lay"
     android:gravity="center"
@@ -15,11 +11,6 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:id = "@+id/splash"
-        android:background = "@drawable/splash_img" />
-=======
         android:id="@+id/splash"
         android:background="@drawable/splash_img" />
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
 </LinearLayout>

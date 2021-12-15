@@ -1,8 +1,5 @@
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/adapter/AnnouncementListAdapter.java
-package com.example.registration.ui.adapter;
-=======
+
 package com.gttime.android.ui.adapter;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/adapter/AnnouncementListAdapter.java
 
 import android.content.Context;
 import android.view.View;
@@ -10,13 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/adapter/AnnouncementListAdapter.java
-import com.example.registration.component.Announcement;
-import com.example.registration.R;
-=======
+
 import com.gttime.android.component.Announcement;
 import com.gttime.android.R;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/adapter/AnnouncementListAdapter.java
 
 import java.util.List;
 

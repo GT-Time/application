@@ -1,8 +1,5 @@
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/component/Announcement.java
-package com.example.registration.component;
-=======
+
 package com.gttime.android.component;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/component/Announcement.java
 
 public class Announcement {
     private String content;

@@ -1,8 +1,5 @@
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/activity/RegisterActivity.java
-package com.example.registration.ui.activity;
-=======
+
 package com.gttime.android.ui.activity;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/activity/RegisterActivity.java
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,15 +18,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/activity/RegisterActivity.java
-import com.example.registration.R;
-import com.example.registration.request.RegisterRequest;
-import com.example.registration.request.ValidateRequest;
-=======
+
 import com.gttime.android.R;
 import com.gttime.android.request.RegisterRequest;
 import com.gttime.android.request.ValidateRequest;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/activity/RegisterActivity.java
 
 import org.json.JSONObject;
 

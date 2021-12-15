@@ -1,8 +1,5 @@
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/StatisticsFragment.java
-package com.example.registration.ui.fragment;
-=======
+
 package com.gttime.android.ui.fragment;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/StatisticsFragment.java
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -15,24 +12,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/StatisticsFragment.java
-import android.widget.ImageView;
-=======
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/StatisticsFragment.java
+
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/StatisticsFragment.java
-import com.example.registration.CallbackListener;
-import com.example.registration.component.Course;
-import com.example.registration.ui.dialog.FilterSemesterDialog;
-import com.example.registration.R;
-import com.example.registration.ui.adapter.StatisticsCourseListAdapter;
-import com.example.registration.util.json.JsonReader;
-import com.example.registration.util.json.JsonUtil;
-import com.example.registration.util.util.Util;
-=======
 import com.gttime.android.CallbackListener;
 import com.gttime.android.component.Course;
 import com.gttime.android.ui.dialog.FilterSemesterDialog;
@@ -42,7 +26,6 @@ import com.gttime.android.util.IOUtil;
 import com.gttime.android.util.IntegerUtil;
 import com.gttime.android.util.JSONUtil;
 import com.gttime.android.util.MapArray;
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/StatisticsFragment.java
 
 import java.io.File;
 import java.util.ArrayList;
@@ -126,40 +109,18 @@ public class StatisticsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_statistics, container, false);
     }
 
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/StatisticsFragment.java
-    private FilterSemesterDialog filterSemesterDialog;
-
-    private ListView courseListView;
-    private StatisticsCourseListAdapter adapter;
-    private List<Course> courseList;
-
-    public static int totalCredit = 0;
-    public static TextView statCredit;
-    public TextView semesterText;
-
-    private LinearLayout filterSemesterButton;
-    private Map<String, String> semester;
-=======
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("selectedSemester", semesterText.getText().toString());
     }
 
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/StatisticsFragment.java
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         // HACK: create class that maps it automatically
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/StatisticsFragment.java
-        String[] text = getResources().getStringArray(R.array.semesterText);
-        String[] id = getResources().getStringArray(R.array.semesterID);
-        semester = new HashMap<String, String>();
-        for (int i = 0; i < Math.min(text.length, id.length); i++) semester.put(text[i], id[i]);
-=======
         semester = new MapArray<String, String>(getResources().getStringArray(R.array.semesterText), getResources().getStringArray(R.array.semesterID));
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/StatisticsFragment.java
 
         filterSemesterButton = getView().findViewById(R.id.statisticFilter);
         filterSemesterDialog = new FilterSemesterDialog();
@@ -174,19 +135,12 @@ public class StatisticsFragment extends Fragment {
 
         statCredit = getView().findViewById(R.id.totalCredit);
         semesterText = getView().findViewById(R.id.semesterText);
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/StatisticsFragment.java
-        semesterText.setText(text[0]);
 
-        courseListView = getView().findViewById(R.id.courseListView);
-        courseList = new ArrayList<Course>();
-        adapter = new StatisticsCourseListAdapter(getContext().getApplicationContext(), courseList, semester.get(semesterText.getText()),this);
-=======
         semesterText.setText(selectedSemester);
 
         courseListView = getView().findViewById(R.id.courseListView);
         courseList = new ArrayList<Course>();
         adapter = new StatisticsCourseListAdapter(getContext(), courseList, semester.get(semesterText.getText()),this);
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/StatisticsFragment.java
         courseListView.setAdapter(adapter);
 
         filterSemesterButton.setOnClickListener(new View.OnClickListener() {
@@ -219,11 +173,8 @@ public class StatisticsFragment extends Fragment {
         @Override
         protected String doInBackground(Object[] objects) {
 
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/StatisticsFragment.java
-            return JsonUtil.readJson(new File(getActivity().getFilesDir(), Util.getFileName(filename)));
-=======
+
             return JSONUtil.readJson(new File(getActivity().getFilesDir(), IOUtil.getFileName(filename)));
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/StatisticsFragment.java
         }
 
         @Override
@@ -235,11 +186,6 @@ public class StatisticsFragment extends Fragment {
         protected void onPostExecute(Object o) {
             courseList.clear();
             totalCredit = 0;
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/StatisticsFragment.java
-
-            courseList.addAll(new JsonReader().fetchCourse((String) o));
-=======
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/StatisticsFragment.java
 
             courseList.addAll(JSONUtil.fetchCourse((String) o));
 
@@ -252,13 +198,9 @@ public class StatisticsFragment extends Fragment {
 
 
     public void setSemester(String semester) {
-<<<<<<< HEAD:app/src/main/java/com/gttime/android/request/ui/fragment/StatisticsFragment.java
 
-        this.semesterText.setText(semester);
-=======
         this.selectedSemester = semester;
         this.semesterText.setText(selectedSemester);
->>>>>>> 251b16ca2afc971eadf5b560844329f909fed034:app/src/main/java/com/gttime/android/ui/fragment/StatisticsFragment.java
 
     }
 
