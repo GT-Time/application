@@ -3,5 +3,9 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
+<<<<<<< HEAD
         android:font="@font/noto_sans"/>
+=======
+        android:font="@font/noto_sans" />
+>>>>>>> 251b16ca2afc971eadf5b560844329f909fed034
 </font-family>
