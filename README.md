@@ -17,7 +17,7 @@ Download source\
 # Contributing
 
 # License
-[![License](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/GT-Time/application/LICENSE)
+[![License](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/GT-Time/application/blob/main/LICENSE)
 ```xml
 Copyright 2021 GT-Time
 
