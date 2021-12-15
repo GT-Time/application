@@ -1,6 +1,6 @@
 package com.gttime.android.component;
 
-import com.gttime.android.util.util.Util;
+import com.gttime.android.util.StringUtil;
 import com.github.tlaabs.timetableview.Time;
 
 public class Course {
@@ -31,8 +31,8 @@ public class Course {
         this.courseSection = courseSection;
         this.courseClass = courseClass;
         this.courseTime = courseTime;
-        setStartTime(new CourseTime(Util.split(courseTime,"-",2)[0]));
-        setEndTime(new CourseTime(Util.split(courseTime,"-",2)[1]));
+        setStartTime(new CourseTime(StringUtil.split(courseTime,"-",2)[0]));
+        setEndTime(new CourseTime(StringUtil.split(courseTime,"-",2)[1]));
         this.courseLocation = courseLocation;
         this.courseInstructor = courseInstructor;
         this.courseUniversity = courseUniversity;

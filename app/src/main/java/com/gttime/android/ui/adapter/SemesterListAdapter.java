@@ -19,9 +19,10 @@ public class SemesterListAdapter extends BaseAdapter {
     private int selected;
     private CallbackListener callbackListner;
 
-    public SemesterListAdapter(Context context, List<Semester> semesterList) {
+    public SemesterListAdapter(Context context, List<Semester> semesterList, int selected) {
         this.context = context;
         this.semesterList = semesterList;
+        this.selected = selected;
     }
     @Override
     public int getCount() {
@@ -54,7 +55,7 @@ public class SemesterListAdapter extends BaseAdapter {
         semesterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selected = position;
+                setSelected(position);
                 SemesterListAdapter.this.notifyDataSetChanged();
                 callbackListner.callback(semesterList.get(position).getSemesterText()); // HACK
             }

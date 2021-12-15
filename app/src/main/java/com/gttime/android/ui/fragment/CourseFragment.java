@@ -21,8 +21,11 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import com.gttime.android.component.Course;
+import com.gttime.android.component.CourseSeat;
+import com.gttime.android.component.Seat;
 import com.gttime.android.ui.adapter.CourseListAdapter;
 import com.gttime.android.R;
+import com.gttime.android.util.MapArray;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -66,8 +69,8 @@ public class CourseFragment extends Fragment {
     private CourseListAdapter adapter;
 
     private String selectedUniversity;
-    private List<Course> courseScheduleList;
-    private Map<String, String> semester;
+    private List<CourseSeat> courseSeats;
+    private MapArray<String, String> semester;
 
     private int universityID;
     private int termID;
@@ -520,20 +523,11 @@ public class CourseFragment extends Fragment {
         }
     });
 
-    //universityGroupID.check(universityID);
-    //subjectSpinner.setSelection(subjectID);
-    //termSpinner.setSelection(termID);
-    //areaSpinner.setSelection(areaID);
-
-    // HACK: create class that maps it
-    String[] text = getResources().getStringArray(R.array.semesterText);
-    String[] id = getResources().getStringArray(R.array.semesterID);
-    semester = new HashMap<String, String>();
-    for (int i = 0; i < Math.min(text.length, id.length); i++) semester.put(text[i], id[i]);
+    semester = new MapArray<String, String>(getResources().getStringArray(R.array.semesterText), getResources().getStringArray(R.array.semesterID));
 
     courseListView = getView().findViewById(R.id.courseListID);
-    courseScheduleList = new ArrayList<Course>();
-    adapter = new CourseListAdapter(getContext().getApplicationContext(), courseScheduleList, this);
+    courseSeats = new ArrayList<CourseSeat>();
+    adapter = new CourseListAdapter(getContext(), courseSeats, this);
     courseListView.setAdapter(adapter);
 
 
@@ -599,7 +593,7 @@ public class CourseFragment extends Fragment {
         @Override
         protected void onPostExecute(Object o) {
             try {
-                courseScheduleList.clear();
+                courseSeats.clear();
                 String result = (String) o;
                 JSONObject jsonObject = new JSONObject(result);
                 JSONArray jsonArray = jsonObject.getJSONArray("response");
@@ -621,6 +615,13 @@ public class CourseFragment extends Fragment {
                 String courseCredit;
                 String courseAttribute;
 
+                int seatCapacity;
+                int seatActual;
+                int seatRemaining;
+                int waitlistCapacity;
+                int waitlistActual;
+                int waitlistRemaining;
+
                 while(count < jsonArray.length()) {
                     JSONObject object = jsonArray.getJSONObject(count);
                     courseTerm = object.getString("courseTerm");
@@ -638,7 +639,16 @@ public class CourseFragment extends Fragment {
                     courseCredit = object.getString("courseCredit");
                     courseAttribute = object.getString("courseAttribute");
 
-                    courseScheduleList.add(new Course(courseTerm, courseDay, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseLocation, courseInstructor, courseUniversity, courseCredit, courseAttribute));
+                    seatCapacity = object.getInt("seatCapacity");
+                    seatActual = object.getInt("seatActual");
+                    seatRemaining = object.getInt("seatRemaining");
+                    waitlistCapacity = object.getInt("waitlistCapacity");
+                    waitlistActual = object.getInt("waitlistActual");
+                    waitlistRemaining = object.getInt("waitlistRemaining");
+
+                    Course course = new Course(courseTerm, courseDay, courseMajor, courseTitle, courseCRN, courseArea, courseSection, courseClass, courseTime, courseLocation, courseInstructor, courseUniversity, courseCredit, courseAttribute);
+                    Seat seat = new Seat(seatCapacity, seatActual, seatRemaining, waitlistCapacity, waitlistActual, waitlistRemaining);
+                    courseSeats.add(new CourseSeat(course, seat));
                     count++;
                 }
 

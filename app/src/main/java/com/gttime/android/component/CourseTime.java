@@ -17,7 +17,7 @@ limitations under the License.
 
 package com.gttime.android.component;
 
-import com.gttime.android.util.util.Util;
+import com.gttime.android.util.StringUtil;
 import com.github.tlaabs.timetableview.Time;
 
 import java.util.AbstractMap;
@@ -42,12 +42,12 @@ public class CourseTime extends Time{
      */
     public Map.Entry parse(String time) {
         time = time.trim();
-        String[] pair = Util.split(time," ", 2);
+        String[] pair = StringUtil.split(time," ", 2);
 
         String hourMin = pair[0];
         String timeFrame = pair[1];
 
-        String[] hourMinPair = Util.split(hourMin,":", 2);
+        String[] hourMinPair = StringUtil.split(hourMin,":", 2);
 
         int hour = 0;
         int min = 0;

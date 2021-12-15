@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name = "graduateMajor">
-        <item>Major</item>
-        <item>Electives</item>
+    <string-array name="my_header_title">
+        <item></item>
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
     </string-array>
 
-    <string-array name = "semesterID">
+    <string-array name = "semesterText">
+        <item>Fall 2021</item>
+        <item>Spring 2022</item>
+        <item>Summer 2022</item>
+    </string-array>
+
+    <string-array name="semesterID">
         <item>202108</item>
         <item>202202</item>
         <item>202205</item>
     </string-array>
 
-<!--    student type -->
-    <string-array name = "undergraduateCourseType">
+    <string-array name="graduateMajor">
+        <item>Major</item>
+        <item>Electives</item>
+    </string-array>
+
+    <!--    student type -->
+    <string-array name="undergraduateCourseType">
         <item>Major</item>
         <item>Elective</item>
     </string-array>
 
-    <string-array name = "graduateCourseType">
+    <string-array name="graduateCourseType">
         <item>Major(Graduate)</item>
     </string-array>
 
     <!-- Georgia Tech major -->
-    <string-array name = "major">
+    <string-array name="major">
         <item>Accounting</item>
         <item>Aerospace Engineering</item>
         <item>Air Force Aerospace Studies</item>
@@ -113,7 +128,7 @@
     </string-array>
 
     <!-- Georgia Tech Subject -->
-    <string-array name = "subject">
+    <string-array name="subject">
         <item>Accounting</item>
         <item>Aerospace Engineering</item>
         <item>Air Force Aerospace Studies</item>
@@ -202,11 +217,11 @@
     </string-array>
 
     <!-- CourseArea by major -->
-    <string-array name = "Accounting">
+    <string-array name="Accounting">
         <item>ACCT 2101</item>
         <item>ACCT 2102</item>
     </string-array>
-    <string-array name = "AerospaceEngineering">
+    <string-array name="AerospaceEngineering">
         <item>AE 1355</item>
         <item>AE 1601</item>
         <item>AE 2010</item>
@@ -275,14 +290,14 @@
         <item>AE 8900</item>
         <item>AE 9000</item>
     </string-array>
-    <string-array name = "AirForceAerospaceStudies">
+    <string-array name="AirForceAerospaceStudies">
         <item>AS 1000</item>
         <item>AS 1110</item>
         <item>AS 2210</item>
         <item>AS 3310</item>
         <item>AS 4410</item>
     </string-array>
-    <string-array name = "AppliedPhysiology">
+    <string-array name="AppliedPhysiology">
         <item>APPH 1040</item>
         <item>APPH 1050</item>
         <item>APPH 1060</item>
@@ -296,7 +311,7 @@
         <item>APPH 8803</item>
         <item>APPH 9000</item>
     </string-array>
-    <string-array name = "AppliedSystemsEngineering">
+    <string-array name="AppliedSystemsEngineering">
         <item>AS E6001</item>
         <item>AS E6004</item>
         <item>AS E6006</item>
@@ -304,7 +319,7 @@
         <item>AS E6121</item>
         <item>AS E6131</item>
     </string-array>
-    <string-array name = "Arabic">
+    <string-array name="Arabic">
         <item>ARBC 1001</item>
         <item>ARBC 1501</item>
         <item>ARBC 2001</item>
@@ -312,7 +327,7 @@
         <item>ARBC 3401</item>
         <item>ARBC 3420</item>
     </string-array>
-    <string-array name = "Architecture">
+    <string-array name="Architecture">
         <item>ARCH 1016</item>
         <item>ARCH 1060</item>
         <item>ARCH 2016</item>
@@ -364,7 +379,7 @@
         <item>ARCH 8999</item>
         <item>ARCH 9000</item>
     </string-array>
-    <string-array name = "BiologicalSciences">
+    <string-array name="BiologicalSciences">
         <item>BIOS 1107</item>
         <item>BIOS 1107L</item>
         <item>BIOS 1107R</item>
@@ -413,7 +428,7 @@
         <item>BIOS 4740</item>
         <item>BIOS 4803</item>
     </string-array>
-    <string-array name = "Biology">
+    <string-array name="Biology">
         <item>BIOL 6150</item>
         <item>BIOL 6600</item>
         <item>BIOL 6750</item>
@@ -431,10 +446,10 @@
         <item>BIOL 8998</item>
         <item>BIOL 9000</item>
     </string-array>
-    <string-array name = "BiomedEngrJointEmoryPKU">
+    <string-array name="BiomedEngrJointEmoryPKU">
         <item>BMEJ 9999</item>
     </string-array>
-    <string-array name = "BiomedicalEngineering">
+    <string-array name="BiomedicalEngineering">
         <item>BMED 1000</item>
         <item>BMED 2110</item>
         <item>BMED 2250</item>
@@ -497,17 +512,17 @@
         <item>BMED 8998</item>
         <item>BMED 9000</item>
     </string-array>
-    <string-array name = "BiomedicalEngrJointEmory">
+    <string-array name="BiomedicalEngrJointEmory">
         <item>BMEM 6000</item>
         <item>BMEM 6001</item>
     </string-array>
-    <string-array name = "BldgConstructionProfessional">
+    <string-array name="BldgConstructionProfessional">
         <item>BCP 6800</item>
         <item>BCP 8803</item>
         <item>BCP 8833</item>
         <item>BCP 8853</item>
     </string-array>
-    <string-array name = "BuildingConstruction">
+    <string-array name="BuildingConstruction">
         <item>BC 2610</item>
         <item>BC 2631</item>
         <item>BC 2636</item>
@@ -535,7 +550,7 @@
         <item>BC 8999</item>
         <item>BC 9000</item>
     </string-array>
-    <string-array name = "CenterEnhancementTeachLearn">
+    <string-array name="CenterEnhancementTeachLearn">
         <item>CETL 2000</item>
         <item>CETL 2001</item>
         <item>CETL 8000</item>
@@ -548,7 +563,7 @@
         <item>CETL 8801</item>
         <item>CETL 8802</item>
     </string-array>
-    <string-array name = "ChemicalBiomolecularEngr">
+    <string-array name="ChemicalBiomolecularEngr">
         <item>CHBE 2100</item>
         <item>CHBE 2120</item>
         <item>CHBE 2130</item>
@@ -601,7 +616,7 @@
         <item>CHBE 8803</item>
         <item>CHBE 9000</item>
     </string-array>
-    <string-array name = "Chemistry">
+    <string-array name="Chemistry">
         <item>CHEM 1211K</item>
         <item>CHEM 1212K</item>
         <item>CHEM 1310</item>
@@ -666,7 +681,7 @@
         <item>CHEM 8997</item>
         <item>CHEM 9000</item>
     </string-array>
-    <string-array name = "Chinese">
+    <string-array name="Chinese">
         <item>CHIN 1001</item>
         <item>CHIN 1002</item>
         <item>CHIN 1501</item>
@@ -684,7 +699,7 @@
         <item>CHIN 6500</item>
         <item>CHIN 8803</item>
     </string-array>
-    <string-array name = "CityPlanning">
+    <string-array name="CityPlanning">
         <item>CP 4020</item>
         <item>CP 4052</item>
         <item>CP 4310</item>
@@ -721,7 +736,7 @@
         <item>CP 8999</item>
         <item>CP 9000</item>
     </string-array>
-    <string-array name = "CivilandEnvironmentalEngr">
+    <string-array name="CivilandEnvironmentalEngr">
         <item>CEE 1770</item>
         <item>CEE 2040</item>
         <item>CEE 2300</item>
@@ -804,24 +819,24 @@
         <item>CEE 8956</item>
         <item>CEE 9000</item>
     </string-array>
-    <string-array name = "CollegeofArchitecture">
+    <string-array name="CollegeofArchitecture">
         <item>COA 4698</item>
         <item>COA 8998</item>
     </string-array>
-    <string-array name = "CollegeofEngineering">
+    <string-array name="CollegeofEngineering">
         <item>COE 1000</item>
         <item>COE 2001</item>
         <item>COE 2701</item>
         <item>COE 3001</item>
         <item>COE 3002</item>
     </string-array>
-    <string-array name = "ComputationalModSimData">
+    <string-array name="ComputationalModSimData">
         <item>CX 4010</item>
         <item>CX 4140</item>
         <item>CX 4242</item>
         <item>CX 4640</item>
     </string-array>
-    <string-array name = "ComputationalScienceEngr">
+    <string-array name="ComputationalScienceEngr">
         <item>CSE 6001</item>
         <item>CSE 6010</item>
         <item>CSE 6040</item>
@@ -845,7 +860,7 @@
         <item>CSE 8999</item>
         <item>CSE 9000</item>
     </string-array>
-    <string-array name = "ComputerScience">
+    <string-array name="ComputerScience">
         <item>CS 1100</item>
         <item>CS 1301</item>
         <item>CS 1301R</item>
@@ -999,12 +1014,12 @@
         <item>CS 8999</item>
         <item>CS 9000</item>
     </string-array>
-    <string-array name = "CooperativeWorkAssignment">
+    <string-array name="CooperativeWorkAssignment">
         <item>COOP 2000</item>
         <item>COOP 3011</item>
         <item>COOP 4000</item>
     </string-array>
-    <string-array name = "EarthandAtmosphericSciences">
+    <string-array name="EarthandAtmosphericSciences">
         <item>EAS 1600</item>
         <item>EAS 1601</item>
         <item>EAS 2600</item>
@@ -1060,7 +1075,7 @@
         <item>EAS 8999</item>
         <item>EAS 9000</item>
     </string-array>
-    <string-array name = "Economics">
+    <string-array name="Economics">
         <item>ECON 2100</item>
         <item>ECON 2101</item>
         <item>ECON 2105</item>
@@ -1099,10 +1114,10 @@
         <item>ECON 8990</item>
         <item>ECON 9000</item>
     </string-array>
-    <string-array name = "ElectCompEngrProfessional">
+    <string-array name="ElectCompEngrProfessional">
         <item>ECEP 6310</item>
     </string-array>
-    <string-array name = "ElectricalComputerEngr">
+    <string-array name="ElectricalComputerEngr">
         <item>ECE 1100</item>
         <item>ECE 2001</item>
         <item>ECE 2020</item>
@@ -1244,12 +1259,12 @@
         <item>ECE 8999</item>
         <item>ECE 9000</item>
     </string-array>
-    <string-array name = "English">
+    <string-array name="English">
         <item>ENGL 0999</item>
         <item>ENGL 1101</item>
         <item>ENGL 1102</item>
     </string-array>
-    <string-array name = "French">
+    <string-array name="French">
         <item>FREN 1001</item>
         <item>FREN 1002</item>
         <item>FREN 2001</item>
@@ -1275,7 +1290,7 @@
         <item>FREN 8803</item>
         <item>FREN 8903</item>
     </string-array>
-    <string-array name = "GeorgiaTech">
+    <string-array name="GeorgiaTech">
         <item>GT 1000</item>
         <item>GT 1801</item>
         <item>GT 2000</item>
@@ -1289,10 +1304,10 @@
         <item>GT 4803</item>
         <item>GT 8801</item>
     </string-array>
-    <string-array name = "GeorgiaTechLorraine">
+    <string-array name="GeorgiaTechLorraine">
         <item>GTL 2000</item>
     </string-array>
-    <string-array name = "German">
+    <string-array name="German">
         <item>GRMN 1001</item>
         <item>GRMN 1002</item>
         <item>GRMN 2001</item>
@@ -1305,29 +1320,29 @@
         <item>GRMN 6510</item>
         <item>GRMN 8803</item>
     </string-array>
-    <string-array name = "GlobalMediaandCultures">
+    <string-array name="GlobalMediaandCultures">
         <item>GMC 6001</item>
         <item>GMC 6002</item>
         <item>GMC 6003</item>
     </string-array>
-    <string-array name = "HealthSystems">
+    <string-array name="HealthSystems">
         <item>HS 6000</item>
     </string-array>
-    <string-array name = "Hebrew">
+    <string-array name="Hebrew">
         <item>HEBW 1001</item>
         <item>HEBW 2001</item>
         <item>HEBW 2501</item>
     </string-array>
-    <string-array name = "Hindi">
+    <string-array name="Hindi">
         <item>HIN 1001</item>
         <item>HIN 2001</item>
         <item>HIN 2501</item>
     </string-array>
-    <string-array name = "History">
+    <string-array name="History">
         <item>HIST 2111</item>
         <item>HIST 2112</item>
     </string-array>
-    <string-array name = "HistoryTechnologySociety">
+    <string-array name="HistoryTechnologySociety">
         <item>HTS 1081</item>
         <item>HTS 2002</item>
         <item>HTS 2015</item>
@@ -1363,7 +1378,7 @@
         <item>HTS 8998</item>
         <item>HTS 9000</item>
     </string-array>
-    <string-array name = "IndustrialSystemsEngr">
+    <string-array name="IndustrialSystemsEngr">
         <item>ISYE 2027</item>
         <item>ISYE 3025</item>
         <item>ISYE 3030</item>
@@ -1438,7 +1453,7 @@
         <item>ISYE 8998</item>
         <item>ISYE 9000</item>
     </string-array>
-    <string-array name = "IndustrialDesign">
+    <string-array name="IndustrialDesign">
         <item>ID 1011</item>
         <item>ID 1101</item>
         <item>ID 1401</item>
@@ -1486,18 +1501,17 @@
         <item>ID 8997</item>
         <item>ID 8998</item>
     </string-array>
-    <string-array name = "IntlPlanCoopAbroad">
+    <string-array name="IntlPlanCoopAbroad">
         <item>IPCO 3011</item>
     </string-array>
-    <string-array name = "IntlPlanInternAbroad">
-    </string-array>
-    <string-array name = "IntlPlanExchangeProgram">
+    <string-array name="IntlPlanInternAbroad"></string-array>
+    <string-array name="IntlPlanExchangeProgram">
         <item>IPFS 3012</item>
     </string-array>
-    <string-array name = "IntlPlanStudyAbroad">
+    <string-array name="IntlPlanStudyAbroad">
         <item>IPSA 3012</item>
     </string-array>
-    <string-array name = "InternationalAffairs">
+    <string-array name="InternationalAffairs">
         <item>INTA 1110</item>
         <item>INTA 1200</item>
         <item>INTA 2010</item>
@@ -1551,7 +1565,7 @@
     <string-array name="InternationalLogistics">
 
     </string-array>
-    <string-array name = "Internship">
+    <string-array name="Internship">
         <item>INTN 2000</item>
         <item>INTN 2003</item>
         <item>INTN 2006</item>
@@ -1569,7 +1583,7 @@
         <item>INTN 6009</item>
         <item>INTN 6012</item>
     </string-array>
-    <string-array name = "IntlExecutiveMBA">
+    <string-array name="IntlExecutiveMBA">
         <item>IMBA 6010</item>
         <item>IMBA 6021</item>
         <item>IMBA 6031</item>
@@ -1587,7 +1601,7 @@
     <string-array name="IvanAllenCollege">
 
     </string-array>
-    <string-array name = "Japanese">
+    <string-array name="Japanese">
         <item>JAPN 1001</item>
         <item>JAPN 1002</item>
         <item>JAPN 2001</item>
@@ -1599,7 +1613,7 @@
         <item>JAPN 4750</item>
         <item>JAPN 8803</item>
     </string-array>
-    <string-array name = "Korean">
+    <string-array name="Korean">
         <item>KOR 1001</item>
         <item>KOR 1002</item>
         <item>KOR 2001</item>
@@ -1614,13 +1628,13 @@
     <string-array name="LearningSupport">
 
     </string-array>
-    <string-array name = "Linguistics">
+    <string-array name="Linguistics">
         <item>LING 2100</item>
         <item>LING 3100</item>
         <item>LING 4015</item>
         <item>LING 6015</item>
     </string-array>
-    <string-array name = "LiteratureMediaComm">
+    <string-array name="LiteratureMediaComm">
         <item>LMC 2000</item>
         <item>LMC 2060</item>
         <item>LMC 2100</item>
@@ -1693,7 +1707,7 @@
         <item>LMC 8999</item>
         <item>LMC 9000</item>
     </string-array>
-    <string-array name = "Management">
+    <string-array name="Management">
         <item>MGT 2106</item>
         <item>MGT 2210</item>
         <item>MGT 2250</item>
@@ -1805,14 +1819,14 @@
         <item>MGT 8998</item>
         <item>MGT 9000</item>
     </string-array>
-    <string-array name = "ManagementofTechnology">
+    <string-array name="ManagementofTechnology">
         <item>MOT 6106</item>
         <item>MOT 6111</item>
         <item>MOT 6115</item>
         <item>MOT 6122</item>
         <item>MOT 6129</item>
     </string-array>
-    <string-array name = "MaterialsScienceEngr">
+    <string-array name="MaterialsScienceEngr">
         <item>MSE 1111</item>
         <item>MSE 2001</item>
         <item>MSE 2021</item>
@@ -1865,7 +1879,7 @@
         <item>MSE 9000</item>
         <item>MSE 9999</item>
     </string-array>
-    <string-array name = "Mathematics">
+    <string-array name="Mathematics">
         <item>MATH 0999</item>
         <item>MATH 1111</item>
         <item>MATH 1113</item>
@@ -1944,7 +1958,7 @@
         <item>MATH 8998</item>
         <item>MATH 9000</item>
     </string-array>
-    <string-array name = "MechanicalEngineering">
+    <string-array name="MechanicalEngineering">
         <item>ME 1670</item>
         <item>ME 2016</item>
         <item>ME 2110</item>
@@ -2067,7 +2081,7 @@
         <item>ME 8998</item>
         <item>ME 9000</item>
     </string-array>
-    <string-array name = "MedicalPhysics">
+    <string-array name="MedicalPhysics">
         <item>MP 6011</item>
         <item>MP 6012</item>
         <item>MP 6101</item>
@@ -2086,19 +2100,19 @@
         <item>MP 8906</item>
         <item>MP 9000</item>
     </string-array>
-    <string-array name = "MilitaryScienceLeadership">
+    <string-array name="MilitaryScienceLeadership">
         <item>MSL 1001</item>
         <item>MSL 2001</item>
         <item>MSL 3001</item>
         <item>MSL 4001</item>
         <item>MSL 4901</item>
     </string-array>
-    <string-array name = "ModernLanguages">
+    <string-array name="ModernLanguages">
         <item>ML 2500</item>
         <item>ML 6501</item>
         <item>ML 8801</item>
     </string-array>
-    <string-array name = "Music">
+    <string-array name="Music">
         <item>MUSI 2010</item>
         <item>MUSI 2012</item>
         <item>MUSI 2525</item>
@@ -2135,7 +2149,7 @@
         <item>MUSI 8998</item>
         <item>MUSI 9000</item>
     </string-array>
-    <string-array name = "NavalScience">
+    <string-array name="NavalScience">
         <item>NS 1000</item>
         <item>NS 1321</item>
         <item>NS 2321</item>
@@ -2143,7 +2157,7 @@
         <item>NS 4320</item>
         <item>NS 4333</item>
     </string-array>
-    <string-array name = "Neuroscience">
+    <string-array name="Neuroscience">
         <item>NEUR 2001</item>
         <item>NEUR 2001R</item>
         <item>NEUR 2698</item>
@@ -2156,7 +2170,7 @@
         <item>NEUR 4699</item>
         <item>NEUR 4803</item>
     </string-array>
-    <string-array name = "NuclearRadiologicalEngr">
+    <string-array name="NuclearRadiologicalEngr">
         <item>NRE 2120</item>
         <item>NRE 2699</item>
         <item>NRE 3112</item>
@@ -2179,14 +2193,14 @@
         <item>NRE 8903</item>
         <item>NRE 9000</item>
     </string-array>
-    <string-array name = "Persian">
+    <string-array name="Persian">
         <item>PERS 1001</item>
         <item>PERS 2001</item>
         <item>PERS 3813</item>
         <item>PERS 4001</item>
         <item>PERS 8903</item>
     </string-array>
-    <string-array name = "Philosophy">
+    <string-array name="Philosophy">
         <item>PHIL 3050</item>
         <item>PHIL 3109</item>
         <item>PHIL 3115</item>
@@ -2197,7 +2211,7 @@
         <item>PHIL 4901</item>
         <item>PHIL 6000</item>
     </string-array>
-    <string-array name = "Physics">
+    <string-array name="Physics">
         <item>PHYS 2021</item>
         <item>PHYS 2211</item>
         <item>PHYS 2212</item>
@@ -2251,20 +2265,20 @@
         <item>PHYS 8998</item>
         <item>PHYS 9000</item>
     </string-array>
-    <string-array name = "PoliticalScience">
+    <string-array name="PoliticalScience">
         <item>POL 1101</item>
         <item>POL 2101</item>
     </string-array>
     <string-array name="PolymerTextileandFiberEng">
 
     </string-array>
-    <string-array name = "Portuguese">
+    <string-array name="Portuguese">
         <item>PORT 1001</item>
         <item>PORT 2001</item>
         <item>PORT 2501</item>
         <item>PORT 3420</item>
     </string-array>
-    <string-array name = "Psychology">
+    <string-array name="Psychology">
         <item>PSYC 1101</item>
         <item>PSYC 2015</item>
         <item>PSYC 2020</item>
@@ -2320,7 +2334,7 @@
         <item>PSYC 8998</item>
         <item>PSYC 9000</item>
     </string-array>
-    <string-array name = "PublicPolicy">
+    <string-array name="PublicPolicy">
         <item>PUBP 1142</item>
         <item>PUBP 2010</item>
         <item>PUBP 2030</item>
@@ -2388,10 +2402,10 @@
         <item>PUBP 8999</item>
         <item>PUBP 9000</item>
     </string-array>
-    <string-array name = "PublicPolicyJointGSUPhD">
+    <string-array name="PublicPolicyJointGSUPhD">
         <item>PUBJ 8000</item>
     </string-array>
-    <string-array name = "Russian">
+    <string-array name="Russian">
         <item>RUSS 1001</item>
         <item>RUSS 1002</item>
         <item>RUSS 1821</item>
@@ -2405,10 +2419,10 @@
     <string-array name="ServeLearnSustain">
 
     </string-array>
-    <string-array name = "Sociology">
+    <string-array name="Sociology">
         <item>SOC 1101</item>
     </string-array>
-    <string-array name = "Spanish">
+    <string-array name="Spanish">
         <item>SPAN 1002</item>
         <item>SPAN 2001</item>
         <item>SPAN 2002</item>
@@ -2430,11 +2444,11 @@
         <item>SPAN 6998</item>
         <item>SPAN 8803</item>
     </string-array>
-    <string-array name = "Swahili">
+    <string-array name="Swahili">
         <item>SWAH 1001</item>
         <item>SWAH 3420</item>
     </string-array>
-    <string-array name = "VerticallyIntegratedProject">
+    <string-array name="VerticallyIntegratedProject">
         <item>VIP 2600</item>
         <item>VIP 2601</item>
         <item>VIP 3601</item>
@@ -2448,8 +2462,8 @@
         <item>VIP 6602</item>
         <item>VIP 6603</item>
     </string-array>
-    <string-array name = "Wolof">
-    <item>WOLO 1001</item>
-    <item>WOLO 3420</item>
+    <string-array name="Wolof">
+        <item>WOLO 1001</item>
+        <item>WOLO 3420</item>
     </string-array>
 </resources>

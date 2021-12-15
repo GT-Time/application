@@ -11,7 +11,7 @@
         android:label="GT Time"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/Theme">
         <activity android:name = ".Splashscreen"
             android:label = "GT Time">
             <intent-filter>
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name = ".Pop"
-            android:theme = "@style/AppTheme.Pop"></activity>
+            android:theme = "@style/Custom.App.Pop"></activity>
     </application>
 
 </manifest>
